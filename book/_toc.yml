@@ -11,6 +11,7 @@ parts:
           - file: week01/lecture
           - file: week01/terminology
           - file: week01/references
+          - file: week01/review
   - caption: About
     chapters:
       - file: syllabus/index
