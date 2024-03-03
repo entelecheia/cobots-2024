@@ -8,7 +8,8 @@ on:
     branches:
       - release*
     paths:
-      - ".docker/**"
+      - 'src/**'
+      - 'pyproject.toml'
 
 permissions:
   contents: write
@@ -53,3 +54,5 @@ jobs:
           poetry run semantic-release publish --verbosity=DEBUG --define=branch=${{ env.BRANCH }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY_USERNAME: __token__
+          REPOSITORY_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
