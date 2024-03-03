@@ -1,4 +1,5 @@
 """Command line interface for cobots2024"""
+
 from hyfi import hyfi_main
 
 
