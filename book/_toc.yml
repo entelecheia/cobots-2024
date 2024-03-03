@@ -15,4 +15,10 @@ parts:
       - file: syllabus/index
       - file: about/index
       - url: https://halla.ai
-        title: 제주한라대학교 인공지능학과
+        title: 인공지능학과
+      - url: https://os2024.halla.ai
+        title: 운영체제
+      - url: https://mlops2024.halla.ai
+        title: 머신러닝시스템
+      - url: https://cobots2024.halla.ai
+        title: 협동로봇활용

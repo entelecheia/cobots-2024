@@ -41,6 +41,16 @@ html:
   use_edit_page_button: true
   favicon: https://assets.entelecheia.ai/favicon.png # favicon: Path to the favicon image
   google_analytics_id: G-BQJE5V9RK2 # google_analytics_id: Google Analytics ID
+  extra_footer: |
+      <script
+        data-embed-id="8ce6d27b-4248-4ca8-ac90-57f7de938b44"
+        data-base-api-url="https://chat.entelecheia.app/api/embed"
+        data-brand-image-url="https://assets.entelecheia.ai/favicon.png"
+        data-chat-icon="magic"
+        data-sponsor-text="Cobots 2024"
+        data-sponsor-link="https://cobots2024.halla.ai"
+        src="https://chat.entelecheia.app/embed/anythingllm-chat-widget.min.js">
+      </script>
 
 sphinx:
   config:
