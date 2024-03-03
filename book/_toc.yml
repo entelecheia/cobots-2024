@@ -9,6 +9,7 @@ parts:
       - file: week01/index
         sections:
           - file: week01/lecture
+          - file: week01/terminology
           - file: week01/references
   - caption: About
     chapters:
