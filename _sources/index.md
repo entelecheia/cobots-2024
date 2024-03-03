@@ -1,5 +1,8 @@
 # 협동로봇활용 2024
 
+[![halla-img]][halla-url]
+[![course-img]][course-url]
+[![lecture-img]][lecture-url]
 [![pypi-image]][pypi-url]
 [![version-image]][release-url]
 [![release-date-image]][release-url]
@@ -8,9 +11,14 @@
 [![codecov][codecov-image]][codecov-url]
 
 <!-- Links: -->
-[hyperfast python template]: https://github.com/entelecheia/hyperfast-python-template
+[halla-img]: https://img.shields.io/badge/CHU-halla.ai-blue
+[halla-url]: https://halla.ai
+[course-img]: https://img.shields.io/badge/course-entelecheia.ai-blue
+[course-url]: https://course.entelecheia.ai
+[lecture-img]: https://img.shields.io/badge/lecture-entelecheia.ai-blue
+[lecture-url]: https://lecture.entelecheia.ai
 
-[codecov-image]: https://codecov.io/gh/chu-aie/cobots-2024/branch/main/graph/badge.svg?token=[REPLACE_ME]
+[codecov-image]: https://codecov.io/gh/chu-aie/cobots-2024/branch/main/graph/badge.svg?token=IFGaRC86K7
 [codecov-url]: https://codecov.io/gh/chu-aie/cobots-2024
 [pypi-image]: https://img.shields.io/pypi/v/cobots2024
 [license-image]: https://img.shields.io/github/license/chu-aie/cobots-2024
