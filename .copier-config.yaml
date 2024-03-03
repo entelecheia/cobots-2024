@@ -1,34 +1,36 @@
 # Changes here will be overwritten by Copier; do NOT edit manually
-_commit: v0.12.1-1-ged875bd
+_commit: v0.12.1
 _src_path: gh:entelecheia/hyperfast-python-template
 author: Young Joon Lee
-build_and_release: false
+build_and_release: true
 code_template_answers_file: .copier-hyfi-config.yaml
-code_template_source: ''
+code_template_source: gh:entelecheia/hyfi-template
 codecov_graph_token: '[REPLACE_ME]'
 copyright_year: 2024
 documentaion_tool: jupyter-book
-documentation_url: https://entelecheia.github.io/course-template
-email: entelecheia@hotmail.com
+documentation_url: https://cobots2024.halla.ai
+email: yj.lee@chu.ac.kr
 favicon_path: https://assets.entelecheia.ai/favicon.png
-friendly_name: Course Template
-github_repo_name: course-template
-github_username: entelecheia
-google_analytics_id: ''
+friendly_name: 협동로봇활용 2024
+github_repo_name: cobots-2024
+github_username: chu-aie
+google_analytics_id: G-BQJE5V9RK2
 logo_path: ''
 main_branch: main
-package_name: coursetemp
+package_name: cobots2024
 package_scripts:
-- coursetemp = 'coursetemp.__cli__:main'
+- cobots2024 = 'cobots2024.__cli__:main'
 poe_task_files:
 - .tasks.toml
 - .tasks-extra.toml
-project_description: A template for a course
+project_description: 이 과정은 협동로봇의 기본적인 이해부터 고급 프로그래밍 기술까지 다루며, 학생들이 협동로봇을 활용한 다양한 작업
+    공정을 설계하고 구현할 수 있는 능력을 배양하는 것을 목표로 합니다. 로봇 시스템 설치, 조작, 프로그래밍, 그리고 실제 작업 공정 구현까지의
+    전 과정을 학습합니다.
 project_license: CC-BY-4.0
-project_name: course-template
-project_short_description: A template for a course
-upload_to_release: false
-upload_to_repository: false
+project_name: cobots2024
+project_short_description: Collaborative Robot Applications
+upload_to_release: true
+upload_to_repository: true
 use_launch_buttons: true
-use_source_code_skeleton: false
+use_source_code_skeleton: true
 

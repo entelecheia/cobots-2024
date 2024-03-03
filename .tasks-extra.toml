@@ -1,6 +1,23 @@
-[tool.poe.tasks.hello]
-cmd = "echo 'Hello World'"
-help = "Put your extra tasks here"
+[tool.poe.tasks.add-editable-hyfi]
+shell = """
+  poetry remove hyfi
+  poetry add --group dev --editable ../hyfi
+"""
+help = "Add hyfi as an editable dependency"
+
+[tool.poe.tasks.apply-hyfi-template]
+cmd = """
+  copier --answers-file .copier-hyfi-config.yaml gh:entelecheia/hyfi-template .
+"""
+use_exec = true
+help = "Apply hyfi template"
+
+[tool.poe.tasks.copy-hyfi-config]
+shell = """
+  poetry add hyfi@latest
+  poetry run hyfi cmd=copy_conf copier.dst_path=src/cobots2024/conf copier.exclude='**/*/about/__init__.yaml' copier.overwrite=True
+"""
+help = "Copy hyfi conf to src/cobots2024/conf"
 
 [tool.poe.tasks.generate_toc]
 cmd = "python3 .github/scripts/autotoc.py"
