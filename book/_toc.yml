@@ -3,9 +3,16 @@
 
 format: jb-book
 root: index
-chapters:
-  - file: syllabus/index
-  - file: week01/index
-    sections:
-      - file: week01/session1
-      - file: week01/session2
+parts:
+  - caption: Lecture Notes
+    chapters:
+      - file: week01/index
+        sections:
+          - file: week01/session1
+          - file: week01/session2
+  - caption: About
+    chapters:
+      - file: syllabus/index
+      - file: about/index
+      - url: https://halla.ai
+        title: 제주한라대학교 인공지능학과
