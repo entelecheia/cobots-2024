@@ -8,8 +8,10 @@ parts:
     chapters:
       - file: week01/index
         sections:
-          - file: week01/session1
-          - file: week01/session2
+          - file: week01/lecture
+          - file: week01/terminology
+          - file: week01/references
+          - file: week01/review
   - caption: About
     chapters:
       - file: syllabus/index
