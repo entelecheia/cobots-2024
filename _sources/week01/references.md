@@ -2,9 +2,9 @@
 
 ## 참고 웹사이트
 
-- [Doosan Cobot Training | 두산 협동로봇 교육](https://www.youtube.com/playlist?list=PLEkBnBwQmnmvCREKyRleWnG8WwsANLuY-)
 - [DOOSAN ROBOTICS Youtube](https://www.youtube.com/@DOOSANROBOTICS)
 - [Doosan Robot LAB](https://robotlab.doosanrobotics.com/ko/Index)
+- [GitHub Education 설명서](https://docs.github.com/ko/education)
 
 ## 뉴스
 
