@@ -1,4 +1,4 @@
-# 협동로봇활용 2024
+# Home
 
 [![halla-img]][halla-url]
 [![course-img]][course-url]
