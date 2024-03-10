@@ -1,5 +1,24 @@
 <!--next-version-placeholder-->
 
+## v0.2.0 (2024-03-10)
+
+### Feature
+
+* **cobots2024:** Add CLI functionality ([`136d747`](https://github.com/chu-aie/cobots-2024/commit/136d7475ebd3adb0ea8d7061e5efef88e3862d00))
+* **book:** Add links section ([`d9709dd`](https://github.com/chu-aie/cobots-2024/commit/d9709dde6c49a3c3d6036202a8c0e3966761c55b))
+* **book:** Add GitHub Education reference to week01/references.md ([`6a93bd3`](https://github.com/chu-aie/cobots-2024/commit/6a93bd3e98dbb6fc520d5e7e50036c427a1cefb5))
+* **book:** Add review section to week01 ([`dd15ffd`](https://github.com/chu-aie/cobots-2024/commit/dd15ffd03c93aaac56294efe9c76131dc168964f))
+* **book:** Add terminology section to week01 ([`8521827`](https://github.com/chu-aie/cobots-2024/commit/8521827ec82648fb19941492fe2eac9890fd7100))
+* **book:** Add terms.md with definitions ([`379e0da`](https://github.com/chu-aie/cobots-2024/commit/379e0daee79ce6cba76a130abec4ec48257658b6))
+* **book:** Add lecture to week01 sections ([`2487b3c`](https://github.com/chu-aie/cobots-2024/commit/2487b3ca303c5217f046393c5fb88547590158d8))
+* **syllabus:** Add course outline, objectives, and evaluation criteria ([`1fbbb36`](https://github.com/chu-aie/cobots-2024/commit/1fbbb362ddd3dee4dd8237d6af75d86f4b1ac1cd))
+* **book:** Add new references to week01 ([`b973670`](https://github.com/chu-aie/cobots-2024/commit/b97367023febc1cd8d1224bb0518d8e65736d654))
+* **book:** Add chat script to footer ([`75a731c`](https://github.com/chu-aie/cobots-2024/commit/75a731c071988f785d27f9e762db8ceb37cb774a))
+
+### Fix
+
+* **config:** Update path to book in repository section ([`54dae66`](https://github.com/chu-aie/cobots-2024/commit/54dae66609db3f5c80d5c72702156e7ab8813949))
+
 ## v0.1.0 (2024-03-03)
 
 ### Feature
