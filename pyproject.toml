@@ -10,7 +10,7 @@ readme = "README.md"
 packages = [{ include = "cobots2024", from = "src" }]
 
 [tool.poetry.scripts]
-cobots2024 = 'cobots2024.__cli__:main'
+cobots2024 = 'cobots2024.__click__:main'
 
 [tool.poetry.dependencies]
 python = ">=3.9,<=3.12"
