@@ -20,6 +20,9 @@ updates:
       interval: "daily"
       time: "03:00"
       timezone: "Asia/Seoul"
+    labels:
+      - ":game_die: dependencies"
+      - ":robot: bot"
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
