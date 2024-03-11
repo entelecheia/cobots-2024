@@ -1,5 +1,16 @@
 <!--next-version-placeholder-->
 
+## v0.3.0 (2024-03-11)
+
+### Feature
+
+* **book:** Add week02 lecture section ([`4f94811`](https://github.com/chu-aie/cobots-2024/commit/4f9481164db05c32b08bd01106af937ba1889dc3))
+* **docs:** Added installation and usage instructions in index.md ([`e0b0064`](https://github.com/chu-aie/cobots-2024/commit/e0b0064bff775e337b244af13ded6b3dd9fb426e))
+
+### Fix
+
+* **pyproject:** Update Python version to ">=3.9,<3.13" ([`8ff7c79`](https://github.com/chu-aie/cobots-2024/commit/8ff7c79edbd4638bb9275ecfbfdd55132edbbd91))
+
 ## v0.2.0 (2024-03-10)
 
 ### Feature
