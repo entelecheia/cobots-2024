@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ROS2 Humble 설치하기 &#8212; 협동로봇활용 2024</title>
+    <title>ROS 설치하기 &#8212; 협동로봇활용 2024</title>
   
   
   
@@ -220,7 +220,7 @@
 <li class="toctree-l2"><a class="reference internal" href="lecture.html">핵심 교육 (Part 1/2)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ros-intro.html">ROS 소개</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ros-setup.html">ROS 설치환경 구축하기</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">ROS2 Humble 설치하기</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">ROS 설치하기</a></li>
 </ul>
 </li>
 </ul>
@@ -425,7 +425,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -436,11 +438,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>ROS2 Humble 설치하기</h1>
+    <h1>ROS 설치하기</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ros2-humble">ROS2 Humble 설치하기</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -450,8 +460,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="ros2-humble">
-<h1>ROS2 Humble 설치하기<a class="headerlink" href="#ros2-humble" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="ros">
+<h1>ROS 설치하기<a class="headerlink" href="#ros" title="Link to this heading">#</a></h1>
+<section id="ros2-humble">
+<h2>ROS2 Humble 설치하기<a class="headerlink" href="#ros2-humble" title="Link to this heading">#</a></h2>
 <p>설치 가이드: <a class="reference external" href="https://docs.ros.org/en/humble/Installation.html">https://docs.ros.org/en/humble/Installation.html</a></p>
 <ol class="arabic simple">
 <li><p><strong>로케일 설정</strong></p>
@@ -530,16 +542,12 @@ sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
 </pre></div>
 </div>
 <p>위의 내용은 Ubuntu에서 ROS2 Humble 버전을 설치하는 과정을 자세히 설명한 것입니다. 주요 용어에 대한 설명도 포함되어 있으며, 최신 정보를 바탕으로 작성되었습니다. 이제 ROS2를 사용할 준비가 되었습니다!</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition-ros2 admonition">
+<p class="admonition-title">이슈 - ros2 명령어를 찾을 수 없음</p>
+<p><code class="docutils literal notranslate"><span class="pre">ros2</span></code> 명령어를 실행할 때 흔히 발생하는 오류입니다.</p>
+<p><strong>해결 방법: Setup.bash 파일 소싱하기</strong></p>
 <ul class="simple">
-<li><p>문제 - ros2: 명령어를 찾을 수 없음
-<code class="docutils literal notranslate"><span class="pre">ros2</span></code> 명령어를 실행할 때 흔히 발생하는 오류입니다.</p></li>
-<li><p>해결 방법 - Setup.bash 파일 소싱하기</p>
-<ul>
 <li><p>소싱(Sourcing): 스크립트 파일의 내용을 현재 셸 환경에 적용하는 것을 의미합니다.</p></li>
-</ul>
-</li>
 </ul>
 <p><strong>Bash 셸의 경우:</strong></p>
 <ol class="arabic simple">
@@ -560,6 +568,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
 <li><p>에디터 방식: VS Code에서 <code class="docutils literal notranslate"><span class="pre">.zshrc</span></code> 파일을 열고 <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/opt/ros/humble/setup.bash</span></code> 라인을 수동으로 추가합니다.</p></li>
 </ol>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -617,7 +626,20 @@ sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ros2-humble">ROS2 Humble 설치하기</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
