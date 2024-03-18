@@ -1,5 +1,10 @@
 # ROS 소개
 
+```{image} figs/ros.jpeg
+:width: 80%
+:align: center
+```
+
 ROS(Robot Operating System)는 로봇 소프트웨어 개발을 위한 오픈 소스 플랫폼입니다. ROS는 로봇 애플리케이션 개발에 필요한 다양한 도구, 라이브러리, convention을 제공하여 로봇 개발자들이 복잡한 로봇 시스템을 보다 쉽게 만들 수 있도록 돕습니다.
 
 ## ROS의 주요 특징
