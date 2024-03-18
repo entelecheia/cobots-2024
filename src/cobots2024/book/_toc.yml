@@ -18,6 +18,9 @@ parts:
       - file: week03/index
         sections:
           - file: week03/lecture
+          - file: week03/ros-intro
+          - file: week03/ros-setup
+          - file: week03/ros-install
   - caption: About
     chapters:
       - file: syllabus/index
