@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>참고자료 &#8212; 협동로봇활용 2024</title>
+    <title>ROS 소개 &#8212; 협동로봇활용 2024</title>
   
   
   
@@ -89,12 +89,12 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'week01/references';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week03/ros-intro';</script>
     <link rel="icon" href="https://assets.entelecheia.ai/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="복습" href="review.html" />
-    <link rel="prev" title="주요용어" href="terminology.html" />
+    <link rel="next" title="ROS 설치환경 구축하기" href="ros-setup.html" />
+    <link rel="prev" title="핵심 교육 (Part 1/2)" href="lecture.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -205,22 +205,22 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture Notes</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Week 1</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="lecture.html">두산로보틱스 기본 교육</a></li>
-<li class="toctree-l2"><a class="reference internal" href="terminology.html">주요용어</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">참고자료</a></li>
-<li class="toctree-l2"><a class="reference internal" href="review.html">복습</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week01/index.html">Week 1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week01/lecture.html">두산로보틱스 기본 교육</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week01/terminology.html">주요용어</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week01/references.html">참고자료</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week01/review.html">복습</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../week02/index.html">Week 2</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week02/lecture.html">핵심 교육 (Part 1/2)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week03/index.html">Week 3</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../week03/lecture.html">핵심 교육 (Part 1/2)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../week03/ros-intro.html">ROS 소개</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../week03/ros-setup.html">ROS 설치환경 구축하기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../week03/ros-install.html">ROS2 Humble 설치하기</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Week 3</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lecture.html">핵심 교육 (Part 1/2)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">ROS 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros-setup.html">ROS 설치환경 구축하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros-install.html">ROS2 Humble 설치하기</a></li>
 </ul>
 </li>
 </ul>
@@ -307,7 +307,7 @@
       
       
       
-      <li><a href="https://github.com/chu-aie/cobots-2024/edit/main/src/cobots2024/book/week01/references.md" target="_blank"
+      <li><a href="https://github.com/chu-aie/cobots-2024/edit/main/src/cobots2024/book/week03/ros-intro.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -324,7 +324,7 @@
       
       
       
-      <li><a href="https://github.com/chu-aie/cobots-2024/issues/new?title=Issue%20on%20page%20%2Fweek01/references.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chu-aie/cobots-2024/issues/new?title=Issue%20on%20page%20%2Fweek03/ros-intro.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -354,7 +354,7 @@
       
       
       
-      <li><a href="../_sources/week01/references.md" target="_blank"
+      <li><a href="../_sources/week03/ros-intro.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -438,7 +438,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>참고자료</h1>
+    <h1>ROS 소개</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -448,8 +448,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">참고 웹사이트</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">뉴스</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">ROS의 주요 특징</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">ROS 버전</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">결론</a></li>
 </ul>
             </nav>
         </div>
@@ -461,21 +462,27 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>참고자료<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="ros">
+<h1>ROS 소개<a class="headerlink" href="#ros" title="Link to this heading">#</a></h1>
+<a class="reference internal image-reference" href="../_images/ros.jpeg"><img alt="../_images/ros.jpeg" class="align-center" src="../_images/ros.jpeg" style="width: 80%;" /></a>
+<p>ROS(Robot Operating System)는 로봇 소프트웨어 개발을 위한 오픈 소스 플랫폼입니다. ROS는 로봇 애플리케이션 개발에 필요한 다양한 도구, 라이브러리, convention을 제공하여 로봇 개발자들이 복잡한 로봇 시스템을 보다 쉽게 만들 수 있도록 돕습니다.</p>
+<section id="id1">
+<h2>ROS의 주요 특징<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>분산 컴퓨팅 아키텍처</strong>: ROS는 노드(node)라는 개별 프로세스를 기반으로 동작합니다. 각 노드는 독립적으로 실행되며, 메시지 패싱을 통해 서로 통신합니다. 이러한 분산 컴퓨팅 아키텍처는 모듈화, 확장성, 그리고 견고성을 제공합니다.</p></li>
+<li><p><strong>패키지 및 스택</strong>: ROS는 패키지와 스택이라는 개념을 사용하여 소프트웨어를 구성합니다. 패키지는 특정 기능을 수행하는 노드, 라이브러리, 설정 파일 등을 포함하는 단위이며, 스택은 관련된 패키지의 집합입니다. 이를 통해 코드의 재사용성과 공유성이 높아집니다.</p></li>
+<li><p><strong>표준 메시지 형식</strong>: ROS는 노드 간 통신을 위해 표준화된 메시지 형식을 사용합니다. 이를 통해 다른 프로그래밍 언어로 작성된 노드 간에도 원활한 데이터 교환이 가능합니다.</p></li>
+<li><p><strong>도구 및 라이브러리</strong>: ROS는 로봇 개발에 필요한 다양한 도구와 라이브러리를 제공합니다. 예를 들어, rviz는 로봇의 센서 데이터를 시각화하는 도구이며, tf는 좌표계 변환을 위한 라이브러리입니다.</p></li>
+<li><p><strong>커뮤니티 지원</strong>: ROS는 활발한 커뮤니티 지원을 받고 있습니다. 많은 개발자들이 ROS 패키지를 개발하고 공유하고 있으며, 포럼과 위키를 통해 지식을 공유합니다.</p></li>
+</ol>
+</section>
 <section id="id2">
-<h2>참고 웹사이트<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.youtube.com/&#64;DOOSANROBOTICS">DOOSAN ROBOTICS Youtube</a></p></li>
-<li><p><a class="reference external" href="https://robotlab.doosanrobotics.com/ko/Index">Doosan Robot LAB</a></p></li>
-<li><p><a class="reference external" href="https://docs.github.com/ko/education">GitHub Education 설명서</a></p></li>
-</ul>
+<h2>ROS 버전<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>ROS는 여러 버전으로 제공됩니다. 현재 가장 최신 버전은 ROS 2 Humble Hawksbill입니다. ROS 2는 ROS 1의 후속 버전으로, 보다 향상된 성능, 보안, 실시간 기능 등을 제공합니다.</p>
 </section>
 <section id="id3">
-<h2>뉴스<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://news.microsoft.com/ko-kr/2023/08/28/doosanrobotics/">두산로보틱스, GPT 기반 협동로봇 솔루션 개발 나선다</a></p></li>
-</ul>
+<h2>결론<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>ROS는 로봇 소프트웨어 개발을 위한 강력하고 유연한 플랫폼입니다. 분산 컴퓨팅 아키텍처, 패키지 시스템, 표준 메시지 형식 등의 특징을 통해 개발자들은 보다 쉽게 로봇 애플리케이션을 만들 수 있습니다. ROS 2의 출시와 함께 ROS는 더욱 발전하고 있으며, 로봇 산업에서 중요한 역할을 담당할 것으로 기대됩니다.</p>
 </section>
 </section>
 
@@ -492,7 +499,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./week01"
+            path: "./week03"
         },
         predefinedOutput: true
     }
@@ -510,20 +517,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="terminology.html"
+       href="lecture.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">주요용어</p>
+        <p class="prev-next-title">핵심 교육 (Part 1/2)</p>
       </div>
     </a>
     <a class="right-next"
-       href="review.html"
+       href="ros-setup.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">복습</p>
+        <p class="prev-next-title">ROS 설치환경 구축하기</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -543,8 +550,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">참고 웹사이트</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">뉴스</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">ROS의 주요 특징</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">ROS 버전</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">결론</a></li>
 </ul>
   </nav></div>
 

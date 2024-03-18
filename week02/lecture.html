@@ -93,7 +93,7 @@
     <link rel="icon" href="https://assets.entelecheia.ai/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="수업계획서" href="../syllabus/index.html" />
+    <link rel="next" title="Week 3" href="../week03/index.html" />
     <link rel="prev" title="Week 2" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -214,6 +214,13 @@
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Week 2</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">핵심 교육 (Part 1/2)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week03/index.html">Week 3</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week03/lecture.html">핵심 교육 (Part 1/2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week03/ros-intro.html">ROS 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week03/ros-setup.html">ROS 설치환경 구축하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week03/ros-install.html">ROS2 Humble 설치하기</a></li>
 </ul>
 </li>
 </ul>
@@ -446,12 +453,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1. 협동 로봇 기본 교육 소개</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2. 툴 설정과 좌표계</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3. 좌표계와 로봇 파라미터 설정</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">4. 안전 설정과 충돌 감지</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">5. 툴과 그리퍼 설정 실습</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">6. 프로그래밍 기초</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">7. 모션 제어와 속도 설정</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">8. 로봇 모션 경로 계획과 실행</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">9. 스플라인 모션과 학습 정리</a></li>
 </ul>
 </li>
 </ul>
@@ -663,186 +664,6 @@ document.write(`
 </ul>
 <p>이 섹션에서는 로봇의 조인트 각도 제한 설정, 안전 신호 입출력 설정, 안전 정지 모드와 충돌 감지 설정 등에 대해 다루고 있습니다. 각 조인트의 각도 범위를 조정하여 로봇의 작업 효율성과 안전성을 향상시키고, 이중화된 안전 신호를 설정하여 로봇의 안전한 작동을 보장합니다. 또한, 안전 정지 모드와 충돌 감지 설정을 통해 로봇과 작업 환경의 안전을 유지하는 방법에 대해 설명합니다.</p>
 </section>
-<section id="id6">
-<h3>4. 안전 설정과 충돌 감지<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=6171s">01:02:51</a> 🛡️ 안전 영역 설정</p>
-<ul>
-<li><p>안전 영역 설정 방법과 중요성</p></li>
-<li><p>공간 제한 및 특정 영역 형성 과정</p></li>
-<li><p>영역 진입 여부를 확인할 수 있는 신호 활성화</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=6288s">01:04:48</a> ⚠️ 충돌 감지 설정</p>
-<ul>
-<li><p>충돌 민감도 설정 및 충돌 감지를 통한 안전 정지</p></li>
-<li><p>특정 영역 내에서의 충돌 민감도 조절</p></li>
-<li><p>충돌 감지에 따른 로봇의 안전한 작동 보장</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=6672s">01:11:12</a> 🛠️ 툴 무게 및 그리퍼 설정</p>
-<ul>
-<li><p>툴 무게 측정과 그리퍼 설정의 실습</p></li>
-<li><p>장착된 툴의 무게와 중심점 설정 과정</p></li>
-<li><p>ND 팩터 및 서드파티 아이템 설정을 통한 효율적인 로봇 제어</p></li>
-</ul>
-</li>
-</ul>
-<p>이 섹션에서는 로봇의 안전 영역 설정, 충돌 감지 설정, 그리고 툴 무게 및 그리퍼 설정에 대해 설명합니다. 안전 영역 설정을 통해 로봇이 작동하는 공간의 안전성을 확보하고, 충돌 민감도 설정을 통해 로봇의 안전한 작동을 보장합니다. 또한, 툴 무게 측정과 그리퍼 설정을 통해 로봇의 작업 효율성과 정밀성을 향상시키는 방법에 대해 다룹니다.</p>
-</section>
-<section id="id7">
-<h3>5. 툴과 그리퍼 설정 실습<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=4628s">01:17:08</a> 🤖 그리퍼 설정 방법</p>
-<ul>
-<li><p>전기 그리퍼 설정 및 신호 할당</p></li>
-<li><p>선택한 그리퍼에 따른 기능과 설정 차이 이해</p></li>
-<li><p>포트 번호 선택 및 컨트롤러의 선택 확인 필요성</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=4905s">01:21:45</a> 🛠️ 툴 중심 위치 설정</p>
-<ul>
-<li><p>툴 중심 위치 자동 계산 및 수동 설정</p></li>
-<li><p>작업 효율성과 정밀도 향상을 위한 중요 설정 과정</p></li>
-<li><p>등록된 툴의 중심 위치 활성화 및 적용 확인</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=5381s">01:29:41</a> 🏭 작업기계 등록 및 설정</p>
-<ul>
-<li><p>가공 기계와의 통신을 위한 설정 과정</p></li>
-<li><p>통신 명령어와 신호 매핑을 통한 작업 기계 제어</p></li>
-<li><p>작업 효율성 및 안전성 향상을 위한 설정 중요성</p></li>
-</ul>
-</li>
-</ul>
-<p>이 섹션에서는 로봇에 연결된 그리퍼 설정 방법, 툴 중심 위치 설정 과정, 그리고 작업기계 등록 및 설정 방법에 대해 설명합니다. 이를 통해 로봇의 작업 효율성과 정밀도를 높이며, 안전하고 효과적인 작업 환경을 조성하는 방법에 대해 다룹니다.</p>
-</section>
-<section id="id8">
-<h3>6. 프로그래밍 기초<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=6127s">01:42:07</a> 🔄 프로그램 관리 및 태스크 라이터 활용</p>
-<ul>
-<li><p>프로그램 작성, 저장, 내보내기 등 관리 기능</p></li>
-<li><p>태스크 라이터를 이용한 신규 프로그램 작성 방법</p></li>
-<li><p>저장된 파일 불러오기 및 USB를 통한 프로그램 가져오기</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=7146s">01:59:06</a> 📚 커맨드 및 스킬 사용 기본</p>
-<ul>
-<li><p>커맨드와 스킬 사용의 기본적인 내용 소개</p></li>
-<li><p>다양한 커맨드와 스킬 활용 방법에 대한 설명</p></li>
-<li><p>프로그래밍 시 고려해야 할 점과 유의사항</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=7593s">02:06:33</a> 🛠️ 상대 이동과 절대 이동의 구분 및 적용</p>
-<ul>
-<li><p>상대 이동과 절대 이동의 차이 및 적용 사례</p></li>
-<li><p>이동 명령어(Move J, Move L)의 특성 및 활용</p></li>
-<li><p>로봇 프로그래밍에서의 이동 경로 예측과 효율적 이동 전략</p></li>
-</ul>
-</li>
-</ul>
-<p>이 섹션들에서는 로봇 프로그래밍과 관리에 필요한 다양한 기능과 사용 방법을 다룹니다. 프로그램 관리 및 태스크 라이터 활용 방법을 통해 신규 프로그램의 작성부터 관리, 내보내기까지의 과정을 배우고, 커맨드 및 스킬 사용 기본을 통해 다양한 작업 실행에 필요한 커맨드와 스킬을 이해합니다. 또한, 상대 이동과 절대 이동의 구분 및 적용을 통해 로봇의 효율적인 이동 경로를 계획하고 예측하는 방법을 학습합니다.</p>
-</section>
-<section id="id9">
-<h3>7. 모션 제어와 속도 설정<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=7706s">02:08:26</a> ⏳ 모션 시간 제어 및 속도 설정</p>
-<ul>
-<li><p>특정 시간 동안 모션을 제어하는 방법과 속도 설정의 중요성</p></li>
-<li><p>리니어 및 각속도 설정을 통한 세밀한 모션 제어 가능</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=7826s">02:10:26</a> 🔄 작동 모드와 블렌딩 모드</p>
-<ul>
-<li><p>출발 및 정지를 반복하지 않고 부드럽게 연결하는 모션 제어</p></li>
-<li><p>작동 모드와 블렌딩 모드를 활용한 효율적인 모션 계획</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=7952s">02:12:32</a> ⚙️ 비동기 모드와 반경 설정</p>
-<ul>
-<li><p>비동기 모드를 통한 모션 명령어의 동시 실행</p></li>
-<li><p>반경 설정으로 모션의 부드러운 연결 및 이동 경로 최적화</p></li>
-</ul>
-</li>
-</ul>
-<p>이 섹션들은 로봇의 모션 제어와 관련된 다양한 기술과 설정을 다룹니다. 모션 시간 제어 및 속도 설정을 통해 원하는 모션을 정확한 시간 동안 실행할 수 있으며, 리니어 및 각속도 설정으로 세밀한 모션 제어가 가능합니다. 작동 모드와 블렌딩 모드를 활용하여 로봇의 모션을 부드럽게 연결하며, 비동기 모드와 반경 설정을 통해 모션의 효율성과 최적화를 극대화할 수 있습니다.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=7201s">02:20:01</a> 🔄 로봇 모션 경로 계획 및 실행</p>
-<ul>
-<li><p>MOVL과 MOVJ 명령어를 사용하여 로봇 모션 경로를 계획 및 실행하는 방법</p></li>
-<li><p>MOVL은 직선 경로, MOVJ는 점을 경유하는 곡선 형태의 모션 실행</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=7363s">02:22:43</a> ⚙️ 조인트 별 이동 및 상대 이동의 실행</p>
-<ul>
-<li><p>조인트 별 이동 명령어를 사용하여 로봇의 특정 조인트를 원하는 각도로 이동</p></li>
-<li><p>상대 이동 명령어를 사용하여 로봇의 위치를 기준 위치 대비 상대적으로 이동</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=7681s">02:28:01</a> 🏃 개별 속도 설정 및 속도 변화 테스트</p>
-<ul>
-<li><p>개별 모션 명령어에 대한 속도 설정을 통해 로봇 모션의 속도 변화 테스트</p></li>
-<li><p>다양한 속도로 설정하여 모션 실행 시 속도 차이 관찰 및 테스트</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=7811s">02:30:11</a> 🔄 블렌딩 모드와 스플라인 모션</p>
-<ul>
-<li><p>블렌딩 모드를 사용하여 모션 사이의 부드러운 연결과 효율적인 경로 계획</p></li>
-<li><p>스플라인 모션을 사용하여 여러 명령어를 연속적으로 실행하며 경유지를 통한 부드러운 경로 생성</p></li>
-</ul>
-</li>
-</ul>
-<p>이 섹션들은 로봇의 조인트 별 이동, 상대 이동, 속도 설정, 블렌딩 모드 사용 및 스플라인 모션 실행 등에 대한 다양한 기술과 설정 방법을 다룹니다. 이를 통해 로봇의 모션 경로를 효과적으로 계획하고 실행할 수 있으며, 속도 조절과 부드러운 모션 연결을 통해 효율적인 로봇 운영을 실현할 수 있습니다.</p>
-</section>
-<section id="id10">
-<h3>8. 로봇 모션 경로 계획과 실행<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=7201s">02:20:01</a> 🔄 로봇 모션 경로 계획 및 실행</p>
-<ul>
-<li><p>MOVL과 MOVJ 명령어를 사용하여 로봇 모션 경로를 계획 및 실행하는 방법</p></li>
-<li><p>MOVL은 직선 경로, MOVJ는 점을 경유하는 곡선 형태의 모션 실행</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=7363s">02:22:43</a> ⚙️ 조인트 별 이동 및 상대 이동의 실행</p>
-<ul>
-<li><p>조인트 별 이동 명령어를 사용하여 로봇의 특정 조인트를 원하는 각도로 이동</p></li>
-<li><p>상대 이동 명령어를 사용하여 로봇의 위치를 기준 위치 대비 상대적으로 이동</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=7681s">02:28:01</a> 🏃 개별 속도 설정 및 속도 변화 테스트</p>
-<ul>
-<li><p>개별 모션 명령어에 대한 속도 설정을 통해 로봇 모션의 속도 변화 테스트</p></li>
-<li><p>다양한 속도로 설정하여 모션 실행 시 속도 차이 관찰 및 테스트</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=7811s">02:30:11</a> 🔄 블렌딩 모드와 스플라인 모션</p>
-<ul>
-<li><p>블렌딩 모드를 사용하여 모션 사이의 부드러운 연결과 효율적인 경로 계획</p></li>
-<li><p>스플라인 모션을 사용하여 여러 명령어를 연속적으로 실행하며 경유지를 통한 부드러운 경로 생성</p></li>
-</ul>
-</li>
-</ul>
-<p>이 섹션들은 로봇의 조인트 별 이동, 상대 이동, 속도 설정, 블렌딩 모드 사용 및 스플라인 모션 실행 등에 대한 다양한 기술과 설정 방법을 다룹니다. 이를 통해 로봇의 모션 경로를 효과적으로 계획하고 실행할 수 있으며, 속도 조절과 부드러운 모션 연결을 통해 효율적인 로봇 운영을 실현할 수 있습니다.</p>
-</section>
-<section id="id11">
-<h3>9. 스플라인 모션과 학습 정리<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=9162s">02:32:42</a> 🔄 스플라인 모션 구현</p>
-<ul>
-<li><p>SDA 명령어를 이용하여 스플라인 모션 구현</p></li>
-<li><p>코드와 포즈 저장을 통한 세그먼트 특정 및 스플라인 경로 실행 확인</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bmOn1uwOsqM&amp;amp;t=9320s">02:35:20</a> 📚 오늘 배운 내용 요약 및 내일 과정 예고</p>
-<ul>
-<li><p>MOVJ, MOVL 및 SDA 명령어를 통한 다양한 모션 경로 계획 및 실행</p></li>
-<li><p>로봇의 기능과 프로그램 환경, 테스크 라이터 및 필드에서의 안전 설정과 관리 방법</p></li>
-</ul>
-</li>
-</ul>
-<p>이 섹션들은 로봇 프로그래밍의 핵심 요소인 스플라인 모션 구현 방법과 오늘 배운 내용의 요약 및 내일 과정에 대한 예고를 다룹니다. 로봇의 다양한 모션 경로 계획과 실행, 프로그램 환경 설정 및 관리 방법에 대한 이해를 돕습니다.</p>
-</section>
 </section>
 </section>
 
@@ -886,11 +707,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../syllabus/index.html"
+       href="../week03/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">수업계획서</p>
+        <p class="prev-next-title">Week 3</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -915,12 +736,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1. 협동 로봇 기본 교육 소개</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2. 툴 설정과 좌표계</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3. 좌표계와 로봇 파라미터 설정</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">4. 안전 설정과 충돌 감지</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">5. 툴과 그리퍼 설정 실습</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">6. 프로그래밍 기초</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">7. 모션 제어와 속도 설정</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">8. 로봇 모션 경로 계획과 실행</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">9. 스플라인 모션과 학습 정리</a></li>
 </ul>
 </li>
 </ul>
