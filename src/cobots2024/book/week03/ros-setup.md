@@ -58,39 +58,3 @@ cat ~/.ssh/id_rsa.pub
 4. 저장소를 클론하고 시작할 준비가 되었습니다!
 
 위의 내용은 WSL에서 ROS를 설치하고 VS Code를 사용하여 개발 환경을 구축하는 과정을 설명한 것입니다. 주요 용어에 대한 설명도 포함되어 있으며, 최신 정보를 바탕으로 작성되었습니다. 이제 WSL에서 ROS 개발을 시작할 수 있습니다!
-
-## [dotfiles](https://dotfiles.entelecheia.ai/)를 이용한 셸 설정
-
-다음 가이드는 [Dotfiles 프로젝트](https://dotfiles.entelecheia.ai/)를 여러분의 컴퓨터에 설치하고 초기화하는 과정을 안내해 드립니다. 이를 통해 다양한 시스템에서 일관된 개발 환경을 설정하여 워크플로우를 간소화하고 다른 사람들과의 협업을 보다 쉽게 할 수 있습니다.
-
-### [Dotfiles 설치](https://dotfiles.entelecheia.ai/usage/)
-
-Dotfiles 프로젝트를 여러분의 컴퓨터에 설치하려면, 설치 스크립트를 가져와 실행해야 합니다. `wget` 또는 `curl`을 사용하여 다음을 수행할 수 있습니다:
-
-**`wget` 사용:**
-
-```sh
-sh -c "$(wget -qO- https://dotfiles.entelecheia.ai/install)"
-```
-
-**`curl` 사용:**
-
-```sh
-sh -c "$(curl -fsSL https://dotfiles.entelecheia.ai/install)"
-```
-
-위 명령어들은 설치 스크립트를 다운로드하고 실행합니다. 이 과정에서 Dotfiles 저장소가 여러분의 컴퓨터에 복제되고 필요한 설정이 이루어집니다.
-
-### Dotfiles 초기화
-
-설치가 완료되면, 초기화 과정이 자동으로 시작됩니다. 이 단계는 dotfiles에 정의된 설정을 시스템에 적용하여 일관된 개발 환경을 보장합니다.
-
-dotfiles를 수동으로 다시 초기화해야 하는 경우 다음 명령을 실행할 수 있습니다:
-
-```sh
-dotu init
-```
-
-이 명령은 dotfiles의 최신 설정으로 시스템을 업데이트하여 여러분이 변경한 사항과 환경을 동기화된 상태로 유지합니다.
-
-초기화 과정이 완료되면 새로 설정된 개발 환경을 사용할 수 있습니다. 제공된 설정을 자유롭게 살펴보고 환경 설정에 맞게 사용자 지정하세요.
