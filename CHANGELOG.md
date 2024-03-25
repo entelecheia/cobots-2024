@@ -1,5 +1,23 @@
 <!--next-version-placeholder-->
 
+## v0.4.0 (2024-03-25)
+
+### Feature
+
+* **lecture:** Update lecture.md with detailed lecture contents ([`7c4bdaa`](https://github.com/chu-aie/cobots-2024/commit/7c4bdaa6273d5e47e78fcce0f1a8a5683ac77f8c))
+* **book:** Add week 4 content including lecture in Cobot2024 book ([`1a4b358`](https://github.com/chu-aie/cobots-2024/commit/1a4b358fe2b943e166ce54892706649e36747d11))
+* **ros-intro:** Add image of ROS platform to ros-intro.md ([`79dfcb9`](https://github.com/chu-aie/cobots-2024/commit/79dfcb9f33430d0dd7be1ab6ce333e585146f7aa))
+* **ROS:** Added introductory document for ROS platform ([`63d8bf2`](https://github.com/chu-aie/cobots-2024/commit/63d8bf233156bac5330f737d9c80c6b168f2312a))
+* **book:** Add ROS sections in week03 ([`e9c9c66`](https://github.com/chu-aie/cobots-2024/commit/e9c9c66bbdbb105654a8a145e61e58d5068401b1))
+* **ROS2:** Add installation guide for ROS2 Humble version ([`5e6595e`](https://github.com/chu-aie/cobots-2024/commit/5e6595ee50b878e79dbc65bf5e778e03e0ce44a9))
+* **book:** Add ROS setup guide for WSL and VS Code usage ([`8ca0ed1`](https://github.com/chu-aie/cobots-2024/commit/8ca0ed19200c0653c08068c8095b878ff44352f0))
+* **book:** Add week03 lecture content ([`8e55446`](https://github.com/chu-aie/cobots-2024/commit/8e554462a85db7efc7cced3f11e92fa17507a4b1))
+* **lecture:** Organize and add Week 3 content; Add detailed content for Week 3 lecture. ([`2146c92`](https://github.com/chu-aie/cobots-2024/commit/2146c9203d0301bb88eff7c8ac8e200a7f05f31e))
+
+### Fix
+
+* **dependencies:** Update hyfi to version 1.36.3 ([`1156336`](https://github.com/chu-aie/cobots-2024/commit/1156336f0c230bb53676a2e4a162823518695c42))
+
 ## v0.3.0 (2024-03-11)
 
 ### Feature
