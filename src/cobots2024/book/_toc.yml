@@ -24,6 +24,9 @@ parts:
       - file: week04/index
         sections:
           - file: week04/lecture
+      - file: week05/index
+        sections:
+          - file: week05/lecture
   - caption: About
     chapters:
       - file: syllabus/index
