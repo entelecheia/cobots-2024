@@ -1,71 +1,62 @@
-# [DART-Studio](https://www.youtube.com/watch?v=SU5-Igenyd8&list=PLEkBnBwQmnmvCREKyRleWnG8WwsANLuY-)
+# [ROS 활용방법](https://www.youtube.com/watch?v=TpvBziOb--A&list=PLEkBnBwQmnmvCREKyRleWnG8WwsANLuY-)
 
 ## 주요 내용
 
-- [00:02](https://youtu.be/SU5-Igenyd8?t=2s) 🤖 이번 교육은 두산 협동 로봇을 사용한 어플리케이션 사례 소개와 다트 스튜디오를 활용한 팔레타이징 교육에 초점을 맞춥니다.
-- [00:45](https://youtu.be/SU5-Igenyd8?t=45s) 🛠️ 교육 목표는 사용성, 생산성, 유연성으로 구분되며, 각각 손쉬운 설치와 설정, 중간 경유지 점 생성 및 커스터마이징을 통한 유연한 팔레타이징 구현에 대해 배웁니다.
-- [02:12](https://youtu.be/SU5-Igenyd8?t=132s) 💪 H2 모델은 20kg의 페이로드와 1.7m의 작업 범위를 제공하여 넓은 작업 영역에 대응 가능함을 강조합니다.
-- [03:10](https://youtu.be/SU5-Igenyd8?t=190s) 📐 시스템 구성도에서는 로봇, 그리퍼, 리프트, 컨베이어를 포함한 하드웨어 장치들과 공압 실린더, 컨트롤러 솔 벨브 등의 추가 구성품에 대해 설명합니다.
-- [03:42](https://youtu.be/SU5-Igenyd8?t=222s) 🔄 공정 순서는 하드웨어 설정, 팔레트 경로 생성, 리프트 설정, 스크립트 수정 및 시뮬레이션을 통한 디버깅으로 구성됩니다.
-- [04:37](https://youtu.be/SU5-Igenyd8?t=277s) 📦 팔레트 경로 생성 기능에서는 팔레트 및 제품 크기 설정, 레이아웃 배치, 적재 예정 레이어 설정 및 캘리브레이션 수행 과정을 소개합니다.
-- [05:56](https://youtu.be/SU5-Igenyd8?t=356s) 🖥️ DART-Studio를 사용하여 팔레트 패스 제너레이션, 충돌 회피 및 조인트 최단 경로 찾기 등의 기술적 내용을 다룹니다.
-- [07:19](https://youtu.be/SU5-Igenyd8?t=439s) ⚙️ 작업 환경 설정에서는 제품의 무게, 그리퍼의 무게 설정, TCP(Tool Center Point)와 작업 셀 아이템 추가에 대해 설명합니다.
-- [08:48](https://youtu.be/SU5-Igenyd8?t=528s) 🛠️ 엔드 이펙터 선택과 설정, 특히 BGP 220 그리퍼 사용 이유와 설정 방법에 대해 자세히 설명합니다.
-- [10:18](https://youtu.be/SU5-Igenyd8?t=618s) 🔧 로봇과 팔레트 간 설정에서는 레이아웃 검토, 제품 간 간섭 검토, 및 로봇 리치 검토의 중요성을 강조합니다.
-- [11:45](https://youtu.be/SU5-Igenyd8?t=705s) 📏 팔레트와 로봇 베이스 간 거리 설정 방법과 이를 통한 최적의 작업 환경 구성 방안을 제시합니다.
-- [13:30](https://youtu.be/SU5-Igenyd8?t=810s) ⏸️ 교육 중 브레이크 시간을 알리며, 이후 팔레타이징 교육 재개를 예고합니다.
-- [17:53](https://youtu.be/SU5-Igenyd8?t=1073s) 🔄 팔레타이징 작업 순서와 과정을 구체적으로 설명하며, 픽 및 플레이스 작업의 단계별 절차를 상세히 다룹니다.
-- [20:20](https://youtu.be/SU5-Igenyd8?t=1220s) 🗺️ 팔레타이징 경로 생성 기능 소개 및 DART-Studio에서의 패턴 설정, 제품 및 팔레트 크기 설정 방법을 설명합니다.
-- [23:37](https://youtu.be/SU5-Igenyd8?t=1417s) 📐 팔레트 패스생성의 실제 화면 안내를 통해 사용자가 팔레트 및 제품 크기를 설정하고, 레이아웃을 배치하는 과정을 자세히 보여줍니다.
-- [26:22](https://youtu.be/SU5-Igenyd8?t=1582s) 🔍 제품 배치 조정 기능과 보더 마진 설정의 중요성을 강조하며, 이를 통해 팔레트 적재 최적화 방법을 설명합니다.
-- [28:12](https://youtu.be/SU5-Igenyd8?t=1692s) 🎯 캘리브레이션 과정에서 팔레트와 로봇 간의 정확한 위치 설정 방법과 이를 위한 티칭 방법에 대해 설명합니다.
-- [29:14](https://youtu.be/SU5-Igenyd8?t=1754s) 🔄 캘리브레이션 과정에서 위치 변수를 일괄적으로 맞추어 저장하는 방법이 프로그램 수정 시 유용합니다.
-- [30:18](https://youtu.be/SU5-Igenyd8?t=1818s) 📋 레이아웃 설정에서 카피, 수정, 삭제 기능을 활용하여 레이아웃을 효과적으로 관리할 수 있습니다.
-- [31:15](https://youtu.be/SU5-Igenyd8?t=1875s) 🔄 레이아웃 내 제품의 방향을 전체적으로 빠르게 변경할 수 있는 기능을 제공합니다.
-- [32:32](https://youtu.be/SU5-Igenyd8?t=1952s) 🔀 작업 순서 변경 및 저장 기능을 통해 효율적인 작업 흐름을 설정할 수 있습니다.
-- [34:12](https://youtu.be/SU5-Igenyd8?t=2052s) 🏗️ 레이아웃 적층 기능을 사용하여 다층 레이아웃을 구성하고 관리할 수 있습니다.
-- [35:18](https://youtu.be/SU5-Igenyd8?t=2118s) 🔄 제품 접근 위치와 관련된 속성을 설정하여 최적화된 팔레타이징 경로를 생성할 수 있습니다.
-- [38:23](https://youtu.be/SU5-Igenyd8?t=2303s) 📝 DART-Studio에서 팔레타이징 관련 스크립트를 생성하고 관리하는 과정을 소개합니다.
-- [41:11](https://youtu.be/SU5-Igenyd8?t=2471s) 🤖 그리퍼 설정을 통해 제품 핸들링 과정에서 디지털 인풋과 아웃풋을 제어할 수 있습니다.
-- [45:39](https://youtu.be/SU5-Igenyd8?t=2739s) ⚙️ 제품 잡기 전과 후의 위치 비교를 통해 최적의 경유 점을 생성하는 기술을 설명합니다.
-- [48:08](https://youtu.be/SU5-Igenyd8?t=2888s) 🔄 컨베이어에서 제품을 효과적으로 잡고 이동하는 과정에서의 모션 최적화 방법을 제시합니다.
-- [51:43](https://youtu.be/SU5-Igenyd8?t=3103s) 📦 팔레트에 제품을 적재하는 과정에서의 모션 최적화 기능과 제품의 안전한 이동을 위한 접근 속성 설정 방법을 소개합니다.
-- [54:38](https://youtu.be/SU5-Igenyd8?t=3278s) 🔧 특이점 처리 방법을 통해 로봇의 안전한 운동 경로를 확보하고, 팔레타이징 모드 온/오프 사용시 주의사항을 강조합니다.
-- [56:49](https://youtu.be/SU5-Igenyd8?t=3409s) ⚡️ 컨베이어에서 제품이 정렬되는 과정을 자동화하는 스레드 기반의 프로그래밍 방법을 설명합니다.
-- [57:31](https://youtu.be/SU5-Igenyd8?t=3451s) 🔄 컨베이어 제품 정렬과 움직임 제어를 위한 스레드 기능의 중요성을 강조합니다.
-- [58:10](https://youtu.be/SU5-Igenyd8?t=3490s) ⏸️ DART-Studio 사용 교육 세션 중 휴식 시간의 필요성을 언급합니다.
-- [01:12:11](https://youtu.be/SU5-Igenyd8?t=4331s) 🏭 팔레타이징 작업의 실제 진행 과정과 총 소요 시간을 시연합니다.
-- [01:13:19](https://youtu.be/SU5-Igenyd8?t=4399s) 🤖 메인 프로그램 작업 순서와 픽 및 플레이스 작업의 종료 과정을 소개합니다.
-- [01:14:30](https://youtu.be/SU5-Igenyd8?t=4470s) 📝 스크립트 생성 과정에서 접근 위치, 코드 삽입, 작업 타입 설정 방법을 설명합니다.
-- [01:15:18](https://youtu.be/SU5-Igenyd8?t=4518s) 🖥️ DART-Studio와 연결된 로봇 시뮬레이션을 통해 작업 프로세스 확인 방법을 보여줍니다.
-- [01:16:41](https://youtu.be/SU5-Igenyd8?t=4601s) 🔄 스크립트 수정 및 테스트 프로세스, 특히 그리퍼 작동과 관련된 디지털 신호 제어 방법을 설명합니다.
-- [01:18:25](https://youtu.be/SU5-Igenyd8?t=4705s) 🛠️ 로봇 홈 위치 설정과 스크립트 실행 전 필수 준비 단계를 강조합니다.
-- [01:19:42](https://youtu.be/SU5-Igenyd8?t=4782s) ⚡️ 로봇 모션 최적화와 중간 경유지 점 설정을 통한 충돌 회피 및 이송 경로 최적화 방법을 제시합니다.
-- [01:22:26](https://youtu.be/SU5-Igenyd8?t=4946s) 🔧 작업 순서 및 접근 위치 세팅을 통해 팔레타이징 과정의 정밀도를 높이는 방법을 설명합니다.
-- [01:25:10](https://youtu.be/SU5-Igenyd8?t=5110s) 📊 모션 최적화를 위한 솔루션 스페이스 계산 및 중간 경유지 점 이동 최적화 방법을 소개합니다.
-- [01:29:37](https://youtu.be/SU5-Igenyd8?t=5377s) 📈 제품 이송 시 안전성과 효율성을 고려한 모션 및 경로 최적화 전략을 제공합니다.
-- [01:32:21](https://youtu.be/SU5-Igenyd8?t=5541s) 🛑 중간 경유지 점 설정의 중요성을 재강조하며, 충돌 방지를 위한 프로그래밍 팁을 제공합니다.
-- [01:35:48](https://youtu.be/SU5-Igenyd8?t=5748s) 💨 모션 블렌딩 기능을 활용하여 로봇 이동의 부드러움을 개선하고 사이클 타임을 단축하는 방법을 설명합니다.
-- [01:38:00](https://youtu.be/SU5-Igenyd8?t=5880s) 🚀 제품 픽업 위치 설정 및 팔레타이징 모드 사용 시 주의사항에 대해 설명합니다.
-- [01:38:44](https://youtu.be/SU5-Igenyd8?t=5924s) 🔄 3D 팔레타이징 모드 활성화를 통해 축 회전 없이 상하 이동 가능함을 설명합니다.
-- [01:39:24](https://youtu.be/SU5-Igenyd8?t=5964s) 🚫 특이점(싱귤래리티) 처리의 중요성과 로봇의 안전성 유지 방법을 강조합니다.
-- [01:40:42](https://youtu.be/SU5-Igenyd8?t=6042s) 🔧 솔루션 스페이스 최적화를 통해 조인트 각도의 최단 거리 이동을 가능하게 하는 방법을 제시합니다.
-- [01:42:08](https://youtu.be/SU5-Igenyd8?t=6128s) 🔄 솔루션 스페이스 계산을 통해 로봇의 움직임을 최적화하는 과정을 설명합니다.
-- [01:44:14](https://youtu.be/SU5-Igenyd8?t=6254s) 🔍 사측에 대한 연산 추가로 조인트의 반전 현상 방지 방법을 보여줍니다.
-- [01:45:14](https://youtu.be/SU5-Igenyd8?t=6314s) 🤝 리프트와 로봇의 통신 연결 및 초기 위치 설정 방법을 설명합니다.
-- [01:47:02](https://youtu.be/SU5-Igenyd8?t=6422s) ⏳ 리프트 활용 팔레타이징 작업의 총 소요 시간을 시연합니다.
-- [01:58:13](https://youtu.be/SU5-Igenyd8?t=7093s) 🚀 리프트를 활용한 팔레타이징으로 적재 능력 확장 방법을 제시합니다.
-- [02:01:28](https://youtu.be/SU5-Igenyd8?t=7288s) 🔄 리프트 설정에 필요한 스크립트 생성 과정을 설명합니다.
-- [02:03:07](https://youtu.be/SU5-Igenyd8?t=7397s) 📡 리프트와의 통신 설정 및 제어 과정을 자세히 다룹니다.
-- [02:05:14](https://youtu.be/SU5-Igenyd8?t=7514s) 🔄 리프트의 높이 조절과 관련된 함수 사용 방법을 설명합니다.
-- [02:06:31](https://youtu.be/SU5-Igenyd8?t=7591s) 🔍 리프트의 높이를 정확하게 조절하여 작업물 이동의 정밀도를 높이는 방법을 설명합니다.
-- [02:10:35](https://youtu.be/SU5-Igenyd8?t=7835s) 🛠️ 오션 최적화 및 리프트 이동 시점 결정에 대한 전략을 제시합니다.
-- [02:14:01](https://youtu.be/SU5-Igenyd8?t=8041s) 🤖 리프트 이동 중 제품 집기 작업의 타이밍과 정밀도가 중요함을 강조합니다.
-- [02:17:38](https://youtu.be/SU5-Igenyd8?t=8258s) 📊 리프트 활용 시 로봇이 분당 약 6개 박스를 처리할 수 있음을 확인합니다.
-- [02:18:19](https://youtu.be/SU5-Igenyd8?t=8299s) ⏱️ 리프트 사용 시 제품 이동에 12.5초가 소요되며, 최대 속도로는 10초까지 가능함을 시연합니다.
-- [02:18:57](https://youtu.be/SU5-Igenyd8?t=8337s) 🔄 현재는 한 가지 종류의 제품만 팔레타이징 가능하지만, 개발 요청 시 다양한 사이즈 대응 가능합니다.
-- [02:19:29](https://youtu.be/SU5-Igenyd8?t=8369s) 🚀 엠피 시스템 필요 시 그리퍼나 엔드 이팩터에서 구현 필요함을 강조합니다.
-- [02:19:59](https://youtu.be/SU5-Igenyd8?t=8399s) 🤖 제품 중량 및 형태에 따른 로봇과 엔드 이팩터 선정의 중요성을 언급합니다.
-- [02:20:43](https://youtu.be/SU5-Igenyd8?t=8443s) 🛠️ 700mm 리프트 사용 시 진동 발생 가능성이 있으나, 본 구현에서는 큰 영향이 없음을 밝힙니다.
-- [02:21:24](https://youtu.be/SU5-Igenyd8?t=8484s) 🔍 특히점 핸들링과 블렌딩 모션 사용으로 사이클 타임 단축이 가능함을 조언합니다.
-- [02:22:19](https://youtu.be/SU5-Igenyd8?t=8539s) 💡 빠르게 움직일 시 정확도가 다소 떨어질 수 있으며, 로봇의 내구성에도 영향을 줄 수 있음을 설명합니다.
+- [00:22](https://youtu.be/TpvBziOb--A?t=22s) 📚 두산로보틱스는 다양한 교육 과정을 온라인과 오프라인으로 제공하고 있습니다.
+- [01:09](https://youtu.be/TpvBziOb--A?t=69s) 🤖 로스(ROS) 패키지 활용 방법에 대한 3시간 강의 예정입니다.
+- [01:41](https://youtu.be/TpvBziOb--A?t=101s) 📖 로스에 대한 개략적인 설명 후 두산 로스 패키지 사용 방법을 상세히 설명할 예정입니다.
+- [02:02](https://youtu.be/TpvBziOb--A?t=122s) 🌐 로스는 로봇 응용 프로그램 개발을 위한 포괄적인 소프트웨어 플랫폼입니다.
+- [02:47](https://youtu.be/TpvBziOb--A?t=167s) 👥 로스는 활성화된 커뮤니티와 안정적인 생태계를 갖추고 있습니다.
+- [03:35](https://youtu.be/TpvBziOb--A?t=215s) 🔄 로스 키네틱 버전 기반 강의 진행, 우분투 16.04에서 작동합니다.
+- [04:23](https://youtu.be/TpvBziOb--A?t=263s) 📦 두산 로스 패키지는 로스1 및 로스2 지원 계획을 가지고 지속적으로 업데이트됩니다.
+- [05:30](https://youtu.be/TpvBziOb--A?t=330s) ☁️ AWS RoboMaker와 두산 로스 패키지 연동 가능합니다.
+- [06:28](https://youtu.be/TpvBziOb--A?t=388s) 💻 윈도우즈 환경에서 로스 개발을 지원할 예정입니다.
+- [07:12](https://youtu.be/TpvBziOb--A?t=432s) 🔧 두산 로보틱스 로스 패키지 설치 및 빌드 방법 안내입니다.
+- [08:38](https://youtu.be/TpvBziOb--A?t=518s) 🛠️ 패키지 클론 후 필요한 의존성 패키지 설치가 필요합니다.
+- [09:46](https://youtu.be/TpvBziOb--A?t=586s) 🏗️ 빌드 완료 후 ROS 환경에 패키지를 등록하여 사용합니다.
+- [10:35](https://youtu.be/TpvBziOb--A?t=635s) 🤖 조인트 상태 퍼블리셔 GUI와 RViz를 통해 두산 로봇 모델의 움직임 확인 가능합니다.
+- [14:28](https://youtu.be/TpvBziOb--A?t=868s) 🖥️ 런치 파일 실행으로 3D 시각화 도구에서 로봇 모델 시뮬레이션 가능합니다.
+- [17:44](https://youtu.be/TpvBziOb--A?t=1064s) 🔄 로스의 통신 메커니즘에 대한 설명, 토픽, 서비스, 액션의 개념을 소개합니다.
+- [20:38](https://youtu.be/TpvBziOb--A?t=1238s) 📦 로스의 소프트웨어 구성은 패키지 단위로 이루어지며, 응용 프로그램은 패키지 단위로 개발됩니다.
+- [20:53](https://youtu.be/TpvBziOb--A?t=1253s) 📦 매 패키지는 공통된 목적을 지닌 패키지들의 집합입니다. 각 패키지는 패키지 정보를 담은 XML 파일을 포함합니다.
+- [21:39](https://youtu.be/TpvBziOb--A?t=1299s) 🛠️ 로스 명령어 및 도구는 로스 개발 환경에서 지속적으로 사용됩니다. 자세한 정보는 로스 위키에서 확인 가능합니다.
+- [22:34](https://youtu.be/TpvBziOb--A?t=1354s) ⚙️ 실행 명령어는 로스 노드의 실행을 주관하며, 로스코어는 로스의 필수적인 마스터를 실행시키는 명령어입니다.
+- [23:22](https://youtu.be/TpvBziOb--A?t=1402s) 📋 패키지 정보, 설치, 로스 패키지 조작에 사용되는 명령어들이 있습니다. 주로 `rosrun`과 `roslaunch` 명령어가 자주 사용됩니다.
+- [24:27](https://youtu.be/TpvBziOb--A?t=1467s) 📊 RViz는 로스의 3차원 시각화 도구로, 사용자는 로스의 메시지를 3차원으로 표시할 수 있습니다.
+- [25:49](https://youtu.be/TpvBziOb--A?t=1549s) 🖥️ Gazebo는 오픈 소스 가상 시뮬레이션 툴로, 로스와 연동하여 로봇의 가상 시뮬레이션을 진행할 수 있습니다.
+- [28:10](https://youtu.be/TpvBziOb--A?t=1690s) 📈 RQT는 다양한 GUI 도구를 제공하여, 현재 노드나 메시지 상태를 쉽게 확인하고 디버깅할 수 있게 해줍니다.
+- [29:41](https://youtu.be/TpvBziOb--A?t=1781s) 🤖 두산 로스 패키지는 로스 상에서 두산 로봇을 제어하기 위한 환경을 제공합니다.
+- [31:12](https://youtu.be/TpvBziOb--A?t=1872s) 🔧 DSR 컨트롤 패키지는 로봇 제어를 위한 핵심 모듈이며, 실제 제어기와 통신합니다.
+- [32:21](https://youtu.be/TpvBziOb--A?t=1941s) 🔄 조인트 포지션 컨트롤러는 각 관절을 독립적으로 제어할 수 있는 컨트롤러입니다.
+- [33:04](https://youtu.be/TpvBziOb--A?t=1984s) 📚 두산 로스 패키지의 소스는 공개적으로 접근 가능하며, 다양한 브랜치를 통해 관리됩니다.
+- [34:26](https://youtu.be/TpvBziOb--A?t=2066s) 🛠️ 각 패키지는 특정 기능에 따라 구성되며, 예제 파일을 포함하여 사용자가 참고할 수 있습니다.
+- [37:25](https://youtu.be/TpvBziOb--A?t=2245s) 🌐 DSR Gazebo 패키지는 Gazebo 환경 실행을 위한 설정 파일과 런치 파일을 포함합니다.
+- [39:20](https://youtu.be/TpvBziOb--A?t=2360s) 🔄 MoveIt! 컴피그 패키지는 각 모델별로 구성되며, 로봇의 모션 플래닝을 지원합니다.- [43:37](https://www.youtube.com/watch?v=TpvBziOb--A&t=2617s) 🖥️ 버추얼 모드와 리얼 모드를 선택하여 로봇 시뮬레이션과 실제 로봇 제어가 가능합니다.
+- [44:31](https://www.youtube.com/watch?v=TpvBziOb--A&t=2671s) 🤖 다양한 런치 파일을 통해 단일 로봇 실행, RViz 및 Gazebo와의 연동이 지원됩니다.
+- [45:13](https://www.youtube.com/watch?v=TpvBziOb--A&t=2713s) 🔄 네임스페이스, 호스트 IP, 포트 등 다양한 실행 옵션을 제공하여 유연한 환경 설정을 지원합니다.
+- [46:14](https://www.youtube.com/watch?v=TpvBziOb--A&t=2774s) 🎨 로봇 모델의 색상을 선택할 수 있는 옵션을 제공하며, 시뮬레이터 상에 그리퍼와 모바일 확장 모듈의 디스플레이가 가능합니다.
+- [47:31](https://www.youtube.com/watch?v=TpvBziOb--A&t=2851s) 📌 RViz와 Gazebo에서 로봇 모델의 움직임을 동시에 시뮬레이션할 수 있습니다.
+- [48:19](https://www.youtube.com/watch?v=TpvBziOb--A&t=2899s) 🛠️ 로스 서비스 명령어를 사용하여 로봇에 다양한 동작 명령을 전송할 수 있습니다.
+- [49:04](https://www.youtube.com/watch?v=TpvBziOb--A&t=2944s) 📖 DSR 예제 파일을 통해 특정 조인트를 이동시키는 등의 복잡한 로봇 작동이 가능합니다.
+- [50:13](https://www.youtube.com/watch?v=TpvBziOb--A&t=3013s) 🌍 실제 로봇과의 연결을 위해 런치 파일에 로봇 제어기의 IP와 포트 설정이 필요합니다.
+- [51:34](https://www.youtube.com/watch?v=TpvBziOb--A&t=3094s) ⚙️ MoveIt 커맨더를 사용하여 CLI 환경에서 로봇의 동작을 직접 제어할 수 있습니다.
+- [53:22](https://www.youtube.com/watch?v=TpvBziOb--A&t=3202s) 💬 DSR 메시지 패키지에는 로스 토픽과 서비스를 위한 메시지 파일이 정리되어 있어, 통신 기능을 쉽게 구현할 수 있습니다.
+- [01:06:31](https://www.youtube.com/watch?v=TpvBziOb--A&t=3991s) 🔄 서비스 콜백을 통해 로봇의 다양한 기능을 사용자 정의 서비스로 활용할 수 있습니다.
+- [01:07:04](https://www.youtube.com/watch?v=TpvBziOb--A&t=4024s) 🤖 컨트롤 노드는 DRFL API를 통해 로봇 제어기와 통신하여 로봇을 작동시킵니다.
+- [01:07:50](https://www.youtube.com/watch?v=TpvBziOb--A&t=4070s) 📊 로봇의 다양한 상태는 16개로 분류되며, 각 상태별 사용 가능한 명령어가 다릅니다.
+- [01:08:52](https://www.youtube.com/watch?v=TpvBziOb--A&t=4132s) 💻 컨트롤 노드의 콜백 함수는 DRFL과 연결되어 TCP/IP 통신을 통해 명령어를 전송합니다.
+- [01:10:10](https://www.youtube.com/watch?v=TpvBziOb--A&t=4210s) 🏠 홈 완료 시 실행되는 콜백 함수를 통해 로봇의 초기화 상태를 확인하고 추가 기능을 구현할 수 있습니다.
+- [01:11:12](https://www.youtube.com/watch?v=TpvBziOb--A&t=4272s) 📈 모니터링 데이터 콜백 함수는 로봇 제어기로부터 주기적인 데이터 수신 시 실행되어 중요한 정보를 제공합니다.
+- [01:14:27](https://www.youtube.com/watch?v=TpvBziOb--A&t=4467s) 🆕 2.5 버전 이상의 제어기를 사용할 경우, 확장된 모니터링 데이터에 대해 EX 콜백 함수를 사용해야 합니다.
+- [01:17:09](https://www.youtube.com/watch?v=TpvBziOb--A&t=4629s) 🛠️ 예제 파일의 네임스페이스는 컨트롤 노드의 네임스페이스와 일치해야 서비스와 토픽이 정상적으로 작동합니다.
+- [01:21:09](https://www.youtube.com/watch?v=TpvBziOb--A&t=4869s) 🐍 예제 파일은 Python으로 구현되어 있으며, DRL과 호환 가능한 문법을 지원합니다.
+- [01:31:48](https://www.youtube.com/watch?v=TpvBziOb--A&t=5508s) 🕹️ 조이스틱을 이용한 두산 로봇의 움직임 제어 예제 소개
+- [01:32:10](https://www.youtube.com/watch?v=TpvBziOb--A&t=5530s) 📝 싱글 로봇 심플 파이썬 파일을 복사하여 조이스틱 테스트 파일 작성 방법 설명
+- [01:32:52](https://www.youtube.com/watch?v=TpvBziOb--A&t=5572s) 🛠️ 조이 메세지 사용을 위한 센서 메세지 모듈 추가 및 변수 선언 과정
+- [01:34:11](https://www.youtube.com/watch?v=TpvBziOb--A&t=5651s) 🚀 조이스틱 아날로그 스틱 및 버튼 입력에 따른 플래그 변수 추가 설명
+- [01:36:14](https://www.youtube.com/watch?v=TpvBziOb--A&t=5774s) 🔧 멀티 조그 기능 활용을 위한 퍼블리싱 설정 및 조그 벨로시티 변수 설정
+- [01:37:01](https://www.youtube.com/watch?v=TpvBziOb--A&t=5821s) 📈 조이 콜백 함수를 통한 조이스틱 입력 처리 및 로봇 명령어 실행 과정
+- [01:38:01](https://www.youtube.com/watch?v=TpvBziOb--A&t=5881s) 🧵 멀티 조그 발행을 위한 별도 스레드 생성 및 반복 실행 설정
+- [01:39:33](https://www.youtube.com/watch?v=TpvBziOb--A&t=5973s) 🔄 조이 콜백 함수 내 조이스틱 입력에 따른 플래그 설정 및 명령어 지정 방법
+- [01:41:20](https://www.youtube.com/watch?v=TpvBziOb--A&t=6080s) 🎮 조이스틱 버튼 이벤트에 따른 플래그 변화 및 로봇 명령어 전송 과정
+- [01:45:28](https://www.youtube.com/watch?v=TpvBziOb--A&t=6328s) 🤖 조그 기능의 단축 및 다축 조작 방법 설명 및 실제 조작 예시 시연
