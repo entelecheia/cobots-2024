@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ROS 설치하기 &#8212; 협동로봇활용 2024</title>
+    <title>Week 6 &#8212; 협동로봇활용 2024</title>
   
   
   
@@ -89,12 +89,12 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'week03/ros-install';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week06/index';</script>
     <link rel="icon" href="https://assets.entelecheia.ai/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Week 4" href="../week04/index.html" />
-    <link rel="prev" title="ROS 설치환경 구축하기" href="ros-setup.html" />
+    <link rel="next" title="도커를 이용한 ROS2 실행환경 구축" href="ros.html" />
+    <link rel="prev" title="ROS 활용방법" href="../week05/lecture.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -216,11 +216,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../week02/lecture.html">핵심 교육 (Part 1/2)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Week 3</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="lecture.html">핵심 교육 (Part 1/2)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ros-intro.html">ROS 소개</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ros-setup.html">ROS 설치환경 구축하기</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">ROS 설치하기</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week03/index.html">Week 3</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week03/lecture.html">핵심 교육 (Part 1/2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week03/ros-intro.html">ROS 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week03/ros-setup.html">ROS 설치환경 구축하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week03/ros-install.html">ROS 설치하기</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../week04/index.html">Week 4</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -231,8 +231,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../week05/lecture.html">ROS 활용방법</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week06/index.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../week06/ros.html">도커를 이용한 ROS2 실행환경 구축</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 6</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ros.html">도커를 이용한 ROS2 실행환경 구축</a></li>
 </ul>
 </li>
 </ul>
@@ -319,7 +319,7 @@
       
       
       
-      <li><a href="https://github.com/chu-aie/cobots-2024/edit/main/src/cobots2024/book/week03/ros-install.md" target="_blank"
+      <li><a href="https://github.com/chu-aie/cobots-2024/edit/main/src/cobots2024/book/week06/index.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -336,7 +336,7 @@
       
       
       
-      <li><a href="https://github.com/chu-aie/cobots-2024/issues/new?title=Issue%20on%20page%20%2Fweek03/ros-install.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chu-aie/cobots-2024/issues/new?title=Issue%20on%20page%20%2Fweek06/index.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -366,7 +366,7 @@
       
       
       
-      <li><a href="../_sources/week03/ros-install.md" target="_blank"
+      <li><a href="../_sources/week06/index.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -437,9 +437,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -450,19 +448,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>ROS 설치하기</h1>
+    <h1>Week 6</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ros2-humble">ROS2 Humble 설치하기</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -472,115 +462,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="ros">
-<h1>ROS 설치하기<a class="headerlink" href="#ros" title="Link to this heading">#</a></h1>
-<section id="ros2-humble">
-<h2>ROS2 Humble 설치하기<a class="headerlink" href="#ros2-humble" title="Link to this heading">#</a></h2>
-<p>설치 가이드: <a class="reference external" href="https://docs.ros.org/en/humble/Installation.html">https://docs.ros.org/en/humble/Installation.html</a></p>
-<ol class="arabic simple">
-<li><p><strong>로케일 설정</strong></p>
-<ul class="simple">
-<li><p>로케일: 언어, 지역, 문자 인코딩 등을 정의하는 설정입니다.</p></li>
+  <section class="tex2jax_ignore mathjax_ignore" id="week-6">
+<h1>Week 6<a class="headerlink" href="#week-6" title="Link to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ros.html">도커를 이용한 ROS2 실행환경 구축</a></li>
 </ul>
-</li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>locale<span class="w"> </span><span class="c1"># 현재 로케일 설정 확인</span>
-sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>locales
-sudo<span class="w"> </span>locale-gen<span class="w"> </span>en_US<span class="w"> </span>en_US.UTF-8
-sudo<span class="w"> </span>update-locale<span class="w"> </span><span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8<span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
-<span class="nb">export</span><span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
-locale<span class="w"> </span><span class="c1"># 업데이트된 로케일 설정 확인</span>
-</pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li><p><strong>소프트웨어 속성 및 Universe 저장소 설정</strong></p>
-<ul class="simple">
-<li><p>Universe 저장소: Ubuntu에서 커뮤니티 유지 관리 자유-오픈 소스 소프트웨어를 포함하는 저장소입니다.</p></li>
-</ul>
-</li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>software-properties-common
-sudo<span class="w"> </span>add-apt-repository<span class="w"> </span>universe
-</pre></div>
-</div>
-<ol class="arabic simple" start="3">
-<li><p><strong>Curl 설치 및 ROS 키 설정</strong></p>
-<ul class="simple">
-<li><p>Curl: 다양한 통신 프로토콜을 이용하여 데이터를 전송하기 위한 라이브러리와 명령 줄 도구입니다.</p></li>
-</ul>
-</li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>curl<span class="w"> </span>-y
-sudo<span class="w"> </span>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/ros/rosdistro/master/ros.key<span class="w"> </span>-o<span class="w"> </span>/usr/share/keyrings/ros-archive-keyring.gpg
-</pre></div>
-</div>
-<ol class="arabic simple" start="4">
-<li><p><strong>ROS2 소스 설정</strong></p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2"> signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu </span><span class="k">$(</span>.<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$UBUNTU_CODENAME</span><span class="k">)</span><span class="s2"> main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/ros2.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
-</pre></div>
-</div>
-<ol class="arabic simple" start="5">
-<li><p><strong>업데이트 및 업그레이드</strong></p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
-sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
-</pre></div>
-</div>
-<ol class="arabic simple" start="6">
-<li><p><strong>ROS 데스크탑 설치</strong></p>
-<ul class="simple">
-<li><p>ROS 데스크탑: ROS 개발에 필요한 패키지, 라이브러리, 도구 등을 포함하는 메타 패키지입니다.</p></li>
-</ul>
-</li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-desktop
-</pre></div>
-</div>
-<ol class="arabic simple" start="7">
-<li><p><strong>ROS 환경 설정</strong></p>
-<ul class="simple">
-<li><p>이 명령어는 ROS 환경 변수를 설정하여 ROS 명령어를 사용할 수 있게 해줍니다.</p></li>
-</ul>
-</li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
-</pre></div>
-</div>
-<ol class="arabic simple" start="8">
-<li><p><strong>ROS2 명령어 확인</strong></p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2
-</pre></div>
-</div>
-<p>이제 ROS2를 사용할 준비가 되었습니다!</p>
-<div class="admonition-ros2 admonition">
-<p class="admonition-title">이슈 - ros2 명령어를 찾을 수 없음</p>
-<p><code class="docutils literal notranslate"><span class="pre">ros2</span></code> 명령어를 실행할 때 흔히 발생하는 오류입니다.</p>
-<p><strong>해결 방법: Setup.bash 파일 소싱하기</strong></p>
-<ul class="simple">
-<li><p>소싱(Sourcing): 스크립트 파일의 내용을 현재 셸 환경에 적용하는 것을 의미합니다.</p></li>
-</ul>
-<p><strong>Bash 셸의 경우:</strong></p>
-<ol class="arabic simple">
-<li><p>명령어 방식: <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;source</span> <span class="pre">/opt/ros/humble/setup.bash&quot;</span> <span class="pre">&gt;&gt;</span> <span class="pre">~/.bashrc</span></code> 명령어를 실행하여 자동으로 소싱합니다. 이렇게 하면 <code class="docutils literal notranslate"><span class="pre">ros2</span></code> 명령어를 사용할 수 있게 됩니다.</p>
-<ul class="simple">
-<li><p>~/.bashrc: Bash 셸 시작 시 자동으로 실행되는 스크립트 파일입니다.</p></li>
-</ul>
-</li>
-<li><p>에티터 방식: VS Code에서 <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> 파일을 열고 <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/opt/ros/humble/setup.bash</span></code> 라인을 수동으로 추가합니다.</p></li>
-</ol>
-<p><strong>Zsh 셸의 경우:</strong></p>
-<ol class="arabic simple">
-<li><p>명령어 방식: <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;source</span> <span class="pre">/opt/ros/humble/setup.bash&quot;</span> <span class="pre">&gt;&gt;</span> <span class="pre">~/.zshrc</span></code> 명령어를 실행하여 자동으로 소싱합니다. 이렇게 하면 <code class="docutils literal notranslate"><span class="pre">ros2</span></code> 명령어를 사용할 수 있게 됩니다.</p>
-<ul class="simple">
-<li><p>~/.zshrc: Zsh 셸 시작 시 자동으로 실행되는 스크립트 파일입니다.</p></li>
-</ul>
-</li>
-<li><p>에디터 방식: VS Code에서 <code class="docutils literal notranslate"><span class="pre">.zshrc</span></code> 파일을 열고 <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/opt/ros/humble/setup.bash</span></code> 라인을 수동으로 추가합니다.</p></li>
-</ol>
-</div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -596,7 +484,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
         },
         kernelOptions: {
             name: "python3",
-            path: "./week03"
+            path: "./week06"
         },
         predefinedOutput: true
     }
@@ -614,20 +502,20 @@ sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="ros-setup.html"
+       href="../week05/lecture.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">ROS 설치환경 구축하기</p>
+        <p class="prev-next-title">ROS 활용방법</p>
       </div>
     </a>
     <a class="right-next"
-       href="../week04/index.html"
+       href="ros.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week 4</p>
+        <p class="prev-next-title">도커를 이용한 ROS2 실행환경 구축</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -638,20 +526,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ros2-humble">ROS2 Humble 설치하기</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>
