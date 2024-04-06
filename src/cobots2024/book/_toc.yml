@@ -27,6 +27,9 @@ parts:
       - file: week05/index
         sections:
           - file: week05/lecture
+      - file: week06/index
+        sections:
+          - file: week06/ros
   - caption: About
     chapters:
       - file: syllabus/index
