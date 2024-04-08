@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>주요용어 &#8212; 협동로봇활용 2024</title>
+    <title>DSR 사용방법 &#8212; 협동로봇활용 2024</title>
   
   
   
@@ -89,12 +89,12 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'week01/terminology';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week06/dsr-usage';</script>
     <link rel="icon" href="https://assets.entelecheia.ai/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="참고자료" href="references.html" />
-    <link rel="prev" title="두산로보틱스 기본 교육" href="lecture.html" />
+    <link rel="next" title="수업계획서" href="../syllabus/index.html" />
+    <link rel="prev" title="도커를 이용한 ROS2 실행환경 구축" href="ros-container.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -205,11 +205,11 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture Notes</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Week 1</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="lecture.html">두산로보틱스 기본 교육</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">주요용어</a></li>
-<li class="toctree-l2"><a class="reference internal" href="references.html">참고자료</a></li>
-<li class="toctree-l2"><a class="reference internal" href="review.html">복습</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week01/index.html">Week 1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week01/lecture.html">두산로보틱스 기본 교육</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week01/terminology.html">주요용어</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week01/references.html">참고자료</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week01/review.html">복습</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../week02/index.html">Week 2</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -231,9 +231,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../week05/lecture.html">ROS 활용방법</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week06/index.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../week06/ros-container.html">도커를 이용한 ROS2 실행환경 구축</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../week06/dsr-usage.html">DSR 사용방법</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Week 6</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ros-container.html">도커를 이용한 ROS2 실행환경 구축</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">DSR 사용방법</a></li>
 </ul>
 </li>
 </ul>
@@ -320,7 +320,7 @@
       
       
       
-      <li><a href="https://github.com/chu-aie/cobots-2024/edit/main/src/cobots2024/book/week01/terminology.md" target="_blank"
+      <li><a href="https://github.com/chu-aie/cobots-2024/edit/main/src/cobots2024/book/week06/dsr-usage.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -337,7 +337,7 @@
       
       
       
-      <li><a href="https://github.com/chu-aie/cobots-2024/issues/new?title=Issue%20on%20page%20%2Fweek01/terminology.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chu-aie/cobots-2024/issues/new?title=Issue%20on%20page%20%2Fweek06/dsr-usage.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -367,7 +367,7 @@
       
       
       
-      <li><a href="../_sources/week01/terminology.md" target="_blank"
+      <li><a href="../_sources/week06/dsr-usage.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -451,7 +451,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>주요용어</h1>
+    <h1>DSR 사용방법</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -461,7 +461,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#servo-on">Servo On</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#joint-state-publish">Joint State Publish</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-mode">Virtual Mode</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dsr-control2">dsr_control2 노드 실행</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">예제 스크립트 실행</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-mode">Real Mode</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">dsr_control2 노드 실행</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">예제 스크립트 실행</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dsr-launcher2">dsr_launcher2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moveit">Moveit</a></li>
 </ul>
             </nav>
         </div>
@@ -473,14 +485,133 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>주요용어<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<section id="servo-on">
-<h2>Servo On<a class="headerlink" href="#servo-on" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Servo</strong>: Servomechanism의 준말로, 특정 위치로 이동하거나 특정 힘을 유지하는 등의 작업을 수행하는 장치를 의미함. 로봇의 모터를 제어하는 장치를 의미하기도 함.</p></li>
-<li><p><strong>Servo On</strong>: 로봇의 모터를 활성화하는 명령어. 로봇을 조작하기 위해서는 반드시 Servo On 명령어를 실행해야 함.</p></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="dsr">
+<h1>DSR 사용방법<a class="headerlink" href="#dsr" title="Link to this heading">#</a></h1>
+<section id="joint-state-publish">
+<h2>Joint State Publish<a class="headerlink" href="#joint-state-publish" title="Link to this heading">#</a></h2>
+<p>Joint State Publish는 컨트롤러 없이 독립적으로 실행할 수 있습니다.
+로봇 모델과 <code class="docutils literal notranslate"><span class="pre">joint_state_publisher_gui</span></code> 패키지를 사용하여 Rviz에서 로봇이 움직이는 것을 볼 수 있습니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>dsr_launcher2<span class="w"> </span>dsr_joint_state_pub.launch.py<span class="w"> </span>model:<span class="o">=</span>a0912<span class="w"> </span>color:<span class="o">=</span>blue
+</pre></div>
+</div>
+<img src="https://user-images.githubusercontent.com/47092672/97652654-40da3b00-1aa2-11eb-8621-2a36e3159de0.png" width="70%">
+<p><code class="docutils literal notranslate"><span class="pre">dsr_joint_state_pub.launch.py</span></code> 파일을 실행하면 지정된 로봇 모델(예: a0912)과 색상(예: blue)을 가진 로봇이 Rviz에 표시됩니다.
+이 때 joint_state_publisher_gui를 통해 로봇의 joint를 직접 조작할 수 있습니다.
+이는 실제 로봇이나 컨트롤러 없이도 로봇의 동작을 시뮬레이션 해볼 수 있는 편리한 기능입니다.</p>
+</section>
+<section id="virtual-mode">
+<h2>Virtual Mode<a class="headerlink" href="#virtual-mode" title="Link to this heading">#</a></h2>
+<p>Launch 파일의 “mode” 인자를 virtual로 설정하면, launch.py를 실행할 때 자동으로 DRCF 에뮬레이터가 실행됩니다.</p>
+<section id="dsr-control2">
+<h3>dsr_control2 노드 실행<a class="headerlink" href="#dsr-control2" title="Link to this heading">#</a></h3>
+<p>아래 명령어를 사용하여 Control Node를 실행할 수 있습니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>dsr_launcher2<span class="w"> </span>single_robot_rviz.launch.py<span class="w"> </span>model:<span class="o">=</span>a0912<span class="w"> </span>color:<span class="o">=</span>blue
+</pre></div>
+</div>
+<p>이 명령어는 <code class="docutils literal notranslate"><span class="pre">single_robot_rviz.launch.py</span></code> 파일을 실행하여 지정된 로봇 모델(a0912)과 색상(blue)을 가진 로봇을 Rviz에 표시합니다.
+동시에 DRCF 에뮬레이터와 dsr_control2 노드가 자동으로 실행되어 가상 환경에서 로봇을 제어할 수 있게 됩니다.</p>
+</section>
+<section id="id1">
+<h3>예제 스크립트 실행<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>dsr_example2 패키지에 포함된 예제 스크립트를 사용하여 로봇을 구동할 수 있습니다.
+컨트롤러와 로봇이 정상적으로 연결되었는지 확인한 후, 아래 명령어를 입력하세요.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>dsr_example2_py<span class="w"> </span>dsr_service_motion_simple
+</pre></div>
+</div>
+<p>이 명령어는 <code class="docutils literal notranslate"><span class="pre">dsr_service_motion_simple</span></code> 예제 스크립트를 실행합니다.
+이 스크립트는 로봇의 간단한 모션을 demonstrates합니다.
+가상 모드에서는 에뮬레이터와 연동되어 가상 로봇이 동작하는 것을 확인할 수 있습니다.</p>
+</section>
+</section>
+<section id="real-mode">
+<h2>Real Mode<a class="headerlink" href="#real-mode" title="Link to this heading">#</a></h2>
+<p>실제 로봇을 구동하려면 <strong>real mode</strong>를 사용하세요.
+로봇 컨트롤러의 기본 IP는 <em>192.168.127.100</em> 이고 포트는 <em>12345</em> 입니다.</p>
+<section id="id2">
+<h3>dsr_control2 노드 실행<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>dsr_launcher2<span class="w"> </span>single_robot_rviz.launch.py<span class="w"> </span>mode:<span class="o">=</span>real<span class="w"> </span>host:<span class="o">=</span><span class="m">192</span>.168.127.100<span class="w"> </span>port:<span class="o">=</span><span class="m">12345</span>
+</pre></div>
+</div>
+<p>이 명령어는 <code class="docutils literal notranslate"><span class="pre">single_robot_rviz.launch.py</span></code> 파일을 실행하여 실제 로봇과 연결합니다.
+<code class="docutils literal notranslate"><span class="pre">mode</span></code> 인자를 real로 설정하고, <code class="docutils literal notranslate"><span class="pre">host</span></code>와 <code class="docutils literal notranslate"><span class="pre">port</span></code> 인자에 실제 로봇 컨트롤러의 IP와 포트를 지정합니다.
+이렇게 하면 dsr_control2 노드가 실제 로봇 컨트롤러와 통신하여 실제 로봇을 제어할 수 있게 됩니다.</p>
+</section>
+<section id="id3">
+<h3>예제 스크립트 실행<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>dsr_example2 패키지에 포함된 예제 스크립트를 사용하여 로봇을 구동할 수 있습니다.
+컨트롤러와 로봇이 정상적으로 연결되었는지 확인한 후, 아래 명령어를 입력하세요.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>dsr_example2_py<span class="w"> </span>dsr_service_motion_simple
+</pre></div>
+</div>
+<p>이 명령어는 <code class="docutils literal notranslate"><span class="pre">dsr_service_motion_simple</span></code> 예제 스크립트를 실행합니다.
+이 스크립트는 로봇의 간단한 모션을 demonstrates합니다.
+실제 모드에서는 실제 로봇이 동작하는 것을 확인할 수 있습니다.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="dsr-launcher2">
+<h2>dsr_launcher2<a class="headerlink" href="#dsr-launcher2" title="Link to this heading">#</a></h2>
+<p>dsr_launcher2 패키지에는 control node, rviz, gazebo를 연동할 수 있는 <a class="reference external" href="http://launch.py">launch.py</a> 파일이 포함되어 있습니다.
+따라서 launch 파일을 실행하기 전에 실제 로봇 컨트롤러 또는 에뮬레이터와 연결이 필요합니다.
+아래 명령어로 시뮬레이션을 수행할 수 있습니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>dsr_launcher2<span class="w"> </span>single_robot_rviz.launch.py
+</pre></div>
+</div>
+<img src="https://user-images.githubusercontent.com/47092672/97654894-3f5f4180-1aa7-11eb-83f0-90eb071d1f60.gif" width="70%">
+<p>이 명령어는 <code class="docutils literal notranslate"><span class="pre">single_robot_rviz.launch.py</span></code> 파일을 실행하여 가상 모드에서 로봇을 Rviz에 표시합니다.
+DRCF 에뮬레이터와 dsr_control2 노드가 자동으로 실행되어 가상 환경에서 로봇을 제어할 수 있습니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>dsr_launcher2<span class="w"> </span>single_robot_gazebo.launch.py
+</pre></div>
+</div>
+<img src="https://user-images.githubusercontent.com/47092672/99232226-fe9c5200-2834-11eb-8719-f87cc56d55c7.gif" width="70%">
+<p>이 명령어는 <code class="docutils literal notranslate"><span class="pre">single_robot_gazebo.launch.py</span></code> 파일을 실행하여 가상 모드에서 로봇을 Gazebo 시뮬레이터에 표시합니다.
+Gazebo 시뮬레이터와 dsr_control2 노드가 자동으로 실행되어 물리 기반 시뮬레이션 환경에서 로봇을 제어할 수 있습니다.</p>
+</section>
+<section id="moveit">
+<h2>Moveit<a class="headerlink" href="#moveit" title="Link to this heading">#</a></h2>
+<p>moveit2 패키지를 사용하려면 아래 패키지들을 설치해야 합니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/opt/ros2_ws/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ros-planning/moveit2
+git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>ros2<span class="w"> </span>--single-branch<span class="w"> </span>https://github.com/ros-planning/warehouse_ros
+git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>ros2<span class="w"> </span>--single-branch<span class="w">  </span>https://github.com/ros-planning/warehouse_ros_mongo
+git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>ros2<span class="w"> </span>--single-branch<span class="w"> </span>https://github.com/ros-planning/srdfdom
+git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>ros2<span class="w"> </span>--single-branch<span class="w"> </span>https://github.com/ros-planning/geometric_shapes
+git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>use_new_joint_handle<span class="w"> </span>https://github.com/ShotaAk/fake_joint
+</pre></div>
+</div>
+<p>ROS2 패키지와 호환되는 fake_joint 패키지를 빌드하기 위해 아래와 같은 추가 작업을 해주세요.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/opt/ros2_ws/src
+cp<span class="w"> </span>doosan-robot2/common2/resource/fake_joint_driver_node.cpp<span class="w"> </span>fake_joint/fake_joint_driver/src/fake_joint_driver_node.cpp
+</pre></div>
+</div>
+<p>아래 명령어를 통해 의존성 패키지를 설치할 수 있습니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/opt/ros2_ws
+rosdep<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>--rosdistro<span class="w"> </span>foxy<span class="w"> </span>-y
+rm<span class="w"> </span>-rf<span class="w"> </span>src/doosan-robot2/moveit_config_*/COLCON_IGNORE<span class="w">    </span><span class="c1"># colcon build 전에 moveit 패키지를 활성화하는 명령어</span>
+colcon<span class="w"> </span>build
+.<span class="w"> </span>install/setup.bash
+</pre></div>
+</div>
+<p>moveit_config 패키지에서 fake_controller로 moveit2를 실행할 수 있습니다.
+아래 명령어 형식을 참고하세요.</p>
+<blockquote>
+<div><p>ros2 launch moveit<em>config</em>&lt;robot_model&gt; &lt;robot_model&gt;.launch.py</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>moveit_config_m1013<span class="w"> </span>m1013.launch.py
+</pre></div>
+</div>
+<p>moveit2는 제어 노드와 연동하여 실행할 수 있습니다. 실제 로봇과 연동하여 moveit2의 planning 기능을 사용하려면 아래 명령어를 입력하세요.
+위에서 언급한 <strong>dsr_control2 노드 실행</strong> 항목의 인자들을 참고하세요.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>dsr_control2<span class="w"> </span>dsr_moveit2.launch.py
+</pre></div>
+</div>
+<img src="https://user-images.githubusercontent.com/47092672/102734069-3f324280-4382-11eb-9165-cdec6b52de17.gif" width="80%">
+<p>이 명령어는 <code class="docutils literal notranslate"><span class="pre">dsr_moveit2.launch.py</span></code> 파일을 실행하여 dsr_control2 노드와 moveit2를 연동합니다.
+실제 로봇과 연결된 상태에서 moveit2의 모션 플래닝 기능을 사용할 수 있습니다.
+Rviz에서 moveit2의 인터페이스를 통해 로봇의 목표 자세를 설정하면, moveit2가 경로를 계획하고 dsr_control2 노드를 통해 실제 로봇이 해당 경로를 따라 움직이게 됩니다.</p>
+<p>이상으로 doosan-robot2 ROS2 패키지의 사용 방법에 대해 자세히 알아보았습니다.
+Virtual Mode와 Real Mode에서의 dsr_control2 노드 실행 방법, 예제 스크립트를 통한 로봇 구동, dsr_launcher2 패키지를 이용한 시뮬레이션, 그리고 moveit2와의 연동까지 doosan-robot2 패키지가 제공하는 다양한 기능들을 확인할 수 있었습니다.
+이제 여러분만의 로봇 프로젝트에 doosan-robot2 패키지를 활용해보세요!</p>
 </section>
 </section>
 
@@ -497,7 +628,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./week01"
+            path: "./week06"
         },
         predefinedOutput: true
     }
@@ -515,20 +646,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="lecture.html"
+       href="ros-container.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">두산로보틱스 기본 교육</p>
+        <p class="prev-next-title">도커를 이용한 ROS2 실행환경 구축</p>
       </div>
     </a>
     <a class="right-next"
-       href="references.html"
+       href="../syllabus/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">참고자료</p>
+        <p class="prev-next-title">수업계획서</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -548,7 +679,19 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#servo-on">Servo On</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#joint-state-publish">Joint State Publish</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-mode">Virtual Mode</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dsr-control2">dsr_control2 노드 실행</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">예제 스크립트 실행</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-mode">Real Mode</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">dsr_control2 노드 실행</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">예제 스크립트 실행</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dsr-launcher2">dsr_launcher2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moveit">Moveit</a></li>
 </ul>
   </nav></div>
 
