@@ -1,0 +1,3 @@
+- https://discourse.ros.org/t/ros1-ros2/34066
+- https://discourse.ros.org/t/ros-2/20589
+- https://github.com/robotpilot/ros-seminar
