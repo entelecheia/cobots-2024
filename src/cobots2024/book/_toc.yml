@@ -29,7 +29,8 @@ parts:
           - file: week05/lecture
       - file: week06/index
         sections:
-          - file: week06/ros
+          - file: week06/ros-container
+          - file: week06/dsr-usage
   - caption: About
     chapters:
       - file: syllabus/index
