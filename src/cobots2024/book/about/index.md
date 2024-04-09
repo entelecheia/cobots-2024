@@ -19,3 +19,7 @@
 ## Teaching Assistants
 
 ## Students
+
+###장희선
+- 202021029
+- E-mail : 202021029@chu.ac.kr
