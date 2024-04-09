@@ -30,7 +30,9 @@ parts:
       - file: week06/index
         sections:
           - file: week06/ros-container
+          - file: week06/ros-setup
           - file: week06/dsr-usage
+          - file: week06/ros-intro
   - caption: About
     chapters:
       - file: syllabus/index
