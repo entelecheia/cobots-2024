@@ -19,5 +19,4 @@
 ## Teaching Assistants
 
 ## Students
-
-- 202221014 이규범
+- 윤효찬(202021024)
