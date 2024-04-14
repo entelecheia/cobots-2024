@@ -1,0 +1,1052 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>패키지와 워크스페이스 &#8212; 협동로봇활용 2024</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script src="../_static/js/hoverxref.js"></script>
+    <script src="../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../_static/js/micromodal.min.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-BQJE5V9RK2"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-BQJE5V9RK2');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-BQJE5V9RK2');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week07/ros-workspace';</script>
+    <link rel="icon" href="https://assets.entelecheia.ai/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ROS 프로젝트" href="../projects/index.html" />
+    <link rel="prev" title="ROS 기초" href="ros-basics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">협동로봇활용 2024</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week01/index.html">Week 1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week01/lecture.html">두산로보틱스 기본 교육</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week01/terminology.html">주요용어</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week01/references.html">참고자료</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week01/review.html">복습</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week02/index.html">Week 2</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week02/lecture.html">핵심 교육 (Part 1/2)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week03/index.html">Week 3</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week03/lecture.html">핵심 교육 (Part 1/2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week03/ros-intro.html">ROS 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week03/ros-setup.html">ROS 설치환경 구축하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week03/ros-install.html">ROS 설치하기</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week04/index.html">Week 4</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week04/lecture.html">핵심 교육 (Part 2/2)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week05/index.html">Week 5</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week05/lecture.html">ROS 활용방법</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week06/index.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week06/ros-container.html">도커를 이용한 ROS2 실행환경 구축</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week06/ros-setup.html">ROS 환경 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week06/dsr-usage.html">DSR 사용방법</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week06/ros-intro.html">ROS 소개</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Week 7</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ros-basics.html">ROS 기초</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">패키지와 워크스페이스</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects/index.html">ROS 프로젝트</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/202021024/index.html">202021024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/202021029/index.html">202021029</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/202021032/index.html">202021032</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/202021038/index.html">202021038</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/202121010/index.html">202121010</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/202221014/index.html">202221014</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/setup.html">프로젝트 환경설정</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/index.html">수업계획서</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">만든 사람들</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://halla.ai">인공지능학과</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://os2024.halla.ai">운영체제 2024</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://mlops2024.halla.ai">머신러닝시스템 2024</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cobots2024.halla.ai">협동로봇활용 2024</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://aibasics.halla.ai">AI 세상 속으로</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/chu-aie/cobots-2024" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chu-aie/cobots-2024/edit/main/src/cobots2024/book/week07/ros-workspace.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chu-aie/cobots-2024/issues/new?title=Issue%20on%20page%20%2Fweek07/ros-workspace.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/week07/ros-workspace.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>패키지와 워크스페이스</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package">패키지 (Package)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">패키지 구조</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-xml">package.xml</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">필수 요소</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">의존성 명시</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ament-python">Ament Python 패키지</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-py">setup.py</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-cfg">setup.cfg</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ament-cmake">Ament CMake 패키지</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-interfaces">커스텀 인터페이스 (Custom Interfaces)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">커스텀 인터페이스 정의하기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">인터페이스 사용하기</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workspace">워크스페이스 (Workspace)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">구조</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">워크스페이스 빌드하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">경고</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">워크스페이스 사용하기</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colcon">Colcon</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colcon-cd">colcon_cd</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colcon-clean">colcon_clean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colcon-pkg">colcon.pkg</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ros">ROS 환경</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overlays">오버레이 (Overlays)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>패키지와 워크스페이스<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="package">
+<h2>패키지 (Package)<a class="headerlink" href="#package" title="Link to this heading">#</a></h2>
+<p>ROS에서 패키지는 소스 코드와 기타 리소스를 하나의 단위로 묶어 배포하는 것을 말합니다. 패키지는 ROS의 기본 구성 단위로, 노드, 라이브러리, 데이터셋, 설정 파일 등을 포함합니다.</p>
+<ul class="simple">
+<li><p>배포 (Distribution): 소프트웨어를 사용자에게 전달하는 방식을 말합니다. ROS에서는 바이너리 패키지와 소스 코드 패키지, 두 가지 형태로 배포됩니다.</p></li>
+</ul>
+<p>ROS 패키지는 <code class="docutils literal notranslate"><span class="pre">apt</span></code>를 통해 바이너리 형태로 설치할 수 있습니다. 패키지 이름은 <code class="docutils literal notranslate"><span class="pre">ros-&lt;distro&gt;-&lt;package_name&gt;</span></code>의 형식을 따르며, 언더스코어(<code class="docutils literal notranslate"><span class="pre">_</span></code>)는 대시(<code class="docutils literal notranslate"><span class="pre">-</span></code>)로 변경됩니다. 예를 들어 <code class="docutils literal notranslate"><span class="pre">ros-iron-rclpy</span></code>는 ROS 2 Iron 배포판의 <code class="docutils literal notranslate"><span class="pre">rclpy</span></code> 패키지를 의미합니다.</p>
+<p>소스 코드 형태의 ROS 패키지는 직접 다운로드하여 빌드할 수 있습니다. 바이너리 패키지를 사용하는 것이 간편하지만, ROS 코드를 직접 작성하려면 패키지를 직접 만들어야 합니다.</p>
+<section id="id2">
+<h3>패키지 구조<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>모든 ROS 패키지는 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code>이라는 매니페스트 파일을 포함하고 있습니다. 이 파일은 XML 형식으로 작성되며, 패키지의 메타데이터를 기술합니다. <code class="docutils literal notranslate"><span class="pre">package.xml</span></code>의 전체 스펙은 <a class="reference external" href="https://www.ros.org/reps/rep-0149.html">ROS REP 149</a>에 정의되어 있습니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">package.xml</span></code>에서 중요한 요소 중 하나는 <code class="docutils literal notranslate"><span class="pre">&lt;export&gt;</span></code>의 <code class="docutils literal notranslate"><span class="pre">&lt;build_type&gt;</span></code>입니다. 이는 패키지의 빌드 타입을 결정하는데, 다음과 같은 값을 가질 수 있습니다:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ament_python</span></code>: 순수 Python 패키지에 사용됩니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ament_cmake</span></code>: C++ 패키지나 커스텀 메시지, 서비스, 액션 등을 정의하는 패키지에 사용됩니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ament_cmake_python</span></code>: Python과 C++ 코드가 혼합된 패키지에 사용됩니다.</p></li>
+</ul>
+</section>
+<section id="package-xml">
+<h3>package.xml<a class="headerlink" href="#package-xml" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h4>필수 요소<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code>: 패키지의 이름</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;version&gt;</span></code>: 패키지의 버전</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;description&gt;</span></code>: 패키지에 대한 설명</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;maintainer&gt;</span></code>: 패키지 관리자 정보 (이름과 이메일)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;license&gt;</span></code>: 패키지의 라이선스 정보</p></li>
+</ul>
+</section>
+<section id="id4">
+<h4>의존성 명시<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<p>패키지의 의존성은 다음과 같이 분류됩니다:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;exec_depend&gt;</span></code>: 런타임에 필요한 패키지. Python 패키지에서 다른 패키지의 코드를 임포트하거나, 런치 파일에서 다른 패키지의 노드를 실행하는 경우 사용합니다. 가장 일반적인 의존성 타입입니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;build_depend&gt;</span></code>: 빌드 타임에 필요한 패키지. Python 코드는 컴파일되지 않으므로 보통 필요하지 않습니다. 단, 다른 패키지의 메시지나 서비스에 의존하는 경우에는 사용합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;depend&gt;</span></code>: C++ 패키지에서 가장 일반적으로 사용되는 의존성 타입입니다. Python 패키지에서 <code class="docutils literal notranslate"><span class="pre">std_msgs</span></code>와 같은 커스텀 메시지에 의존하는 경우에도 사용합니다. <code class="docutils literal notranslate"><span class="pre">&lt;depend&gt;</span></code>를 사용하면 <code class="docutils literal notranslate"><span class="pre">&lt;exec_depend&gt;</span></code>와 <code class="docutils literal notranslate"><span class="pre">&lt;build_depend&gt;</span></code>가 자동으로 추가됩니다.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">rosdep</span></code>은 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code>에 명시된 의존성을 분석하여 누락된 의존성 패키지를 자동으로 설치해주는 도구입니다.</p>
+</section>
+</section>
+<section id="ament-python">
+<h3>Ament Python 패키지<a class="headerlink" href="#ament-python" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://docs.ros.org/en/iron/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html">Ament Python</a>은 순수 Python으로 작성된 ROS 2 패키지에 사용되는 빌드 타입입니다. 다음 명령으로 패키지 템플릿을 생성할 수 있습니다:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>pkg<span class="w"> </span>create<span class="w"> </span>--build-type<span class="w"> </span>ament_python
+</pre></div>
+</div>
+<p>Ament Python 패키지의 기본 디렉토리 구조는 다음과 같습니다:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>pkg_name/
+├── package.xml             # 패키지 매니페스트 파일
+├── pkg_name/               # Python 패키지
+│   ├── __init__.py         # 이 디렉토리가 Python 패키지임을 나타냄
+│   └── module.py           # Python 모듈
+├── launch/                 # 런치 파일 디렉토리
+│   ├── file.launch.xml     # XML 형식의 런치 파일
+│   ├── file.launch.py      # Python 형식의 런치 파일
+│   └── file.launch.yaml    # YAML 형식의 런치 파일
+├── config/                 # 설정 파일 디렉토리
+│   ├── parameters.yaml     # 노드의 파라미터를 저장하는 파일
+│   └── view.rviz           # RViz 설정 파일
+├── resource/               # ament_index에 패키지를 등록하기 위한 디렉토리
+│   └── package_name        # ament_index에 패키지를 등록하기 위한 빈 파일
+├── setup.cfg               # 설치 경로 등을 설정하는 파일
+├── setup.py                # 노드 진입점, 메타데이터, 기타 설치 파일 등을 정의
+└── test/                   # 단위 테스트 디렉토리
+    ├── test_copyright.py   # 저작권 표기를 검사하는 테스트
+    ├── test_flake8.py      # Python 코드 스타일을 검사하는 테스트
+    └── test_pep257.py      # Docstring 스타일을 검사하는 테스트
+</pre></div>
+</div>
+<section id="setup-py">
+<h4><a class="reference external" href="http://setup.py">setup.py</a><a class="headerlink" href="#setup-py" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">setup.py</span></code> 파일은 Python 패키지 도구인 <code class="docutils literal notranslate"><span class="pre">setuptools</span></code>를 기반으로 합니다. 이 파일에는 패키지의 메타데이터와 설치할 파일, 노드의 진입점 등을 정의합니다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data_files</span></code>: 설치해야 할 비코드 파일들을 지정합니다. <code class="docutils literal notranslate"><span class="pre">[('install_dir1',</span> <span class="pre">['file1',</span> <span class="pre">'file2',</span> <span class="pre">...]),</span> <span class="pre">('install_dir2',</span> <span class="pre">['file1',</span> <span class="pre">...])]</span></code>와 같은 형태의 리스트로 표현됩니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">entry_points</span></code>: 다양한 진입점을 정의하는 딕셔너리입니다. 노드는 <code class="docutils literal notranslate"><span class="pre">console_scripts</span></code> 리스트에 <code class="docutils literal notranslate"><span class="pre">'node_exec</span> <span class="pre">=</span> <span class="pre">pkg.module:func'</span></code> 형태로 등록됩니다.</p></li>
+</ul>
+</section>
+<section id="setup-cfg">
+<h4>setup.cfg<a class="headerlink" href="#setup-cfg" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">setup.py</span></code>에서 사용할 기본 설치 경로를 지정합니다. 보통은 그대로 두면 됩니다.</p>
+</section>
+</section>
+<section id="ament-cmake">
+<h3>Ament CMake 패키지<a class="headerlink" href="#ament-cmake" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://docs.ros.org/en/iron/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html">Ament CMake</a> 패키지는 주로 C++로 작성된 ROS 프로젝트에 사용됩니다. 다음 명령으로 패키지 템플릿을 생성할 수 있습니다:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>pkg<span class="w"> </span>create<span class="w"> </span>--build-type<span class="w"> </span>ament_cmake
+</pre></div>
+</div>
+<p>현재는 커스텀 인터페이스(메시지, 서비스, 액션 등)를 정의하려면 반드시 Ament CMake 패키지를 사용해야 합니다.</p>
+<p>Ament CMake 패키지의 기본 디렉토리 구조는 다음과 같습니다:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>pkg_name/
+├── package.xml           # 패키지 매니페스트 파일
+├── CMakeLists.txt        # CMake 빌드 설정 파일 (ament_* 매크로 사용)
+├── msg/                  # 커스텀 메시지 타입 디렉토리
+│   └── MessageType.msg   # 메시지 타입을 정의하는 ROS IDL 파일
+├── srv/                  # 커스텀 서비스 타입 디렉토리
+│   └── ServiceType.srv   # 서비스 타입을 정의하는 ROS IDL 파일
+└── action/               # 커스텀 액션 타입 디렉토리
+    └── ActionType.action # 액션 타입을 정의하는 ROS IDL 파일
+</pre></div>
+</div>
+</section>
+</section>
+<section id="custom-interfaces">
+<h2>커스텀 인터페이스 (Custom Interfaces)<a class="headerlink" href="#custom-interfaces" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h3>커스텀 인터페이스 정의하기<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>커스텀 인터페이스는 <code class="docutils literal notranslate"><span class="pre">ament_cmake</span></code> 타입의 패키지에서 만듭니다.</p></li>
+<li><p><a class="reference external" href="https://docs.ros.org/en/iron/Concepts/About-ROS-Interfaces.html">ROS IDL</a>을 사용하여 인터페이스 파일을 작성합니다.</p>
+<ul class="simple">
+<li><p>메시지 파일은 <code class="docutils literal notranslate"><span class="pre">.msg</span></code> 확장자를 가지며, <code class="docutils literal notranslate"><span class="pre">&lt;package_name&gt;/msg</span></code> 디렉토리에 위치합니다.</p></li>
+<li><p>서비스 파일은 <code class="docutils literal notranslate"><span class="pre">.srv</span></code> 확장자를 가지며, <code class="docutils literal notranslate"><span class="pre">&lt;package_name&gt;/srv</span></code> 디렉토리에 위치합니다.</p></li>
+<li><p>액션 파일은 <code class="docutils literal notranslate"><span class="pre">.action</span></code> 확장자를 가지며, <code class="docutils literal notranslate"><span class="pre">&lt;package_name&gt;/action</span></code> 디렉토리에 위치합니다.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> 파일을 수정하여 인터페이스 코드 생성을 위한 CMake 코드를 추가합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 파일을 수정합니다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rosidl_default_generators</span></code>에 대한 <code class="docutils literal notranslate"><span class="pre">&lt;buildtool_depend&gt;</span></code>를 추가합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rosidl_default_runtime</span></code>에 대한 <code class="docutils literal notranslate"><span class="pre">&lt;exec_depend&gt;</span></code>를 추가합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;member_of_group&gt;</span></code> 태그를 사용하여 패키지를 <code class="docutils literal notranslate"><span class="pre">rosidl_interface_packages</span></code> 그룹에 추가합니다.</p></li>
+<li><p>사용한 타입이 정의된 패키지에 대한 <code class="docutils literal notranslate"><span class="pre">&lt;exec_depend&gt;</span></code>와 <code class="docutils literal notranslate"><span class="pre">&lt;build_depend&gt;</span></code>를 추가합니다.</p></li>
+</ul>
+</li>
+<li><p>커스텀 인터페이스의 이름은 대문자로 시작해야 하며, 영문자와 숫자만 포함할 수 있습니다.</p></li>
+</ol>
+</section>
+<section id="id6">
+<h3>인터페이스 사용하기<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>인터페이스를 정의한 패키지에 대한 <code class="docutils literal notranslate"><span class="pre">&lt;exec_depend&gt;</span></code>를 추가합니다.</p></li>
+<li><p>Python에서는 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">&lt;interface_package_name&gt;.&lt;msg|srv|action&gt;</span> <span class="pre">import</span> <span class="pre">TypeName</span></code> 형태로 임포트합니다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;interface_package_name&gt;</span></code>은 인터페이스를 정의한 패키지의 이름입니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;msg|srv|action&gt;</span></code>은 <code class="docutils literal notranslate"><span class="pre">msg</span></code>, <code class="docutils literal notranslate"><span class="pre">srv</span></code>, <code class="docutils literal notranslate"><span class="pre">action</span></code> 중 하나입니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TypeName</span></code>은 메시지, 서비스, 액션 타입의 이름입니다.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="workspace">
+<h2>워크스페이스 (Workspace)<a class="headerlink" href="#workspace" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h3>구조<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>ROS <a class="reference external" href="https://docs.ros.org/en/iron/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html">워크스페이스</a>는 <code class="docutils literal notranslate"><span class="pre">ws</span></code>라는 디렉토리로, 다음과 같은 구조를 가집니다:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ws/src/&lt;repo&gt;</span></code>: ROS 패키지의 소스 코드가 위치하는 디렉토리입니다.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 파일을 포함하는 모든 디렉토리는 패키지로 간주됩니다.</p></li>
+<li><p>관례상 패키지는 <code class="docutils literal notranslate"><span class="pre">ws/src/&lt;repo&gt;</span></code> 아래에 위치하며, <code class="docutils literal notranslate"><span class="pre">&lt;repo&gt;</span></code>는 소스 코드 저장소의 이름입니다.</p></li>
+<li><p>하나의 저장소에는 여러 개의 패키지가 포함될 수 있습니다.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ws/log</span></code>: 패키지 빌드 시 생성되는 로그 파일이 저장되는 디렉토리입니다. 최신 로그는 <code class="docutils literal notranslate"><span class="pre">ws/log/latest</span></code>에 위치합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ws/install</span></code>: 빌드된 패키지가 설치되는 디렉토리입니다.</p></li>
+<li><p>ROS 워크스페이스를 사용하면 관련 패키지들을 묶어서 빌드할 수 있습니다.</p></li>
+<li><p>프로젝트마다 새로운 워크스페이스를 사용하는 것이 좋습니다. 이렇게 하면 현재 개발 중인 패키지와 관련 없는 문제로 인해 영향을 받지 않습니다.</p></li>
+</ol>
+</section>
+<section id="id8">
+<h3>워크스페이스 빌드하기<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>워크스페이스는 사용하기 전에 반드시 <a class="reference external" href="https://docs.ros.org/en/iron/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html#build-the-workspace-with-colcon">빌드</a>해야 합니다.</p></li>
+<li><p>워크스페이스 디렉토리(<code class="docutils literal notranslate"><span class="pre">ws</span></code>)에서 <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span></code> 명령을 실행하면 <code class="docutils literal notranslate"><span class="pre">ws/src</span></code> 아래의 모든 패키지가 빌드됩니다.</p>
+<ul>
+<li><p>빌드 결과물은 <code class="docutils literal notranslate"><span class="pre">ws/build</span></code>에 저장됩니다.</p></li>
+<li><p>최종 결과물은 <code class="docutils literal notranslate"><span class="pre">ws/install</span></code>에 설치되며, 실제 코드(Python 파일 포함)가 실행되는 위치입니다.</p></li>
+<li><p>따라서 워크스페이스를 사용하기 전에 반드시 <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span></code>를 최소한 한 번은 실행해야 합니다.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span></code>의 주요 옵션은 다음과 같습니다:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--symlink-install</span></code>: Python 파일을 수정한 후에도 <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span></code>를 다시 실행하지 않아도 되도록 합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--merge-install</span></code>: 기본적으로 각 패키지는 자체 디렉토리 구조로 설치됩니다. 이로 인해 경로가 매우 길어질 수 있으므로, 이 옵션을 사용하면 모든 패키지의 파일이 유형별로 공통 디렉토리에 설치됩니다.</p></li>
+</ul>
+</li>
+</ul>
+<section id="id9">
+<h4>경고<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>현재 많은 ROS 2 패키지에서 <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> 사용과 관련된 비권장 경고(deprecation warning)가 발생합니다.</p></li>
+<li><p>이러한 경고를 보지 않으려면 <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>에 <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">PYTHONWARNINGS=ignore:::setuptools.command.install,ignore:::setuptools.command.easy_install,ignore:::pkg_resources</span></code>를 추가하세요.</p></li>
+<li><p>자세한 내용은 <a class="reference external" href="https://github.com/colcon/colcon-core/issues/454">colcon-core 이슈 #454</a>를 참고하세요.</p></li>
+<li><p>경고를 방치하는 것은 좋지 않은 습관입니다.</p>
+<ul>
+<li><p>경고가 문제가 되지 않는 이유를 신중히 고려한 후에만 경고를 억제해야 합니다 (이 경우에는 우리가 제어할 수 없는 경고입니다).</p></li>
+<li><p>일부 경고를 방치하면 모든 경고를 무시하는 상황이 발생할 수 있으며, 이는 종종 버그로 이어집니다.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="id10">
+<h3>워크스페이스 사용하기<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>빌드 후에는 <code class="docutils literal notranslate"><span class="pre">ws/install</span></code> 디렉토리(설치 공간)가 생성됩니다.</p>
+<ul>
+<li><p>여기에는 Python 파일과 기타 파일(설치되도록 <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>에 지정한 경우)이 포함됩니다.</p></li>
+</ul>
+</li>
+<li><p>빌드 후에는 ROS에서 이 파일들을 사용할 수 있도록 설치 공간을 소싱(sourcing)해야 합니다.</p></li>
+<li><p>워크스페이스를 소싱하려면 <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">&lt;path_to_install_space&gt;/setup.bash</span></code> 명령을 실행합니다.</p>
+<ul>
+<li><p>예를 들어 현재 디렉토리가 워크스페이스의 루트(<code class="docutils literal notranslate"><span class="pre">ws/</span></code>)인 경우, <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">install/setup.bash</span></code>를 실행합니다.</p></li>
+<li><p>기술적으로는 관련 워크스페이스를 소싱한 터미널 창에서 <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span></code>를 실행하면 안 됩니다.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="colcon">
+<h2>Colcon<a class="headerlink" href="#colcon" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://colcon.readthedocs.io/en/released/"><code class="docutils literal notranslate"><span class="pre">colcon</span></code></a>은 ROS 2의 빌드 도구로, 워크스페이스를 빌드하는 데 사용됩니다.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">python</span></code>으로 작성되었으며, 누구나 빌드 과정을 커스터마이즈할 수 있는 확장 기능으로 구현되어 있습니다.</p></li>
+<li><p>일반적인 확장 기능은 <code class="docutils literal notranslate"><span class="pre">python3-colcon-common-extensions</span></code> 패키지의 일부로 제공됩니다.</p></li>
+<li><p>다른 확장 기능은 보통 <code class="docutils literal notranslate"><span class="pre">python3-colcon-&lt;extension-name&gt;</span></code> 형태로 설치할 수 있습니다.</p></li>
+<li><p>누구나 colcon 확장 기능을 작성할 수 있으며, colcon 개발자가 이를 지원하거나 호스팅할 필요는 없습니다. 그러나 일반적으로 유용한 colcon 확장 기능의 소스 코드는 <a class="reference external" href="https://github.com/colcon">Colcon Github Organization</a>에서 호스팅되며 유지 관리됩니다.</p></li>
+</ul>
+</li>
+<li><p>빌드 도구로서 colcon은 다양한 빌드 시스템(ament_python, ament_cmake, CMake, Catkin 등)을 사용하는 프로젝트를 빌드할 수 있습니다 (<a class="reference external" href="https://design.ros2.org/articles/build_tool.html">Colcon 설계 근거</a> 참조).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">colcon</span></code>은 서로 다른 프로그래밍 언어와 빌드 시스템을 사용하는 여러 ROS 패키지 간의 의존성을 관리합니다.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">package.xml</span></code>에 명시된 의존성을 기반으로 <code class="docutils literal notranslate"><span class="pre">colcon</span></code>이 패키지를 올바른 순서로 빌드합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">A&gt;</span></code>가 <code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">B&gt;</span></code>에 대한 <code class="docutils literal notranslate"><span class="pre">build_depend</span></code>를 가지고 있다면, <code class="docutils literal notranslate"><span class="pre">colcon</span></code>은 항상 <code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">A&gt;</span></code>보다 먼저 <code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">B&gt;</span></code>를 빌드합니다.</p></li>
+</ul>
+</li>
+<li><p>기본적으로 <code class="docutils literal notranslate"><span class="pre">colcon</span></code>은 패키지를 병렬로 빌드합니다.</p>
+<ul>
+<li><p>의존성이 간접적으로 명시되어 있더라도 운이 좋으면 코드가 여전히 컴파일될 수 있습니다. 예를 들어 <code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">A&gt;</span></code>가 <code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">B&gt;</span></code>에 의존하지만 의존성이 명시되어 있지 않은 경우, <code class="docutils literal notranslate"><span class="pre">colcon</span></code>이 두 패키지를 동시에 빌드하려고 시도할 수 있습니다. 이때 <code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">B&gt;</span></code>가 <code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">A&gt;</span></code> 프로세스에서 필요로 하기 전에 완료되면 빌드가 성공합니다.</p></li>
+<li><p>의존성이 항상 올바르게 빌드되는지 확인하려면 <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span> <span class="pre">--executor</span> <span class="pre">sequential</span></code> 옵션을 사용하여 각 패키지를 순차적으로 빌드하세요.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://docs.ros.org/en/iron/Concepts/About-Build-System.html">ROS 2 빌드 시스템에 대한 자세한 정보</a></p></li>
+</ul>
+<section id="colcon-cd">
+<h3>colcon_cd<a class="headerlink" href="#colcon-cd" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://colcon.readthedocs.io/en/released/user/installation.html#quick-directory-changes">colcon_cd</a>를 사용하면 워크스페이스 디렉토리와 패키지 디렉토리 간에 빠르게 전환할 수 있습니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">python3-colcon-cd</span></code> 명령으로 설치합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/usr/share/colcon_cd/function/colcon_cd.sh</span></code>를 추가합니다.</p></li>
+<li><p>워크스페이스 디렉토리에서 <code class="docutils literal notranslate"><span class="pre">colcon_cd</span> <span class="pre">&lt;package&gt;</span></code>를 실행하면 해당 패키지로 이동합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">colcon_cd</span></code> 명령을 실행하면 워크스페이스 디렉토리로 돌아갑니다.</p></li>
+</ul>
+</section>
+<section id="colcon-clean">
+<h3>colcon_clean<a class="headerlink" href="#colcon-clean" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/colcon/colcon-clean">colcon-clean</a>을 사용하면 워크스페이스에서 빌드 결과를 쉽게 제거할 수 있습니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">python3-colcon-clean</span></code> 명령으로 설치합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">clean</span> <span class="pre">workspace</span></code>를 실행하면 생성된 모든 파일이 정리됩니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">clean</span> <span class="pre">packages</span></code>를 사용하면 정리할 개별 패키지를 선택할 수 있습니다.</p></li>
+</ul>
+</section>
+<section id="colcon-pkg">
+<h3>colcon.pkg<a class="headerlink" href="#colcon-pkg" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">colcon.pkg</span></code> 파일은 패키지 디렉토리의 루트에 위치하며, 패키지 빌드 시 <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 설정을 변경할 수 있게 해줍니다.</p></li>
+<li><p>이 파일의 한 가지 용도는 환경 훅(environment hook)을 설치하는 것입니다. 환경 훅은 <code class="docutils literal notranslate"><span class="pre">install/setup.bash</span></code>가 소싱될 때 환경 변수를 설정하는 파일입니다.</p></li>
+<li><p>환경 훅을 설정하려면 다음 단계를 따르세요:</p>
+<ol class="arabic">
+<li><p>패키지의 <code class="docutils literal notranslate"><span class="pre">env-hooks</span></code> 하위 디렉토리에 <a class="reference external" href="https://colcon.readthedocs.io/en/released/developer/environment.html">dsv</a> 파일을 생성합니다.</p>
+<ul class="simple">
+<li><p>예를 들어 <code class="docutils literal notranslate"><span class="pre">prepend-non-duplicate;VAR_NAME;VAR_VALUE</span></code>는 중복되지 않는 경우 <code class="docutils literal notranslate"><span class="pre">VAR_NAME</span></code> 환경 변수 앞에 <code class="docutils literal notranslate"><span class="pre">VAR_VALUE</span></code>를 추가합니다.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">colcon.pkg</span></code>에 훅을 추가합니다:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;share/&lt;PACKAGE_NAME&gt;/env-hooks/&lt;DSV_NAME&gt;.dsv&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>위 코드는 지정된 경로에 있는 훅을 추가합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setup.py</span></code>에서 <code class="docutils literal notranslate"><span class="pre">.dsv</span></code> 파일이 <code class="docutils literal notranslate"><span class="pre">colcon.pkg</span></code>에서 참조한 경로에 설치되도록 해야 합니다.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+</section>
+<section id="ros">
+<h2>ROS 환경<a class="headerlink" href="#ros" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>ROS는 설정을 제어하고 노드와 라이브러리를 찾기 위해 <a class="reference external" href="https://docs.ros.org/en/iron/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html">환경 변수</a>에 의존합니다.</p>
+<ul>
+<li><p>환경 변수에 대한 자세한 내용은 <a class="reference external" href="https://nu-msr.github.io/ros_notes/ros2/colcon.html../../hackathon/linux_interactive.html#org876ea6d">환경 변수</a>를 참조하세요.</p></li>
+</ul>
+</li>
+<li><p>ROS 환경 변수는 언더레이(underlay)가 소싱될 때 설정됩니다.</p>
+<ul>
+<li><p>언더레이를 소싱하려면 <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/opt/ros/iron/setup.bash</span></code>를 실행합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ROS</span></code>를 설치할 때 <code class="docutils literal notranslate"><span class="pre">bash</span></code>가 열릴 때마다 위 명령이 자동으로 실행되도록 <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>에 추가했습니다.</p></li>
+<li><p>ROS 명령행 도구와 시스템에 설치된 패키지에 접근하려면 언더레이를 소싱해야 합니다.</p></li>
+</ul>
+</li>
+<li><p>오버레이(overlay)를 소싱하여 다른 ROS 워크스페이스를 추가할 수 있습니다. 오버레이를 소싱하면 해당 오버레이에 설치된 패키지에 접근할 수 있습니다.</p>
+<ul>
+<li><p>워크스페이스를 빌드한 후 <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">install/setup.bash</span></code>를 실행하면 오버레이를 추가하여 방금 빌드한 패키지에 접근할 수 있습니다.</p></li>
+</ul>
+</li>
+<li><p>ROS 환경 변수를 보려면 <code class="docutils literal notranslate"><span class="pre">env</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;AMENT\|CMAKE\|ROS\|COLCON&quot;</span></code> 명령을 실행하세요.</p>
+<ul>
+<li><p>이 명령은 모든 환경 변수를 출력하고 <code class="docutils literal notranslate"><span class="pre">AMENT</span></code>, <code class="docutils literal notranslate"><span class="pre">CMAKE</span></code>, <code class="docutils literal notranslate"><span class="pre">ROS</span></code>를 포함하는 변수를 검색합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AMENT_PREFIX_PATH</span></code>는 런타임에 ROS가 패키지와 파일을 찾는 위치입니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ROS_AUTOMATIC_DISCOVERY_RANGE</span></code>는 ROS 노드가 네트워크에서 자동으로 서로를 발견하는 위치에 대한 설정을 제공합니다.</p>
+<ul>
+<li><p>기본적으로 이 설정은 <code class="docutils literal notranslate"><span class="pre">SUBNET</span></code>으로, 동일한 서브넷에서 실행되는 모든 노드가 서로를 볼 수 있음을 의미합니다. 그러나 Northwestern의 네트워크는 자동 노드 검색에 필요한 트래픽을 차단합니다.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<section id="overlays">
+<h3>오버레이 (Overlays)<a class="headerlink" href="#overlays" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>기술적으로는 <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span></code>를 사용할 때 오버레이를 소싱하면 안 됩니다. 이는 빌드와 ROS 명령을 실행하기 위해 별도의 창이 필요하다는 것을 의미합니다.</p>
+<ul>
+<li><p>빌드할 때 오버레이를 소싱하면 이전 빌드에서 빌드된 패키지를 사용할 수 있게 되어 의존성 문제를 야기하거나 숨길 수 있습니다.</p></li>
+<li><p>실제 일상적인 사용에서는 이 문제가 거의 중요하지 않지만, 이렇게 하는 것이 좋은 습관이며, 그렇지 않으면 언젠가는 많은 시간을 낭비하게 될 수 있습니다.</p></li>
+</ul>
+</li>
+<li><p>여러 ROS 워크스페이스를 서로 오버레이할 수 있으므로 여러 워크스페이스의 패키지를 사용하거나 특정 패키지를 오버라이드할 수 있습니다.</p>
+<ul>
+<li><p>일반적인 사용 사례는 소스 코드로만 제공되는 외부 패키지(예: interbotix 패키지)를 사용하는 경우입니다.</p></li>
+<li><p>또 다른 사용 사례는 시스템에 설치된 패키지를 제거하지 않고도 해당 패키지를 개발할 수 있도록 하는 것입니다.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">install/setup.bash</span></code> 파일은 <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span></code>가 실행될 때 생성되며, 현재 ROS 환경을 캡처하고 여기에 현재 워크스페이스를 추가합니다.</p>
+<ul>
+<li><p>즉, <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">install/setup.bash</span></code>는 빌드 당시의 환경에 현재 워크스페이스를 더한 환경을 설정합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">install/local_setup.bash</span></code>는 빌드 당시의 환경과 관계없이 현재 워크스페이스를 기존 ROS 환경에 오버레이합니다.</p></li>
+</ul>
+</li>
+</ul>
+<p>이상으로 ROS의 패키지와 워크스페이스에 대해 알아보았습니다. 패키지는 ROS 코드와 리소스의 기본 단위이며, 워크스페이스는 관련 패키지들을 묶어 빌드하고 관리하는 데 사용됩니다.</p>
+<p>ROS 패키지는 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 매니페스트 파일에 의해 정의되며, 빌드 타입에 따라 <code class="docutils literal notranslate"><span class="pre">ament_python</span></code>, <code class="docutils literal notranslate"><span class="pre">ament_cmake</span></code>, <code class="docutils literal notranslate"><span class="pre">ament_cmake_python</span></code> 등으로 분류됩니다. 패키지는 <code class="docutils literal notranslate"><span class="pre">apt</span></code>를 통해 바이너리 형태로 설치하거나, 소스 코드를 직접 빌드할 수도 있습니다.</p>
+<p>워크스페이스는 <code class="docutils literal notranslate"><span class="pre">src</span></code>, <code class="docutils literal notranslate"><span class="pre">build</span></code>, <code class="docutils literal notranslate"><span class="pre">install</span></code>, <code class="docutils literal notranslate"><span class="pre">log</span></code> 등의 하위 디렉토리로 구성되며, <code class="docutils literal notranslate"><span class="pre">colcon</span></code> 빌드 도구를 사용하여 빌드합니다. 빌드된 패키지는 <code class="docutils literal notranslate"><span class="pre">install</span></code> 디렉토리에 설치되며, <code class="docutils literal notranslate"><span class="pre">setup.bash</span></code>를 소싱하여 사용할 수 있습니다.</p>
+<p>ROS는 다양한 환경 변수를 사용하여 설정을 제어하고 패키지와 노드를 찾습니다. 언더레이와 오버레이를 통해 여러 워크스페이스를 조합하여 사용할 수 있습니다.</p>
+<p>이제 ROS 패키지와 워크스페이스의 구조와 작동 방식을 이해했으니, 실제로 패키지를 만들고 빌드하면서 ROS 개발 환경에 익숙해져 보시기 바랍니다. ROS의 강력한 도구와 생태계를 활용하여 멋진 로봇 애플리케이션을 만들어보세요!</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "chu-aie/cobots-2024",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./week07"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ros-basics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ROS 기초</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../projects/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ROS 프로젝트</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package">패키지 (Package)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">패키지 구조</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-xml">package.xml</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">필수 요소</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">의존성 명시</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ament-python">Ament Python 패키지</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-py">setup.py</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-cfg">setup.cfg</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ament-cmake">Ament CMake 패키지</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-interfaces">커스텀 인터페이스 (Custom Interfaces)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">커스텀 인터페이스 정의하기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">인터페이스 사용하기</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workspace">워크스페이스 (Workspace)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">구조</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">워크스페이스 빌드하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">경고</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">워크스페이스 사용하기</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colcon">Colcon</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colcon-cd">colcon_cd</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colcon-clean">colcon_clean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colcon-pkg">colcon.pkg</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ros">ROS 환경</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overlays">오버레이 (Overlays)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href='https://entelecheia.me/'>Young Joon Lee</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <script
+  data-embed-id="8ce6d27b-4248-4ca8-ac90-57f7de938b44"
+  data-base-api-url="https://chat.entelecheia.app/api/embed"
+  data-brand-image-url="https://assets.entelecheia.ai/favicon.png"
+  data-chat-icon="magic"
+  data-sponsor-text="Cobots 2024"
+  data-sponsor-link="https://chat.entelecheia.app/workspace/cobots"
+  src="https://chat.entelecheia.app/embed/anythingllm-chat-widget.min.js">
+</script>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

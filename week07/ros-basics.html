@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Week 1 &#8212; 협동로봇활용 2024</title>
+    <title>ROS 기초 &#8212; 협동로봇활용 2024</title>
   
   
   
@@ -89,12 +89,12 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'week01/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week07/ros-basics';</script>
     <link rel="icon" href="https://assets.entelecheia.ai/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="두산로보틱스 기본 교육" href="lecture.html" />
-    <link rel="prev" title="Home" href="../index.html" />
+    <link rel="next" title="패키지와 워크스페이스" href="ros-workspace.html" />
+    <link rel="prev" title="Week 7" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -205,11 +205,11 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture Notes</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 1</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="lecture.html">두산로보틱스 기본 교육</a></li>
-<li class="toctree-l2"><a class="reference internal" href="terminology.html">주요용어</a></li>
-<li class="toctree-l2"><a class="reference internal" href="references.html">참고자료</a></li>
-<li class="toctree-l2"><a class="reference internal" href="review.html">복습</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week01/index.html">Week 1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week01/lecture.html">두산로보틱스 기본 교육</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week01/terminology.html">주요용어</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week01/references.html">참고자료</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week01/review.html">복습</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../week02/index.html">Week 2</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -238,9 +238,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../week06/ros-intro.html">ROS 소개</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../week07/index.html">Week 7</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../week07/ros-basics.html">ROS 기초</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../week07/ros-workspace.html">패키지와 워크스페이스</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Week 7</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">ROS 기초</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros-workspace.html">패키지와 워크스페이스</a></li>
 </ul>
 </li>
 </ul>
@@ -340,7 +340,7 @@
       
       
       
-      <li><a href="https://github.com/chu-aie/cobots-2024/edit/main/src/cobots2024/book/week01/index.md" target="_blank"
+      <li><a href="https://github.com/chu-aie/cobots-2024/edit/main/src/cobots2024/book/week07/ros-basics.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -357,7 +357,7 @@
       
       
       
-      <li><a href="https://github.com/chu-aie/cobots-2024/issues/new?title=Issue%20on%20page%20%2Fweek01/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/chu-aie/cobots-2024/issues/new?title=Issue%20on%20page%20%2Fweek07/ros-basics.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -387,7 +387,7 @@
       
       
       
-      <li><a href="../_sources/week01/index.md" target="_blank"
+      <li><a href="../_sources/week07/ros-basics.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -458,7 +458,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -469,11 +471,33 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 1</h1>
+    <h1>ROS 기초</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">소개</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">용어 정리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">ROS 구성요소</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">문서 (Documentation)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">패키지 (Packages)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nodes">노드 (Nodes)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inter-node-communication">통신 (Inter-Node Communication)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ros-graph">그래프 (ROS Graph)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">파라미터 (Parameters)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launchfiles">런치파일 (Launchfiles)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bags">백 (Bags)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logging">로깅 (Logging)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">디버깅 (Debugging)</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -483,16 +507,87 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-1">
-<h1>Week 1<a class="headerlink" href="#week-1" title="Link to this heading">#</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="lecture.html">두산로보틱스 기본 교육</a></li>
-<li class="toctree-l1"><a class="reference internal" href="terminology.html">주요용어</a></li>
-<li class="toctree-l1"><a class="reference internal" href="references.html">참고자료</a></li>
-<li class="toctree-l1"><a class="reference internal" href="review.html">복습</a></li>
+  <section class="tex2jax_ignore mathjax_ignore" id="ros">
+<h1>ROS 기초<a class="headerlink" href="#ros" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>소개<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>ROS (Robot Operating System)는 로봇 소프트웨어 개발을 위한 도구, 라이브러리, 규약 등을 제공하는 오픈소스 플랫폼입니다. ROS 생태계는 이러한 요소들로 구성되어 있으며, 개발자는 이를 활용하여 로봇 시스템을 설계, 구현, 분석할 수 있습니다.</p>
+<p>ROS에서는 로봇의 각 기능을 노드(Node)라는 단위 프로세스로 구현하며, 노드 간의 데이터 송수신을 위해 토픽(Topic), 서비스(Service), 액션(Action) 등의 통신 방식을 제공합니다. 이를 통해 분산 컴퓨팅 환경에서 노드 간 유연한 협업이 가능해집니다.</p>
+</section>
+<section id="id2">
+<h2>용어 정리<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>노드 (Node): ROS에서 실행되는 기본 단위 프로세스입니다. 각 노드는 특정한 기능을 담당합니다.</p></li>
+<li><p>패키지 (Package): ROS에서 코드와 데이터, 설정 등을 관리하는 기본 단위입니다. 노드, 라이브러리, 데이터셋 등으로 구성됩니다.</p></li>
+<li><p>토픽 (Topic): 노드 간 데이터 송수신을 위한 단방향 통신 채널입니다. 메시지 발행/구독 방식으로 동작합니다.</p></li>
+<li><p>서비스 (Service): 노드 간 동기 양방향 통신을 위한 채널입니다. 요청-응답 방식으로 동작합니다.</p></li>
+<li><p>액션 (Action): 노드 간 비동기 양방향 통신을 위한 채널입니다. 장시간 실행되는 태스크의 진행 상황 전달에 사용합니다.</p></li>
+<li><p>인터페이스 (Interface): 노드 간 데이터 교환에 사용되는 메시지, 서비스, 액션의 타입을 통칭하는 용어입니다.</p></li>
+<li><p>파라미터 (Parameter): 노드의 설정값을 저장하는 키-값 쌍입니다. 노드 실행 중 값을 변경할 수 있습니다.</p></li>
+<li><p>런치파일 (Launchfile): 여러 노드를 한 번에 실행하기 위한 설정 파일입니다. XML, YAML, Python 등의 형식을 지원합니다.</p></li>
 </ul>
-</div>
+</section>
+<section id="id3">
+<h2>ROS 구성요소<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<section id="documentation">
+<h3>문서 (Documentation)<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h3>
+<p>ROS는 다양한 문서를 제공합니다. 대표적인 것들은 다음과 같습니다:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.ros.org">ROS 공식 문서</a>: ROS의 기본 개념, 튜토리얼, API 레퍼런스 등을 제공합니다.</p></li>
+<li><p><a class="reference external" href="https://wiki.ros.org">ROS Wiki</a>: ROS 1에 대한 상세한 문서를 제공합니다. ROS 2에도 대부분 적용 가능합니다.</p></li>
+<li><p><a class="reference external" href="https://answers.ros.org">ROS Answers</a>: ROS에 대한 질문과 답변을 공유하는 포럼입니다. (읽기 전용)</p></li>
+<li><p><a class="reference external" href="https://discourse.ros.org/">ROS Discourse</a>: ROS Answers를 대체하는 새로운 Q&amp;A 포럼입니다.</p></li>
+</ul>
+</section>
+<section id="packages">
+<h3>패키지 (Packages)<a class="headerlink" href="#packages" title="Link to this heading">#</a></h3>
+<p>패키지는 ROS 컴포넌트의 기본 단위로, 하나 이상의 노드, 라이브러리, 데이터셋, 설정 파일 등을 포함합니다. 패키지는 소스 코드나 바이너리 형태로 배포되며, <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 매니페스트 파일에 메타데이터를 기술합니다.</p>
+<p>패키지 설치는 <code class="docutils literal notranslate"><span class="pre">apt</span></code>를 통해 이루어지는 것이 일반적이지만, 소스 코드를 직접 빌드하거나 Python의 <code class="docutils literal notranslate"><span class="pre">pip</span></code> 같은 언어별 패키지 관리자를 사용할 수도 있습니다. ROS는 <code class="docutils literal notranslate"><span class="pre">rosdep</span></code>이라는 도구를 통해 시스템 의존성 패키지 설치를 자동화합니다.</p>
+</section>
+<section id="nodes">
+<h3>노드 (Nodes)<a class="headerlink" href="#nodes" title="Link to this heading">#</a></h3>
+<p>노드는 ROS에서 실행되는 프로세스의 기본 단위입니다. 각 노드는 특정 기능을 담당하며, 다른 노드와 통신하여 전체 로봇 시스템을 구성합니다.</p>
+<p>노드는 보통 독립된 프로세스로 실행되지만, ROS 2에서는 하나의 프로세스 내에서 여러 노드를 실행할 수도 있습니다. 이를 Composition이라 하며, 통신 오버헤드를 줄이는 데 사용됩니다.</p>
+<p>노드는 ROS 클라이언트 라이브러리(rclcpp, rclpy 등)를 사용하여 구현됩니다. 또한 라이프사이클(Lifecycle) 관리 기능을 통해 노드의 상태를 제어할 수 있습니다.</p>
+</section>
+<section id="inter-node-communication">
+<h3>통신 (Inter-Node Communication)<a class="headerlink" href="#inter-node-communication" title="Link to this heading">#</a></h3>
+<p>ROS는 노드 간 통신을 위해 토픽, 서비스, 액션 등의 방식을 제공합니다. 이들은 모두 ROS 인터페이스 언어(IDL)를 통해 정의됩니다.</p>
+<ul class="simple">
+<li><p>토픽은 발행-구독(Publish-Subscribe) 모델에 기반한 단방향 통신 채널입니다. 메시지 타입으로 토픽의 데이터 구조를 정의합니다.</p></li>
+<li><p>서비스는 요청-응답(Request-Response) 모델에 기반한 양방향 통신 채널입니다. 서비스 타입으로 요청과 응답의 데이터 구조를 정의합니다.</p></li>
+<li><p>액션은 비동기적인 양방향 통신 채널로, 장시간 실행되는 태스크의 진행 상황을 전달하는 데 사용됩니다. 액션 타입으로 목표, 결과, 피드백 메시지의 데이터 구조를 정의합니다.</p></li>
+</ul>
+<p>ROS 2에서는 DDS(Data Distribution Service)라는 미들웨어를 사용하여 노드 간 통신을 구현합니다. DDS는 QoS(Quality of Service) 설정을 통해 다양한 통신 환경에 대응할 수 있습니다.</p>
+</section>
+<section id="ros-graph">
+<h3>그래프 (ROS Graph)<a class="headerlink" href="#ros-graph" title="Link to this heading">#</a></h3>
+<p>ROS에서 실행 중인 모든 노드와 토픽은 계산 그래프(Computation Graph)로 표현할 수 있습니다. 노드가 그래프의 정점(Vertex)이 되고, 토픽이 방향성 있는 간선(Edge)이 됩니다.</p>
+<p>ROS는 DDS의 자동 검색 기능을 활용하여 노드 간 연결을 자동으로 구성합니다. 이를 통해 기존 ROS 1의 roscore와 같은 중앙 마스터 노드가 필요 없어졌습니다.</p>
+</section>
+<section id="parameters">
+<h3>파라미터 (Parameters)<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h3>
+<p>파라미터는 노드의 설정값을 저장하는 키-값 쌍입니다. YAML 형식으로 정의되며, 노드 실행 시 로드되거나 실행 중에 변경될 수 있습니다. 파라미터는 주로 노드의 동작을 제어하는 데 사용됩니다.</p>
+</section>
+<section id="launchfiles">
+<h3>런치파일 (Launchfiles)<a class="headerlink" href="#launchfiles" title="Link to this heading">#</a></h3>
+<p>런치파일은 여러 노드를 한 번에 실행하기 위한 설정 파일입니다. ROS 2에서는 Python, XML, YAML 등의 다양한 형식을 지원합니다. 런치파일을 통해 노드의 파라미터를 설정하거나, 노드 간 연결을 구성할 수 있습니다.</p>
+</section>
+<section id="bags">
+<h3>백 (Bags)<a class="headerlink" href="#bags" title="Link to this heading">#</a></h3>
+<p>백은 토픽의 데이터를 파일로 기록하고 재생하기 위한 도구입니다. 주로 데이터 분석이나 알고리즘 테스트에 활용됩니다. <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">bag</span></code> 명령어를 통해 백을 생성하고 관리할 수 있습니다.</p>
+</section>
+<section id="logging">
+<h3>로깅 (Logging)<a class="headerlink" href="#logging" title="Link to this heading">#</a></h3>
+<p>ROS는 노드의 로그 메시지를 위한 로깅 시스템을 제공합니다. 노드는 심각도에 따라 DEBUG, INFO, WARN, ERROR, FATAL 등의 수준으로 로그를 남길 수 있습니다. <code class="docutils literal notranslate"><span class="pre">rqt_console</span></code>을 통해 로그를 실시간으로 모니터링할 수 있습니다.</p>
+</section>
+</section>
+<section id="debugging">
+<h2>디버깅 (Debugging)<a class="headerlink" href="#debugging" title="Link to this heading">#</a></h2>
+<p>ROS는 디버깅을 위한 다양한 도구를 제공합니다. <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">run</span></code>을 통해 노드를 실행하고, <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span></code>, <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">service</span></code> 등의 명령어로 토픽과 서비스를 모니터링할 수 있습니다. 또한 <code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code>를 통해 노드와 토픽 간의 연결 관계를 시각화할 수 있습니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">doctor</span></code> 명령어를 사용하면 ROS 환경의 문제점을 진단하고 해결 방법을 제안받을 수 있습니다.</p>
+<p>이상으로 ROS의 기본 구성요소와 주요 개념에 대해 알아보았습니다. ROS는 로봇 소프트웨어 개발을 위한 강력하고 유연한 프레임워크로, 다양한 도구와 라이브러리를 제공합니다. 이를 잘 활용한다면 복잡한 로봇 시스템도 효과적으로 구현할 수 있을 것입니다.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -508,7 +603,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./week01"
+            path: "./week07"
         },
         predefinedOutput: true
     }
@@ -526,20 +621,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../index.html"
+       href="index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Home</p>
+        <p class="prev-next-title">Week 7</p>
       </div>
     </a>
     <a class="right-next"
-       href="lecture.html"
+       href="ros-workspace.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">두산로보틱스 기본 교육</p>
+        <p class="prev-next-title">패키지와 워크스페이스</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -550,7 +645,34 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">소개</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">용어 정리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">ROS 구성요소</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">문서 (Documentation)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">패키지 (Packages)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nodes">노드 (Nodes)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inter-node-communication">통신 (Inter-Node Communication)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ros-graph">그래프 (ROS Graph)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">파라미터 (Parameters)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launchfiles">런치파일 (Launchfiles)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bags">백 (Bags)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logging">로깅 (Logging)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">디버깅 (Debugging)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
