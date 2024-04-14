@@ -33,6 +33,10 @@ parts:
           - file: week06/ros-setup
           - file: week06/dsr-usage
           - file: week06/ros-intro
+      - file: week07/index
+        sections:
+          - file: week07/ros-basics
+          - file: week07/ros-workspace
   - caption: Projects
     chapters:
       - file: projects/index
