@@ -37,6 +37,11 @@ parts:
         sections:
           - file: week07/ros-basics
           - file: week07/ros-workspace
+      - file: week09/index
+        sections:
+          - file: week09/configure
+          - file: week09/intro-turtlesim
+          - file: week09/nodes
   - caption: Projects
     chapters:
       - file: projects/index
