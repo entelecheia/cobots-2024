@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>202021038 &#8212; 협동로봇활용 2024</title>
+    <title>로봇 팔을 활용한 분리수거 자동화 &#8212; 협동로봇활용 2024</title>
   
   
   
@@ -262,7 +262,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../202021024/index.html">202021024</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../202021029/index.html">로봇 팔을 활용한 자동 물체 이송 시스템</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../202021032/index.html">202021032</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">202021038</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">로봇 팔을 활용한 분리수거 자동화</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../202121010/index.html">로봇 팔을 통한 과일 선별 과정 자동화</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../202221014/index.html">로봇을 이용한 정원 관리</a></li>
 </ul>
@@ -470,7 +470,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -481,11 +483,26 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>202021038</h1>
+    <h1>로봇 팔을 활용한 분리수거 자동화</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">프로젝트 개요</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">프로젝트 목표</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">방법론</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">필요 자원</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">프로젝트 참여자</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">예상 예산</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">예상 일정(총 기간:8주)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">위험관리</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -496,7 +513,92 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>202021038<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1>로봇 팔을 활용한 분리수거 자동화<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2>프로젝트 개요<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>이 프로젝트는 ROS2 기반으로 한 두산 로보틱스 협동로봇을 활용하여 분리수거를 자동화하는 시스템을 구현하는 것을 목표로 한다. 이 시스템은 쓰레기를 감지하고 구분하여 재활용 가능한 항목을 분리수거함에 배치하여 환경 보호와 재활용을 촉진한다.</p>
+</section>
+<section id="id3">
+<h2>프로젝트 목표<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>로봇 팔을 사용하여 주변 환경을 모니터링하고 쓰레기를 감지한다.</p></li>
+<li><p>쓰레기를 캔, 패트, 플라스틱, 종이 등으로 분류하여 자동으로 분리수거 한다.</p></li>
+<li><p>분리된 재활용품을 정확하게 배치하여 환경 보호와 재활용을 촉진한다.</p></li>
+</ol>
+</section>
+<section id="id4">
+<h2>방법론<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>로봇 프로그래밍 및 시뮬레이션: 로봇 팔을 제어하기 위한 프로그램을 개발하고 시뮬레이션 환경에서 테스트한다.</p></li>
+<li><p>쓰게리 선별 알고리즘 구현: 컴퓨터 비전 기술을 활용하여 쓰레기를 식별하고 분류하는 알고리즘을 구현한다.</p></li>
+<li><p>파이프라인 구축: 쓰레기 선별 및 분리수거 과정을 자동화하기 위한 통합 시스템을 구축한다.</p></li>
+</ul>
+</section>
+<section id="id5">
+<h2>필요 자원<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>하드웨어 : 두산 협동 로봇, 카메라, 기타 센서</p></li>
+<li><p>소프트웨어 : ROS2, OpenCV 물체 분류 및 인식을 위한 컴퓨터 비전 라이브러리</p></li>
+<li></li>
+</ul>
+</section>
+<section id="id6">
+<h2>프로젝트 참여자<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>학번 : 202021038</p></li>
+<li><p>이름 : 홍성관</p></li>
+<li><p>E-mail : <a class="reference external" href="mailto:202021038&#37;&#52;&#48;chu&#46;ac&#46;kr">202021038<span>&#64;</span>chu<span>&#46;</span>ac<span>&#46;</span>kr</a></p></li>
+</ul>
+</section>
+<section id="id7">
+<h2>예상 예산<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>품목</p></th>
+<th class="head"><p>가격(원)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>카메</p></td>
+<td><p>35,000</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>총 예산</strong></p></td>
+<td><p><strong>35,000</strong></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h2>예상 일정(총 기간:8주)<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>주차</p></th>
+<th class="head"><p>활동</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>주 1-2</p></td>
+<td><p>프로젝트 계획 및 초기 설계</p></td>
+</tr>
+<tr class="row-odd"><td><p>주 3-4</p></td>
+<td><p>로봇 프로그래밍 및 시뮬레이션</p></td>
+</tr>
+<tr class="row-even"><td><p>주 5-6</p></td>
+<td><p>쓰레기 선별 알고리즘 구현 및 파이프라인 구축</p></td>
+</tr>
+<tr class="row-odd"><td><p>주 7</p></td>
+<td><p>테스트 및 피드백</p></td>
+</tr>
+<tr class="row-even"><td><p>주 8</p></td>
+<td><p>최종 발표, 프로젝트 마무리 및 문서화</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id9">
+<h2>위험관리<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<p>기술적인 부족함을 보완하기 위해 꾸준한 학습과 함께 필요한 경우 전문가의 도움을 받아 프로젝트에 필요한 기술을 확보하고, 유연한 일정 관리와 정기적인 평가를 통해 일정 지연을 최소화한다.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -554,7 +656,27 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">프로젝트 개요</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">프로젝트 목표</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">방법론</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">필요 자원</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">프로젝트 참여자</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">예상 예산</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">예상 일정(총 기간:8주)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">위험관리</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
