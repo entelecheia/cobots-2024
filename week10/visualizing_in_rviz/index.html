@@ -1,0 +1,886 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>RViz에서 시각화하기 &#8212; 협동로봇활용 2024</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../_static/js/hoverxref.js"></script>
+    <script src="../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../_static/js/micromodal.min.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-BQJE5V9RK2"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-BQJE5V9RK2');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-BQJE5V9RK2');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week10/visualizing_in_rviz/index';</script>
+    <link rel="icon" href="https://assets.entelecheia.ai/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ROS 프로젝트" href="../../projects/index.html" />
+    <link rel="prev" title="첫 번째 C++ MoveIt 프로젝트" href="../your_first_project/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">5/2일(목)전까지 <a href='https://cobots2024.halla.ai/projects'>프로젝트</a> 주제 선정 및 개요작성을 완료해주세요.</div>
+  </div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">협동로봇활용 2024</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week01/index.html">Week 1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week01/lecture.html">두산로보틱스 기본 교육</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week01/terminology.html">주요용어</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week01/references.html">참고자료</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week01/review.html">복습</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week02/index.html">Week 2</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week02/lecture.html">핵심 교육 (Part 1/2)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week03/index.html">Week 3</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week03/lecture.html">핵심 교육 (Part 1/2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week03/ros-intro.html">ROS 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week03/ros-setup.html">ROS 설치환경 구축하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week03/ros-install.html">ROS 설치하기</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week04/index.html">Week 4</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week04/lecture.html">핵심 교육 (Part 2/2)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week05/index.html">Week 5</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week05/lecture.html">ROS 활용방법</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week06/index.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week06/ros-container.html">도커를 이용한 ROS2 실행환경 구축</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week06/ros-setup.html">ROS 환경 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week06/dsr-usage.html">DSR 사용방법</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week06/ros-intro.html">ROS 소개</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week07/index.html">Week 7</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week07/ros-basics.html">ROS 기초</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week07/ros-workspace.html">패키지와 워크스페이스</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week09/index.html">Week 9</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week09/configure.html">ROS 2 환경 구성하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week09/intro-turtlesim.html"><code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>, <code class="docutils literal notranslate"><span class="pre">ros2</span></code>, 그리고 <code class="docutils literal notranslate"><span class="pre">rqt</span></code> 사용하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week09/nodes.html">노드 이해하기</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Week 10</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html">MoveIt 2 시작하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart_in_rviz/index.html">RViz에서 MoveIt 빠르게 시작하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../your_first_project/index.html">첫 번째 C++ MoveIt 프로젝트</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">RViz에서 시각화하기</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../projects/index.html">ROS 프로젝트</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../projects/202021024/index.html">로봇팔을 이용한 덤벨 및 원판 정리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../projects/202021029/index.html">로봇 팔을 활용한 자동 물체 이송 시스템</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../projects/202021032/index.html">202021032</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../projects/202021038/index.html">로봇 팔을 활용한 분리수거 자동화</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../projects/202121010/index.html">로봇 팔을 통한 과일 선별 과정 자동화</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../projects/202221014/index.html">로봇을 이용한 정원 관리</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/setup.html">프로젝트 환경설정</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/index.html">수업계획서</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">만든 사람들</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://halla.ai">인공지능학과</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://os2024.halla.ai">운영체제 2024</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://mlops2024.halla.ai">머신러닝시스템 2024</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cobots2024.halla.ai">협동로봇활용 2024</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://aibasics.halla.ai">AI 세상 속으로</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/chu-aie/cobots-2024" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chu-aie/cobots-2024/edit/main/src/cobots2024/book/week10/visualizing_in_rviz/index.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chu-aie/cobots-2024/issues/new?title=Issue%20on%20page%20%2Fweek10/visualizing_in_rviz/index.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/week10/visualizing_in_rviz/index.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>RViz에서 시각화하기</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">사전 요구 사항</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">단계</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moveit-visual-tools">1. moveit_visual_tools 의존성 추가</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ros">2. ROS 실행기 생성 및 스레드에서 노드 실행</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moveitvisualtools">3. MoveItVisualTools 생성 및 초기화</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4. 시각화를 위한 클로저 작성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5. 프로그램 단계 시각화</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">6. RViz에서 시각화 활성화</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">7. 프로그램 실행</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">요약</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">추가 읽을 거리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">다음 단계</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="rviz">
+<h1>RViz에서 시각화하기<a class="headerlink" href="#rviz" title="Link to this heading">#</a></h1>
+<p>이 튜토리얼에서는 RViz에서 시각화를 렌더링하여 MoveIt 애플리케이션이 수행하는 작업을 더 쉽게 이해할 수 있는 도구를 소개합니다.</p>
+<section id="id1">
+<h2>사전 요구 사항<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>아직 수행하지 않았다면 :doc:<code class="docutils literal notranslate"><span class="pre">첫</span> <span class="pre">번째</span> <span class="pre">프로젝트</span> <span class="pre">&lt;/doc/tutorials/your_first_project/your_first_project&gt;</span></code> 단계를 완료했는지 확인하세요. 이 프로젝트는 이전 튜토리얼에서 중단한 <code class="docutils literal notranslate"><span class="pre">hello_moveit</span></code> 프로젝트에서 시작한다고 가정합니다.</p>
+</section>
+<section id="id2">
+<h2>단계<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="moveit-visual-tools">
+<h3>1. moveit_visual_tools 의존성 추가<a class="headerlink" href="#moveit-visual-tools" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">hello_moveit</span></code> 프로젝트의 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 파일에서 다른 <code class="docutils literal notranslate"><span class="pre">&lt;depend&gt;</span></code> 문 뒤에 다음 줄을 추가하세요:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;depend&gt;</span>moveit_visual_tools<span class="nt">&lt;/depend&gt;</span>
+</pre></div>
+</div>
+<p>그런 다음 <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> 파일의 <code class="docutils literal notranslate"><span class="pre">find_package</span></code> 문 섹션에 다음 줄을 추가하세요:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">find_package</span><span class="p">(</span><span class="s">moveit_visual_tools</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>파일의 아래쪽에서 <code class="docutils literal notranslate"><span class="pre">ament_target_dependencies</span></code> 매크로 호출을 확장하여 새로운 의존성을 포함하도록 수정하세요:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">ament_target_dependencies</span><span class="p">(</span>
+<span class="w">  </span><span class="s">hello_moveit</span>
+<span class="w">  </span><span class="s2">&quot;moveit_ros_planning_interface&quot;</span>
+<span class="w">  </span><span class="s2">&quot;moveit_visual_tools&quot;</span>
+<span class="w">  </span><span class="s2">&quot;rclcpp&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>의존성을 올바르게 추가했는지 확인하려면 <code class="docutils literal notranslate"><span class="pre">hello_moveit.cpp</span></code> 소스 파일에 필요한 include를 추가하세요:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;moveit_visual_tools/moveit_visual_tools.h&gt;</span>
+</pre></div>
+</div>
+<p>이 모든 작업이 제대로 되었는지 테스트하려면 작업 공간 디렉토리에서 터미널을 열고(opt에서 ROS 설치를 설정해야 함) colcon으로 빌드하세요:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ws_moveit2
+colcon<span class="w"> </span>build<span class="w"> </span>--mixin<span class="w"> </span>debug
+</pre></div>
+</div>
+</section>
+<section id="ros">
+<h3>2. ROS 실행기 생성 및 스레드에서 노드 실행<a class="headerlink" href="#ros" title="Link to this heading">#</a></h3>
+<p>MoveItVisualTools를 초기화하기 전에 ROS 노드에서 실행되는 실행기가 필요합니다. 이는 MoveItVisualTools가 ROS 서비스 및 토픽과 상호 작용하는 방식 때문에 필요합니다.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span><span class="c1">  // &lt;---- 맨 위의 include 집합에 이 줄을 추가하세요</span>
+
+<span class="w">  </span><span class="p">...</span>
+
+<span class="w">  </span><span class="c1">// ROS 로거 생성</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">get_logger</span><span class="p">(</span><span class="s">&quot;hello_moveit&quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// SingleThreadedExecutor를 생성하여 MoveItVisualTools가 ROS와 상호 작용하도록 합니다</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">executors</span><span class="o">::</span><span class="n">SingleThreadedExecutor</span><span class="w"> </span><span class="n">executor</span><span class="p">;</span>
+<span class="w">  </span><span class="n">executor</span><span class="p">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">spinner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="p">([</span><span class="o">&amp;</span><span class="n">executor</span><span class="p">]()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">executor</span><span class="p">.</span><span class="n">spin</span><span class="p">();</span><span class="w"> </span><span class="p">});</span>
+
+<span class="w">  </span><span class="c1">// MoveIt MoveGroup 인터페이스 생성</span>
+<span class="w">  </span><span class="p">...</span>
+
+<span class="w">  </span><span class="c1">// ROS 종료</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">shutdown</span><span class="p">();</span><span class="w">  </span><span class="c1">// &lt;--- 이렇게 하면 스레드의 spin 함수가 반환됩니다</span>
+<span class="w">  </span><span class="n">spinner</span><span class="p">.</span><span class="n">join</span><span class="p">();</span><span class="w">  </span><span class="c1">// &lt;--- 종료하기 전에 스레드를 join합니다</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>이러한 각 변경 사항 후에는 작업 공간을 다시 빌드하여 구문 오류가 없는지 확인해야 합니다.</p>
+</section>
+<section id="moveitvisualtools">
+<h3>3. MoveItVisualTools 생성 및 초기화<a class="headerlink" href="#moveitvisualtools" title="Link to this heading">#</a></h3>
+<p>다음으로 MoveGroupInterface 생성 후 MoveItVisualTools를 생성하고 초기화합니다.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// MoveIt MoveGroup 인터페이스 생성</span>
+<span class="k">using</span><span class="w"> </span><span class="n">moveit</span><span class="o">::</span><span class="n">planning_interface</span><span class="o">::</span><span class="n">MoveGroupInterface</span><span class="p">;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">move_group_interface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MoveGroupInterface</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;panda_arm&quot;</span><span class="p">);</span>
+
+<span class="c1">// MoveItVisualTools 생성 및 초기화</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">moveit_visual_tools</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">moveit_visual_tools</span><span class="o">::</span><span class="n">MoveItVisualTools</span><span class="p">{</span>
+<span class="w">    </span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;panda_link0&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rviz_visual_tools</span><span class="o">::</span><span class="n">RVIZ_MARKER_TOPIC</span><span class="p">,</span>
+<span class="w">    </span><span class="n">move_group_interface</span><span class="p">.</span><span class="n">getRobotModel</span><span class="p">()};</span>
+<span class="n">moveit_visual_tools</span><span class="p">.</span><span class="n">deleteAllMarkers</span><span class="p">();</span>
+<span class="n">moveit_visual_tools</span><span class="p">.</span><span class="n">loadRemoteControl</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>생성자에는 ROS 노드, 로봇의 기본 링크, 사용할 마커 토픽(이에 대해서는 나중에 더 설명) 및 로봇 모델(move_group_interface에서 가져옴)을 전달합니다. 다음으로 모든 마커를 삭제하는 호출을 수행합니다. 이렇게 하면 이전 실행에서 남겨진 RViz의 렌더링된 상태가 모두 지워집니다. 마지막으로 원격 제어를 로드합니다. 원격 제어는 RViz에서 프로그램과 상호 작용할 수 있는 버튼을 제공하는 매우 간단한 플러그인입니다.</p>
+</section>
+<section id="id3">
+<h3>4. 시각화를 위한 클로저 작성<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>생성 및 초기화 후에는 프로그램에서 나중에 사용하여 RViz에서 시각화를 렌더링하는 데 도움이 되는 클로저(현재 범위의 변수에 액세스할 수 있는 함수 객체)를 생성합니다.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// 시각화를 위한 클로저 생성</span>
+<span class="k">auto</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">draw_title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="n">moveit_visual_tools</span><span class="p">](</span><span class="k">auto</span><span class="w"> </span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">text_pose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Eigen</span><span class="o">::</span><span class="n">Isometry3d</span><span class="o">::</span><span class="n">Identity</span><span class="p">();</span>
+<span class="w">    </span><span class="n">msg</span><span class="p">.</span><span class="n">translation</span><span class="p">().</span><span class="n">z</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">msg</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}();</span>
+<span class="w">  </span><span class="n">moveit_visual_tools</span><span class="p">.</span><span class="n">publishText</span><span class="p">(</span><span class="n">text_pose</span><span class="p">,</span><span class="w"> </span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">rviz_visual_tools</span><span class="o">::</span><span class="n">WHITE</span><span class="p">,</span>
+<span class="w">                                  </span><span class="n">rviz_visual_tools</span><span class="o">::</span><span class="n">XLARGE</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="k">auto</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">prompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="n">moveit_visual_tools</span><span class="p">](</span><span class="k">auto</span><span class="w"> </span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">moveit_visual_tools</span><span class="p">.</span><span class="n">prompt</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="k">auto</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">draw_trajectory_tool_path</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="p">[</span><span class="o">&amp;</span><span class="n">moveit_visual_tools</span><span class="p">,</span>
+<span class="w">     </span><span class="n">jmg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">move_group_interface</span><span class="p">.</span><span class="n">getRobotModel</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">getJointModelGroup</span><span class="p">(</span>
+<span class="w">         </span><span class="s">&quot;panda_arm&quot;</span><span class="p">)](</span><span class="k">auto</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">trajectory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">moveit_visual_tools</span><span class="p">.</span><span class="n">publishTrajectoryLine</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span><span class="w"> </span><span class="n">jmg</span><span class="p">);</span>
+<span class="w">    </span><span class="p">};</span>
+</pre></div>
+</div>
+<p>각 세 개의 클로저는 참조에 의해 <code class="docutils literal notranslate"><span class="pre">moveit_visual_tools</span></code>를 캡처하고 마지막 클로저는 계획 중인 관절 모델 그룹 객체에 대한 포인터를 캡처합니다. 이들은 각각 <code class="docutils literal notranslate"><span class="pre">moveit_visual_tools</span></code>의 함수를 호출하여 RViz의 무언가를 변경합니다. 첫 번째 <code class="docutils literal notranslate"><span class="pre">draw_title</span></code>은 로봇 베이스 위 1미터 위치에 텍스트를 추가합니다. 이는 프로그램의 상태를 높은 수준에서 보여주는 유용한 방법입니다. 두 번째는 <code class="docutils literal notranslate"><span class="pre">prompt</span></code>라는 함수를 호출합니다. 이 함수는 사용자가 RViz에서 <code class="docutils literal notranslate"><span class="pre">next</span></code> 버튼을 누를 때까지 프로그램을 차단합니다. 이는 디버깅할 때 프로그램을 단계별로 실행하는 데 도움이 됩니다. 마지막 클로저는 계획한 궤적의 도구 경로를 그립니다. 이는 도구의 관점에서 계획된 궤적을 이해하는 데 종종 도움이 됩니다.</p>
+<p>이렇게 람다를 만드는 이유가 궁금할 수 있는데, 그 이유는 단순히 이후에 나오는 코드를 더 쉽게 읽고 이해할 수 있게 하기 위함입니다. 소프트웨어를 작성할 때는 종종 기능을 쉽게 재사용하고 독립적으로 테스트할 수 있는 명명된 함수로 분할하는 것이 도움이 됩니다. 다음 섹션에서 이렇게 생성한 함수를 어떻게 사용하는지 볼 수 있습니다.</p>
+</section>
+<section id="id4">
+<h3>5. 프로그램 단계 시각화<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>이제 프로그램 중간에 있는 코드를 확장합니다. 계획 및 실행 코드를 업데이트하여 이러한 새로운 기능을 포함하도록 수정하세요:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// 목표 자세 설정</span>
+<span class="k">auto</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">target_pose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Pose</span><span class="w"> </span><span class="n">msg</span><span class="p">;</span>
+<span class="w">  </span><span class="n">msg</span><span class="p">.</span><span class="n">orientation</span><span class="p">.</span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">msg</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.28</span><span class="p">;</span>
+<span class="w">  </span><span class="n">msg</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">-0.2</span><span class="p">;</span>
+<span class="w">  </span><span class="n">msg</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">msg</span><span class="p">;</span>
+<span class="p">}();</span>
+<span class="n">move_group_interface</span><span class="p">.</span><span class="n">setPoseTarget</span><span class="p">(</span><span class="n">target_pose</span><span class="p">);</span>
+
+<span class="c1">// 목표 자세로의 계획 생성</span>
+<span class="n">prompt</span><span class="p">(</span><span class="s">&quot;RvizVisualToolsGui 창에서 &#39;Next&#39;를 눌러 계획하세요&quot;</span><span class="p">);</span>
+<span class="n">draw_title</span><span class="p">(</span><span class="s">&quot;Planning&quot;</span><span class="p">);</span>
+<span class="n">moveit_visual_tools</span><span class="p">.</span><span class="n">trigger</span><span class="p">();</span>
+<span class="k">auto</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">[</span><span class="n">success</span><span class="p">,</span><span class="w"> </span><span class="n">plan</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="n">move_group_interface</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">moveit</span><span class="o">::</span><span class="n">planning_interface</span><span class="o">::</span><span class="n">MoveGroupInterface</span><span class="o">::</span><span class="n">Plan</span><span class="w"> </span><span class="n">msg</span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">(</span><span class="n">move_group_interface</span><span class="p">.</span><span class="n">plan</span><span class="p">(</span><span class="n">msg</span><span class="p">));</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_pair</span><span class="p">(</span><span class="n">ok</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span>
+<span class="p">}();</span>
+
+<span class="c1">// 계획 실행</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">success</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">draw_trajectory_tool_path</span><span class="p">(</span><span class="n">plan</span><span class="p">.</span><span class="n">trajectory_</span><span class="p">);</span>
+<span class="w">  </span><span class="n">moveit_visual_tools</span><span class="p">.</span><span class="n">trigger</span><span class="p">();</span>
+<span class="w">  </span><span class="n">prompt</span><span class="p">(</span><span class="s">&quot;RvizVisualToolsGui 창에서 &#39;Next&#39;를 눌러 실행하세요&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">draw_title</span><span class="p">(</span><span class="s">&quot;Executing&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">moveit_visual_tools</span><span class="p">.</span><span class="n">trigger</span><span class="p">();</span>
+<span class="w">  </span><span class="n">move_group_interface</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">plan</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">draw_title</span><span class="p">(</span><span class="s">&quot;Planning Failed!&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">moveit_visual_tools</span><span class="p">.</span><span class="n">trigger</span><span class="p">();</span>
+<span class="w">  </span><span class="n">RCLCPP_ERROR</span><span class="p">(</span><span class="n">logger</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Planing failed!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>RViz에서 렌더링되는 내용을 변경하는 각 호출 후에 <code class="docutils literal notranslate"><span class="pre">moveit_visual_tools</span></code>에서 <code class="docutils literal notranslate"><span class="pre">trigger</span></code> 메서드를 호출해야 한다는 점을 빠르게 알 수 있습니다. 이는 RViz로 전송되는 메시지가 마커 토픽의 대역폭을 줄이기 위해 <code class="docutils literal notranslate"><span class="pre">trigger</span></code>를 호출할 때까지 일괄 처리되어 전송되기 때문입니다.</p>
+<p>마지막으로 프로젝트를 다시 빌드하여 모든 코드 추가 사항이 올바른지 확인하세요.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ws_moveit2
+<span class="nb">source</span><span class="w"> </span>/opt/ros/<span class="o">{</span>DISTRO<span class="o">}</span>/setup.bash
+colcon<span class="w"> </span>build<span class="w"> </span>--mixin<span class="w"> </span>debug
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h3>6. RViz에서 시각화 활성화<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>새 터미널을 열고 작업 공간을 설정한 다음 RViz를 여는 데모 실행 파일을 시작하세요.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ws_moveit2
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+ros2<span class="w"> </span>launch<span class="w"> </span>moveit2_tutorials<span class="w"> </span>demo.launch.py
+</pre></div>
+</div>
+<p>“Displays” 탭에서 “MotionPlanning”의 선택을 해제하여 숨깁니다. 다음 부분에서는 “MotionPlanning” 플러그인을 사용하지 않을 것입니다.</p>
+<p><img alt="MotionPlanning 선택 해제" src="../../_images/uncheck_motion_planning.png" /></p>
+<p><img alt="MotionPlanning 선택 해제됨" src="../../_images/unchecked_motion_planning.png" /></p>
+<p>프로그램에 추가한 프롬프트와 상호 작용하는 버튼을 추가하려면 “Panels/Add New Panel” 메뉴에서 대화상자를 엽니다:</p>
+<p><img alt="패널 메뉴" src="../../_images/panel_menu.png" /></p>
+<p>그런 다음 <code class="docutils literal notranslate"><span class="pre">RvizVisualToolsGui</span></code>를 선택하고 OK를 클릭합니다. 이렇게 하면 왼쪽 하단에 나중에 사용할 <code class="docutils literal notranslate"><span class="pre">Next</span></code> 버튼이 있는 새 패널이 생성됩니다.</p>
+<p><img alt="RvizVisualToolsGui 추가" src="../../_images/add_rviz_tools_gui.png" /></p>
+<p><img alt="Next 버튼" src="../../_images/next_button.png" /></p>
+<p>마지막으로 추가한 시각화를 렌더링하기 위해 <code class="docutils literal notranslate"><span class="pre">Marker</span> <span class="pre">Array</span></code>를 추가해야 합니다. “Displays” 패널에서 “Add” 버튼을 클릭하세요.</p>
+<p><img alt="Add 버튼" src="../../_images/add_button.png" /></p>
+<p><code class="docutils literal notranslate"><span class="pre">Marker</span> <span class="pre">Array</span></code>를 선택하고 <code class="docutils literal notranslate"><span class="pre">OK</span></code>를 클릭하세요.</p>
+<p><img alt="Marker Array" src="../../_images/marker_array.png" /></p>
+<p>Displays 패널의 항목 하단으로 스크롤하고 새 Marker Array가 사용하는 토픽을 <code class="docutils literal notranslate"><span class="pre">/rviz_visual_tools</span></code>로 편집하세요.</p>
+<p><img alt="Marker Array 토픽" src="../../_images/marker_array_topic.png" /></p>
+<p>이제 시각화가 포함된 새 프로그램을 실행할 준비가 되었습니다.</p>
+</section>
+<section id="id6">
+<h3>7. 프로그램 실행<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>새 터미널에서 작업 공간으로 이동하여 작업 공간을 설정하고 <code class="docutils literal notranslate"><span class="pre">hello_moveit</span></code>를 실행하세요:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ws_moveit2
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+ros2<span class="w"> </span>run<span class="w"> </span>hello_moveit<span class="w"> </span>hello_moveit
+</pre></div>
+</div>
+<p>프로그램이 다음과 같은 로그와 함께 중지되었음을 알 수 있습니다:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1652822889.492940200</span><span class="p">]</span> <span class="p">[</span><span class="n">hello_moveit</span><span class="o">.</span><span class="n">remote_control</span><span class="p">]:</span> <span class="n">Waiting</span> <span class="n">to</span> <span class="k">continue</span><span class="p">:</span> <span class="n">Press</span> <span class="s1">&#39;Next&#39;</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">RvizVisualToolsGui</span> <span class="n">window</span> <span class="n">to</span> <span class="n">plan</span>
+</pre></div>
+</div>
+<p>RViz에서 <code class="docutils literal notranslate"><span class="pre">Next</span></code> 버튼을 클릭하고 애플리케이션이 진행되는 것을 확인하세요.</p>
+<p><img alt="계획 중" src="../../_images/planning.png" /></p>
+<p>Next 버튼을 클릭한 후 애플리케이션이 계획을 수립하고, 로봇 위에 제목을 추가하며, 도구 경로를 나타내는 선을 그리는 것을 볼 수 있습니다. 계속하려면 <code class="docutils literal notranslate"><span class="pre">Next</span></code>를 다시 눌러 로봇이 계획을 실행하는 것을 확인하세요.</p>
+<p><img alt="실행 중" src="../../_images/executing.png" /></p>
+</section>
+</section>
+<section id="id7">
+<h2>요약<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>MoveIt으로 작성한 프로그램을 확장하여 RViz의 GUI와 상호 작용함으로써 버튼으로 프로그램을 단계별로 실행하고, 로봇 위에 텍스트를 렌더링하며, 계획한 도구 경로를 표시할 수 있게 되었습니다.</p>
+</section>
+<section id="id8">
+<h2>추가 읽을 거리<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>MoveItVisualTools에는 로봇 모션을 시각화하기 위한 많은 유용한 기능이 있습니다. <a class="reference external" href="https://github.com/ros-planning/moveit_visual_tools/tree/ros2">여기에서 자세히 읽어볼 수 있습니다</a>.</p></li>
+</ul>
+</section>
+<section id="id9">
+<h2>다음 단계<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<p>다음 튜토리얼 <code class="docutils literal notranslate"><span class="pre">물체</span> <span class="pre">주변</span> <span class="pre">계획</span></code>에서는 여기에서 만든 프로그램을 확장하여 충돌 환경을 추가하고 이러한 변경 사항으로 로봇 계획을 확인할 것입니다.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "chu-aie/cobots-2024",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./week10/visualizing_in_rviz"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../your_first_project/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">첫 번째 C++ MoveIt 프로젝트</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../projects/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ROS 프로젝트</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">사전 요구 사항</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">단계</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moveit-visual-tools">1. moveit_visual_tools 의존성 추가</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ros">2. ROS 실행기 생성 및 스레드에서 노드 실행</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moveitvisualtools">3. MoveItVisualTools 생성 및 초기화</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4. 시각화를 위한 클로저 작성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5. 프로그램 단계 시각화</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">6. RViz에서 시각화 활성화</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">7. 프로그램 실행</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">요약</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">추가 읽을 거리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">다음 단계</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href='https://entelecheia.me/'>Young Joon Lee</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <script
+  data-embed-id="8ce6d27b-4248-4ca8-ac90-57f7de938b44"
+  data-base-api-url="https://chat.entelecheia.app/api/embed"
+  data-brand-image-url="https://assets.entelecheia.ai/favicon.png"
+  data-chat-icon="magic"
+  data-sponsor-text="Cobots 2024"
+  data-sponsor-link="https://chat.entelecheia.app/workspace/cobots"
+  src="https://chat.entelecheia.app/embed/anythingllm-chat-widget.min.js">
+</script>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
