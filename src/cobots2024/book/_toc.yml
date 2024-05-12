@@ -42,6 +42,12 @@ parts:
           - file: week09/configure
           - file: week09/intro-turtlesim
           - file: week09/nodes
+      - file: week10/index
+        sections:
+          - file: week10/getting_started
+          - file: week10/quickstart_in_rviz/index
+          - file: week10/your_first_project/index
+          - file: week10/visualizing_in_rviz/index
   - caption: Projects
     chapters:
       - file: projects/index
