@@ -1,6 +1,6 @@
 # 물체 주변 계획하기
 
-이 튜토리얼에서는 계획 장면에 물체를 삽입하고 그 주변에서 계획하는 방법을 소개합니다.
+이 강의에서는 계획 장면에 물체를 삽입하고 그 주변에서 계획하는 방법을 소개합니다.
 
 ## 단계
 
@@ -76,7 +76,7 @@ planning_scene_interface.applyCollisionObject(collision_object);
 
 ### 5. 프로그램 실행 및 변경 사항 관찰
 
-이전 튜토리얼에서 했던 것처럼 `demo.launch.py` 스크립트를 사용하여 RViz를 시작하고 프로그램을 실행하세요. Docker 튜토리얼 컨테이너 중 하나를 사용하는 경우 RvizVisualToolsGui 패널이 이미 추가된 다른 RViz 설정을 다음과 같이 지정할 수 있습니다:
+이전 강의에서 했던 것처럼 `demo.launch.py` 스크립트를 사용하여 RViz를 시작하고 프로그램을 실행하세요. Docker 컨테이너 중 하나를 사용하는 경우 RvizVisualToolsGui 패널이 이미 추가된 다른 RViz 설정을 다음과 같이 지정할 수 있습니다:
 
 ```bash
 ros2 launch moveit2_tutorials demo.launch.py rviz_config:=panda_hello_moveit.rviz
@@ -91,4 +91,4 @@ ros2 launch moveit2_tutorials demo.launch.py rviz_config:=panda_hello_moveit.rvi
 
 ## 다음 단계
 
-다음 강의에서는 더 어려운 모션 계획을 해결하도록 설계된 상위 계층 도구를 소개합니다. 이 튜토리얼에서는 물체를 집어서 놓는 프로그램을 만들 것입니다.
+다음 강의에서는 더 어려운 모션 계획을 해결하도록 설계된 상위 계층 도구를 소개합니다.

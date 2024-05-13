@@ -48,6 +48,10 @@ parts:
           - file: week10/quickstart_in_rviz/index
           - file: week10/your_first_project/index
           - file: week10/visualizing_in_rviz/index
+      - file: week11/index
+        sections:
+          - file: week11/planning_around_objects/index
+          - file: week11/pick_and_place_with_moveit_task_constructor/index
   - caption: Projects
     chapters:
       - file: projects/index
