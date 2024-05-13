@@ -2,6 +2,10 @@
 
 이 강의에서는 [MoveIt Task Constructor](https://github.com/ros-planning/moveit_task_constructor/tree/ros2/)를 사용하여 집어서 놓기 작업을 계획하는 패키지를 만드는 과정을 안내합니다. MoveIt Task Constructor는 여러 개의 하위 작업(스테이지라고 함)으로 구성된 작업을 계획하는 방법을 제공합니다.
 
+<video width="700px" controls="true" autoplay="true" loop="true">
+    <source src="../../assets/video/mtc-demo.webm" type="video/webm">
+</video>
+
 ## 시작하기
 
 ### MoveIt Task Constructor 다운로드
