@@ -2,10 +2,6 @@
 
 이 튜토리얼에서는 RViz에서 시각화를 렌더링하여 MoveIt 애플리케이션이 수행하는 작업을 더 쉽게 이해할 수 있는 도구를 소개합니다.
 
-## 사전 요구 사항
-
-아직 수행하지 않았다면 :doc:`첫 번째 프로젝트 </doc/tutorials/your_first_project/your_first_project>` 단계를 완료했는지 확인하세요. 이 프로젝트는 이전 튜토리얼에서 중단한 `hello_moveit` 프로젝트에서 시작한다고 가정합니다.
-
 ## 단계
 
 ### 1. moveit_visual_tools 의존성 추가

@@ -548,7 +548,7 @@ ros2 launch moveit2_tutorials mtc_demo_minimal.launch.py
 
 ## 스테이지 추가
 
-지금까지 간단한 작업을 생성하고 실행하는 과정을 살펴보았습니다. 실행은 되지만 많은 작업을 수행하지는 않습니다. 이제 작업에 집어서 놓기 스테이지를 추가하기 시작할 것입니다. 아래 이미지는 작업에서 사용할 스테이지의 개요를 보여줍니다. MoveIt Task Constructor의 개념과 다양한 스테이지 유형에 대해 자세히 알아보려면 :doc:`MoveIt Task Constructor 예제 페이지 </doc/examples/moveit_task_constructor/moveit_task_constructor_tutorial>`를 참조하세요.
+지금까지 간단한 작업을 생성하고 실행하는 과정을 살펴보았습니다. 실행은 되지만 많은 작업을 수행하지는 않습니다. 이제 작업에 집어서 놓기 스테이지를 추가하기 시작할 것입니다. 아래 이미지는 작업에서 사용할 스테이지의 개요를 보여줍니다.
 
 ![스테이지](./figs/stages.png)
 
