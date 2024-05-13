@@ -126,7 +126,7 @@
 **Joints** 탭을 사용하여 단일 관절과 7-DOF 로봇의 중복 관절을 이동할 수 있습니다. 아래 애니메이션과 같이 "null space exploration" 슬라이더를 움직여 보세요.
 
 <video width="700px" controls="true" autoplay="true" loop="true">
-    <source src="./figs/rviz_joints_nullspace.webm" type="video/webm">
+    <source src="https://cobots2024.halla.ai/assets/video/rviz_joints_nullspace.webm" type="video/webm">
     엔드 이펙터는 가만히 있는 동안 관절이 움직입니다
 </video>
 
