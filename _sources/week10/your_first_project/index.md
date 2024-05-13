@@ -226,9 +226,9 @@ if(success) {
 
 ## 추가 읽을 거리
 
-- 객체를 상수로 초기화할 수 있도록 람다를 사용했습니다. 이를 IIFE라고 하는 기술입니다. `C++ Stories에서 이 패턴에 대해 자세히 읽어보세요 <https://www.cppstories.com/2016/11/iife-for-complex-initialization/>`_.
-- 또한 가능한 모든 것을 const로 선언했습니다. `const의 유용성에 대해 여기에서 자세히 읽어보세요 <https://www.cppstories.com/2016/12/please-declare-your-variables-as-const/>`_.
+- 객체를 상수로 초기화할 수 있도록 람다를 사용했습니다. 이를 IIFE라고 하는 기술입니다. [C++ Stories에서 이 패턴에 대해 자세히 읽어보세요](https://www.cppstories.com/2016/11/iife-for-complex-initialization/).
+- 또한 가능한 모든 것을 const로 선언했습니다. [const의 유용성에 대해 여기에서 자세히 읽어보세요](https://www.cppstories.com/2016/12/please-declare-your-variables-as-const/).
 
 ## 다음 단계
 
-다음 튜토리얼 :doc:`RViz에서 시각화하기 </doc/tutorials/visualizing_in_rviz/visualizing_in_rviz>`에서는 여기에서 만든 프로그램을 확장하여 MoveIt이 수행하는 작업을 쉽게 이해할 수 있는 시각적 마커를 생성합니다.
+다음 강의에서는 여기에서 만든 프로그램을 확장하여 MoveIt이 수행하는 작업을 쉽게 이해할 수 있는 시각적 마커를 생성합니다.

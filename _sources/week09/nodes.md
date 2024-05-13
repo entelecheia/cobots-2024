@@ -16,12 +16,6 @@ ROS의 각 노드는 휠 모터 제어 또는 레이저 거리 측정기의 센�
 
 전체 로봇 시스템은 협력하여 작동하는 많은 노드로 구성됩니다. ROS 2에서는 단일 실행 파일(C++ 프로그램, Python 프로그램 등)에 하나 이상의 노드가 포함될 수 있습니다.
 
-## 전제 조건
-
-:doc:`이전 튜토리얼 <../Introducing-Turtlesim/Introducing-Turtlesim>`에서는 여기에서 사용되는 `turtlesim` 패키지를 설치하는 방법을 보여줍니다.
-
-항상 그렇듯이 열리는 :doc:`모든 새 터미널 <../Configuring-ROS2-Environment>`에서 ROS 2를 소싱하는 것을 잊지 마세요.
-
 ## 작업
 
 ### 1. ros2 run
@@ -38,7 +32,7 @@ turtlesim을 실행하려면 새 터미널을 열고 다음 명령을 입력하�
 ros2 run turtlesim turtlesim_node
 ```
 
-:doc:`이전 튜토리얼 <../Introducing-Turtlesim/Introducing-Turtlesim>`에서 보았듯이 turtlesim 창이 열립니다.
+이전 강의에서 보았듯이 turtlesim 창이 열립니다.
 
 여기서 패키지 이름은 `turtlesim`이고 실행 파일 이름은 `turtlesim_node`입니다.
 

@@ -499,20 +499,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">사전 요구 사항</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">단계</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">단계</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moveit-visual-tools">1. moveit_visual_tools 의존성 추가</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ros">2. ROS 실행기 생성 및 스레드에서 노드 실행</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moveitvisualtools">3. MoveItVisualTools 생성 및 초기화</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4. 시각화를 위한 클로저 작성</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5. 프로그램 단계 시각화</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">6. RViz에서 시각화 활성화</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">7. 프로그램 실행</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4. 시각화를 위한 클로저 작성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5. 프로그램 단계 시각화</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">6. RViz에서 시각화 활성화</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">7. 프로그램 실행</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">요약</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">추가 읽을 거리</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">다음 단계</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">요약</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">추가 읽을 거리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">다음 단계</a></li>
 </ul>
             </nav>
         </div>
@@ -528,11 +527,7 @@ document.write(`
 <h1>RViz에서 시각화하기<a class="headerlink" href="#rviz" title="Link to this heading">#</a></h1>
 <p>이 튜토리얼에서는 RViz에서 시각화를 렌더링하여 MoveIt 애플리케이션이 수행하는 작업을 더 쉽게 이해할 수 있는 도구를 소개합니다.</p>
 <section id="id1">
-<h2>사전 요구 사항<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>아직 수행하지 않았다면 :doc:<code class="docutils literal notranslate"><span class="pre">첫</span> <span class="pre">번째</span> <span class="pre">프로젝트</span> <span class="pre">&lt;/doc/tutorials/your_first_project/your_first_project&gt;</span></code> 단계를 완료했는지 확인하세요. 이 프로젝트는 이전 튜토리얼에서 중단한 <code class="docutils literal notranslate"><span class="pre">hello_moveit</span></code> 프로젝트에서 시작한다고 가정합니다.</p>
-</section>
-<section id="id2">
-<h2>단계<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2>단계<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <section id="moveit-visual-tools">
 <h3>1. moveit_visual_tools 의존성 추가<a class="headerlink" href="#moveit-visual-tools" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">hello_moveit</span></code> 프로젝트의 <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> 파일에서 다른 <code class="docutils literal notranslate"><span class="pre">&lt;depend&gt;</span></code> 문 뒤에 다음 줄을 추가하세요:</p>
@@ -606,8 +601,8 @@ colcon<span class="w"> </span>build<span class="w"> </span>--mixin<span class="w
 </div>
 <p>생성자에는 ROS 노드, 로봇의 기본 링크, 사용할 마커 토픽(이에 대해서는 나중에 더 설명) 및 로봇 모델(move_group_interface에서 가져옴)을 전달합니다. 다음으로 모든 마커를 삭제하는 호출을 수행합니다. 이렇게 하면 이전 실행에서 남겨진 RViz의 렌더링된 상태가 모두 지워집니다. 마지막으로 원격 제어를 로드합니다. 원격 제어는 RViz에서 프로그램과 상호 작용할 수 있는 버튼을 제공하는 매우 간단한 플러그인입니다.</p>
 </section>
-<section id="id3">
-<h3>4. 시각화를 위한 클로저 작성<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>4. 시각화를 위한 클로저 작성<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>생성 및 초기화 후에는 프로그램에서 나중에 사용하여 RViz에서 시각화를 렌더링하는 데 도움이 되는 클로저(현재 범위의 변수에 액세스할 수 있는 함수 객체)를 생성합니다.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// 시각화를 위한 클로저 생성</span>
 <span class="k">auto</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">draw_title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="n">moveit_visual_tools</span><span class="p">](</span><span class="k">auto</span><span class="w"> </span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -633,8 +628,8 @@ colcon<span class="w"> </span>build<span class="w"> </span>--mixin<span class="w
 <p>각 세 개의 클로저는 참조에 의해 <code class="docutils literal notranslate"><span class="pre">moveit_visual_tools</span></code>를 캡처하고 마지막 클로저는 계획 중인 관절 모델 그룹 객체에 대한 포인터를 캡처합니다. 이들은 각각 <code class="docutils literal notranslate"><span class="pre">moveit_visual_tools</span></code>의 함수를 호출하여 RViz의 무언가를 변경합니다. 첫 번째 <code class="docutils literal notranslate"><span class="pre">draw_title</span></code>은 로봇 베이스 위 1미터 위치에 텍스트를 추가합니다. 이는 프로그램의 상태를 높은 수준에서 보여주는 유용한 방법입니다. 두 번째는 <code class="docutils literal notranslate"><span class="pre">prompt</span></code>라는 함수를 호출합니다. 이 함수는 사용자가 RViz에서 <code class="docutils literal notranslate"><span class="pre">next</span></code> 버튼을 누를 때까지 프로그램을 차단합니다. 이는 디버깅할 때 프로그램을 단계별로 실행하는 데 도움이 됩니다. 마지막 클로저는 계획한 궤적의 도구 경로를 그립니다. 이는 도구의 관점에서 계획된 궤적을 이해하는 데 종종 도움이 됩니다.</p>
 <p>이렇게 람다를 만드는 이유가 궁금할 수 있는데, 그 이유는 단순히 이후에 나오는 코드를 더 쉽게 읽고 이해할 수 있게 하기 위함입니다. 소프트웨어를 작성할 때는 종종 기능을 쉽게 재사용하고 독립적으로 테스트할 수 있는 명명된 함수로 분할하는 것이 도움이 됩니다. 다음 섹션에서 이렇게 생성한 함수를 어떻게 사용하는지 볼 수 있습니다.</p>
 </section>
-<section id="id4">
-<h3>5. 프로그램 단계 시각화<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>5. 프로그램 단계 시각화<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>이제 프로그램 중간에 있는 코드를 확장합니다. 계획 및 실행 코드를 업데이트하여 이러한 새로운 기능을 포함하도록 수정하세요:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// 목표 자세 설정</span>
 <span class="k">auto</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">target_pose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
@@ -680,8 +675,8 @@ colcon<span class="w"> </span>build<span class="w"> </span>--mixin<span class="w
 </pre></div>
 </div>
 </section>
-<section id="id5">
-<h3>6. RViz에서 시각화 활성화<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>6. RViz에서 시각화 활성화<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>새 터미널을 열고 작업 공간을 설정한 다음 RViz를 여는 데모 실행 파일을 시작하세요.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ws_moveit2
 <span class="nb">source</span><span class="w"> </span>install/setup.bash
@@ -704,8 +699,8 @@ ros2<span class="w"> </span>launch<span class="w"> </span>moveit2_tutorials<span
 <p><img alt="Marker Array 토픽" src="../../_images/marker_array_topic.png" /></p>
 <p>이제 시각화가 포함된 새 프로그램을 실행할 준비가 되었습니다.</p>
 </section>
-<section id="id6">
-<h3>7. 프로그램 실행<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>7. 프로그램 실행<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>새 터미널에서 작업 공간으로 이동하여 작업 공간을 설정하고 <code class="docutils literal notranslate"><span class="pre">hello_moveit</span></code>를 실행하세요:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ws_moveit2
 <span class="nb">source</span><span class="w"> </span>install/setup.bash
@@ -722,18 +717,18 @@ ros2<span class="w"> </span>run<span class="w"> </span>hello_moveit<span class="
 <p><img alt="실행 중" src="../../_images/executing.png" /></p>
 </section>
 </section>
-<section id="id7">
-<h2>요약<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h2>요약<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>MoveIt으로 작성한 프로그램을 확장하여 RViz의 GUI와 상호 작용함으로써 버튼으로 프로그램을 단계별로 실행하고, 로봇 위에 텍스트를 렌더링하며, 계획한 도구 경로를 표시할 수 있게 되었습니다.</p>
 </section>
-<section id="id8">
-<h2>추가 읽을 거리<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h2>추가 읽을 거리<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>MoveItVisualTools에는 로봇 모션을 시각화하기 위한 많은 유용한 기능이 있습니다. <a class="reference external" href="https://github.com/ros-planning/moveit_visual_tools/tree/ros2">여기에서 자세히 읽어볼 수 있습니다</a>.</p></li>
 </ul>
 </section>
-<section id="id9">
-<h2>다음 단계<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2>다음 단계<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>다음 튜토리얼 <code class="docutils literal notranslate"><span class="pre">물체</span> <span class="pre">주변</span> <span class="pre">계획</span></code>에서는 여기에서 만든 프로그램을 확장하여 충돌 환경을 추가하고 이러한 변경 사항으로 로봇 계획을 확인할 것입니다.</p>
 </section>
 </section>
@@ -802,20 +797,19 @@ ros2<span class="w"> </span>run<span class="w"> </span>hello_moveit<span class="
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">사전 요구 사항</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">단계</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">단계</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moveit-visual-tools">1. moveit_visual_tools 의존성 추가</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ros">2. ROS 실행기 생성 및 스레드에서 노드 실행</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moveitvisualtools">3. MoveItVisualTools 생성 및 초기화</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4. 시각화를 위한 클로저 작성</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5. 프로그램 단계 시각화</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">6. RViz에서 시각화 활성화</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">7. 프로그램 실행</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4. 시각화를 위한 클로저 작성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5. 프로그램 단계 시각화</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">6. RViz에서 시각화 활성화</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">7. 프로그램 실행</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">요약</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">추가 읽을 거리</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">다음 단계</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">요약</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">추가 읽을 거리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">다음 단계</a></li>
 </ul>
   </nav></div>
 

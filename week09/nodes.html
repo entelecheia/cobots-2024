@@ -504,17 +504,16 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2. ROS 2의 노드</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">전제 조건</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">작업</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">작업</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ros2-run">1. ros2 run</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ros2-node-list">2. ros2 node list</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2.1 리맵핑</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.1 리맵핑</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ros2-node-info">3. ros2 node info</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">요약</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">요약</a></li>
 </ul>
             </nav>
         </div>
@@ -543,12 +542,7 @@ document.write(`
 </section>
 </section>
 <section id="id4">
-<h2>전제 조건<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<p>:doc:<code class="docutils literal notranslate"><span class="pre">이전</span> <span class="pre">튜토리얼</span> <span class="pre">&lt;../Introducing-Turtlesim/Introducing-Turtlesim&gt;</span></code>에서는 여기에서 사용되는 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 패키지를 설치하는 방법을 보여줍니다.</p>
-<p>항상 그렇듯이 열리는 :doc:<code class="docutils literal notranslate"><span class="pre">모든</span> <span class="pre">새</span> <span class="pre">터미널</span> <span class="pre">&lt;../Configuring-ROS2-Environment&gt;</span></code>에서 ROS 2를 소싱하는 것을 잊지 마세요.</p>
-</section>
-<section id="id5">
-<h2>작업<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<h2>작업<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <section id="ros2-run">
 <h3>1. ros2 run<a class="headerlink" href="#ros2-run" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">run</span></code> 명령은 패키지에서 실행 파일을 시작합니다.</p>
@@ -559,7 +553,7 @@ document.write(`
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 run turtlesim turtlesim_node</span>
 </pre></div>
 </div>
-<p>:doc:<code class="docutils literal notranslate"><span class="pre">이전</span> <span class="pre">튜토리얼</span> <span class="pre">&lt;../Introducing-Turtlesim/Introducing-Turtlesim&gt;</span></code>에서 보았듯이 turtlesim 창이 열립니다.</p>
+<p>이전 강의에서 보았듯이 turtlesim 창이 열립니다.</p>
 <p>여기서 패키지 이름은 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>이고 실행 파일 이름은 <code class="docutils literal notranslate"><span class="pre">turtlesim_node</span></code>입니다.</p>
 <p>그러나 아직 노드 이름은 모릅니다. <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">list</span></code>를 사용하여 노드 이름을 찾을 수 있습니다.</p>
 </section>
@@ -584,8 +578,8 @@ document.write(`
 <span class="go">/teleop_turtle</span>
 </pre></div>
 </div>
-<section id="id6">
-<h4>2.1 리맵핑<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<section id="id5">
+<h4>2.1 리맵핑<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">리맵핑</span> <span class="pre">&lt;https://design.ros2.org/articles/ros_command_line_arguments.html#name-remapping-rules&gt;</span></code>__을 사용하면 노드 이름, 주제 이름, 서비스 이름 등의 기본 노드 속성을 사용자 지정 값으로 재할당할 수 있습니다. 마지막 튜토리얼에서는 <code class="docutils literal notranslate"><span class="pre">turtle_teleop_key</span></code>에서 리맵핑을 사용하여 cmd_vel 주제를 변경하고 <strong>turtle2</strong>를 대상으로 지정했습니다.</p>
 <p>이제 <code class="docutils literal notranslate"><span class="pre">/turtlesim</span></code> 노드의 이름을 재할당해 보겠습니다. 새 터미널에서 다음 명령을 실행하세요:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle</span>
@@ -644,8 +638,8 @@ document.write(`
 <p>다가오는 튜토리얼에서 메시지 유형을 포함한 ROS 그래프 연결 개념에 대해 자세히 배우게 될 것입니다.</p>
 </section>
 </section>
-<section id="id7">
-<h2>요약<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h2>요약<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>노드는 로봇 시스템에서 단일 모듈식 목적을 제공하는 기본 ROS 2 요소입니다.</p>
 <p>이 튜토리얼에서는 <code class="docutils literal notranslate"><span class="pre">turtlesim</span></code> 패키지에서 만든 노드를 <code class="docutils literal notranslate"><span class="pre">turtlesim_node</span></code>와 <code class="docutils literal notranslate"><span class="pre">turtle_teleop_key</span></code> 실행 파일을 실행하여 활용했습니다.</p>
 <p><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">list</span></code>를 사용하여 활성 노드 이름을 검색하고 <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">info</span></code>를 사용하여 단일 노드를 내부 점검하는 방법을 배웠습니다. 이러한 도구는 복잡하고 실제적인 로봇 시스템에서 데이터 흐름을 이해하는 데 매우 중요합니다.</p>
@@ -721,17 +715,16 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2. ROS 2의 노드</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">전제 조건</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">작업</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">작업</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ros2-run">1. ros2 run</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ros2-node-list">2. ros2 node list</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2.1 리맵핑</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.1 리맵핑</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ros2-node-info">3. ros2 node info</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">요약</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">요약</a></li>
 </ul>
   </nav></div>
 
