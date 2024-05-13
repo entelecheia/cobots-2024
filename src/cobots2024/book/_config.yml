@@ -51,7 +51,7 @@ html:
       data-sponsor-link="https://chat.entelecheia.app/workspace/cobots"
       src="https://chat.entelecheia.app/embed/anythingllm-chat-widget.min.js">
     </script>
-  announcement: "5/2일(목)전까지 <a href='https://cobots2024.halla.ai/projects'>프로젝트</a> 주제 선정 및 개요작성을 완료해주세요."
+  announcement: ""
 
 sphinx:
   config:
