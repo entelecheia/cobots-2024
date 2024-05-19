@@ -55,6 +55,7 @@ parts:
       - file: week12/index
         sections:
           - file: week12/kinematics
+          - file: week12/motion_planning
   - caption: Projects
     chapters:
       - file: projects/index
