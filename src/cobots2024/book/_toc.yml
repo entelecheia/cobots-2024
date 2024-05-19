@@ -52,6 +52,9 @@ parts:
         sections:
           - file: week11/planning_around_objects/index
           - file: week11/pick_and_place_with_moveit_task_constructor/index
+      - file: week12/index
+        sections:
+          - file: week12/kinematics
   - caption: Projects
     chapters:
       - file: projects/index
