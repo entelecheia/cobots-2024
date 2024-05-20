@@ -1,0 +1,739 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>모션 플래닝 (Motion Planning) &#8212; 협동로봇활용 2024</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script src="../_static/js/hoverxref.js"></script>
+    <script src="../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../_static/js/micromodal.min.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-BQJE5V9RK2"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-BQJE5V9RK2');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-BQJE5V9RK2');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week12/motion_planning';</script>
+    <link rel="icon" href="https://assets.entelecheia.ai/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="하이브리드 플래닝 (Hybrid Planning)" href="hybrid_planning.html" />
+    <link rel="prev" title="운동학 (Kinematics)" href="kinematics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">협동로봇활용 2024</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week01/index.html">Week 1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week01/lecture.html">두산로보틱스 기본 교육</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week01/terminology.html">주요용어</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week01/references.html">참고자료</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week01/review.html">복습</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week02/index.html">Week 2</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week02/lecture.html">핵심 교육 (Part 1/2)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week03/index.html">Week 3</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week03/lecture.html">핵심 교육 (Part 1/2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week03/ros-intro.html">ROS 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week03/ros-setup.html">ROS 설치환경 구축하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week03/ros-install.html">ROS 설치하기</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week04/index.html">Week 4</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week04/lecture.html">핵심 교육 (Part 2/2)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week05/index.html">Week 5</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week05/lecture.html">ROS 활용방법</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week06/index.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week06/ros-container.html">도커를 이용한 ROS2 실행환경 구축</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week06/ros-setup.html">ROS 환경 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week06/dsr-usage.html">DSR 사용방법</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week06/ros-intro.html">ROS 소개</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week07/index.html">Week 7</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week07/ros-basics.html">ROS 기초</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week07/ros-workspace.html">패키지와 워크스페이스</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week09/index.html">Week 9</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week09/configure.html">ROS 2 환경 구성하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week09/intro-turtlesim.html"><code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>, <code class="docutils literal notranslate"><span class="pre">ros2</span></code>, 그리고 <code class="docutils literal notranslate"><span class="pre">rqt</span></code> 사용하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week09/nodes.html">노드 이해하기</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week10/index.html">Week 10</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week10/getting_started.html">MoveIt 2 시작하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week10/quickstart_in_rviz/index.html">RViz에서 MoveIt 빠르게 시작하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week10/your_first_project/index.html">첫 번째 C++ MoveIt 프로젝트</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week10/visualizing_in_rviz/index.html">RViz에서 시각화하기</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../week11/index.html">Week 11</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week11/planning_around_objects/index.html">물체 주변 계획하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week11/pick_and_place_with_moveit_task_constructor/index.html">MoveIt Task Constructor를 사용한 집어서 놓기</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Week 12</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="kinematics.html">운동학 (Kinematics)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">모션 플래닝 (Motion Planning)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hybrid_planning.html">하이브리드 플래닝 (Hybrid Planning)</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects/index.html">ROS 프로젝트</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/202021024/index.html">로봇팔을 이용한 덤벨 및 원판 정리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/202021029/index.html">로봇 팔을 활용한 자동 물체 이송 시스템</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/202021032/index.html">202021032</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/202021038/index.html">로봇 팔을 활용한 분리수거 자동화</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/202121010/index.html">로봇 팔을 통한 과일 선별 과정 자동화</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/202221014/index.html">로봇을 이용한 정원 관리</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/setup.html">프로젝트 환경설정</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/index.html">수업계획서</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">만든 사람들</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://halla.ai">인공지능학과</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://os2024.halla.ai">운영체제 2024</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://mlops2024.halla.ai">머신러닝시스템 2024</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cobots2024.halla.ai">협동로봇활용 2024</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://aibasics.halla.ai">AI 세상 속으로</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/chu-aie/cobots-2024" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chu-aie/cobots-2024/edit/main/src/cobots2024/book/week12/motion_planning.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chu-aie/cobots-2024/issues/new?title=Issue%20on%20page%20%2Fweek12/motion_planning.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/week12/motion_planning.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>모션 플래닝 (Motion Planning)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">모션 플래닝 플러그인</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">모션 플랜 요청</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">모션 플랜 결과</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">모션 플래닝 어댑터</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixstartstatebounds">FixStartStateBounds</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixworkspacebounds">FixWorkspaceBounds</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixstartstatecollision">FixStartStateCollision</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixstartstatepathconstraints">FixStartStatePathConstraints</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addtimeparameterization">AddTimeParameterization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolveconstraintframes">ResolveConstraintFrames</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ompl">OMPL</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="motion-planning">
+<h1>모션 플래닝 (Motion Planning)<a class="headerlink" href="#motion-planning" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>모션 플래닝 플러그인<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>MoveIt은 <strong>플러그인 인터페이스</strong>를 통해 모션 플래너와 작동합니다. 이를 통해 MoveIt은 다양한 라이브러리의 모션 플래너와 통신하고 사용할 수 있어 확장성이 뛰어납니다. 모션 플래너와의 인터페이스는 <code class="docutils literal notranslate"><span class="pre">move_group</span></code> 노드에서 제공하는 ROS 액션 또는 서비스를 통해 이루어집니다. MoveIt Setup Assistant는 OMPL 및 OMPL 인터페이스를 사용하여 move_group의 기본 모션 플래너를 구성합니다. 기본적으로 사용 가능한 다른 플래너로는 Pilz 산업 모션 플래너와 CHOMP가 있습니다.</p>
+</section>
+<section id="id2">
+<h2>모션 플랜 요청<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>모션 플랜 요청은 모션 플래너에게 원하는 작업을 지정합니다. 일반적으로, 팔을 다른 위치(조인트 공간)로 이동시키거나 엔드 이펙터를 새로운 자세로 이동시키도록 요청합니다. 충돌 검사는 기본적으로 수행됩니다(자기 충돌 및 부착된 객체 포함). 또한 <code class="docutils literal notranslate"><span class="pre">planning_pipeline</span></code> 및 <code class="docutils literal notranslate"><span class="pre">planner_id</span></code> 매개변수를 통해 플래너를 지정할 수 있으며, 모션 플래너가 확인할 제약 조건을 지정할 수 있습니다. MoveIt에서 제공하는 기본 제약 조건은 <strong>운동학적 제약 조건</strong>입니다:</p>
+<ul class="simple">
+<li><p><strong>위치 제약 조건 (Position constraints)</strong>: 링크의 위치가 공간의 특정 영역 내에 있어야 함을 제한합니다.</p></li>
+<li><p><strong>방향 제약 조건 (Orientation constraints)</strong>: 링크의 방향이 지정된 롤, 피치 또는 요 한계 내에 있어야 함을 제한합니다.</p></li>
+<li><p><strong>가시성 제약 조건 (Visibility constraints)</strong>: 링크의 특정 점이 특정 센서의 가시성 원뿔 내에 있어야 함을 제한합니다.</p></li>
+<li><p><strong>조인트 제약 조건 (Joint constraints)</strong>: 조인트가 두 값 사이에 있어야 함을 제한합니다.</p></li>
+<li><p><strong>사용자 지정 제약 조건 (User-specified constraints)</strong>: 사용자 정의 콜백으로 자신만의 제약 조건을 지정할 수도 있습니다.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>모션 플랜 결과<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">move_group</span></code> 노드는 모션 플랜 요청에 대한 응답으로 원하는 궤적을 생성합니다. 이 궤적은 팔(또는 조인트 그룹)을 원하는 위치로 이동시킵니다. <code class="docutils literal notranslate"><span class="pre">move_group</span></code>에서 나오는 결과는 경로가 아닌 궤적이라는 점에 유의해야 합니다. <code class="docutils literal notranslate"><span class="pre">move_group</span></code>은 지정된 최대 속도와 가속도(지정된 경우)를 사용하여 조인트 수준에서 속도 및 가속도 제약을 준수하는 궤적을 생성합니다.</p>
+</section>
+<section id="id4">
+<h2>모션 플래닝 어댑터<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p><img alt="" src="../_images/motion_planner.png" /></p>
+<p>모션 플래닝 파이프라인은 <strong>플래닝 요청 어댑터</strong>라는 다른 구성 요소와 모션 플래너를 연결합니다. 플래닝 요청 어댑터는 모션 플랜 요청의 사전 처리 및 모션 플랜 응답의 사후 처리를 가능하게 합니다. 사전 처리는 로봇의 시작 상태가 로봇의 조인트 한계를 약간 벗어났을 때 유용합니다. 사후 처리는 로봇에 대한 경로를 시간 매개변수가 지정된 궤적으로 변환하는 등 여러 작업에 필요합니다. MoveIt은 각기 매우 특정한 기능을 수행하는 기본 모션 플래닝 어댑터 세트를 제공합니다.</p>
+<section id="fixstartstatebounds">
+<h3>FixStartStateBounds<a class="headerlink" href="#fixstartstatebounds" title="Link to this heading">#</a></h3>
+<p>이 어댑터는 시작 상태를 URDF에 지정된 조인트 한계 내로 수정합니다. 실제 로봇의 조인트 한계가 제대로 구성되지 않은 상황에서 필요합니다. 로봇이 하나 이상의 조인트가 조인트 한계를 약간 벗어난 구성에 있을 수 있습니다. 이 경우 모션 플래너는 시작 상태가 조인트 한계를 벗어났다고 판단하여 계획을 세울 수 없습니다. “FixStartStateBounds” 플래닝 요청 어댑터는 시작 상태를 조인트 한계로 이동시켜 “수정”합니다. 그러나 조인트가 한계를 많이 벗어났을 때는 이 방법이 항상 적합하지는 않습니다. 어댑터의 매개변수는 조인트가 얼마나 한계를 벗어날 수 있는지를 지정합니다.</p>
+</section>
+<section id="fixworkspacebounds">
+<h3>FixWorkspaceBounds<a class="headerlink" href="#fixworkspacebounds" title="Link to this heading">#</a></h3>
+<p>이 어댑터는 계획을 위한 기본 작업 공간을 지정합니다: 크기 10 m x 10 m x 10 m의 큐브입니다. 이러한 작업 공간은 플래너에 대한 플래닝 요청에 이러한 필드가 채워지지 않은 경우에만 지정됩니다.</p>
+</section>
+<section id="fixstartstatecollision">
+<h3>FixStartStateCollision<a class="headerlink" href="#fixstartstatecollision" title="Link to this heading">#</a></h3>
+<p>이 어댑터는 작은 양으로 조인트 값을 변동시켜 지정된 구성 근처에서 새로운 충돌 없는 구성을 샘플링하려고 시도합니다. 변동 양은 조인트의 총 범위에 대한 백분율로 조절되는 <strong>jiggle_fraction</strong> 매개변수로 지정됩니다. 이 어댑터의 다른 매개변수는 어댑터가 포기하기 전에 샘플링할 무작위 변동 횟수를 지정합니다.</p>
+</section>
+<section id="fixstartstatepathconstraints">
+<h3>FixStartStatePathConstraints<a class="headerlink" href="#fixstartstatepathconstraints" title="Link to this heading">#</a></h3>
+<p>이 어댑터는 모션 플랜의 시작 상태가 지정된 경로 제약 조건을 준수하지 않을 때 적용됩니다. 로봇의 현재 구성에서 경로 제약 조건을 준수하는 새로운 위치로 경로를 계획하려고 시도합니다. 새로운 위치는 플래닝을 위한 시작 상태가 됩니다.</p>
+</section>
+<section id="addtimeparameterization">
+<h3>AddTimeParameterization<a class="headerlink" href="#addtimeparameterization" title="Link to this heading">#</a></h3>
+<p>모션 플래너는 일반적으로 “운동 경로”를 생성합니다. 즉, 속도 또는 가속도 제약을 준수하지 않으며 시간 매개변수가 지정되지 않은 경로입니다. 이 어댑터는 속도 및 가속도 제약을 적용하여 모션 플랜의 “시간 매개변수화”를 수행합니다.</p>
+</section>
+<section id="resolveconstraintframes">
+<h3>ResolveConstraintFrames<a class="headerlink" href="#resolveconstraintframes" title="Link to this heading">#</a></h3>
+<p>목표 제약 조건은 하위 프레임을 사용하여 설정할 수 있습니다(예: <code class="docutils literal notranslate"><span class="pre">cup/handle</span></code> 프레임에서의 포즈 목표, 여기서 <code class="docutils literal notranslate"><span class="pre">handle</span></code>은 <code class="docutils literal notranslate"><span class="pre">cup</span></code> 객체의 하위 프레임). 이 어댑터는 제약 조건의 프레임을 객체 또는 로봇 프레임으로 변경합니다(예: <code class="docutils literal notranslate"><span class="pre">cup</span></code>).</p>
+</section>
+</section>
+<section id="ompl">
+<h2>OMPL<a class="headerlink" href="#ompl" title="Link to this heading">#</a></h2>
+<p>OMPL(오픈 모션 플래닝 라이브러리)은 주로 무작위 모션 플래너를 구현하는 오픈 소스 모션 플래닝 라이브러리입니다. MoveIt은 OMPL과 직접 통합되며 해당 라이브러리의 모션 플래너를 기본/기본 플래너 세트로 사용합니다. OMPL의 플래너는 추상적입니다. 즉, OMPL은 로봇의 개념이 없습니다. 대신, MoveIt은 OMPL을 구성하고 로봇 공학 문제를 해결하기 위해 OMPL의 백엔드를 제공합니다.</p>
+<p><strong>요약:</strong></p>
+<ul class="simple">
+<li><p><strong>모션 플래닝 플러그인</strong>: MoveIt은 플러그인 인터페이스를 통해 다양한 모션 플래너와 통신하며, 기본적으로 OMPL을 사용합니다.</p></li>
+<li><p><strong>모션 플랜 요청</strong>: 사용자는 팔이나 엔드 이펙터를 원하는 위치로 이동시키는 요청을 할 수 있으며, 다양한 제약 조건을 지정할 수 있습니다.</p></li>
+<li><p><strong>모션 플랜 결과</strong>: <code class="docutils literal notranslate"><span class="pre">move_group</span></code> 노드는 요청에 따라 속도 및 가속도 제약을 준수하는 궤적을 생성합니다.</p></li>
+<li><p><strong>모션 플래닝 어댑터</strong>: 요청의 사전 처리 및 응답의 사후 처리를 수행하여 계획의 정확성과 효율성을 높입니다.</p></li>
+<li><p><strong>OMPL</strong>: MoveIt과 통합된 오픈 소스 모션 플래닝 라이브러리로, 다양한 무작위 모션 플래너를 제공합니다.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "chu-aie/cobots-2024",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./week12"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="kinematics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">운동학 (Kinematics)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="hybrid_planning.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">하이브리드 플래닝 (Hybrid Planning)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">모션 플래닝 플러그인</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">모션 플랜 요청</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">모션 플랜 결과</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">모션 플래닝 어댑터</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixstartstatebounds">FixStartStateBounds</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixworkspacebounds">FixWorkspaceBounds</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixstartstatecollision">FixStartStateCollision</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixstartstatepathconstraints">FixStartStatePathConstraints</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addtimeparameterization">AddTimeParameterization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolveconstraintframes">ResolveConstraintFrames</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ompl">OMPL</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href='https://entelecheia.me/'>Young Joon Lee</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <script
+  data-embed-id="8ce6d27b-4248-4ca8-ac90-57f7de938b44"
+  data-base-api-url="https://chat.entelecheia.app/api/embed"
+  data-brand-image-url="https://assets.entelecheia.ai/favicon.png"
+  data-chat-icon="magic"
+  data-sponsor-text="Cobots 2024"
+  data-sponsor-link="https://chat.entelecheia.app/workspace/cobots"
+  src="https://chat.entelecheia.app/embed/anythingllm-chat-widget.min.js">
+</script>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
