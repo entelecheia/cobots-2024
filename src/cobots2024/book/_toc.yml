@@ -62,7 +62,9 @@ parts:
           - file: week13/move_group
           - file: week13/planning_scene_monitor
           - file: week13/trajectory_processing
-          - file: week13/moveit_task_constructor
+      - file: week14/index
+        sections:
+          - file: week14/motion_planning_python_api/index
   - caption: Projects
     chapters:
       - file: projects/index
