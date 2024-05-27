@@ -1,0 +1,1043 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Jupyter 노트북을 사용한 프로토타이핑 &#8212; 협동로봇활용 2024</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../_static/js/hoverxref.js"></script>
+    <script src="../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../_static/js/micromodal.min.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-BQJE5V9RK2"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-BQJE5V9RK2');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-BQJE5V9RK2');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week14/jupyter_notebook_prototyping/index';</script>
+    <link rel="icon" href="https://assets.entelecheia.ai/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MoveIt Notebook Tutorial" href="src/moveit_notebook_tutorial.html" />
+    <link rel="prev" title="모션 플래닝 Python API" href="../motion_planning_python_api/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">협동로봇활용 2024</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture Notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week01/index.html">Week 1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week01/lecture.html">두산로보틱스 기본 교육</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week01/terminology.html">주요용어</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week01/references.html">참고자료</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week01/review.html">복습</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week02/index.html">Week 2</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week02/lecture.html">핵심 교육 (Part 1/2)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week03/index.html">Week 3</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week03/lecture.html">핵심 교육 (Part 1/2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week03/ros-intro.html">ROS 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week03/ros-setup.html">ROS 설치환경 구축하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week03/ros-install.html">ROS 설치하기</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week04/index.html">Week 4</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week04/lecture.html">핵심 교육 (Part 2/2)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week05/index.html">Week 5</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week05/lecture.html">ROS 활용방법</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week06/index.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week06/ros-container.html">도커를 이용한 ROS2 실행환경 구축</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week06/ros-setup.html">ROS 환경 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week06/dsr-usage.html">DSR 사용방법</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week06/ros-intro.html">ROS 소개</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week07/index.html">Week 7</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week07/ros-basics.html">ROS 기초</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week07/ros-workspace.html">패키지와 워크스페이스</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week09/index.html">Week 9</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week09/configure.html">ROS 2 환경 구성하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week09/intro-turtlesim.html"><code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>, <code class="docutils literal notranslate"><span class="pre">ros2</span></code>, 그리고 <code class="docutils literal notranslate"><span class="pre">rqt</span></code> 사용하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week09/nodes.html">노드 이해하기</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week10/index.html">Week 10</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week10/getting_started.html">MoveIt 2 시작하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week10/quickstart_in_rviz/index.html">RViz에서 MoveIt 빠르게 시작하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week10/your_first_project/index.html">첫 번째 C++ MoveIt 프로젝트</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week10/visualizing_in_rviz/index.html">RViz에서 시각화하기</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week11/index.html">Week 11</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week11/planning_around_objects/index.html">물체 주변 계획하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week11/pick_and_place_with_moveit_task_constructor/index.html">MoveIt Task Constructor를 사용한 집어서 놓기</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week12/index.html">Week 12</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week12/kinematics.html">운동학 (Kinematics)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week12/motion_planning.html">모션 플래닝 (Motion Planning)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week12/hybrid_planning.html">하이브리드 플래닝 (Hybrid Planning)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week13/index.html">Week 13</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week13/move_group.html"><code class="docutils literal notranslate"><span class="pre">move_group</span></code> 노드</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week13/planning_scene_monitor.html">플래닝 Scene 모니터</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week13/trajectory_processing.html">궤적 처리</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Week 14</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../motion_planning_python_api/index.html">모션 플래닝 Python API</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Jupyter 노트북을 사용한 프로토타이핑</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/moveit_notebook_tutorial.html">MoveIt Notebook Tutorial</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../projects/index.html">ROS 프로젝트</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../projects/202021024/index.html">로봇팔을 이용한 덤벨 및 원판 정리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../projects/202021029/index.html">로봇 팔을 활용한 자동 물체 이송 시스템</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../projects/202021032/index.html">202021032</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../projects/202021038/index.html">로봇 팔을 활용한 분리수거 자동화</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../projects/202121010/index.html">로봇 팔을 통한 과일 선별 과정 자동화</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../projects/202221014/index.html">로봇을 이용한 정원 관리</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/setup.html">프로젝트 환경설정</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/index.html">수업계획서</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">만든 사람들</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://halla.ai">인공지능학과</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://os2024.halla.ai">운영체제 2024</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://mlops2024.halla.ai">머신러닝시스템 2024</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cobots2024.halla.ai">협동로봇활용 2024</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://aibasics.halla.ai">AI 세상 속으로</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/chu-aie/cobots-2024" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chu-aie/cobots-2024/edit/main/src/cobots2024/book/week14/jupyter_notebook_prototyping/index.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chu-aie/cobots-2024/issues/new?title=Issue%20on%20page%20%2Fweek14/jupyter_notebook_prototyping/index.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/week14/jupyter_notebook_prototyping/index.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Jupyter 노트북을 사용한 프로토타이핑</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">시작하기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">실행 파일 이해하기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">노트북 설정</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">모션 플래닝 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">원격 조작 예제</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="jupyter">
+<h1>Jupyter 노트북을 사용한 프로토타이핑<a class="headerlink" href="#jupyter" title="Link to this heading">#</a></h1>
+<p>이 튜토리얼에서는 MoveIt 2 Python API와 함께 Jupyter 노트북을 사용하는 방법을 배웁니다. 이 튜토리얼은 다음과 같은 섹션으로 구성되어 있습니다:</p>
+<ul class="simple">
+<li><p><strong>시작하기</strong>: 튜토리얼 설정 요구사항에 대한 개요입니다.</p></li>
+<li><p><strong>실행 파일 이해하기</strong>: 실행 파일 명세에 대한 개요입니다.</p></li>
+<li><p><strong>노트북 설정</strong>: 노트북 임포트와 구성입니다.</p></li>
+<li><p><strong>모션 플래닝 예제</strong>: <code class="docutils literal notranslate"><span class="pre">moveit_py</span></code> API를 사용하여 모션을 계획하는 예제입니다.</p></li>
+<li><p><strong>원격 조작 예제</strong>: <code class="docutils literal notranslate"><span class="pre">moveit_py</span></code> API를 사용하여 조이스틱으로 로봇을 원격 조작하는 예제입니다.</p></li>
+</ul>
+<section id="id1">
+<h2>시작하기<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>이 튜토리얼을 완료하려면 MoveIt 2와 해당 튜토리얼이 포함된 colcon 작업 공간을 설정해야 합니다. 이러한 작업 공간을 설정하는 방법에 대한 개요는 <a class="reference internal" href="../../week10/getting_started.html"><span class="doc std std-doc">시작하기 가이드</span></a>에 제공되어 있습니다.</p>
+<p>작업 공간을 설정한 후에는 다음 명령을 실행하여 이 튜토리얼의 코드를 실행할 수 있습니다(이 튜토리얼의 서보 섹션에는 PS4 듀얼쇼크가 필요합니다. 없는 경우 이 매개변수를 false로 설정하는 것을 고려하십시오):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>moveit2_tutorials<span class="w"> </span>jupyter_notebook_prototyping.launch.py<span class="w"> </span>start_servo:<span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>이렇게 하면 이 튜토리얼을 완료하는 데 필요한 노드가 실행됩니다.</p></li>
+<li><p>중요한 점은 이 튜토리얼의 코드를 실행하기 위해 연결할 수 있는 Jupyter 노트북 서버도 실행된다는 것입니다.</p></li>
+<li><p>브라우저에서 자동으로 Jupyter 노트북 인터페이스가 열리지 않으면 브라우저에서 http://localhost:8888로 이동하여 노트북 서버에 연결할 수 있습니다.</p></li>
+<li><p>토큰을 입력하라는 메시지가 표시되는데, 이는 실행 파일을 실행할 때 터미널에 인쇄되며 이 토큰을 입력하여 노트북 서버에 연결할 수 있습니다.</p></li>
+<li><p>토큰이 포함된 URL도 터미널 출력에 인쇄되므로, 토큰을 수동으로 입력하지 않고도 이 URL을 직접 사용하여 노트북 서버에 연결할 수 있습니다.</p></li>
+</ul>
+<p>이 단계를 완료하면 튜토리얼을 진행할 준비가 된 것입니다. 노트북 코드를 실행하기 전에 노트북 인스턴스를 실행하는 방법을 이해할 수 있도록 실행 파일 명세에 대한 간단한 개요를 제공합니다.</p>
+</section>
+<section id="id2">
+<h2>실행 파일 이해하기<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>이 튜토리얼에서 사용되는 <a class="reference external" href="https://github.com/peterdavidfagan/moveit2_tutorials/blob/moveit_py_notebook_tutorial/doc/examples/jupyter_notebook_prototyping/launch/jupyter_notebook_prototyping.launch.py">실행 파일</a>이 다른 튜토리얼과 비교할 때 차이점은 Jupyter 노트북 서버를 시작한다는 것입니다.
+우리는 일반적인 실행 파일 코드를 간략히 검토하고 주로 노트북 서버 시작에 초점을 맞출 것입니다.</p>
+<p>필요한 패키지 임포트:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">from</span> <span class="nn">launch</span> <span class="kn">import</span> <span class="n">LaunchDescription</span>
+<span class="kn">from</span> <span class="nn">launch.actions</span> <span class="kn">import</span> <span class="n">ExecuteProcess</span><span class="p">,</span> <span class="n">DeclareLaunchArgument</span>
+<span class="kn">from</span> <span class="nn">launch.substitutions</span> <span class="kn">import</span> <span class="n">LaunchConfiguration</span>
+<span class="kn">from</span> <span class="nn">launch_ros.actions</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">SetParameter</span>
+<span class="kn">from</span> <span class="nn">ament_index_python.packages</span> <span class="kn">import</span> <span class="n">get_package_share_directory</span>
+<span class="kn">from</span> <span class="nn">moveit_configs_utils</span> <span class="kn">import</span> <span class="n">MoveItConfigsBuilder</span>
+</pre></div>
+</div>
+<p>YAML 파일을 로드하기 위한 유틸리티 정의:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">load_yaml</span><span class="p">(</span><span class="n">package_name</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+        <span class="n">package_path</span> <span class="o">=</span> <span class="n">get_package_share_directory</span><span class="p">(</span><span class="n">package_name</span><span class="p">)</span>
+        <span class="n">absolute_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">package_path</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">absolute_file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">EnvironmentError</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+<p>서보 노드를 시작하기 위한 실행 인자 정의:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">start_servo</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;start_servo&#39;</span><span class="p">)</span>
+
+<span class="n">start_servo_arg</span> <span class="o">=</span> <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
+        <span class="s1">&#39;start_servo&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;false&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Start the servo node.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>MoveIt 구성을 정의합니다. 이 단계는 나중에 노트북을 구성할 때도 중요합니다:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">moveit_config</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">MoveItConfigsBuilder</span><span class="p">(</span>
+                <span class="n">robot_name</span><span class="o">=</span><span class="s2">&quot;panda&quot;</span><span class="p">,</span> <span class="n">package_name</span><span class="o">=</span><span class="s2">&quot;moveit_resources_panda_moveit_config&quot;</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">robot_description</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;config/panda.urdf.xacro&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">trajectory_execution</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;config/gripper_moveit_controllers.yaml&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">moveit_cpp</span><span class="p">(</span>
+                <span class="n">file_path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                        <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s2">&quot;moveit2_tutorials&quot;</span><span class="p">),</span>
+                        <span class="s2">&quot;config&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;jupyter_notebook_prototyping.yaml&quot;</span>
+                <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">to_moveit_configs</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>MoveIt 구성을 정의하면 다음 노드 집합을 시작합니다:</p>
+<ul class="simple">
+<li><p><strong>rviz_node</strong>: 시각화를 위해 rviz2를 시작합니다.</p></li>
+<li><p><strong>static_tf</strong>: 월드 프레임과 판다 베이스 프레임 사이의 정적 변환을 발행합니다.</p></li>
+<li><p><strong>robot_state_publisher</strong>: 업데이트된 로봇 상태 정보(변환)를 발행합니다.</p></li>
+<li><p><strong>ros2_control_node</strong>: 관절 그룹을 제어하는 데 사용됩니다.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rviz_config_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s2">&quot;moveit2_tutorials&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;jupyter_notebook_prototyping.rviz&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">rviz_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+        <span class="n">package</span><span class="o">=</span><span class="s2">&quot;rviz2&quot;</span><span class="p">,</span>
+        <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;rviz2&quot;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;rviz2&quot;</span><span class="p">,</span>
+        <span class="n">output</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+        <span class="n">arguments</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;-d&quot;</span><span class="p">,</span> <span class="n">rviz_config_file</span><span class="p">],</span>
+        <span class="n">parameters</span><span class="o">=</span><span class="p">[</span>
+                <span class="n">moveit_config</span><span class="o">.</span><span class="n">robot_description</span><span class="p">,</span>
+                <span class="n">moveit_config</span><span class="o">.</span><span class="n">robot_description_semantic</span><span class="p">,</span>
+        <span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">static_tf</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+        <span class="n">package</span><span class="o">=</span><span class="s2">&quot;tf2_ros&quot;</span><span class="p">,</span>
+        <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;static_transform_publisher&quot;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;static_transform_publisher&quot;</span><span class="p">,</span>
+        <span class="n">output</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+        <span class="n">arguments</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;--frame-id&quot;</span><span class="p">,</span> <span class="s2">&quot;world&quot;</span><span class="p">,</span> <span class="s2">&quot;--child-frame-id&quot;</span><span class="p">,</span> <span class="s2">&quot;panda_link0&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">robot_state_publisher</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+        <span class="n">package</span><span class="o">=</span><span class="s2">&quot;robot_state_publisher&quot;</span><span class="p">,</span>
+        <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;robot_state_publisher&quot;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;robot_state_publisher&quot;</span><span class="p">,</span>
+        <span class="n">output</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span>
+        <span class="n">parameters</span><span class="o">=</span><span class="p">[</span><span class="n">moveit_config</span><span class="o">.</span><span class="n">robot_description</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">ros2_controllers_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s2">&quot;moveit_resources_panda_moveit_config&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;config&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ros2_controllers.yaml&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ros2_control_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+        <span class="n">package</span><span class="o">=</span><span class="s2">&quot;controller_manager&quot;</span><span class="p">,</span>
+        <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;ros2_control_node&quot;</span><span class="p">,</span>
+        <span class="n">parameters</span><span class="o">=</span><span class="p">[</span><span class="n">ros2_controllers_path</span><span class="p">],</span>
+        <span class="n">remappings</span><span class="o">=</span><span class="p">[</span>
+                <span class="p">(</span><span class="s2">&quot;/controller_manager/robot_description&quot;</span><span class="p">,</span> <span class="s2">&quot;/robot_description&quot;</span><span class="p">),</span>
+        <span class="p">],</span>
+        <span class="n">output</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">load_controllers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">controller</span> <span class="ow">in</span> <span class="p">[</span>
+        <span class="s2">&quot;panda_arm_controller&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;panda_hand_controller&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;joint_state_broadcaster&quot;</span><span class="p">,</span>
+<span class="p">]:</span>
+        <span class="n">load_controllers</span> <span class="o">+=</span> <span class="p">[</span>
+                <span class="n">ExecuteProcess</span><span class="p">(</span>
+                <span class="n">cmd</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ros2 run controller_manager spawner </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">controller</span><span class="p">)],</span>
+                <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">output</span><span class="o">=</span><span class="s2">&quot;screen&quot;</span><span class="p">,)</span>
+                <span class="p">]</span>
+</pre></div>
+</div>
+<p>이러한 각 노드의 설정을 정의한 후에는 Jupyter 노트북 서버를 시작하는 프로세스도 정의합니다:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">notebook_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_package_share_directory</span><span class="p">(</span><span class="s2">&quot;moveit2_tutorials&quot;</span><span class="p">),</span> <span class="s2">&quot;src&quot;</span><span class="p">)</span>
+<span class="n">start_notebook</span> <span class="o">=</span> <span class="n">ExecuteProcess</span><span class="p">(</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;cd </span><span class="si">{}</span><span class="s2"> &amp;&amp; python3 -m notebook&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">notebook_dir</span><span class="p">)],</span>
+        <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">output</span><span class="o">=</span><span class="s2">&quot;screen&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>서보를 시작하려는 경우 조이와 서보 노드도 정의합니다. 마지막으로 <code class="docutils literal notranslate"><span class="pre">LaunchDescription</span></code>을 반환합니다:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">start_servo</span><span class="p">:</span>
+        <span class="n">servo_yaml</span> <span class="o">=</span> <span class="n">load_yaml</span><span class="p">(</span><span class="s2">&quot;moveit_servo&quot;</span><span class="p">,</span> <span class="s2">&quot;config/panda_simulated_config.yaml&quot;</span><span class="p">)</span>
+        <span class="n">servo_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;moveit_servo&quot;</span><span class="p">:</span> <span class="n">servo_yaml</span><span class="p">}</span>
+
+        <span class="n">joy_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+                <span class="n">package</span><span class="o">=</span><span class="s2">&quot;joy&quot;</span><span class="p">,</span>
+                <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;joy_node&quot;</span><span class="p">,</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;joy_node&quot;</span><span class="p">,</span>
+                <span class="n">output</span><span class="o">=</span><span class="s2">&quot;screen&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">servo_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+                <span class="n">package</span><span class="o">=</span><span class="s2">&quot;moveit_servo&quot;</span><span class="p">,</span>
+                <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;servo_node_main&quot;</span><span class="p">,</span>
+                <span class="n">parameters</span><span class="o">=</span><span class="p">[</span>
+                        <span class="n">servo_params</span><span class="p">,</span>
+                        <span class="n">moveit_config</span><span class="o">.</span><span class="n">robot_description</span><span class="p">,</span>
+                        <span class="n">moveit_config</span><span class="o">.</span><span class="n">robot_description_semantic</span><span class="p">,</span>
+                        <span class="n">moveit_config</span><span class="o">.</span><span class="n">robot_description_kinematics</span><span class="p">,</span>
+                <span class="p">],</span>
+                <span class="n">output</span><span class="o">=</span><span class="s2">&quot;screen&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">(</span>
+                <span class="p">[</span>
+                <span class="n">start_servo_arg</span><span class="p">,</span>
+                <span class="n">start_notebook</span><span class="p">,</span>
+                <span class="n">static_tf</span><span class="p">,</span>
+                <span class="n">robot_state_publisher</span><span class="p">,</span>
+                <span class="n">rviz_node</span><span class="p">,</span>
+                <span class="n">ros2_control_node</span><span class="p">,</span>
+                <span class="n">joy_node</span><span class="p">,</span>
+                <span class="n">servo_node</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="o">+</span> <span class="n">load_controllers</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+<p>서보를 시작하지 않는 경우 정의한 다른 모든 노드와 프로세스를 포함하는 실행 설명을 반환합니다:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">(</span>
+        <span class="p">[</span>
+        <span class="n">start_servo_arg</span><span class="p">,</span>
+        <span class="n">static_tf</span><span class="p">,</span>
+        <span class="n">robot_state_publisher</span><span class="p">,</span>
+        <span class="n">rviz_node</span><span class="p">,</span>
+        <span class="n">ros2_control_node</span><span class="p">,</span>
+        <span class="n">start_notebook</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="o">+</span> <span class="n">load_controllers</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>노트북 설정<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>이제 Jupyter 노트북 서버를 실행했으므로 노트북의 코드 실행을 시작할 수 있습니다. 첫 번째 단계는 필요한 패키지를 임포트하는 것입니다:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">import</span> <span class="nn">rclpy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># 메시지 라이브러리</span>
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">PoseStamped</span><span class="p">,</span> <span class="n">Pose</span>
+
+<span class="c1"># moveit_py</span>
+<span class="kn">from</span> <span class="nn">moveit.planning</span> <span class="kn">import</span> <span class="n">MoveItPy</span>
+<span class="kn">from</span> <span class="nn">moveit.core.robot_state</span> <span class="kn">import</span> <span class="n">RobotState</span>
+
+<span class="c1"># 설정 파일 라이브러리</span>
+<span class="kn">from</span> <span class="nn">moveit_configs_utils</span> <span class="kn">import</span> <span class="n">MoveItConfigsBuilder</span>
+<span class="kn">from</span> <span class="nn">ament_index_python.packages</span> <span class="kn">import</span> <span class="n">get_package_share_directory</span>
+</pre></div>
+</div>
+<p>필요한 패키지를 임포트한 후에는 <code class="docutils literal notranslate"><span class="pre">moveit_py</span></code> 노드 구성을 정의해야 합니다. 이는 다음과 같이 <code class="docutils literal notranslate"><span class="pre">MoveItConfigsBuilder</span></code>를 사용하여 수행합니다:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">moveit_config</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">MoveItConfigsBuilder</span><span class="p">(</span><span class="n">robot_name</span><span class="o">=</span><span class="s2">&quot;panda&quot;</span><span class="p">,</span> <span class="n">package_name</span><span class="o">=</span><span class="s2">&quot;moveit_resources_panda_moveit_config&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">robot_description</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;config/panda.urdf.xacro&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">trajectory_execution</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;config/gripper_moveit_controllers.yaml&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">moveit_cpp</span><span class="p">(</span>
+                <span class="n">file_path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                        <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s2">&quot;moveit2_tutorials&quot;</span><span class="p">),</span>
+                        <span class="s2">&quot;config&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;jupyter_notebook_prototyping.yaml&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">to_moveit_configs</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>여기서 생성된 구성 인스턴스를 딕셔너리로 변환하여 <code class="docutils literal notranslate"><span class="pre">moveit_py</span></code> 노드를 초기화하는 데 사용할 수 있습니다. 마지막으로 <code class="docutils literal notranslate"><span class="pre">moveit_py</span></code> 노드를 초기화합니다:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># rclpy 초기화(로깅 목적으로만)</span>
+<span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+<span class="c1"># moveit_py 인스턴스와 panda_arm에 대한 planning 컴포넌트 인스턴스화</span>
+<span class="n">panda</span> <span class="o">=</span> <span class="n">MoveItPy</span><span class="p">(</span><span class="n">node_name</span><span class="o">=</span><span class="s2">&quot;moveit_py&quot;</span><span class="p">,</span> <span class="n">config_dict</span><span class="o">=</span><span class="n">moveit_config</span><span class="p">)</span>
+<span class="n">panda_arm</span> <span class="o">=</span> <span class="n">panda</span><span class="o">.</span><span class="n">get_planning_component</span><span class="p">(</span><span class="s2">&quot;panda_arm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>모션 플래닝 예제<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>먼저 나중에 계획된 궤적을 계획하고 실행할 때 사용할 도우미 함수를 만듭니다:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plan_and_execute</span><span class="p">(</span>
+        <span class="n">robot</span><span class="p">,</span>
+        <span class="n">planning_component</span><span class="p">,</span>
+        <span class="n">single_plan_parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">multi_plan_parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;모션을 계획하고 실행하는 도우미 함수.&quot;&quot;&quot;</span>
+        <span class="c1"># 목표로 계획</span>
+        <span class="k">if</span> <span class="n">multi_plan_parameters</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">plan_result</span> <span class="o">=</span> <span class="n">planning_component</span><span class="o">.</span><span class="n">plan</span><span class="p">(</span>
+                        <span class="n">multi_plan_parameters</span><span class="o">=</span><span class="n">multi_plan_parameters</span>
+                <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">single_plan_parameters</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">plan_result</span> <span class="o">=</span> <span class="n">planning_component</span><span class="o">.</span><span class="n">plan</span><span class="p">(</span>
+                <span class="n">single_plan_parameters</span><span class="o">=</span><span class="n">single_plan_parameters</span>
+        <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+                <span class="n">plan_result</span> <span class="o">=</span> <span class="n">planning_component</span><span class="o">.</span><span class="n">plan</span><span class="p">()</span>
+
+        <span class="c1"># 계획 실행</span>
+        <span class="k">if</span> <span class="n">plan_result</span><span class="p">:</span>
+                <span class="n">robot_trajectory</span> <span class="o">=</span> <span class="n">plan_result</span><span class="o">.</span><span class="n">trajectory</span>
+                <span class="n">robot</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">robot_trajectory</span><span class="p">,</span> <span class="n">controllers</span><span class="o">=</span><span class="p">[])</span>
+        <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Planning failed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>노트북 내에서 간단한 모션의 계획과 실행을 시연할 수 있습니다:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 미리 정의된 상태를 사용하여 plan start state 설정</span>
+<span class="n">panda_arm</span><span class="o">.</span><span class="n">set_start_state</span><span class="p">(</span><span class="s2">&quot;ready&quot;</span><span class="p">)</span>
+
+<span class="c1"># 미리 정의된 상태를 사용하여 pose goal 설정</span>
+<span class="n">panda_arm</span><span class="o">.</span><span class="n">set_goal_state</span><span class="p">(</span><span class="n">configuration_name</span> <span class="o">=</span> <span class="s2">&quot;extended&quot;</span><span class="p">)</span>
+
+<span class="c1"># 목표로 계획</span>
+<span class="n">plan_and_execute</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>우리는 대화식으로 모션 플래닝을 수행할 수 있습니다(모션 플래닝 API의 자세한 내용은 모션 플래닝 튜토리얼 참조). 코드를 개발하다가 다음과 같은 실수를 할 수 있다고 가정해 보겠습니다:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 미리 정의된 상태를 사용하여 plan start state 설정</span>
+<span class="n">panda_arm</span><span class="o">.</span><span class="n">set_start_state</span><span class="p">(</span><span class="s2">&quot;ready&quot;</span><span class="p">)</span> <span class="c1"># 이는 현재 로봇 구성과 충돌하여 오류가 발생합니다</span>
+
+<span class="c1"># 이번에는 pose 메시지를 사용하여 목표 설정</span>
+<span class="n">pose_goal</span> <span class="o">=</span> <span class="n">PoseStamped</span><span class="p">()</span>
+<span class="n">pose_goal</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s2">&quot;panda_link0&quot;</span>
+<span class="n">pose_goal</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">pose_goal</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.28</span>
+<span class="n">pose_goal</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.2</span>
+<span class="n">pose_goal</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">panda_arm</span><span class="o">.</span><span class="n">set_goal_state</span><span class="p">(</span><span class="n">pose_stamped_msg</span> <span class="o">=</span> <span class="n">pose_goal</span><span class="p">,</span> <span class="n">pose_link</span> <span class="o">=</span> <span class="s2">&quot;panda_link8&quot;</span><span class="p">)</span>
+
+<span class="c1"># 목표로 계획</span>
+<span class="n">plan_and_execute</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>노트북을 사용하고 있기 때문에 파일을 다시 컴파일할 필요 없이 이 실수를 쉽게 수정할 수 있습니다. 위의 노트북을 아래와 일치하도록 편집하고 셀을 다시 실행하기만 하면 됩니다:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 현재 상태를 plan start state로 설정</span>
+<span class="n">panda_arm</span><span class="o">.</span><span class="n">set_start_state_to_current_state</span><span class="p">()</span>
+
+<span class="c1"># 이번에는 pose 메시지를 사용하여 목표 설정</span>
+<span class="n">pose_goal</span> <span class="o">=</span> <span class="n">PoseStamped</span><span class="p">()</span>
+<span class="n">pose_goal</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s2">&quot;panda_link0&quot;</span>
+<span class="n">pose_goal</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">pose_goal</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.28</span>
+<span class="n">pose_goal</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.2</span>
+<span class="n">pose_goal</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">panda_arm</span><span class="o">.</span><span class="n">set_goal_state</span><span class="p">(</span><span class="n">pose_stamped_msg</span> <span class="o">=</span> <span class="n">pose_goal</span><span class="p">,</span> <span class="n">pose_link</span> <span class="o">=</span> <span class="s2">&quot;panda_link8&quot;</span><span class="p">)</span>
+
+<span class="c1"># 목표로 계획</span>
+<span class="n">plan_and_execute</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h2>원격 조작 예제<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>사용자는 로봇의 실시간 원격 조작을 수행하고 싶을 수도 있습니다. Python API를 사용하면 모든 프로세스를 종료하고 다시 실행하지 않고도 대화식으로 원격 조작을 시작/중지할 수 있습니다. 이 예제에서는 로봇을 원격 조작하고, 모션 플래닝을 수행한 다음, 다시 로봇을 원격 조작하는 동기 부여 예제를 통해 노트북에서 이것이 어떻게 가능한지 보여줍니다.</p>
+<p>이 섹션에서는 <code class="docutils literal notranslate"><span class="pre">moveit_py</span></code>와 원격 조작을 지원하는 장치가 필요합니다. 여기서는 PS4 듀얼쇼크 컨트롤러를 활용합니다.</p>
+<p>로봇 원격 조작을 시작하려면 PS4 듀얼쇼크 컨트롤러를 원격 조작 장치로 인스턴스화합니다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">moveit.servo_client.devices.ps4_dualshock</span> <span class="kn">import</span> <span class="n">PS4DualShockTeleop</span>
+
+<span class="c1"># 원격 조작 장치 인스턴스화</span>
+<span class="n">ps4</span> <span class="o">=</span> <span class="n">PS4DualShockTeleop</span><span class="p">(</span><span class="n">ee_frame_name</span><span class="o">=</span><span class="s2">&quot;panda_link8&quot;</span><span class="p">)</span>
+
+<span class="c1"># 로봇 원격 조작 시작</span>
+<span class="n">ps4</span><span class="o">.</span><span class="n">start_teleop</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>로봇을 기본 구성으로 되돌리기 위해 모션 플래닝을 수행하려면 로봇 원격 조작을 중지하고 아래에 시연된 대로 기존 모션 플래닝 API를 활용하면 됩니다:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 로봇 원격 조작 중지</span>
+<span class="n">ps4</span><span class="o">.</span><span class="n">stop_teleop</span><span class="p">()</span>
+
+<span class="c1"># 계획 및 실행</span>
+<span class="c1"># 미리 정의된 상태를 사용하여 plan start state 설정</span>
+<span class="n">panda_arm</span><span class="o">.</span><span class="n">set_start_state_to_current_state</span><span class="p">()</span>
+
+<span class="c1"># 미리 정의된 상태를 사용하여 pose goal 설정</span>
+<span class="n">panda_arm</span><span class="o">.</span><span class="n">set_goal_state</span><span class="p">(</span><span class="n">configuration_name</span> <span class="o">=</span> <span class="s2">&quot;ready&quot;</span><span class="p">)</span>
+
+<span class="c1"># 목표로 계획</span>
+<span class="n">plan_and_execute</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>이것은 로봇을 기본 구성으로 되돌립니다. 이 구성에서 우리는 다시 한 번 로봇 원격 조작을 시작할 수 있습니다:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ps4</span><span class="o">.</span><span class="n">start_teleop</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>이 튜토리얼에서는 MoveIt 2 Python API와 Jupyter 노트북을 사용하여 모션 플래닝 및 원격 조작을 수행하는 방법을 살펴보았습니다. Jupyter 노트북은 파일을 다시 컴파일할 필요 없이 빠른 프로토타이핑과 대화식 개발을 가능하게 하므로 로봇 개발에 유용한 도구가 될 수 있습니다.</p>
+<p>MoveIt 2와 Python을 사용한 모션 플래닝에 대해 더 알아보려면 MoveIt 2 문서와 예제를 참조하는 것이 좋습니다.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "chu-aie/cobots-2024",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./week14/jupyter_notebook_prototyping"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../motion_planning_python_api/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">모션 플래닝 Python API</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="src/moveit_notebook_tutorial.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MoveIt Notebook Tutorial</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">시작하기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">실행 파일 이해하기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">노트북 설정</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">모션 플래닝 예제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">원격 조작 예제</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href='https://entelecheia.me/'>Young Joon Lee</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <script
+  data-embed-id="8ce6d27b-4248-4ca8-ac90-57f7de938b44"
+  data-base-api-url="https://chat.entelecheia.app/api/embed"
+  data-brand-image-url="https://assets.entelecheia.ai/favicon.png"
+  data-chat-icon="magic"
+  data-sponsor-text="Cobots 2024"
+  data-sponsor-link="https://chat.entelecheia.app/workspace/cobots"
+  src="https://chat.entelecheia.app/embed/anythingllm-chat-widget.min.js">
+</script>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
