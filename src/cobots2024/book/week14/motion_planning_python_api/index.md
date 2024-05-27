@@ -15,7 +15,7 @@
 ## 시작하기
 
 이 튜토리얼을 완료하려면 MoveIt 2와 해당 튜토리얼이 포함된 작업 공간을 설정해야 합니다.
-이러한 작업 공간을 설정하는 방법에 대한 개요는 [시작하기 가이드](../week10/getting_started)에 제공되어 있습니다.
+이러한 작업 공간을 설정하는 방법에 대한 개요는 [시작하기 가이드](../../week10/getting_started)에 제공되어 있습니다.
 자세한 내용은 이 가이드를 참조하십시오.
 
 작업 공간을 설정한 후에는 다음 명령을 실행하여 이 튜토리얼의 코드를 실행할 수 있습니다:
@@ -90,7 +90,6 @@ chomp:
 ```
 
 구성 파일의 첫 번째 블록은 `planning_scene_monitor`가 구독하는 토픽과 같은 플래닝 scene 모니터 옵션을 설정합니다.
-(Note: 플래닝 scene 모니터에 익숙하지 않다면 [이 튜토리얼](/doc/examples/planning_scene_monitor/planning_scene_monitor_tutorial)을 검토하는 것이 좋습니다):
 
 ```yaml
 planning_scene_monitor_options:
