@@ -65,6 +65,8 @@ parts:
       - file: week14/index
         sections:
           - file: week14/motion_planning_python_api/index
+          - file: week14/jupyter_notebook_prototyping/index
+          - file: week14/jupyter_notebook_prototyping/src/moveit_notebook_tutorial
   - caption: Projects
     chapters:
       - file: projects/index
