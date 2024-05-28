@@ -1,83 +1,165 @@
-# MoveIt 작업 구성기 (Task Constructor)
+# MoveIt 작업 생성기(Task Constructor)
 
-> **주의:** MoveIt 작업 구성기는 ROS 2에서 지원되지 않습니다.
+MoveIt 작업 생성기(이하 MTC)는 복잡한 작업 계획을 여러 개의 상호 의존적인 하위 작업으로 분할하는데 도움을 주는 프레임워크입니다. MTC는 MoveIt을 사용하여 하위 작업들을 해결하고, 하위 작업들로부터의 정보는 InterfaceState 객체를 통해 전달됩니다.
 
-![MoveIt Task Constructor 예시](./figs/mtc_example.png)
+![MTC 작업 개요](./figs/mtc_task.png)
 
-작업 구성기 프레임워크는 여러 상호 의존적인 하위 작업으로 구성된 작업을 유연하고 투명한 방식으로 정의하고 계획할 수 있는 방법을 제공합니다. 이는 MoveIt의 계획 기능을 활용하여 블랙박스 계획 단계에서 개별 하위 문제를 해결합니다. MoveIt의 PlanningScene을 기반으로 하는 공통 인터페이스가 단계 간에 솔루션 가설을 전달하는 데 사용됩니다. 이 프레임워크를 사용하면 컨테이너를 사용하여 기본 단계를 계층적으로 구성할 수 있으며, 순차적 및 병렬 구성이 모두 가능합니다. 자세한 내용은 관련 `ICRA 2019 논문`을 참조하세요.
+## MTC 단계(Stages)
 
-## 시작하기
+MTC 단계는 작업 실행 파이프라인의 구성 요소 또는 단계를 나타냅니다. 단계들은 임의의 순서로 배열될 수 있으며, 그 계층 구조는 개별 단계 유형에 의해서만 제한됩니다. 단계들이 배열될 수 있는 순서는 결과가 전달되는 방향에 의해 제한됩니다.
 
-아직 수행하지 않았다면 [시작하기](../week10/getting_started) 단계를 완료했는지 확인하세요.
+결과 흐름과 관련하여 세 가지 가능한 단계가 있습니다:
 
-### MoveIt 작업 구성기 설치하기
+- 생성기(Generators)
+- 전파기(Propagators) 
+- 연결기(Connectors)
 
-**소스에서 설치**
+### 생성기(Generator) 단계
 
-catkin 작업 공간으로 이동하여 필요한 경우 wstool을 초기화합니다(작업 공간 경로를 **~/ws_moveit**로 가정):
+![생성기 단계](./figs/generating_stage.png)
 
-```bash
-cd ~/ws_moveit/src
-wstool init
+생성기 단계는 인접한 단계로부터 입력을 받지 않습니다. 그들은 결과를 계산하고 그것을 앞뒤 양방향으로 전달합니다. MTC 작업의 실행은 생성기 단계에서 시작됩니다. 가장 중요한 생성기 단계는 `CurrentState`로, 계획 파이프라인의 시작점으로 현재 로봇 상태를 가져옵니다.
+
+모니터링 생성기는 다른 단계(인접하지 않은)의 솔루션을 모니터링하여 계획에 사용하는 단계입니다. 모니터링 생성기의 예로는 `GeneratePose`가 있습니다. 이는 보통 `CurrentState` 또는 `ModifyPlanningScene` 단계를 모니터링합니다. `CurrentState`의 솔루션을 모니터링함으로써, `GeneratePose` 단계는 자세를 생성해야 하는 객체나 프레임을 찾을 수 있습니다.
+
+MTC에서 제공하는 생성기 단계에 대한 더 많은 정보는 [여기](./generating_stages.md)에서 찾을 수 있습니다.
+
+### 전파기(Propagating) 단계
+
+![전파기 단계](./figs/propagating_stage.png)
+
+전파기는 인접한 상태의 솔루션을 받아, 문제를 해결하고, 그 결과를 반대쪽 이웃에게 전파합니다. 구현에 따라, 이 단계는 솔루션을 앞으로, 뒤로, 또는 양방향으로 전달할 수 있습니다. 전파기 단계의 예로는 자세에 대한 `Move Relative`가 있습니다. 이는 일반적으로 물체를 집기 위해 가까이 접근할 때 사용됩니다.
+
+MTC에서 제공하는 전파기 단계에 대한 더 많은 정보는 [여기](./propagating_stages.md)에서 찾을 수 있습니다.
+
+### 연결기(Connecting) 단계
+
+![연결기 단계](./figs/connecting_stage.png)
+
+연결기는 결과를 전파하지 않지만, 인접한 단계에서 제공하는 시작과 목표 입력을 연결하려 시도합니다. 연결 단계는 종종 시작 상태와 목표 상태 사이의 실행 가능한 궤적을 찾습니다. 
+
+MTC에서 제공하는 연결기 단계에 대한 더 많은 정보는 [여기](./connecting_stages.md)에서 찾을 수 있습니다.
+
+### 래퍼(Wrapper)
+
+래퍼는 결과를 수정하거나 필터링하기 위해 다른 단계를 캡슐화합니다. 래퍼의 예로는 `Generate Grasp Pose` 단계를 위한 `Compute IK`가 있습니다. `Generate Grasp Pose` 단계는 카테시안 자세 솔루션을 생성할 것입니다. `Generate Pose` 단계 주위에 `Compute IK` 단계를 래핑함으로써, `Generate Pose` 단계의 카테시안 자세 솔루션을 사용하여 IK 솔루션(즉, 자세에 도달하기 위한 로봇의 조인트 상태 구성)을 생성할 수 있습니다.
+
+MTC에서 제공하는 래퍼에 대한 더 많은 정보는 [여기](./wrappers.md)에서 찾을 수 있습니다.
+
+## MTC 컨테이너(Containers)
+
+MTC 프레임워크는 컨테이너를 사용하여 단계의 계층적 구성을 가능하게 하며, 순차적 구성뿐만 아니라 병렬 구성도 허용합니다. MTC 컨테이너는 단계의 실행 순서를 구성하는 데 도움을 줍니다. 프로그래밍 측면에서, 컨테이너 내에 다른 컨테이너를 추가하는 것이 가능합니다.
+
+현재 사용 가능한 컨테이너:
+
+- Serial
+- Parallel 
+
+### Serial 컨테이너
+
+Serial 컨테이너는 단계를 선형으로 구성하며, 종단 간 솔루션만을 결과로 고려합니다. MTC 작업은 기본적으로 Serial 컨테이너로 저장됩니다.
+
+### Parallel 컨테이너
+
+Parallel 컨테이너는 대체 솔루션 계획을 허용하기 위해 단계들의 집합을 결합합니다.
+
+Parallel 컨테이너에 대한 더 많은 정보는 [여기](./parallel_containers.md)에서 찾을 수 있습니다.
+
+## MTC 작업 초기화하기
+
+최상위 계획 문제는 MTC 작업으로 지정되고, 단계에 의해 지정된 하위 문제들은 MTC 작업 객체에 추가됩니다.
+
+```cpp
+auto node = std::make_shared<rclcpp::Node>();
+auto task = std::make_unique<moveit::task_constructor::Task>();
+task->loadRobotModel(node);
+// 로봇 모션을 실행하는데 사용되는 컨트롤러를 설정합니다. 설정되지 않은 경우, MoveIt은 컨트롤러 탐색 로직을 사용합니다.
+task->setProperty("trajectory_execution_info", "joint_trajectory_controller gripper_controller");
 ```
 
-MoveIt 작업 구성기와 소스 의존성을 클론합니다:
+## MTC 작업에 컨테이너와 단계 추가하기
 
-```bash
-wstool merge https://raw.githubusercontent.com/ros-planning/moveit_task_constructor/master/.rosinstall
-wstool update
+MTC 작업에 단계 추가하기:
+
+```cpp
+auto current_state = std::make_unique<moveit::task_constructor::stages::CurrentState>("current_state");
+task->add(std::move(current_state));
 ```
 
-rosdep으로 누락된 패키지를 설치합니다:
+컨테이너는 Stage에서 파생되므로, 컨테이너도 유사하게 MTC 작업에 추가할 수 있습니다.
 
-```bash
-rosdep install --from-paths . --ignore-src --rosdistro $ROS_DISTRO
+```cpp
+auto container = std::make_unique<moveit::task_constructor::SerialContainer>("Pick Object");
+// TODO: 컨테이너를 MTC 작업에 추가하기 전에 컨테이너에 단계를 추가합니다.
+task->add(std::move(container));
 ```
 
-작업 공간을 빌드합니다:
+## 계획 솔버 설정하기
 
-```bash
-catkin build
+모션 계획을 수행하는 단계는 솔버 정보가 필요합니다.
+
+MTC에서 사용 가능한 솔버:
+
+- `PipelinePlanner` - MoveIt의 계획 파이프라인을 사용
+- `JointInterpolation` - 시작 및 목표 조인트 상태 사이를 보간합니다. 복잡한 모션은 지원하지 않습니다.
+- `CartesianPath` - 엔드 이펙터를 카테시안 공간에서 직선으로 이동시킵니다.
+
+솔버 초기화 방법에 대한 코드 예제:
+
+```cpp
+const auto mtc_pipeline_planner = std::make_shared<moveit::task_constructor::solvers::PipelinePlanner>(
+    node, "ompl", "RRTConnectkConfigDefault");
+const auto mtc_joint_interpolation_planner =
+    std::make_shared<moveit::task_constructor::solvers::JointInterpolationPlanner>();
+const auto mtc_cartesian_planner = std::make_shared<moveit::task_constructor::solvers::CartesianPath>();
 ```
 
-### 데모 실행하기
+이러한 솔버들은 `MoveTo`, `MoveRelative`, `Connect`와 같은 단계에 전달될 것입니다.
 
-MoveIt 작업 구성기 패키지에는 여러 기본 예제와 픽앤플레이스 데모가 포함되어 있습니다. 모든 데모의 경우 기본 환경을 실행해야 합니다:
+## 속성 설정하기
 
-```bash
-roslaunch moveit_task_constructor_demo demo.launch
+각 MTC 단계에는 구성 가능한 속성이 있습니다. 예를 들어, 계획 그룹, 시간 초과, 목표 상태 등이 있습니다. 다양한 유형의 속성은 다음 함수를 사용하여 설정할 수 있습니다.
+
+```cpp
+void setProperty(const std::string& name, const boost::any& value);
 ```
 
-그런 다음 개별 데모를 실행할 수 있습니다:
+자식 단계는 부모로부터 속성을 쉽게 상속받을 수 있으므로, 구성에 대한 오버헤드를 줄일 수 있습니다.
 
-```bash
-rosrun moveit_task_constructor_demo cartesian
-rosrun moveit_task_constructor_demo modular
-roslaunch moveit_task_constructor_demo pickplace.launch
+## 단계의 비용 계산기
+
+CostTerm은 MTC 단계의 솔루션에 대한 비용을 계산하기 위한 기본 인터페이스입니다.
+
+MTC에서 사용 가능한 CostTerm 구현:
+
+- `Constant` - 각 솔루션에 상수 비용을 추가
+- `PathLength` - 서로 다른 조인트에 대한 가중치를 선택적으로 사용하여 궤적 길이에 따라 비용이 결정
+- `TrajectoryDuration` - 전체 궤적의 실행 시간에 따라 비용이 결정
+- `TrajectoryCostTerm` - SubTrajectory 솔루션에서만 작동하는 비용 항목
+- `LambdaCostTerm` - 비용을 계산하기 위해 lambda 표현식을 전달
+- `DistanceToReference` - 기준점까지의 가중 조인트 공간 거리에 따라 비용이 결정
+- `LinkMotion` - 링크의 카테시안 궤적 길이에 따라 비용이 결정
+- `Clearance` - 충돌까지의 거리에 반비례하여 비용이 결정
+
+`LambdaCostTerm`을 사용하여 CostTerm을 설정하는 방법에 대한 예제 코드:
+
+```cpp
+stage->setCostTerm(moveit::task_constructor::LambdaCostTerm(
+      [](const moveit::task_constructor::SubTrajectory& traj) { return 100 * traj.cost(); }));
 ```
 
-오른쪽에 작업의 계층적 단계 구조를 개략적으로 보여주는 **Motion Planning Tasks** 패널이 표시됩니다. 특정 단계를 선택하면 성공한 솔루션과 실패한 솔루션의 목록이 가장 오른쪽 창에 표시됩니다. 이 솔루션 중 하나를 선택하면 시각화가 시작됩니다.
+MTC에서 제공하는 모든 단계에는 기본 비용 항목이 있습니다. 솔루션으로 궤적을 생성하는 단계는 보통 경로 길이를 사용하여 비용을 계산합니다.
 
-![MTC 단계 표시](./figs/mtc_show_stages.gif)
+## MTC 작업 계획 및 실행하기
 
-## 기본 개념
+MTC 작업의 계획은 `MoveItErrorCode`를 반환할 것입니다. 오류 유형을 식별하려면 [여기](moveit_msgs_codedir:/msg/MoveItErrorCodes.msg)를 참조하세요. 계획이 성공하면 plan 함수가 `moveit_msgs::msg::MoveItErrorCodes::SUCCESS`를 반환하는 것을 기대할 수 있습니다.
 
-MTC의 기본 아이디어는 복잡한 모션 계획 문제를 더 간단한 하위 문제 집합으로 구성할 수 있다는 것입니다. 최상위 계획 문제는 **작업(Task)**으로 지정되고 모든 하위 문제는 **단계(Stage)**로 지정됩니다. 단계는 개별 단계 유형에 의해서만 제한되는 임의의 순서와 계층으로 정렬할 수 있습니다. 단계를 정렬할 수 있는 순서는 결과가 전달되는 방향에 의해 제한됩니다. 결과 흐름과 관련하여 생성기, 전파기, 연결기의 세 가지 가능한 단계가 있습니다:
+```cpp
+auto error_code = task.plan()
+```
 
-- **생성기(Generator)**: 이웃 단계와 독립적으로 결과를 계산하고 뒤로와 앞으로 양방향으로 결과를 전달합니다. 예를 들어, 접근 및 출발 동작(이웃 단계)이 솔루션에 의존하는 기하학적 포즈에 대한 IK 샘플러가 있습니다.
+계획 후에, 첫 번째 성공한 솔루션을 추출하여 실행 함수에 전달합니다. 이는 `execute_task_solution` 액션 클라이언트를 생성할 것입니다. 액션 서버는 MTC에서 제공하는 `execute_task_solution_capability` 플러그인에 있습니다. 이 플러그인은 `MoveGroupCapability`를 확장합니다. 이는 MTC 솔루션에서 `MotionPlanRequest`를 구성하고 MoveIt의 `PlanExecution`을 사용하여 로봇을 작동시킵니다.
 
-- **전파기(Propagator)**: 이웃 단계의 결과를 수신하고 하위 문제를 해결한 다음 반대쪽 이웃에 결과를 전파합니다. 구현에 따라 전파 단계는 솔루션을 앞으로, 뒤로 또는 양방향으로 별도로 전달할 수 있습니다. 예를 들어, 시작 상태 또는 목표 상태에 기반하여 카테시안 경로를 계산하는 단계가 있습니다.
-
-- **연결기(Connector)**: 결과를 전파하지 않고 양쪽 이웃의 결과 상태 간 차이를 연결하려고 시도합니다. 예를 들어, 주어진 한 상태에서 다른 상태로의 자유 모션 계획을 계산하는 것이 있습니다.
-
-순서 유형 외에도 하위 단계를 캡슐화할 수 있는 다양한 계층 유형이 있습니다. 하위 단계가 없는 단계를 **기본 단계(primitive stage)**라고 하고, 상위 단계를 **컨테이너 단계(container stage)**라고 합니다. 컨테이너에는 세 가지 유형이 있습니다:
-
-- **래퍼(Wrapper)**: 단일 하위 단계를 캡슐화하고 결과를 수정하거나 필터링합니다. 예를 들어, 특정 제약 조건을 만족하는 하위 단계의 솔루션만 수락하는 필터 단계는 래퍼로 구현할 수 있습니다. 이 유형의 다른 표준 사용에는 포즈 대상 속성으로 주석이 달린 계획 장면을 기반으로 역기구학 솔루션을 생성하는 IK 래퍼 단계가 포함됩니다.
-
-- **직렬 컨테이너(Serial Container)**: 하위 단계의 시퀀스를 포함하고 엔드 투 엔드 솔루션만 결과로 간주합니다. 예를 들어, 일련의 일관된 단계로 구성된 픽킹 동작이 있습니다.
-
-- **병렬 컨테이너(Parallel Container)**: 하위 단계 집합을 결합하고 대체 결과 중 최상의 결과를 전달하거나, 폴백 솔버를 실행하거나, 여러 독립 솔루션을 병합하는 데 사용할 수 있습니다. 예를 들어, 자유 모션 계획을 위해 대체 플래너를 실행하거나, 오른손으로 또는 폴백으로 왼손으로 물체를 집거나, 팔을 움직이면서 동시에 그리퍼를 여는 것 등이 있습니다.
-
-![MTC 단계 유형](./figs/mtc_stage_types.png)
-
-단계는 모션 계획 문제를 해결하는 것뿐만 아니라 계획 장면을 수정하는 것과 같은 모든 종류의 상태 전환에도 사용할 수 있습니다. 클래스 상속 사용 가능성과 결합하면 잘 구조화된 기본 단계 집합에만 의존하면서 매우 복잡한 동작을 구성할 수 있습니다.
+```cpp
+auto result = task.execute(*task.solutions().front());
+```
