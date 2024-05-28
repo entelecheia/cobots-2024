@@ -564,24 +564,20 @@ document.write(`
 <p><img alt="생성기 단계" src="../_images/generating_stage.png" /></p>
 <p>생성기 단계는 인접한 단계로부터 입력을 받지 않습니다. 그들은 결과를 계산하고 그것을 앞뒤 양방향으로 전달합니다. MTC 작업의 실행은 생성기 단계에서 시작됩니다. 가장 중요한 생성기 단계는 <code class="docutils literal notranslate"><span class="pre">CurrentState</span></code>로, 계획 파이프라인의 시작점으로 현재 로봇 상태를 가져옵니다.</p>
 <p>모니터링 생성기는 다른 단계(인접하지 않은)의 솔루션을 모니터링하여 계획에 사용하는 단계입니다. 모니터링 생성기의 예로는 <code class="docutils literal notranslate"><span class="pre">GeneratePose</span></code>가 있습니다. 이는 보통 <code class="docutils literal notranslate"><span class="pre">CurrentState</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">ModifyPlanningScene</span></code> 단계를 모니터링합니다. <code class="docutils literal notranslate"><span class="pre">CurrentState</span></code>의 솔루션을 모니터링함으로써, <code class="docutils literal notranslate"><span class="pre">GeneratePose</span></code> 단계는 자세를 생성해야 하는 객체나 프레임을 찾을 수 있습니다.</p>
-<p>MTC에서 제공하는 생성기 단계에 대한 더 많은 정보는 <a class="reference internal" href="#./generating_stages.md"><span class="xref myst">여기</span></a>에서 찾을 수 있습니다.</p>
 </section>
 <section id="propagating">
 <h3>전파기(Propagating) 단계<a class="headerlink" href="#propagating" title="Link to this heading">#</a></h3>
 <p><img alt="전파기 단계" src="../_images/propagating_stage.png" /></p>
 <p>전파기는 인접한 상태의 솔루션을 받아, 문제를 해결하고, 그 결과를 반대쪽 이웃에게 전파합니다. 구현에 따라, 이 단계는 솔루션을 앞으로, 뒤로, 또는 양방향으로 전달할 수 있습니다. 전파기 단계의 예로는 자세에 대한 <code class="docutils literal notranslate"><span class="pre">Move</span> <span class="pre">Relative</span></code>가 있습니다. 이는 일반적으로 물체를 집기 위해 가까이 접근할 때 사용됩니다.</p>
-<p>MTC에서 제공하는 전파기 단계에 대한 더 많은 정보는 <a class="reference internal" href="#./propagating_stages.md"><span class="xref myst">여기</span></a>에서 찾을 수 있습니다.</p>
 </section>
 <section id="connecting">
 <h3>연결기(Connecting) 단계<a class="headerlink" href="#connecting" title="Link to this heading">#</a></h3>
 <p><img alt="연결기 단계" src="../_images/connecting_stage.png" /></p>
 <p>연결기는 결과를 전파하지 않지만, 인접한 단계에서 제공하는 시작과 목표 입력을 연결하려 시도합니다. 연결 단계는 종종 시작 상태와 목표 상태 사이의 실행 가능한 궤적을 찾습니다.</p>
-<p>MTC에서 제공하는 연결기 단계에 대한 더 많은 정보는 <a class="reference internal" href="#./connecting_stages.md"><span class="xref myst">여기</span></a>에서 찾을 수 있습니다.</p>
 </section>
 <section id="wrapper">
 <h3>래퍼(Wrapper)<a class="headerlink" href="#wrapper" title="Link to this heading">#</a></h3>
 <p>래퍼는 결과를 수정하거나 필터링하기 위해 다른 단계를 캡슐화합니다. 래퍼의 예로는 <code class="docutils literal notranslate"><span class="pre">Generate</span> <span class="pre">Grasp</span> <span class="pre">Pose</span></code> 단계를 위한 <code class="docutils literal notranslate"><span class="pre">Compute</span> <span class="pre">IK</span></code>가 있습니다. <code class="docutils literal notranslate"><span class="pre">Generate</span> <span class="pre">Grasp</span> <span class="pre">Pose</span></code> 단계는 카테시안 자세 솔루션을 생성할 것입니다. <code class="docutils literal notranslate"><span class="pre">Generate</span> <span class="pre">Pose</span></code> 단계 주위에 <code class="docutils literal notranslate"><span class="pre">Compute</span> <span class="pre">IK</span></code> 단계를 래핑함으로써, <code class="docutils literal notranslate"><span class="pre">Generate</span> <span class="pre">Pose</span></code> 단계의 카테시안 자세 솔루션을 사용하여 IK 솔루션(즉, 자세에 도달하기 위한 로봇의 조인트 상태 구성)을 생성할 수 있습니다.</p>
-<p>MTC에서 제공하는 래퍼에 대한 더 많은 정보는 <a class="reference internal" href="#./wrappers.md"><span class="xref myst">여기</span></a>에서 찾을 수 있습니다.</p>
 </section>
 </section>
 <section id="mtc-containers">
@@ -599,7 +595,6 @@ document.write(`
 <section id="parallel">
 <h3>Parallel 컨테이너<a class="headerlink" href="#parallel" title="Link to this heading">#</a></h3>
 <p>Parallel 컨테이너는 대체 솔루션 계획을 허용하기 위해 단계들의 집합을 결합합니다.</p>
-<p>Parallel 컨테이너에 대한 더 많은 정보는 <a class="reference internal" href="#./parallel_containers.md"><span class="xref myst">여기</span></a>에서 찾을 수 있습니다.</p>
 </section>
 </section>
 <section id="mtc">
@@ -677,7 +672,7 @@ document.write(`
 </section>
 <section id="id5">
 <h2>MTC 작업 계획 및 실행하기<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<p>MTC 작업의 계획은 <code class="docutils literal notranslate"><span class="pre">MoveItErrorCode</span></code>를 반환할 것입니다. 오류 유형을 식별하려면 <a class="reference internal" href="#moveit_msgs_codedir:/msg/MoveItErrorCodes.msg"><span class="xref myst">여기</span></a>를 참조하세요. 계획이 성공하면 plan 함수가 <code class="docutils literal notranslate"><span class="pre">moveit_msgs::msg::MoveItErrorCodes::SUCCESS</span></code>를 반환하는 것을 기대할 수 있습니다.</p>
+<p>MTC 작업의 계획은 <code class="docutils literal notranslate"><span class="pre">MoveItErrorCode</span></code>를 반환할 것입니다. 계획이 성공하면 plan 함수가 <code class="docutils literal notranslate"><span class="pre">moveit_msgs::msg::MoveItErrorCodes::SUCCESS</span></code>를 반환하는 것을 기대할 수 있습니다.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">error_code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="n">plan</span><span class="p">()</span>
 </pre></div>
 </div>
