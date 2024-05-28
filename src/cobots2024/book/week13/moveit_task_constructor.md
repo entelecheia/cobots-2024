@@ -11,7 +11,7 @@ MTC 단계는 작업 실행 파이프라인의 구성 요소 또는 단계를 �
 결과 흐름과 관련하여 세 가지 가능한 단계가 있습니다:
 
 - 생성기(Generators)
-- 전파기(Propagators) 
+- 전파기(Propagators)
 - 연결기(Connectors)
 
 ### 생성기(Generator) 단계
@@ -22,29 +22,21 @@ MTC 단계는 작업 실행 파이프라인의 구성 요소 또는 단계를 �
 
 모니터링 생성기는 다른 단계(인접하지 않은)의 솔루션을 모니터링하여 계획에 사용하는 단계입니다. 모니터링 생성기의 예로는 `GeneratePose`가 있습니다. 이는 보통 `CurrentState` 또는 `ModifyPlanningScene` 단계를 모니터링합니다. `CurrentState`의 솔루션을 모니터링함으로써, `GeneratePose` 단계는 자세를 생성해야 하는 객체나 프레임을 찾을 수 있습니다.
 
-MTC에서 제공하는 생성기 단계에 대한 더 많은 정보는 [여기](./generating_stages.md)에서 찾을 수 있습니다.
-
 ### 전파기(Propagating) 단계
 
 ![전파기 단계](./figs/propagating_stage.png)
 
 전파기는 인접한 상태의 솔루션을 받아, 문제를 해결하고, 그 결과를 반대쪽 이웃에게 전파합니다. 구현에 따라, 이 단계는 솔루션을 앞으로, 뒤로, 또는 양방향으로 전달할 수 있습니다. 전파기 단계의 예로는 자세에 대한 `Move Relative`가 있습니다. 이는 일반적으로 물체를 집기 위해 가까이 접근할 때 사용됩니다.
 
-MTC에서 제공하는 전파기 단계에 대한 더 많은 정보는 [여기](./propagating_stages.md)에서 찾을 수 있습니다.
-
 ### 연결기(Connecting) 단계
 
 ![연결기 단계](./figs/connecting_stage.png)
 
-연결기는 결과를 전파하지 않지만, 인접한 단계에서 제공하는 시작과 목표 입력을 연결하려 시도합니다. 연결 단계는 종종 시작 상태와 목표 상태 사이의 실행 가능한 궤적을 찾습니다. 
-
-MTC에서 제공하는 연결기 단계에 대한 더 많은 정보는 [여기](./connecting_stages.md)에서 찾을 수 있습니다.
+연결기는 결과를 전파하지 않지만, 인접한 단계에서 제공하는 시작과 목표 입력을 연결하려 시도합니다. 연결 단계는 종종 시작 상태와 목표 상태 사이의 실행 가능한 궤적을 찾습니다.
 
 ### 래퍼(Wrapper)
 
 래퍼는 결과를 수정하거나 필터링하기 위해 다른 단계를 캡슐화합니다. 래퍼의 예로는 `Generate Grasp Pose` 단계를 위한 `Compute IK`가 있습니다. `Generate Grasp Pose` 단계는 카테시안 자세 솔루션을 생성할 것입니다. `Generate Pose` 단계 주위에 `Compute IK` 단계를 래핑함으로써, `Generate Pose` 단계의 카테시안 자세 솔루션을 사용하여 IK 솔루션(즉, 자세에 도달하기 위한 로봇의 조인트 상태 구성)을 생성할 수 있습니다.
-
-MTC에서 제공하는 래퍼에 대한 더 많은 정보는 [여기](./wrappers.md)에서 찾을 수 있습니다.
 
 ## MTC 컨테이너(Containers)
 
@@ -53,7 +45,7 @@ MTC 프레임워크는 컨테이너를 사용하여 단계의 계층적 구성�
 현재 사용 가능한 컨테이너:
 
 - Serial
-- Parallel 
+- Parallel
 
 ### Serial 컨테이너
 
@@ -62,8 +54,6 @@ Serial 컨테이너는 단계를 선형으로 구성하며, 종단 간 솔루션
 ### Parallel 컨테이너
 
 Parallel 컨테이너는 대체 솔루션 계획을 허용하기 위해 단계들의 집합을 결합합니다.
-
-Parallel 컨테이너에 대한 더 많은 정보는 [여기](./parallel_containers.md)에서 찾을 수 있습니다.
 
 ## MTC 작업 초기화하기
 
@@ -152,7 +142,7 @@ MTC에서 제공하는 모든 단계에는 기본 비용 항목이 있습니다.
 
 ## MTC 작업 계획 및 실행하기
 
-MTC 작업의 계획은 `MoveItErrorCode`를 반환할 것입니다. 오류 유형을 식별하려면 [여기](moveit_msgs_codedir:/msg/MoveItErrorCodes.msg)를 참조하세요. 계획이 성공하면 plan 함수가 `moveit_msgs::msg::MoveItErrorCodes::SUCCESS`를 반환하는 것을 기대할 수 있습니다.
+MTC 작업의 계획은 `MoveItErrorCode`를 반환할 것입니다. 계획이 성공하면 plan 함수가 `moveit_msgs::msg::MoveItErrorCodes::SUCCESS`를 반환하는 것을 기대할 수 있습니다.
 
 ```cpp
 auto error_code = task.plan()
