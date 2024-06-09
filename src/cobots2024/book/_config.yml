@@ -51,7 +51,7 @@ html:
       data-sponsor-link="https://chat.entelecheia.app/workspace/cobots"
       src="https://chat.entelecheia.app/embed/anythingllm-chat-widget.min.js">
     </script>
-  announcement: ""
+  announcement: "기말 프로젝트 제출 마감은 6/22일(토) 23:59입니다."
 
 sphinx:
   config:
