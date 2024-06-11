@@ -24,6 +24,61 @@ parts:
       - file: week04/index
         sections:
           - file: week04/lecture
+      - file: week05/index
+        sections:
+          - file: week05/lecture
+      - file: week06/index
+        sections:
+          - file: week06/ros-container
+          - file: week06/ros-setup
+          - file: week06/dsr-usage
+          - file: week06/ros-intro
+      - file: week07/index
+        sections:
+          - file: week07/ros-basics
+          - file: week07/ros-workspace
+      - file: week09/index
+        sections:
+          - file: week09/configure
+          - file: week09/intro-turtlesim
+          - file: week09/nodes
+      - file: week10/index
+        sections:
+          - file: week10/getting_started
+          - file: week10/quickstart_in_rviz/index
+          - file: week10/your_first_project/index
+          - file: week10/visualizing_in_rviz/index
+      - file: week11/index
+        sections:
+          - file: week11/planning_around_objects/index
+          - file: week11/pick_and_place_with_moveit_task_constructor/index
+      - file: week12/index
+        sections:
+          - file: week12/kinematics
+          - file: week12/motion_planning
+          - file: week12/hybrid_planning
+      - file: week13/index
+        sections:
+          - file: week13/move_group
+          - file: week13/planning_scene_monitor
+          - file: week13/trajectory_processing
+          - file: week13/moveit_task_constructor
+      - file: week14/index
+        sections:
+          - file: week14/motion_planning_python_api/index
+          - file: week14/jupyter_notebook_prototyping/index
+          - file: week14/jupyter_notebook_prototyping/src/moveit_notebook_tutorial
+  - caption: Projects
+    chapters:
+      - file: projects/index
+        sections:
+          - file: projects/202021024/index
+          - file: projects/202021029/index
+          - file: projects/202021032/index
+          - file: projects/202021038/index
+          - file: projects/202121010/index
+          - file: projects/202221014/index
+      - file: projects/setup
   - caption: About
     chapters:
       - file: syllabus/index

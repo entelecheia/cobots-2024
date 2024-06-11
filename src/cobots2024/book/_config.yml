@@ -42,15 +42,16 @@ html:
   favicon: https://assets.entelecheia.ai/favicon.png # favicon: Path to the favicon image
   google_analytics_id: G-BQJE5V9RK2 # google_analytics_id: Google Analytics ID
   extra_footer: |
-      <script
-        data-embed-id="8ce6d27b-4248-4ca8-ac90-57f7de938b44"
-        data-base-api-url="https://chat.entelecheia.app/api/embed"
-        data-brand-image-url="https://assets.entelecheia.ai/favicon.png"
-        data-chat-icon="magic"
-        data-sponsor-text="Cobots 2024"
-        data-sponsor-link="https://chat.entelecheia.app/workspace/cobots"
-        src="https://chat.entelecheia.app/embed/anythingllm-chat-widget.min.js">
-      </script>
+    <script
+      data-embed-id="8ce6d27b-4248-4ca8-ac90-57f7de938b44"
+      data-base-api-url="https://chat.entelecheia.app/api/embed"
+      data-brand-image-url="https://assets.entelecheia.ai/favicon.png"
+      data-chat-icon="magic"
+      data-sponsor-text="Cobots 2024"
+      data-sponsor-link="https://chat.entelecheia.app/workspace/cobots"
+      src="https://chat.entelecheia.app/embed/anythingllm-chat-widget.min.js">
+    </script>
+  announcement: "기말 프로젝트 제출 마감은 6/22일(토) 23:59입니다."
 
 sphinx:
   config:
