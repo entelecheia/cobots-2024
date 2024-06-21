@@ -46,3 +46,114 @@
 
 ## 숙제
 - ![스크린샷 2024-05-28 094325](https://github.com/chu-aie/cobots-2024/assets/162118894/c26b0bbf-e9c1-4c2c-8332-fafa15bf0b78)
+
+## 기말 과제
+터틀심을 이용한 땅따먹기 게임
+- 팬더로봇은 구동이 안되고 있고, 전 숙제를 통하여 터틀심이 정상적으로 작동하는 것을 확인하였다. 그래서 터틀심을 이용하여 땅따먹기 게임을 제작해보기로 했다.
+- 땅따먹기 게임 코드
+  #!/usr/bin/env python3
+
+import rclpy
+from rclpy.node import Node
+from geometry_msgs.msg import Twist
+from turtlesim.msg import Pose
+import sys
+import tty
+import termios
+import threading
+
+class TurtleGame(Node):
+
+    def __init__(self, turtle_name):
+        super().__init__('turtle_game_' + turtle_name)
+        self.publisher_ = self.create_publisher(Twist, '/' + turtle_name + '/cmd_vel', 10)
+        self.subscription = self.create_subscription(Pose, '/' + turtle_name + '/pose', self.pose_callback, 10)
+        self.current_pose = Pose()
+
+    def pose_callback(self, msg):
+        self.current_pose = msg
+
+    def move_turtle(self, linear_vel, angular_vel):
+        msg = Twist()
+        msg.linear.x = linear_vel
+        msg.angular.z = angular_vel
+        self.publisher_.publish(msg)
+
+def getch():
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    try:
+        tty.setraw(sys.stdin.fileno())
+        ch = sys.stdin.read(1)
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    return ch
+
+def player1_control(turtle_game):
+    while True:
+        key = getch()
+        if key == '\x1b[A':  # Up arrow
+            turtle_game.move_turtle(2.0, 0.0)
+        elif key == '\x1b[B':  # Down arrow
+            turtle_game.move_turtle(-2.0, 0.0)
+        elif key == '\x1b[C':  # Right arrow
+            turtle_game.move_turtle(0.0, -1.5)
+        elif key == '\x1b[D':  # Left arrow
+            turtle_game.move_turtle(0.0, 1.5)
+
+def player2_control(turtle_game):
+    while True:
+        key = getch()
+        if key == 'w' or key == 'W':
+            turtle_game.move_turtle(2.0, 0.0)
+        elif key == 's' or key == 'S':
+            turtle_game.move_turtle(-2.0, 0.0)
+        elif key == 'd' or key == 'D':
+            turtle_game.move_turtle(0.0, -1.5)
+        elif key == 'a' or key == 'A':
+            turtle_game.move_turtle(0.0, 1.5)
+
+def main(args=None):
+    rclpy.init(args=args)
+
+    turtle1_game = TurtleGame('turtle1')
+    turtle2_game = TurtleGame('turtle2')
+
+    # Create threads for each player's control
+    thread_player1 = threading.Thread(target=player1_control, args=(turtle1_game,))
+    thread_player2 = threading.Thread(target=player2_control, args=(turtle2_game,))
+
+    thread_player1.start()
+    thread_player2.start()
+
+    try:
+        rclpy.spin(turtle1_game)
+        rclpy.spin(turtle2_game)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        thread_player1.join()
+        thread_player2.join()
+
+        turtle1_game.destroy_node()
+        turtle2_game.destroy_node()
+        rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+
+- turtle_game_node.py 파일을 생성하고 코드를 안에 저장 후 구동을 하려했지만 오류가 계속 발생하여 구동하지 못하였다.
+  cd ~/ros2_ws
+  colcon build --packages-select my_turtle_game
+  source install/setup.bash
+  ros2 run my_turtle_game turtle_game_node
+
+  Starting >>> my_turtle_game
+  Finished <<< my_turtle_game [0.39s]
+
+  Summary: 1 package finished [0.52s]
+  not found: "/home/yhc/ros2_ws/local_setup.bash"
+  Package 'my_turtle_game' not found
+
+- ros2 버전 확인과 파일명 확인 등 여러 방면으로 해결해보려 했으나 구동에 실패했다.
+- 
