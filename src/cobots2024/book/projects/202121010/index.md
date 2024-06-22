@@ -177,6 +177,7 @@ rclpy.init()
 # instantiate moveit_py instance and a planning component for the panda_arm
 panda = MoveItPy(node_name="moveit_py", config_dict=moveit_config)
 panda_arm = panda.get_planning_component("panda_arm")
+panda_gripper = panda.get_planning_component("hand")
 ```
 
 ### 기능 코드
@@ -218,10 +219,16 @@ def move_to_pose(robot, planning_component, pose):
 
 # 그리퍼를 여는 함수 (가상의 함수로 대체)
 def open_gripper():
+    panda_gripper.set_start_state_to_current_state()
+    panda_gripper.set_goal_state("open")
+    plan_and_execute(panda, panda_gripper)
     print("Gripper opened")
 
 # 그리퍼를 닫는 함수 (가상의 함수로 대체)
 def close_gripper():
+    panda_gripper.set_start_state_to_current_state()
+    panda_gripper.set_goal_state("close")
+    plan_and_execute(panda, panda_gripper)
     print("Gripper closed")
    
     
@@ -287,7 +294,8 @@ for i in range(6):
     # 5. 객체 놓기
     open_gripper()
 
-    move_to_pose(panda, panda_arm, initial_pose)
+
+move_to_pose(panda, panda_arm, initial_pose)
 ```
 
 ## 실행 결과
@@ -295,12 +303,11 @@ for i in range(6):
 실행 결과는 다음 영상과 같습니다.
 
 <video width="700px" controls="true" autoplay="true" loop="true">
-    <source src="https://github.com/ypilseong/cobots-2024/assets/104025187/829a26c1-de79-4ef9-851c-9901c34a9ac7" type="video/mp4">
+    <source src="https://github.com/chu-aie/cobots-2024/assets/104025187/609e8bdc-084e-425d-854a-ebe2abf24507
+    " type="video/mp4">
 </video>
 
 ## 한계점
 
 1. MoveIt2의 장애물 객체 지원 부족:
     - 현재 MoveIt2는 Python 인터페이스를 통해 장애물 객체를 생성하는 기능을 지원하지 않습니다. 이로 인해 시뮬레이션 환경에서 장애물 객체를 생성하지 못했습니다.
-2. Gripper 구현 문제
-    - Gripper에 대한 자료를 충분히 찾지 못해 해당 기능을 구현하지 못했습니다.
