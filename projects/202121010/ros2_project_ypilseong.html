@@ -1,0 +1,1509 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; 협동로봇활용 2024</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-examples.css?v=e236af4b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../_static/js/hoverxref.js"></script>
+    <script src="../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../_static/js/micromodal.min.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-BQJE5V9RK2"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-BQJE5V9RK2');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-BQJE5V9RK2');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'projects/202121010/ros2_project_ypilseong';</script>
+    <link rel="icon" href="https://assets.entelecheia.ai/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">기말 프로젝트 제출 마감은 6/22일(토) 23:59입니다.</div>
+</aside>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">협동로봇활용 2024</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week01/index.html">Week 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week01/lecture.html">두산로보틱스 기본 교육</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week01/terminology.html">주요용어</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week01/references.html">참고자료</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week01/review.html">복습</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week02/index.html">Week 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week02/lecture.html">핵심 교육 (Part 1/2)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week03/index.html">Week 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week03/lecture.html">핵심 교육 (Part 1/2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week03/ros-intro.html">ROS 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week03/ros-setup.html">ROS 설치환경 구축하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week03/ros-install.html">ROS 설치하기</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week04/index.html">Week 4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week04/lecture.html">핵심 교육 (Part 2/2)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week05/index.html">Week 5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week05/lecture.html">ROS 활용방법</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week06/index.html">Week 6</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week06/ros-container.html">도커를 이용한 ROS2 실행환경 구축</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week06/ros-setup.html">ROS 환경 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week06/dsr-usage.html">DSR 사용방법</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week06/ros-intro.html">ROS 소개</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week07/index.html">Week 7</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week07/ros-basics.html">ROS 기초</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week07/ros-workspace.html">패키지와 워크스페이스</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week09/index.html">Week 9</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week09/configure.html">ROS 2 환경 구성하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week09/intro-turtlesim.html"><code class="docutils literal notranslate"><span class="pre">turtlesim</span></code>, <code class="docutils literal notranslate"><span class="pre">ros2</span></code>, 그리고 <code class="docutils literal notranslate"><span class="pre">rqt</span></code> 사용하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week09/nodes.html">노드 이해하기</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week10/index.html">Week 10</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week10/getting_started.html">MoveIt 2 시작하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week10/quickstart_in_rviz/index.html">RViz에서 MoveIt 빠르게 시작하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week10/your_first_project/index.html">첫 번째 C++ MoveIt 프로젝트</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week10/visualizing_in_rviz/index.html">RViz에서 시각화하기</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week11/index.html">Week 11</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week11/planning_around_objects/index.html">물체 주변 계획하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week11/pick_and_place_with_moveit_task_constructor/index.html">MoveIt Task Constructor를 사용한 집어서 놓기</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week12/index.html">Week 12</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week12/kinematics.html">운동학 (Kinematics)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week12/motion_planning.html">모션 플래닝 (Motion Planning)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week12/hybrid_planning.html">하이브리드 플래닝 (Hybrid Planning)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week13/index.html">Week 13</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week13/move_group.html"><code class="docutils literal notranslate"><span class="pre">move_group</span></code> 노드</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week13/planning_scene_monitor.html">플래닝 Scene 모니터</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week13/trajectory_processing.html">궤적 처리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week13/moveit_task_constructor.html">MoveIt 작업 생성기(Task Constructor)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week14/index.html">Week 14</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../week14/motion_planning_python_api/index.html">모션 플래닝 Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week14/jupyter_notebook_prototyping/index.html">Jupyter 노트북을 사용한 프로토타이핑</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../week14/jupyter_notebook_prototyping/src/moveit_notebook_tutorial.html">MoveIt Notebook Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">ROS 프로젝트</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../202021024/index.html">로봇팔을 이용한 덤벨 및 원판 정리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../202021029/index.html">로봇 팔을 활용한 자동 물체 이송 시스템</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../202021032/index.html">202021032</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../202021038/index.html">로봇 팔을 활용한 분리수거 자동화</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html">로봇 팔을 통한 과일 선별 과정 자동화</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../202221014/index.html">로봇을 이용한 정원 관리 (중간 계획서)</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">프로젝트 환경설정</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/index.html">수업계획서</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">만든 사람들</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://halla.ai">인공지능학과</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://os2024.halla.ai">운영체제 2024</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://mlops2024.halla.ai">머신러닝시스템 2024</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cobots2024.halla.ai">협동로봇활용 2024</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://aibasics.halla.ai">AI 세상 속으로</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/chu-aie/cobots-2024/blob/main/src/cobots2024/book/projects/202121010/ros2_project_ypilseong.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/chu-aie/cobots-2024" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chu-aie/cobots-2024/edit/main/src/cobots2024/book/projects/202121010/ros2_project_ypilseong.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chu-aie/cobots-2024/issues/new?title=Issue%20on%20page%20%2Fprojects/202121010/ros2_project_ypilseong.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/projects/202121010/ros2_project_ypilseong.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">import</span> <span class="nn">rclpy</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">PoseStamped</span><span class="p">,</span> <span class="n">Pose</span>
+<span class="kn">from</span> <span class="nn">moveit.planning</span> <span class="kn">import</span> <span class="n">MoveItPy</span>
+<span class="kn">from</span> <span class="nn">moveit.core.robot_state</span> <span class="kn">import</span> <span class="n">RobotState</span>
+<span class="kn">from</span> <span class="nn">moveit_configs_utils</span> <span class="kn">import</span> <span class="n">MoveItConfigsBuilder</span>
+<span class="kn">from</span> <span class="nn">ament_index_python.packages</span> <span class="kn">import</span> <span class="n">get_package_share_directory</span>
+<span class="kn">from</span> <span class="nn">rclpy.node</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span> <span class="nn">trajectory_msgs.msg</span> <span class="kn">import</span> <span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">JointTrajectoryPoint</span>
+
+<span class="c1"># we need to specify our moveit_py config at the top of each notebook we use. </span>
+<span class="c1"># this is since we will start spinning a moveit_py node within this notebook.</span>
+
+<span class="n">moveit_config</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">MoveItConfigsBuilder</span><span class="p">(</span><span class="n">robot_name</span><span class="o">=</span><span class="s2">&quot;panda&quot;</span><span class="p">,</span> <span class="n">package_name</span><span class="o">=</span><span class="s2">&quot;moveit_resources_panda_moveit_config&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">robot_description</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;config/panda.urdf.xacro&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">trajectory_execution</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;config/gripper_moveit_controllers.yaml&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">moveit_cpp</span><span class="p">(</span>
+            <span class="n">file_path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s2">&quot;moveit2_tutorials&quot;</span><span class="p">),</span>
+                <span class="s2">&quot;config&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;jupyter_notebook_prototyping.yaml&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">to_moveit_configs</span><span class="p">()</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialise rclpy (only for logging purposes)</span>
+<span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+<span class="c1"># instantiate moveit_py instance and a planning component for the panda_arm</span>
+<span class="n">panda</span> <span class="o">=</span> <span class="n">MoveItPy</span><span class="p">(</span><span class="n">node_name</span><span class="o">=</span><span class="s2">&quot;moveit_py&quot;</span><span class="p">,</span> <span class="n">config_dict</span><span class="o">=</span><span class="n">moveit_config</span><span class="p">)</span>
+<span class="n">panda_arm</span> <span class="o">=</span> <span class="n">panda</span><span class="o">.</span><span class="n">get_planning_component</span><span class="p">(</span><span class="s2">&quot;panda_arm&quot;</span><span class="p">)</span>
+<span class="n">panda_gripper</span> <span class="o">=</span> <span class="n">panda</span><span class="o">.</span><span class="n">get_planning_component</span><span class="p">(</span><span class="s2">&quot;hand&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[INFO] [1719044930.660967635] [moveit_cpp_initializer]: Initialize rclcpp
+[INFO] [1719044930.661607961] [moveit_cpp_initializer]: Initialize node parameters
+[INFO] [1719044930.733632694] [moveit_cpp_initializer]: params_filepath: /tmp/launch_params_l37y8zsz
+[INFO] [1719044930.733713494] [moveit_cpp_initializer]: Initialize node and executor
+[INFO] [1719044930.959551319] [moveit_cpp_initializer]: Spin separate thread
+[INFO] [1719044930.963169161] [moveit_rdf_loader.rdf_loader]: Loaded robot model in 0.00342717 seconds
+[INFO] [1719044930.963201127] [moveit_robot_model.robot_model]: Loading robot model &#39;panda&#39;...
+[INFO] [1719044931.019149417] [moveit_kinematics_base.kinematics_base]: Joint weights for group &#39;panda_arm&#39;: 1 1 1 1 1 1 1
+[INFO] [1719044931.049581449] [moveit.ros_planning_interface.moveit_cpp]: Listening to &#39;/joint_states&#39; for joint states
+[INFO] [1719044931.052932195] [moveit_ros.current_state_monitor]: Listening to joint states on topic &#39;/joint_states&#39;
+[INFO] [1719044931.057833476] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to &#39;/moveit_cpp/planning_scene_monitor&#39; for attached collision objects
+[INFO] [1719044931.060089735] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Publishing maintained planning scene on &#39;/moveit_cpp/monitored_planning_scene&#39;
+[INFO] [1719044931.060370533] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Starting planning scene monitor
+[INFO] [1719044931.062801012] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to &#39;/moveit_cpp/publish_planning_scene&#39;
+[INFO] [1719044931.062823632] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Starting world geometry update monitor for collision objects, attached objects, octomap updates.
+[INFO] [1719044931.063841874] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to &#39;collision_object&#39;
+[INFO] [1719044931.064920840] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to &#39;planning_scene_world&#39; for planning scene world geometry
+[WARN] [1719044931.085823765] [moveit.ros.occupancy_map_monitor.middleware_handle]: Resolution not specified for Octomap. Assuming resolution = 0.1 instead
+[ERROR] [1719044931.085883883] [moveit.ros.occupancy_map_monitor.middleware_handle]: No 3D sensor plugin(s) defined for octomap updates
+[INFO] [1719044931.162667770] [moveit.ros_planning.planning_pipeline]: Using planning interface &#39;OMPL&#39;
+[INFO] [1719044931.187786213] [moveit_ros.add_time_optimal_parameterization]: Param &#39;ompl.path_tolerance&#39; was not set. Using default value: 0.100000
+[INFO] [1719044931.187817468] [moveit_ros.add_time_optimal_parameterization]: Param &#39;ompl.resample_dt&#39; was not set. Using default value: 0.100000
+[INFO] [1719044931.187824493] [moveit_ros.add_time_optimal_parameterization]: Param &#39;ompl.min_angle_change&#39; was not set. Using default value: 0.001000
+[INFO] [1719044931.187856469] [moveit_ros.fix_workspace_bounds]: Param &#39;ompl.default_workspace_bounds&#39; was not set. Using default value: 10.000000
+[INFO] [1719044931.187876796] [moveit_ros.fix_start_state_bounds]: Param &#39;ompl.start_state_max_bounds_error&#39; was set to 0.100000
+[INFO] [1719044931.187883863] [moveit_ros.fix_start_state_bounds]: Param &#39;ompl.start_state_max_dt&#39; was not set. Using default value: 0.500000
+[INFO] [1719044931.187896841] [moveit_ros.fix_start_state_collision]: Param &#39;ompl.start_state_max_dt&#39; was not set. Using default value: 0.500000
+[INFO] [1719044931.187903558] [moveit_ros.fix_start_state_collision]: Param &#39;ompl.jiggle_fraction&#39; was not set. Using default value: 0.020000
+[INFO] [1719044931.187912525] [moveit_ros.fix_start_state_collision]: Param &#39;ompl.max_sampling_attempts&#39; was not set. Using default value: 100
+[INFO] [1719044931.187926186] [moveit.ros_planning.planning_pipeline]: Using planning request adapter &#39;Add Time Optimal Parameterization&#39;
+[INFO] [1719044931.187933134] [moveit.ros_planning.planning_pipeline]: Using planning request adapter &#39;Resolve constraint frames to robot links&#39;
+[INFO] [1719044931.187938097] [moveit.ros_planning.planning_pipeline]: Using planning request adapter &#39;Fix Workspace Bounds&#39;
+[INFO] [1719044931.187993012] [moveit.ros_planning.planning_pipeline]: Using planning request adapter &#39;Fix Start State Bounds&#39;
+[INFO] [1719044931.188001507] [moveit.ros_planning.planning_pipeline]: Using planning request adapter &#39;Fix Start State In Collision&#39;
+[INFO] [1719044931.188006525] [moveit.ros_planning.planning_pipeline]: Using planning request adapter &#39;Fix Start State Path Constraints&#39;
+[INFO] [1719044931.360082384] [moveit.plugins.moveit_simple_controller_manager]: Added FollowJointTrajectory controller for panda_arm_controller
+[INFO] [1719044931.360170966] [moveit.plugins.moveit_simple_controller_manager]: Max effort set to 0.0
+[INFO] [1719044931.363848069] [moveit.plugins.moveit_simple_controller_manager]: Added GripperCommand controller for panda_hand_controller
+[INFO] [1719044931.364123304] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719044931.364153965] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719044931.364878723] [moveit_ros.trajectory_execution_manager]: Trajectory execution is managing controllers
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plan_and_execute</span><span class="p">(</span>
+    <span class="n">robot</span><span class="p">,</span>
+    <span class="n">planning_component</span><span class="p">,</span>
+    <span class="n">single_plan_parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">multi_plan_parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A helper function to plan and execute a motion.&quot;&quot;&quot;</span>
+    <span class="c1"># plan to goal</span>
+    <span class="k">if</span> <span class="n">multi_plan_parameters</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plan_result</span> <span class="o">=</span> <span class="n">planning_component</span><span class="o">.</span><span class="n">plan</span><span class="p">(</span>
+            <span class="n">multi_plan_parameters</span><span class="o">=</span><span class="n">multi_plan_parameters</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">single_plan_parameters</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plan_result</span> <span class="o">=</span> <span class="n">planning_component</span><span class="o">.</span><span class="n">plan</span><span class="p">(</span>
+            <span class="n">single_plan_parameters</span><span class="o">=</span><span class="n">single_plan_parameters</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plan_result</span> <span class="o">=</span> <span class="n">planning_component</span><span class="o">.</span><span class="n">plan</span><span class="p">()</span>
+
+    <span class="c1"># execute the plan</span>
+    <span class="k">if</span> <span class="n">plan_result</span><span class="p">:</span>
+        <span class="n">robot_trajectory</span> <span class="o">=</span> <span class="n">plan_result</span><span class="o">.</span><span class="n">trajectory</span>
+        <span class="n">robot</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">robot_trajectory</span><span class="p">,</span> <span class="n">controllers</span><span class="o">=</span><span class="p">[])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Planning failed&quot;</span><span class="p">)</span>
+        
+
+
+<span class="c1"># 특정 좌표로 이동시키는 함수</span>
+<span class="k">def</span> <span class="nf">move_to_pose</span><span class="p">(</span><span class="n">robot</span><span class="p">,</span> <span class="n">planning_component</span><span class="p">,</span> <span class="n">pose</span><span class="p">):</span>
+    <span class="n">planning_component</span><span class="o">.</span><span class="n">set_start_state_to_current_state</span><span class="p">()</span>
+    <span class="n">planning_component</span><span class="o">.</span><span class="n">set_goal_state</span><span class="p">(</span><span class="n">pose_stamped_msg</span><span class="o">=</span><span class="n">pose</span><span class="p">,</span> <span class="n">pose_link</span><span class="o">=</span><span class="s2">&quot;panda_link8&quot;</span><span class="p">)</span>
+    <span class="n">plan_and_execute</span><span class="p">(</span><span class="n">robot</span><span class="p">,</span> <span class="n">planning_component</span><span class="p">)</span>
+
+<span class="c1"># 그리퍼를 여는 함수 (가상의 함수로 대체)</span>
+<span class="k">def</span> <span class="nf">open_gripper</span><span class="p">():</span>
+    <span class="n">panda_gripper</span><span class="o">.</span><span class="n">set_start_state_to_current_state</span><span class="p">()</span>
+    <span class="n">panda_gripper</span><span class="o">.</span><span class="n">set_goal_state</span><span class="p">(</span><span class="s2">&quot;open&quot;</span><span class="p">)</span>
+    <span class="n">plan_and_execute</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_gripper</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gripper opened&quot;</span><span class="p">)</span>
+
+<span class="c1"># 그리퍼를 닫는 함수 (가상의 함수로 대체)</span>
+<span class="k">def</span> <span class="nf">close_gripper</span><span class="p">():</span>
+    <span class="n">panda_gripper</span><span class="o">.</span><span class="n">set_start_state_to_current_state</span><span class="p">()</span>
+    <span class="n">panda_gripper</span><span class="o">.</span><span class="n">set_goal_state</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">)</span>
+    <span class="n">plan_and_execute</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_gripper</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gripper closed&quot;</span><span class="p">)</span>
+   
+    
+<span class="n">place_pose_xy</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">),(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">),(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span><span class="o">-</span><span class="mf">0.25</span><span class="p">),(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.3</span><span class="p">),(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)]</span>
+
+<span class="c1"># 초기 위치 정의 (특정 좌표로 설정)</span>
+<span class="n">initial_pose</span> <span class="o">=</span> <span class="n">PoseStamped</span><span class="p">()</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s2">&quot;panda_link0&quot;</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.7</span>
+
+<span class="c1"># 목표 좌표 정의</span>
+<span class="n">pick_pose</span> <span class="o">=</span> <span class="n">PoseStamped</span><span class="p">()</span>
+<span class="n">pick_pose</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s2">&quot;panda_link0&quot;</span>
+<span class="n">pick_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">pick_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">pick_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">pick_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="c1">#pick_pose.pose.position.x = -0.28</span>
+<span class="c1">#pick_pose.pose.position.y = -0.2</span>
+<span class="n">pick_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">place_pose</span> <span class="o">=</span> <span class="n">PoseStamped</span><span class="p">()</span>
+<span class="n">place_pose</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s2">&quot;panda_link0&quot;</span>
+<span class="n">place_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">place_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">place_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">place_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="c1">#place_pose.pose.position.x = 0.5</span>
+<span class="c1">#place_pose.pose.position.y = 0.0</span>
+<span class="n">place_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.3</span>
+
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="c1"># 1. 초기 위치로 이동</span>
+    <span class="n">move_to_pose</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">,</span> <span class="n">initial_pose</span><span class="p">)</span>
+
+    <span class="c1"># 2. 특정 위치로 이동</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># Random x position</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># Random y position</span>
+
+    <span class="n">pick_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">pick_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">move_to_pose</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">,</span> <span class="n">pick_pose</span><span class="p">)</span>
+
+    <span class="c1"># 3. gripper 통해 객체 잡기 (구현x)</span>
+    <span class="n">open_gripper</span><span class="p">()</span>
+
+    <span class="n">close_gripper</span><span class="p">()</span>
+
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">place_pose_xy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">place_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">place_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+    
+    <span class="c1"># 4. 객체를 특정 위치로 이동</span>
+    <span class="n">move_to_pose</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">,</span> <span class="n">place_pose</span><span class="p">)</span>
+    
+    <span class="c1"># 5. 객체 놓기</span>
+    <span class="n">open_gripper</span><span class="p">()</span>
+
+
+<span class="n">move_to_pose</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">,</span> <span class="n">initial_pose</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[WARN] [1719045259.434156467] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gripper opened
+Gripper closed
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[WARN] [1719045259.434318127] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045259.435735306] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045259.551449068] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045259.551500637] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045259.551543013] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045259.551554266] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045259.551585236] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045259.562091097] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045259.562197678] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045259.562232425] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045259.562415178] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045259.563390554] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045259.563415435] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045261.364761509] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045261.391761506] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045261.393236343] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045261.393299138] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045261.394114938] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045261.484305798] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045261.484351521] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045261.484386782] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045261.484396673] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045261.484425665] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045261.491550025] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045261.491641558] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045261.491683085] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045261.491983129] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045261.493227470] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045261.493261199] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045263.044435470] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045263.071820243] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045263.074100486] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045263.074315123] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045263.075884175] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045263.124625816] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.124670893] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.124691200] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.124701531] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.124716201] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045263.131993231] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045263.132101274] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.132155351] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.211566308] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045263.212625877] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045263.212708811] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045263.213389168] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045263.268370568] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.268419974] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.268448829] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.268459968] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.268480492] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045263.271864112] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045263.271949672] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.271982346] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.351887228] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045263.353784372] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045263.353861507] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045263.354612468] [moveit.ompl_planning.model_based_plan
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gripper opened
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045263.453391981] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.453434791] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.453474789] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.453485986] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.453516652] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045263.462243150] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045263.462324055] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.462357014] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045263.462539436] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045263.464233774] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045263.464339006] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045265.616100604] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045265.642065896] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045265.646605852] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045265.646784040] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045265.648099152] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045265.696433254] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045265.696479468] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045265.696502872] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045265.696513436] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045265.696530616] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045265.701832573] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045265.701900714] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045265.701928363] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045265.781398362] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045265.785116849] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045265.785196454] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045265.786121821] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045265.872458454] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045265.872552169] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045265.872616534] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045265.872632108] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045265.872664953] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045265.881569544] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045265.881785671] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045265.881842432] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045265.882075188] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045265.883309212] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045265.883354414] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045267.634584360] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045267.661919615] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045267.665087656] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045267.665159623] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045267.665852011] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045267.769262135] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045267.769311659] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045267.769357876] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045267.769368852] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045267.769399921] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045267.771611631] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045267.771686051] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045267.771714956] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045267.771933405] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045267.773068245] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045267.773109265] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045270.474403651] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045270.501363471] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045270.502664171] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045270.502729479] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045270.503380758] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045270.546024142] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045270.546081159] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045270.546106102] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045270.546118036] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045270.546134899] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045270.551885047] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045270.551973389] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045270.552020274] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045270.631503680] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045270.634972934] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045270.635139726] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045270.636294271] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045270.693742445] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045270.693813147] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045270.693836870] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045270.693847673] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045270.693865845] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045270.702389602] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045270.702488135] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045270.702521189] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045270.781728070] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045270.784325925] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045270.784484950] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045270.785825100] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045270.874272091] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045270.874342582] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 co
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gripper opened
+Gripper closed
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ntrollers in list
+[INFO] [1719045270.874409043] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045270.874421541] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045270.874463351] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045270.882276547] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045270.882356283] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045270.882385829] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045270.882543338] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045270.883802262] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045270.883874762] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045272.934894780] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045272.961654827] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045272.964044316] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045272.964173532] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045272.965204011] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045273.008762795] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045273.008873033] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045273.008941501] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045273.008967981] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045273.009054561] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045273.012359921] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045273.012481338] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045273.012538502] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045273.092162744] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045273.093456073] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045273.093510931] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045273.094144052] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045273.209836484] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045273.209919205] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045273.210021775] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045273.210040604] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045273.210105389] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045273.212328964] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045273.212427233] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045273.212508727] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045273.212708397] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045273.213944626] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045273.213972363] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045276.015339793] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045276.041875066] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045276.043315693] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045276.043421650] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045276.044610636] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045276.141833713] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045276.141877935] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045276.141913259] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045276.141923648] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045276.141953161] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045276.152046113] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045276.152165717] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045276.152197097] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045276.152365135] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045276.153724192] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045276.153775610] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045277.755169853] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045277.781685057] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045277.784160681] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045277.784262209] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045277.785002239] [moveit.ompl_planning.model_based_planning_context]: Planner configura
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gripper opened
+Gripper opened
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tion &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045277.820327595] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045277.820396491] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045277.820438900] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045277.820451306] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045277.820529507] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045277.821898551] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045277.821991782] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045277.822027618] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045277.901857250] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045277.904009698] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045277.904133719] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045277.905065496] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045277.970176080] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045277.970231176] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045277.970258735] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045277.970269316] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045277.970288935] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045277.971802713] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045277.971877414] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045277.971907228] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045278.052754638] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045278.057463610] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045278.057705934] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045278.059865096] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045278.184438883] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045278.184499273] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045278.184564522] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045278.184575403] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045278.184612306] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045278.191918370] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045278.191984110] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045278.192011148] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045278.192155570] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045278.193189670] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045278.193256500] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045280.644546899] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045280.671710602] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045280.672812420] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045280.672897755] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045280.673524508] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045280.728318137] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045280.728371069] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045280.728397804] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [171904528
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gripper closed
+Gripper opened
+Gripper opened
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.728409125] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045280.728426999] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045280.732977421] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045280.733148557] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045280.733187266] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045280.812880390] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045280.814180942] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045280.814276741] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045280.815346980] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045280.927729052] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045280.927806118] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045280.927869711] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045280.927888107] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045280.927936200] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045280.931749933] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045280.931825526] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045280.931853651] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045280.932023545] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045280.933068474] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045280.933094717] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045282.984553084] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045283.011790791] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045283.013029771] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045283.013107447] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045283.013936807] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045283.092305328] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045283.092349694] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045283.092388303] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045283.092398905] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045283.092429282] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045283.101536154] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045283.101605064] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045283.101632301] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045283.101777426] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045283.102914528] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045283.102940934] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045284.504930456] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045284.531793403] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045284.533461433] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045284.533524127] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045284.534171460] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045284.566950967] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.567010146] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.567038200] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.567052966] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.567072797] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045284.571625004] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045284.571753610] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.571802687] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.651870629] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045284.653596676] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045284.653708328] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045284.654575235] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045284.695710520] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.695756626] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.695797922] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.695807877] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.695824334] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045284.702428837] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045284.702541280] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.702587434] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.781509777] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045284.782581500] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045284.782650052] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045284.783381768] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045284.877165993] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.877220533] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.877269990] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.877282197] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.877316889] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045284.881985566] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045284.882122487] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.882185330] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045284.882403564] [moveit.simple_controlle
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gripper closed
+Gripper opened
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>r_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045284.883610917] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045284.883662322] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045286.835000909] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045286.862402446] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045286.865373829] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045286.865486114] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045286.866716901] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045286.914002278] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045286.914069279] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045286.914120281] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045286.914136284] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045286.914160218] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045286.922299543] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045286.922406633] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045286.922440482] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045287.001959708] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045287.004619829] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045287.004719335] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045287.005716540] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045287.100066688] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045287.100119162] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045287.100207891] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045287.100224838] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045287.100262303] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045287.101577898] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045287.101666340] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045287.101697013] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045287.101849514] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045287.102918283] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045287.102958027] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045290.104374241] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045290.131645336] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045290.133569782] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045290.133634422] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045290.134590391] [moveit.ompl_planning.model_based_planning_context]: Planner c
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gripper opened
+Gripper closed
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>onfiguration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045290.219659587] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045290.219726651] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045290.219792024] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045290.219812579] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045290.219866407] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045290.221869399] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045290.221963075] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045290.221999580] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045290.222230122] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045290.224766075] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045290.224844464] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045291.626421456] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045291.651664959] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045291.652815670] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045291.652911929] [moveit_py
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gripper opened
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045291.653652234] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045291.691063309] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045291.691141037] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045291.691184755] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045291.691209477] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045291.691243325] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045291.702083856] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045291.702255204] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045291.702298901] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045291.781846577] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045291.782872034] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045291.782974962] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045291.783842500] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045291.846573140] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045291.846684841] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045291.846719331] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045291.846730908] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045291.846756598] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045291.852259815] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045291.852354074] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045291.852384582] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045291.932055786] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045291.933731644] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045291.933862901] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045291.934632574] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045292.037140199] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045292.037220471] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045292.037287034] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INF
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gripper opened
+Gripper closed
+Gripper opened
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>O] [1719045292.037301629] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045292.037345701] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045292.041882030] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045292.041947102] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045292.041976357] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045292.042142654] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045292.043304949] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045292.043338785] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045294.394813645] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045294.421731941] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045294.422442081] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045294.422595936] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045294.424113542] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045294.483127135] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045294.483176221] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045294.483201571] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045294.483248831] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045294.483268320] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045294.491722640] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045294.491862983] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045294.492068620] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045294.572169647] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045294.579702223] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045294.579811470] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045294.580940510] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045294.660544572] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045294.660593691] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045294.660632481] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045294.660643353] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045294.660673553] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045294.671725993] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045294.671867063] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045294.671918876] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045294.672238144] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045294.673467864] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045294.673496513] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045296.474827805] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045296.502448815] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045296.506570245] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045296.506680356] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045296.507830095] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045296.594552121] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045296.594612554] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045296.594666680] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045296.594677350] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045296.594707314] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045296.602215165] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045296.602529239] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045296.602618322] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045296.603272727] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045296.605703160] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045296.605754598] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045298.707529864] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045298.732861268] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045298.735215209] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045298.735335136] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045298.736348060] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045298.766628664] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045298.766694360] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045298.766718983] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045298.766730098] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045298.766747992] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045298.772588468] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045298.772687553] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045298.772731485] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045298.852180156] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045298.853015034] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045298.853093182] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045298.853700546] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045298.904252593] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045298.904303556] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045298.904332981] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045298.904343714] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045298.904364299] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045298.913422908] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045298.913506392] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045298.913587997] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045298.991348296] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045298.992729718] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045298.992786893] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045298.993501826] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045299.087208344] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045299.087262563] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045299.087308964] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045299.087320628] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045299.087353658] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045299.091583497] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045299.091671999] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045299.091703030] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045299.091870092] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045299.092967449] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045299.092996807] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045300.944444070] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045300.971638112] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045300.972606681] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045300.972680419] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045300.973374635] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;hand&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045301.007116827] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045301.007189262] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045301.007221006] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045301.007231672] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045301.007259331] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045301.011770015] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045301.011897837] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045301.011950480] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045301.091720356] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+[WARN] [1719045301.092846910] [moveit_py]: Parameter &#39;plan_request_params.planner_id&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[WARN] [1719045301.092901118] [moveit_py]: Parameter &#39;plan_request_params.planning_time&#39; not found in config use default value instead, check parameter type and namespace in YAML file
+[INFO] [1719045301.093610493] [moveit.ompl_planning.model_based_planning_context]: Planner configuration &#39;panda_arm&#39; will use planner &#39;geometric::RRTConnect&#39;. Additional configuration parameters will be set when the planner is constructed.
+[INFO] [1719045301.201958408] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045301.202001867] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045301.202039096] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045301.202050818] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045301.202096210] [moveit_ros.trajectory_execution_manager]: Validating trajectory with allowed_start_tolerance 0.01
+[INFO] [1719045301.211918222] [moveit_ros.trajectory_execution_manager]: Starting trajectory execution ...
+[INFO] [1719045301.212056773] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045301.212146055] [moveit.plugins.moveit_simple_controller_manager]: Returned 2 controllers in list
+[INFO] [1719045301.212387887] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: sending trajectory to panda_arm_controller
+[INFO] [1719045301.213901736] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: panda_arm_controller started execution
+[INFO] [1719045301.213962367] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Goal request accepted!
+[INFO] [1719045303.315696145] [moveit.simple_controller_manager.follow_joint_trajectory_controller_handle]: Controller &#39;panda_arm_controller&#39; successfully finished
+[INFO] [1719045303.341962606] [moveit_ros.trajectory_execution_manager]: Completed trajectory execution with status SUCCEEDED ...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "chu-aie/cobots-2024",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./projects/202121010"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href='https://entelecheia.me/'>Young Joon Lee</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <script
+  data-embed-id="8ce6d27b-4248-4ca8-ac90-57f7de938b44"
+  data-base-api-url="https://chat.entelecheia.app/api/embed"
+  data-brand-image-url="https://assets.entelecheia.ai/favicon.png"
+  data-chat-icon="magic"
+  data-sponsor-text="Cobots 2024"
+  data-sponsor-link="https://chat.entelecheia.app/workspace/cobots"
+  src="https://chat.entelecheia.app/embed/anythingllm-chat-widget.min.js">
+</script>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

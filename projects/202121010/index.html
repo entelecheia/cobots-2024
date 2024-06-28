@@ -533,6 +533,17 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">예상 예산</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">예상 일정 (총 기간: 8주)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">위험 관리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">프로젝트 결과</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">목차</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">실행 방법</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">주요 코드</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moveit-config">필요한 라이브러리 임포트 및 moveit config 작성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rcply-panda">rcply 초기화 및 panda 불러오기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">기능 코드</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">실행 결과</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">한계점</a></li>
 </ul>
             </nav>
         </div>
@@ -634,6 +645,278 @@ document.write(`
 <h2>위험 관리<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <p>기술적 실패 및 일정 지연에 대비하여 소프트웨어 및 하드웨어에 대한 충분한 이해와 테스트를 통해 위험 최소화</p>
 </section>
+<section id="id10">
+<h2>프로젝트 결과<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+</section>
+<section id="id11">
+<h2>목차<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#%EC%8B%A4%ED%96%89-%EB%B0%A9%EB%B2%95"><span class="xref myst">실행 방법</span></a></p></li>
+<li><p><a class="reference internal" href="#%EC%A3%BC%EC%9A%94-%EC%BD%94%EB%93%9C"><span class="xref myst">주요 코드</span></a></p></li>
+<li><p><a class="reference internal" href="#%EC%8B%A4%ED%96%89-%EA%B2%B0%EA%B3%BC"><span class="xref myst">실행 결과</span></a></p></li>
+<li><p><a class="reference internal" href="#%ED%95%9C%EA%B3%84%EC%A0%90"><span class="xref myst">한계점</span></a></p></li>
+</ol>
+</section>
+<section id="id12">
+<h2>실행 방법<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>Docker image</p>
+<ul>
+<li><p>Docker image는 다음과 같습니다:
+<code class="docutils literal notranslate"><span class="pre">ghcr.io/ros-planning/moveit2_tutorials:$DOCKER_IMAGE</span></code></p></li>
+<li><p>Docker compose</p>
+<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span># Example command:
+# Humble on a Nvidia system:
+# DOCKER_IMAGE=humble-tutorial docker compose run gpu
+# Rolling without discrete graphics:
+# DOCKER_IMAGE=rolling-tutorial docker compose run cpu
+
+services:
+cpu:
+    image: ghcr.io/ros-planning/moveit2_tutorials:$DOCKER_IMAGE
+    container_name: moveit2_container
+    privileged: true
+    network_mode: host
+    command: /bin/bash
+    volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix
+    - $XAUTHORITY:/root/.Xauthority
+    - $PWD:/root/ws_moveit/src/moveit2_tutorials
+    environment:
+    QT_X11_NO_MITSHM: 1
+    DISPLAY: $DISPLAY
+gpu:
+    image: ghcr.io/ros-planning/moveit2_tutorials:$DOCKER_IMAGE
+    container_name: moveit2_container
+    privileged: true
+    network_mode: host
+    command: /bin/bash
+    deploy:
+    resources:
+        reservations:
+        devices:
+            - driver: nvidia
+            count: 1
+            capabilities: [gpu]
+    volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix
+    - $XAUTHORITY:/root/.Xauthority
+    - $PWD:/root/ws_moveit/src/moveit2_tutorials
+    environment:
+    QT_X11_NO_MITSHM: 1
+    DISPLAY: $DISPLAY
+    NVIDIA_VISIBLE_DEVICES: all
+    NVIDIA_DRIVER_CAPABILITIES: all
+</pre></div>
+</div>
+</li>
+<li><p>Docker 내부</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_IMAGE</span><span class="o">=</span>humble-tutorial
+<span class="nb">export</span><span class="w"> </span><span class="nv">XAUTHORITY</span><span class="o">=</span>~/.Xauthority
+
+docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>.docker/docker-compose.yml<span class="w"> </span>run<span class="w"> </span>gpu
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Docker 내부에서 launch 파일 실행.</p>
+<ul class="simple">
+<li><p>Jupyter를 통해 구현했기 때문에 jupyer <a class="reference external" href="http://lunch.py">lunch.py</a> 실행</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>moveit2_tutorials<span class="w"> </span>jupyter_notebook_prototyping.launch.py<span class="w"> </span>start_servo:<span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+</li>
+<li><p>ros2_project.ipynb 파일 실행</p></li>
+</ol>
+</section>
+<section id="id13">
+<h2>주요 코드<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<section id="moveit-config">
+<h3>필요한 라이브러리 임포트 및 moveit config 작성<a class="headerlink" href="#moveit-config" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">import</span> <span class="nn">rclpy</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">PoseStamped</span><span class="p">,</span> <span class="n">Pose</span>
+<span class="kn">from</span> <span class="nn">moveit.planning</span> <span class="kn">import</span> <span class="n">MoveItPy</span>
+<span class="kn">from</span> <span class="nn">moveit.core.robot_state</span> <span class="kn">import</span> <span class="n">RobotState</span>
+<span class="kn">from</span> <span class="nn">moveit_configs_utils</span> <span class="kn">import</span> <span class="n">MoveItConfigsBuilder</span>
+<span class="kn">from</span> <span class="nn">ament_index_python.packages</span> <span class="kn">import</span> <span class="n">get_package_share_directory</span>
+<span class="kn">from</span> <span class="nn">rclpy.node</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span> <span class="nn">trajectory_msgs.msg</span> <span class="kn">import</span> <span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">JointTrajectoryPoint</span>
+
+<span class="c1"># we need to specify our moveit_py config at the top of each notebook we use. </span>
+<span class="c1"># this is since we will start spinning a moveit_py node within this notebook.</span>
+
+<span class="n">moveit_config</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">MoveItConfigsBuilder</span><span class="p">(</span><span class="n">robot_name</span><span class="o">=</span><span class="s2">&quot;panda&quot;</span><span class="p">,</span> <span class="n">package_name</span><span class="o">=</span><span class="s2">&quot;moveit_resources_panda_moveit_config&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">robot_description</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;config/panda.urdf.xacro&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">trajectory_execution</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;config/gripper_moveit_controllers.yaml&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">moveit_cpp</span><span class="p">(</span>
+            <span class="n">file_path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s2">&quot;moveit2_tutorials&quot;</span><span class="p">),</span>
+                <span class="s2">&quot;config&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;jupyter_notebook_prototyping.yaml&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">to_moveit_configs</span><span class="p">()</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="rcply-panda">
+<h3>rcply 초기화 및 panda 불러오기<a class="headerlink" href="#rcply-panda" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialise rclpy (only for logging purposes)</span>
+<span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+<span class="c1"># instantiate moveit_py instance and a planning component for the panda_arm</span>
+<span class="n">panda</span> <span class="o">=</span> <span class="n">MoveItPy</span><span class="p">(</span><span class="n">node_name</span><span class="o">=</span><span class="s2">&quot;moveit_py&quot;</span><span class="p">,</span> <span class="n">config_dict</span><span class="o">=</span><span class="n">moveit_config</span><span class="p">)</span>
+<span class="n">panda_arm</span> <span class="o">=</span> <span class="n">panda</span><span class="o">.</span><span class="n">get_planning_component</span><span class="p">(</span><span class="s2">&quot;panda_arm&quot;</span><span class="p">)</span>
+<span class="n">panda_gripper</span> <span class="o">=</span> <span class="n">panda</span><span class="o">.</span><span class="n">get_planning_component</span><span class="p">(</span><span class="s2">&quot;hand&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id14">
+<h3>기능 코드<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plan_and_execute</span><span class="p">(</span>
+    <span class="n">robot</span><span class="p">,</span>
+    <span class="n">planning_component</span><span class="p">,</span>
+    <span class="n">single_plan_parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">multi_plan_parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A helper function to plan and execute a motion.&quot;&quot;&quot;</span>
+    <span class="c1"># plan to goal</span>
+    <span class="k">if</span> <span class="n">multi_plan_parameters</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plan_result</span> <span class="o">=</span> <span class="n">planning_component</span><span class="o">.</span><span class="n">plan</span><span class="p">(</span>
+            <span class="n">multi_plan_parameters</span><span class="o">=</span><span class="n">multi_plan_parameters</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">single_plan_parameters</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plan_result</span> <span class="o">=</span> <span class="n">planning_component</span><span class="o">.</span><span class="n">plan</span><span class="p">(</span>
+            <span class="n">single_plan_parameters</span><span class="o">=</span><span class="n">single_plan_parameters</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plan_result</span> <span class="o">=</span> <span class="n">planning_component</span><span class="o">.</span><span class="n">plan</span><span class="p">()</span>
+
+    <span class="c1"># execute the plan</span>
+    <span class="k">if</span> <span class="n">plan_result</span><span class="p">:</span>
+        <span class="n">robot_trajectory</span> <span class="o">=</span> <span class="n">plan_result</span><span class="o">.</span><span class="n">trajectory</span>
+        <span class="n">robot</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">robot_trajectory</span><span class="p">,</span> <span class="n">controllers</span><span class="o">=</span><span class="p">[])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Planning failed&quot;</span><span class="p">)</span>
+        
+
+
+<span class="c1"># 특정 좌표로 이동시키는 함수</span>
+<span class="k">def</span> <span class="nf">move_to_pose</span><span class="p">(</span><span class="n">robot</span><span class="p">,</span> <span class="n">planning_component</span><span class="p">,</span> <span class="n">pose</span><span class="p">):</span>
+    <span class="n">planning_component</span><span class="o">.</span><span class="n">set_start_state_to_current_state</span><span class="p">()</span>
+    <span class="n">planning_component</span><span class="o">.</span><span class="n">set_goal_state</span><span class="p">(</span><span class="n">pose_stamped_msg</span><span class="o">=</span><span class="n">pose</span><span class="p">,</span> <span class="n">pose_link</span><span class="o">=</span><span class="s2">&quot;panda_link8&quot;</span><span class="p">)</span>
+    <span class="n">plan_and_execute</span><span class="p">(</span><span class="n">robot</span><span class="p">,</span> <span class="n">planning_component</span><span class="p">)</span>
+
+<span class="c1"># 그리퍼를 여는 함수 (가상의 함수로 대체)</span>
+<span class="k">def</span> <span class="nf">open_gripper</span><span class="p">():</span>
+    <span class="n">panda_gripper</span><span class="o">.</span><span class="n">set_start_state_to_current_state</span><span class="p">()</span>
+    <span class="n">panda_gripper</span><span class="o">.</span><span class="n">set_goal_state</span><span class="p">(</span><span class="s2">&quot;open&quot;</span><span class="p">)</span>
+    <span class="n">plan_and_execute</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_gripper</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gripper opened&quot;</span><span class="p">)</span>
+
+<span class="c1"># 그리퍼를 닫는 함수 (가상의 함수로 대체)</span>
+<span class="k">def</span> <span class="nf">close_gripper</span><span class="p">():</span>
+    <span class="n">panda_gripper</span><span class="o">.</span><span class="n">set_start_state_to_current_state</span><span class="p">()</span>
+    <span class="n">panda_gripper</span><span class="o">.</span><span class="n">set_goal_state</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">)</span>
+    <span class="n">plan_and_execute</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_gripper</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gripper closed&quot;</span><span class="p">)</span>
+   
+    
+<span class="n">place_pose_xy</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">),(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">),(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span><span class="o">-</span><span class="mf">0.25</span><span class="p">),(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.3</span><span class="p">),(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)]</span>
+
+<span class="c1"># 초기 위치 정의 (특정 좌표로 설정)</span>
+<span class="n">initial_pose</span> <span class="o">=</span> <span class="n">PoseStamped</span><span class="p">()</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s2">&quot;panda_link0&quot;</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.7</span>
+
+<span class="c1"># 목표 좌표 정의</span>
+<span class="n">pick_pose</span> <span class="o">=</span> <span class="n">PoseStamped</span><span class="p">()</span>
+<span class="n">pick_pose</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s2">&quot;panda_link0&quot;</span>
+<span class="n">pick_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">pick_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">pick_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">pick_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="c1">#pick_pose.pose.position.x = -0.28</span>
+<span class="c1">#pick_pose.pose.position.y = -0.2</span>
+<span class="n">pick_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">place_pose</span> <span class="o">=</span> <span class="n">PoseStamped</span><span class="p">()</span>
+<span class="n">place_pose</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s2">&quot;panda_link0&quot;</span>
+<span class="n">place_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">place_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">place_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">place_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="c1">#place_pose.pose.position.x = 0.5</span>
+<span class="c1">#place_pose.pose.position.y = 0.0</span>
+<span class="n">place_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.3</span>
+
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="c1"># 1. 초기 위치로 이동</span>
+    <span class="n">move_to_pose</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">,</span> <span class="n">initial_pose</span><span class="p">)</span>
+
+    <span class="c1"># 2. 특정 위치로 이동</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># Random x position</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># Random y position</span>
+
+    <span class="n">pick_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">pick_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">move_to_pose</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">,</span> <span class="n">pick_pose</span><span class="p">)</span>
+
+    <span class="c1"># 3. gripper 통해 객체 잡기 (구현x)</span>
+    <span class="n">open_gripper</span><span class="p">()</span>
+
+    <span class="n">close_gripper</span><span class="p">()</span>
+
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">place_pose_xy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">place_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">place_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+    
+    <span class="c1"># 4. 객체를 특정 위치로 이동</span>
+    <span class="n">move_to_pose</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">,</span> <span class="n">place_pose</span><span class="p">)</span>
+    
+    <span class="c1"># 5. 객체 놓기</span>
+    <span class="n">open_gripper</span><span class="p">()</span>
+
+
+<span class="n">move_to_pose</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">,</span> <span class="n">initial_pose</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id15">
+<h2>실행 결과<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
+<p>실행 결과는 다음 영상과 같습니다.</p>
+<video width="700px" controls="true" autoplay="true" loop="true">
+    <source src="https://github.com/chu-aie/cobots-2024/assets/104025187/609e8bdc-084e-425d-854a-ebe2abf24507
+    " type="video/mp4">
+</video>
+</section>
+<section id="id16">
+<h2>한계점<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>MoveIt2의 장애물 객체 지원 부족:</p>
+<ul class="simple">
+<li><p>현재 MoveIt2는 Python 인터페이스를 통해 장애물 객체를 생성하는 기능을 지원하지 않습니다. 이로 인해 시뮬레이션 환경에서 장애물 객체를 생성하지 못했습니다.</p></li>
+</ul>
+</li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -708,6 +991,17 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">예상 예산</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">예상 일정 (총 기간: 8주)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">위험 관리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">프로젝트 결과</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">목차</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">실행 방법</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">주요 코드</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moveit-config">필요한 라이브러리 임포트 및 moveit config 작성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rcply-panda">rcply 초기화 및 panda 불러오기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">기능 코드</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">실행 결과</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">한계점</a></li>
 </ul>
   </nav></div>
 
