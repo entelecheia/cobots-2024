@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>로봇을 이용한 정원 관리 &#8212; 협동로봇활용 2024</title>
+    <title>로봇을 이용한 정원 관리 (중간 계획서) &#8212; 협동로봇활용 2024</title>
   
   
   
@@ -295,7 +295,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../202021032/index.html">202021032</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../202021038/index.html">로봇 팔을 활용한 분리수거 자동화</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../202121010/index.html">로봇 팔을 통한 과일 선별 과정 자동화</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">로봇을 이용한 정원 관리</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">로봇을 이용한 정원 관리 (중간 계획서)</a></li>
+
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../setup.html">프로젝트 환경설정</a></li>
@@ -514,7 +515,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>로봇을 이용한 정원 관리</h1>
+    <h1>로봇을 이용한 정원 관리 (중간 계획서)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -524,6 +525,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">로봇을 이용한 정원 관리 (중간 계획서)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">프로젝트 개요</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">프로젝트 목표</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">방법론</a></li>
@@ -533,6 +535,49 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">예상 일정 (총 기간: 8주)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">위험 관리</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">로봇을 이용한 정원 관리 (최종 보고서)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">프로젝트 개요</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">프로젝트 목표</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">개발 환경 및 도구</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">방법론</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">로봇 프로그래밍</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker를 통한 가상 환경 구성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">Jupyter Notebook을 통한 프로토타이핑</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">프로젝트 진행</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">화분 인식 및 관리</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">의도</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">실제</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">주요 구현 기능</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">물뿌리기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">열매 채집</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">실험</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">시뮬레이션</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">결과 및 논의</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">프로젝트 성과</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">문제점 및 개선사항</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">결론</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">참고 문헌</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">부록</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">참여자</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">사용된 자원</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">위험 관리</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -544,7 +589,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>로봇을 이용한 정원 관리<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1>로봇을 이용한 정원 관리 (중간 계획서)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p><img alt="image" src="https://github.com/chu-aie/cobots-2024/assets/133697595/30a66e8b-fc21-491b-9757-483044c33f19" /></p>
 <section id="id2">
 <h2>프로젝트 개요<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
@@ -640,6 +685,530 @@ document.write(`
 </ul>
 </section>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="id10">
+<h1>로봇을 이용한 정원 관리 (최종 보고서)<a class="headerlink" href="#id10" title="Link to this heading">#</a></h1>
+<section id="id11">
+<h2>프로젝트 개요<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<p>이 프로젝트는 ROS2를 기반으로 한 가상의 협동로봇팔을 사용하여 화분을 인식하고 관리하는 자동화된 시스템을 개발하는 것이다. 주요 작업으로는 화분에 물을 주고, 열매를 채집하는 작업이 포함된다. 실제 로봇이 아닌 가상 환경에서 진행되었으며, 이를 위해 WSL Ubuntu 22.04와 ROS2 Humble 버전을 사용하였다. 모든 작업은 Docker를 이용하여 가상 환경에서 진행되었다.</p>
+<img width="763" alt="ros2_ph" src="https://github.com/chu-aie/cobots-2024/assets/133697595/1b5d7a50-f9be-4f97-9f4c-c0307bec2ecd">
+</section>
+<section id="id12">
+<h2>프로젝트 목표<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>로봇팔을 이용한 화분 인식 및 관리 자동화 시스템 개발.</p></li>
+<li><p>가상 환경에서의 물뿌리기 및 열매 채집 기능 구현.</p></li>
+<li><p>ROS2를 이용한 가상 로봇팔 제어 및 작업 수행.</p></li>
+</ol>
+</section>
+<section id="id13">
+<h2>개발 환경 및 도구<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>운영체제:</strong> WSL Ubuntu 22.04</p></li>
+<li><p><strong>프레임워크:</strong> ROS2 Humble</p></li>
+<li><p><strong>시뮬레이션 툴:</strong> Gazebo</p></li>
+<li><p><strong>가상 환경:</strong> Docker</p></li>
+<li><p><strong>개발 도구:</strong> MobaXterm</p></li>
+<li><p><strong>프로그래밍 언어:</strong> Python</p></li>
+<li><p><strong>프로토타이핑 도구:</strong> Jupyter Notebook</p></li>
+</ul>
+</section>
+<section id="id14">
+<h2>방법론<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
+<section id="id15">
+<h3>로봇 프로그래밍<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>ROS2 활용:</strong> ROS2 Humble 버전을 사용하여 가상 로봇팔의 움직임을 제어하고, 특정 작업(물뿌리기, 열매 채집)을 수행하도록 프로그래밍.</p></li>
+<li><p><strong>시뮬레이션 환경:</strong> Gazebo와 같은 시뮬레이션 툴을 사용하여 가상 환경을 구축하고, 로봇팔의 작업을 테스트.</p></li>
+<li><p><strong>개발 도구:</strong> MobaXterm을 사용하여 개발 환경을 구성하고, Docker를 통해 가상 환경에서 모든 작업을 진행.</p></li>
+<li><p><strong>Jupyter Notebook 사용:</strong> Jupyter Notebook을 사용하여 프로토타이핑 및 코딩을 진행.</p></li>
+</ul>
+</section>
+<section id="docker">
+<h3>Docker를 통한 가상 환경 구성<a class="headerlink" href="#docker" title="Link to this heading">#</a></h3>
+<ul>
+<li><p><strong>Docker-compose 설정:</strong> Docker-compose를 이용하여 ROS2 및 Gazebo가 포함된 가상 환경을 설정.</p></li>
+<li><p><strong>Docker-compose.yml 파일 구성:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">cpu</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/ros-planning/moveit2_tutorials:$DOCKER_IMAGE</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">moveit2_container</span>
+<span class="w">    </span><span class="nt">privileged</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/bin/bash</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/.X11-unix:/tmp/.X11-unix</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$XAUTHORITY:/root/.Xauthority</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PWD:/root/ws_moveit/src/moveit2_tutorials</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">QT_X11_NO_MITSHM</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">      </span><span class="nt">DISPLAY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$DISPLAY</span>
+<span class="w">  </span><span class="nt">gpu</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/ros-planning/moveit2_tutorials:$DOCKER_IMAGE</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">moveit2_container</span>
+<span class="w">    </span><span class="nt">privileged</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/bin/bash</span>
+<span class="w">    </span><span class="nt">deploy</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">reservations</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">devices</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nvidia</span>
+<span class="w">              </span><span class="nt">count</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">              </span><span class="nt">capabilities</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">gpu</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/.X11-unix:/tmp/.X11-unix</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$XAUTHORITY:/root/.Xauthority</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PWD:/root/ws_moveit/src/moveit2_tutorials</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">QT_X11_NO_MITSHM</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">      </span><span class="nt">DISPLAY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$DISPLAY</span>
+<span class="w">      </span><span class="nt">NVIDIA_VISIBLE_DEVICES</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+<span class="w">      </span><span class="nt">NVIDIA_DRIVER_CAPABILITIES</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Docker 실행 스크립트:</strong> <code class="docutils literal notranslate"><span class="pre">docker-run.sh</span></code> 파일을 사용하여 Docker 컨테이너 실행.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_IMAGE</span><span class="o">=</span>humble-tutorial
+<span class="nb">export</span><span class="w"> </span><span class="nv">XAUTHORITY</span><span class="o">=</span>~/.Xauthority
+
+docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>.docker/docker-compose.yml<span class="w"> </span>run<span class="w"> </span>gpu
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="jupyter-notebook">
+<h3>Jupyter Notebook을 통한 프로토타이핑<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h3>
+<ul>
+<li><p><strong>Jupyter Notebook 서버 시작:</strong> Jupyter Notebook 서버와 MoveIt Python 라이브러리를 사용한 모션 플래닝 노드를 실행하는 <code class="docutils literal notranslate"><span class="pre">jupyter_notebook_prototyping.launch.py</span></code> 파일을 작성하여 노트북 환경에서 실험 및 프로토타이핑을 진행.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A launch file that starts a Jupyter notebook server and nodes that support motion planning with the MoveIt Python library.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">from</span> <span class="nn">launch</span> <span class="kn">import</span> <span class="n">LaunchDescription</span>
+<span class="kn">from</span> <span class="nn">launch.actions</span> <span class="kn">import</span> <span class="n">ExecuteProcess</span><span class="p">,</span> <span class="n">DeclareLaunchArgument</span>
+<span class="kn">from</span> <span class="nn">launch.substitutions</span> <span class="kn">import</span> <span class="n">LaunchConfiguration</span>
+<span class="kn">from</span> <span class="nn">launch_ros.actions</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">SetParameter</span>
+<span class="kn">from</span> <span class="nn">ament_index_python.packages</span> <span class="kn">import</span> <span class="n">get_package_share_directory</span>
+<span class="kn">from</span> <span class="nn">moveit_configs_utils</span> <span class="kn">import</span> <span class="n">MoveItConfigsBuilder</span>
+
+<span class="k">def</span> <span class="nf">load_yaml</span><span class="p">(</span><span class="n">package_name</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+    <span class="n">package_path</span> <span class="o">=</span> <span class="n">get_package_share_directory</span><span class="p">(</span><span class="n">package_name</span><span class="p">)</span>
+    <span class="n">absolute_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">package_path</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">absolute_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">EnvironmentError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="k">def</span> <span class="nf">generate_launch_description</span><span class="p">():</span>
+    <span class="n">start_servo</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">&quot;start_servo&quot;</span><span class="p">)</span>
+
+    <span class="n">start_servo_arg</span> <span class="o">=</span> <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
+        <span class="s2">&quot;start_servo&quot;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="s2">&quot;false&quot;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Start the servo node&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">moveit_config</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">MoveItConfigsBuilder</span><span class="p">(</span>
+            <span class="n">robot_name</span><span class="o">=</span><span class="s2">&quot;panda&quot;</span><span class="p">,</span> <span class="n">package_name</span><span class="o">=</span><span class="s2">&quot;moveit_resources_panda_moveit_config&quot;</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">robot_description</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;config/panda.urdf.xacro&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">trajectory_execution</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;config/gripper_moveit_controllers.yaml&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">moveit_cpp</span><span class="p">(</span>
+            <span class="n">file_path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s2">&quot;moveit2_tutorials&quot;</span><span class="p">),</span>
+                <span class="s2">&quot;config&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;jupyter_notebook_prototyping.yaml&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">to_moveit_configs</span><span class="p">()</span>
+    <span class="p">)</span>
+
+    <span class="n">rviz_config_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s2">&quot;moveit2_tutorials&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;config&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jupyter_notebook_prototyping.rviz&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">rviz_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+        <span class="n">package</span><span class="o">=</span><span class="s2">&quot;rviz2&quot;</span><span class="p">,</span>
+        <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;rviz2&quot;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;rviz2&quot;</span><span class="p">,</span>
+        <span class="n">output</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+        <span class="n">arguments</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;-d&quot;</span><span class="p">,</span> <span class="n">rviz_config_file</span><span class="p">],</span>
+        <span class="n">parameters</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">moveit_config</span><span class="o">.</span><span class="n">robot_description</span><span class="p">,</span>
+            <span class="n">moveit_config</span><span class="o">.</span><span class="n">robot_description_semantic</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="n">static_tf</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+        <span class="n">package</span><span class="o">=</span><span class="s2">&quot;tf2_ros&quot;</span><span class="p">,</span>
+        <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;static_transform_publisher&quot;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;static_transform_publisher&quot;</span><span class="p">,</span>
+        <span class="n">output</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+        <span class="n">arguments</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;--frame-id&quot;</span><span class="p">,</span> <span class="s2">&quot;world&quot;</span><span class="p">,</span> <span class="s2">&quot;--child-frame-id&quot;</span><span class="p">,</span> <span class="s2">&quot;panda_link0&quot;</span><span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="n">robot_state_publisher</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+        <span class="n">package</span><span class="o">=</span><span class="s2">&quot;robot_state_publisher&quot;</span><span class="p">,</span>
+        <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;robot_state_publisher&quot;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;robot_state_publisher&quot;</span><span class="p">,</span>
+        <span class="n">output</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span>
+        <span class="n">parameters</span><span class="o">=</span><span class="p">[</span><span class="n">moveit_config</span><span class="o">.</span><span class="n">robot_description</span><span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="n">ros2_controllers_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s2">&quot;moveit_resources_panda_moveit_config&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;config&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ros2_controllers.yaml&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">ros2_control_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+        <span class="n">package</span><span class="o">=</span><span class="s2">&quot;controller_manager&quot;</span><span class="p">,</span>
+        <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;ros2_control_node&quot;</span><span class="p">,</span>
+        <span class="n">parameters</span><span class="o">=</span><span class="p">[</span><span class="n">moveit_config</span><span class="o">.</span><span class="n">robot_description</span><span class="p">,</span> <span class="n">ros2_controllers_path</span><span class="p">],</span>
+        <span class="n">output</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">load_controllers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">controller</span> <span class="ow">in</span> <span class="p">[</span>
+        <span class="s2">&quot;panda_arm_controller&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;panda_hand_controller&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;joint_state_broadcaster&quot;</span><span class="p">,</span>
+    <span class="p">]:</span>
+        <span class="n">load_controllers</span> <span class="o">+=</span> <span class="p">[</span>
+            <span class="n">ExecuteProcess</span><span class="p">(</span>
+                <span class="n">cmd</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ros2 run controller_manager spawner </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">controller</span><span class="p">)],</span>
+                <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">output</span><span class="o">=</span><span class="s2">&quot;screen&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">]</span>
+
+    <span class="n">notebook_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_package_share_directory</span><span class="p">(</span><span class="s2">&quot;moveit2_tutorials&quot;</span><span class="p">),</span> <span class="s2">&quot;src&quot;</span><span class="p">)</span>
+    <span class="n">start_notebook</span> <span class="o">=</span> <span class="n">ExecuteProcess</span><span class="p">(</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;cd </span><span class="si">{}</span><span class="s2"> &amp;&amp; python3 -m notebook&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">notebook_dir</span><span class="p">)],</span>
+        <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">output</span><span class="o">=</span><span class="s2">&quot;screen&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">start_servo</span><span class="p">:</span>
+        <span class="n">servo_yaml</span> <span class="o">=</span> <span class="n">load_yaml</span><span class="p">(</span><span class="s2">&quot;moveit_servo&quot;</span><span class="p">,</span> <span class="s2">&quot;config/panda_simulated_config.yaml&quot;</span><span class="p">)</span>
+        <span class="n">servo_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;moveit_servo&quot;</span><span class="p">:</span> <span class="n">servo_yaml</span><span class="p">}</span>
+
+        <span class="n">joy_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+            <span class="n">package</span><span class="o">=</span><span class="s2">&quot;joy&quot;</span><span class="p">,</span>
+            <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;joy_node&quot;</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;joy_node&quot;</span><span class="p">,</span>
+            <span class="n">output</span><span class="o">=</span><span class="s2">&quot;screen&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">servo_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+            <span class="n">package</span><span class="o">=</span><span class="s2">&quot;moveit_servo&quot;</span><span class="p">,</span>
+            <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;servo_node_main&quot;</span><span class="p">,</span>
+            <span class="n">parameters</span><span class="o">=</span><span class="p">[</span>
+                <span class="n">servo_params</span><span class="p">,</span>
+                <span class="n">moveit_config</span><span class="o">.</span><span class="n">robot_description</span><span class="p">,</span>
+                <span class="n">moveit_config</span><span class="o">.</span><span class="n">robot_description_semantic</span><span class="p">,</span>
+                <span class="n">moveit_config</span><span class="o">.</span><span class="n">robot_description_kinematics</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="n">output</span><span class="o">=</span><span class="s2">&quot;screen&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">start_servo_arg</span><span class="p">,</span>
+                <span class="n">start_notebook</span><span class="p">,</span>
+                <span class="n">static_tf</span><span class="p">,</span>
+                <span class="n">robot_state_publisher</span><span class="p">,</span>
+                <span class="n">rviz_node</span><span class="p">,</span>
+                <span class="n">ros2_control_node</span><span class="p">,</span>
+                <span class="n">joy_node</span><span class="p">,</span>
+                <span class="n">servo_node</span><span class="p">,</span>
+            <span class="p">]</span>
+            <span class="o">+</span> <span class="n">load_controllers</span>
+        <span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">start_servo_arg</span><span class="p">,</span>
+                <span class="n">start_notebook</span><span class="p">,</span>
+                <span class="n">static_tf</span><span class="p">,</span>
+                <span class="n">robot_state_publisher</span><span class="p">,</span>
+                <span class="n">rviz_node</span><span class="p">,</span>
+                <span class="n">ros2_control_node</span><span class="p">,</span>
+            <span class="p">]</span>
+            <span class="o">+</span> <span class="n">load_controllers</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>시뮬레이션 실행:</strong>
+Docker 안에서 다음 명령어를 사용하여 로봇 팔을 움직이기 위한 시뮬레이션 화면을 실행하였다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>moveit2_tutorials<span class="w"> </span>jupyter_notebook_prototyping.launch.py<span class="w"> </span>start_servo:<span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="id16">
+<h3>프로젝트 진행<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p>다음은 실제 프로젝트 진행 사항을 코드로 작성한 내용이다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">rclpy</span>
+<span class="kn">from</span> <span class="nn">rclpy.node</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">PoseStamped</span>
+<span class="kn">from</span> <span class="nn">moveit.planning</span> <span class="kn">import</span> <span class="n">MoveItPy</span>
+<span class="kn">from</span> <span class="nn">moveit_configs_utils</span> <span class="kn">import</span> <span class="n">MoveItConfigsBuilder</span>
+<span class="kn">from</span> <span class="nn">ament_index_python.packages</span> <span class="kn">import</span> <span class="n">get_package_share_directory</span>
+
+<span class="c1"># MoveIt 설정</span>
+<span class="n">moveit_config</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">MoveItConfigsBuilder</span><span class="p">(</span><span class="n">robot_name</span><span class="o">=</span><span class="s2">&quot;panda&quot;</span><span class="p">,</span> <span class="n">package_name</span><span class="o">=</span><span class="s2">&quot;moveit_resources_panda_moveit_config&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">robot_description</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;config/panda.urdf.xacro&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">trajectory_execution</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;config/gripper_moveit_controllers.yaml&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">moveit_cpp</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span>
+
+<span class="p">(</span><span class="n">get_package_share_directory</span><span class="p">(</span><span class="s2">&quot;moveit2_tutorials&quot;</span><span class="p">),</span> <span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;jupyter_notebook_prototyping.yaml&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">to_moveit_configs</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+
+<span class="c1"># ROS 2 초기화 및 MoveItPy 인스턴스 생성</span>
+<span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="n">panda</span> <span class="o">=</span> <span class="n">MoveItPy</span><span class="p">(</span><span class="n">node_name</span><span class="o">=</span><span class="s2">&quot;moveit_py&quot;</span><span class="p">,</span> <span class="n">config_dict</span><span class="o">=</span><span class="n">moveit_config</span><span class="p">)</span>
+<span class="n">panda_arm</span> <span class="o">=</span> <span class="n">panda</span><span class="o">.</span><span class="n">get_planning_component</span><span class="p">(</span><span class="s2">&quot;panda_arm&quot;</span><span class="p">)</span>
+<span class="n">panda_gripper</span> <span class="o">=</span> <span class="n">panda</span><span class="o">.</span><span class="n">get_planning_component</span><span class="p">(</span><span class="s2">&quot;hand&quot;</span><span class="p">)</span>
+
+<span class="c1"># 경로 계획 및 실행 함수</span>
+<span class="k">def</span> <span class="nf">plan_and_execute</span><span class="p">(</span><span class="n">robot</span><span class="p">,</span> <span class="n">planning_component</span><span class="p">,</span> <span class="n">single_plan_parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">multi_plan_parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">multi_plan_parameters</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plan_result</span> <span class="o">=</span> <span class="n">planning_component</span><span class="o">.</span><span class="n">plan</span><span class="p">(</span><span class="n">multi_plan_parameters</span><span class="o">=</span><span class="n">multi_plan_parameters</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">single_plan_parameters</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plan_result</span> <span class="o">=</span> <span class="n">planning_component</span><span class="o">.</span><span class="n">plan</span><span class="p">(</span><span class="n">single_plan_parameters</span><span class="o">=</span><span class="n">single_plan_parameters</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plan_result</span> <span class="o">=</span> <span class="n">planning_component</span><span class="o">.</span><span class="n">plan</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">plan_result</span><span class="p">:</span>
+        <span class="n">robot_trajectory</span> <span class="o">=</span> <span class="n">plan_result</span><span class="o">.</span><span class="n">trajectory</span>
+        <span class="n">robot</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">robot_trajectory</span><span class="p">,</span> <span class="n">controllers</span><span class="o">=</span><span class="p">[])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Planning failed&quot;</span><span class="p">)</span>
+
+<span class="c1"># 특정 좌표로 이동시키는 함수</span>
+<span class="k">def</span> <span class="nf">move_to_pose</span><span class="p">(</span><span class="n">robot</span><span class="p">,</span> <span class="n">planning_component</span><span class="p">,</span> <span class="n">pose</span><span class="p">):</span>
+    <span class="n">planning_component</span><span class="o">.</span><span class="n">set_start_state_to_current_state</span><span class="p">()</span>
+    <span class="n">planning_component</span><span class="o">.</span><span class="n">set_goal_state</span><span class="p">(</span><span class="n">pose_stamped_msg</span><span class="o">=</span><span class="n">pose</span><span class="p">,</span> <span class="n">pose_link</span><span class="o">=</span><span class="s2">&quot;panda_link8&quot;</span><span class="p">)</span>
+    <span class="n">plan_and_execute</span><span class="p">(</span><span class="n">robot</span><span class="p">,</span> <span class="n">planning_component</span><span class="p">)</span>
+
+<span class="c1"># 그리퍼 제어 함수</span>
+<span class="k">def</span> <span class="nf">open_gripper</span><span class="p">():</span>
+    <span class="n">panda_gripper</span><span class="o">.</span><span class="n">set_start_state_to_current_state</span><span class="p">()</span>
+    <span class="n">panda_gripper</span><span class="o">.</span><span class="n">set_goal_state</span><span class="p">(</span><span class="s2">&quot;open&quot;</span><span class="p">)</span>
+    <span class="n">plan_and_execute</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_gripper</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gripper opened&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">close_gripper</span><span class="p">():</span>
+    <span class="n">panda_gripper</span><span class="o">.</span><span class="n">set_start_state_to_current_state</span><span class="p">()</span>
+    <span class="n">panda_gripper</span><span class="o">.</span><span class="n">set_goal_state</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">)</span>
+    <span class="n">plan_and_execute</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_gripper</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gripper closed&quot;</span><span class="p">)</span>
+
+<span class="c1"># 초기 위치 정의 (특정 좌표로 설정)</span>
+<span class="n">initial_pose</span> <span class="o">=</span> <span class="n">PoseStamped</span><span class="p">()</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s2">&quot;panda_link0&quot;</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">initial_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.7</span>
+
+<span class="c1"># 화분 위치 정의 (3개)</span>
+<span class="n">pot_positions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="c1"># 물뿌리개 위치 정의 (로봇 오른쪽)</span>
+<span class="n">watering_can_pose</span> <span class="o">=</span> <span class="n">PoseStamped</span><span class="p">()</span>
+<span class="n">watering_can_pose</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s2">&quot;panda_link0&quot;</span>
+<span class="n">watering_can_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">watering_can_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">watering_can_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">watering_can_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">watering_can_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">watering_can_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.4</span>
+<span class="n">watering_can_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="c1"># 보관함 위치 정의 (로봇 왼쪽)</span>
+<span class="n">harvest_pose</span> <span class="o">=</span> <span class="n">PoseStamped</span><span class="p">()</span>
+<span class="n">harvest_pose</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s2">&quot;panda_link0&quot;</span>
+<span class="n">harvest_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">harvest_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">harvest_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">harvest_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">harvest_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.4</span>
+<span class="n">harvest_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.4</span>
+<span class="n">harvest_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="c1"># 목표 좌표 정의 (화분)</span>
+<span class="n">pot_pose</span> <span class="o">=</span> <span class="n">PoseStamped</span><span class="p">()</span>
+<span class="n">pot_pose</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s2">&quot;panda_link0&quot;</span>
+<span class="n">pot_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">pot_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">pot_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">pot_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># 메인 실행 루프</span>
+<span class="c1"># 1. 초기 위치로 이동</span>
+<span class="n">move_to_pose</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">,</span> <span class="n">initial_pose</span><span class="p">)</span>
+<span class="n">open_gripper</span><span class="p">()</span>
+
+<span class="c1"># 2. 물뿌리개 위치로 이동 및 집기</span>
+<span class="n">move_to_pose</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">,</span> <span class="n">watering_can_pose</span><span class="p">)</span>
+<span class="n">close_gripper</span><span class="p">()</span>
+
+<span class="c1"># 3. 각 화분에 물주기</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">pot_positions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">pot_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">pot_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">pot_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span>
+    <span class="n">move_to_pose</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">,</span> <span class="n">pot_pose</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># 2초간 기울여서 물을 뿌리기</span>
+
+    <span class="c1"># 물뿌리기 후 살짝 위로 이동</span>
+    <span class="n">intermediate_pose</span> <span class="o">=</span> <span class="n">PoseStamped</span><span class="p">()</span>
+    <span class="n">intermediate_pose</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s2">&quot;panda_link0&quot;</span>
+    <span class="n">intermediate_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">intermediate_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">intermediate_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">intermediate_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">intermediate_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">intermediate_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">intermediate_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span> <span class="o">+</span> <span class="mf">0.1</span>  
+    <span class="n">move_to_pose</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">,</span> <span class="n">intermediate_pose</span><span class="p">)</span>
+
+<span class="c1"># 4. 물뿌리개를 제자리에 둠</span>
+<span class="n">move_to_pose</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">,</span> <span class="n">watering_can_pose</span><span class="p">)</span>
+<span class="n">open_gripper</span><span class="p">()</span>
+
+<span class="c1"># 5. 각 화분에서 열매를 자르기</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">pot_positions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">pot_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">pot_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">pot_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span>
+    <span class="n">move_to_pose</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">,</span> <span class="n">pot_pose</span><span class="p">)</span>
+    <span class="n">close_gripper</span><span class="p">()</span> 
+
+    <span class="c1"># 6. 자른 열매를 보관함에 넣기</span>
+    <span class="n">move_to_pose</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">,</span> <span class="n">harvest_pose</span><span class="p">)</span>
+    <span class="n">open_gripper</span><span class="p">()</span>
+
+<span class="c1"># 초기 위치로 복귀</span>
+<span class="n">move_to_pose</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">,</span> <span class="n">initial_pose</span><span class="p">)</span>
+<span class="n">close_gripper</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id17">
+<h2>화분 인식 및 관리<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
+<section id="id18">
+<h3>의도<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>화분 인식:</strong> ROS2의 내장된 기능을 사용하여 화분의 위치와 상태를 파악.</p></li>
+<li><p><strong>물뿌리기 시스템:</strong> 가상의 토양 습도 데이터를 기반으로 물뿌리기 작업을 자동으로 수행.</p></li>
+<li><p><strong>열매 채집:</strong> 가상의 열매 성장을 모니터링하고, 적절한 시기에 열매를 채집하는 기능 구현.</p></li>
+</ul>
+</section>
+<section id="id19">
+<h3>실제<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>물뿌리기 시스템</strong></p></li>
+<li><p><strong>열매 채집</strong></p></li>
+</ul>
+</section>
+</section>
+<section id="id20">
+<h2>주요 구현 기능<a class="headerlink" href="#id20" title="Link to this heading">#</a></h2>
+<section id="id21">
+<h3>물뿌리기<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<p>가상의 로봇팔이 화분 3개에 물을 주는 작업을 수행한다. 필요한 양의 물을 자동으로 공급한다.</p>
+<p>(토양 습도 센서를 통해 각 화분의 상태를 모니터링 - 구현 실패)</p>
+</section>
+<section id="id22">
+<h3>열매 채집<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p>가상의 열매를 모니터링하여 성숙한 열매를 적절한 시기에 채집한다. 이를 통해 화분의 관리 및 유지보수를 자동화한다.</p>
+</section>
+</section>
+<section id="id23">
+<h2>실험<a class="headerlink" href="#id23" title="Link to this heading">#</a></h2>
+<section id="id24">
+<h3>시뮬레이션<a class="headerlink" href="#id24" title="Link to this heading">#</a></h3>
+<p>Gazebo 시뮬레이션을 통해 가상 로봇팔의 움직임과 작업을 테스트하였다. 각 작업(물뿌리기, 열매 채집)의 정확성을 확인하고, 필요한 조정을 수행하였다.</p>
+<p><a class="github reference external" href="https://github.com/chu-aie/cobots-2024/assets/133697595/e6f28a67-8673-4f70-8d09-14dc053b0a4c">chu-aie/cobots-2024</a></p>
+</section>
+</section>
+<section id="id25">
+<h2>결과 및 논의<a class="headerlink" href="#id25" title="Link to this heading">#</a></h2>
+<section id="id26">
+<h3>프로젝트 성과<a class="headerlink" href="#id26" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>가상 환경에서의 로봇팔 제어 및 작업 수행이 성공적으로 구현되었다.</p></li>
+<li><p>화분 인식, 물뿌리기, 열매 채집 등의 작업이 자동화되었다.</p></li>
+</ul>
+</section>
+<section id="id27">
+<h3>문제점 및 개선사항<a class="headerlink" href="#id27" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>실제 환경에서의 적용 가능성을 높이기 위해 추가적인 테스트와 조정이 필요하다.</p></li>
+<li><p>로봇팔의 정밀도와 작업 속도를 향상시키기 위한 알고리즘 개선이 요구된다.</p></li>
+<li><p>화분과 물뿌리개, 바구니를 그래픽으로 구현하려 했으나 기술력 부족으로 구현에 실패하였다. C++ 예제를 찾았으나, Python으로만 프로젝트를 진행하여 한계가 있었다.</p></li>
+</ul>
+</section>
+</section>
+<section id="id28">
+<h2>결론<a class="headerlink" href="#id28" title="Link to this heading">#</a></h2>
+<p>이 프로젝트를 통해 가상의 로봇팔을 이용한 화분 관리 시스템을 개발하였다. ROS2와 Gazebo를 활용한 가상 환경에서의 시뮬레이션을 통해 주요 작업을 자동화하는 데 성공하였다. 향후 실제 로봇팔을 사용한 실험을 통해 시스템의 실제 적용 가능성을 평가하고, 더욱 발전된 자동화 시스템을 개발할 계획이다.</p>
+</section>
+<section id="id29">
+<h2>참고 문헌<a class="headerlink" href="#id29" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>ROS2 Documentation: <a class="reference external" href="https://docs.ros.org/en/humble/index.html">https://docs.ros.org/en/humble/index.html</a></p></li>
+<li><p>moveit2_tutorials: <a class="github reference external" href="https://github.com/peterdavidfagan/moveit2_tutorials">peterdavidfagan/moveit2_tutorials</a></p></li>
+<li><p>pymoveit2: <a class="github reference external" href="https://github.com/AndrejOrsula/pymoveit2">AndrejOrsula/pymoveit2</a></p></li>
+</ul>
+</section>
+<section id="id30">
+<h2>부록<a class="headerlink" href="#id30" title="Link to this heading">#</a></h2>
+<section id="id31">
+<h3>참여자<a class="headerlink" href="#id31" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>학번: 202221014</p></li>
+<li><p>이름: 이규범</p></li>
+<li><p>이메일: <a class="reference external" href="mailto:202221014&#37;&#52;&#48;chu&#46;ac&#46;kr">202221014<span>&#64;</span>chu<span>&#46;</span>ac<span>&#46;</span>kr</a></p></li>
+</ul>
+</section>
+<section id="id32">
+<h3>사용된 자원<a class="headerlink" href="#id32" title="Link to this heading">#</a></h3>
+<p>이 프로젝트는 가상 환경에서 진행되어 물리적 자원이 사용되지 않았다.</p>
+</section>
+<section id="id33">
+<h3>위험 관리<a class="headerlink" href="#id33" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>기술적 실패:</strong> 소프트웨어에 대한 공부부족을 보완하기 위해 적절한 교육이 필요하다.</p></li>
+</ul>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -705,6 +1274,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">로봇을 이용한 정원 관리 (중간 계획서)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">프로젝트 개요</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">프로젝트 목표</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">방법론</a></li>
@@ -714,6 +1284,49 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">예상 일정 (총 기간: 8주)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">위험 관리</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">로봇을 이용한 정원 관리 (최종 보고서)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">프로젝트 개요</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">프로젝트 목표</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">개발 환경 및 도구</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">방법론</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">로봇 프로그래밍</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker를 통한 가상 환경 구성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">Jupyter Notebook을 통한 프로토타이핑</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">프로젝트 진행</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">화분 인식 및 관리</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">의도</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">실제</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">주요 구현 기능</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">물뿌리기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">열매 채집</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">실험</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">시뮬레이션</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">결과 및 논의</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">프로젝트 성과</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">문제점 및 개선사항</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">결론</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">참고 문헌</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">부록</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">참여자</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">사용된 자원</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">위험 관리</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
