@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cobots2024"
-version = "0.5.0"
+version = "0.5.1"
 description = "Collaborative Robot Applications"
 authors = ["Young Joon Lee <yj.lee@chu.ac.kr>"]
 license = "CC-BY-4.0"
