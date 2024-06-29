@@ -1,4 +1,4 @@
-# 로봇 팔을 통한 과일 선별 과정 자동화
+# 202121010 - 로봇 팔을 통한 과일 선별 과정 자동화
 
 ![project_img](./figs/project_img.jpeg)
 
@@ -32,20 +32,20 @@
 
 ## 예상 예산
 
-|품목  | 가격(원)|
-| ---- | ----- |
-| 웹캠 | 64,800 |
+| 품목        | 가격(원)   |
+| ----------- | ---------- |
+| 웹캠        | 64,800     |
 | **총 예산** | **64,800** |
 
 ## 예상 일정 (총 기간: 8주)
 
-| 주차   | 활동       |
-| ------ | ------------------ |
-| 주 1-2 | 프로젝트 계획 및 초기 설계   |
-| 주 3-4 | 로봇 프로그래밍 및 시뮬레이션  |
+| 주차   | 활동                                       |
+| ------ | ------------------------------------------ |
+| 주 1-2 | 프로젝트 계획 및 초기 설계                 |
+| 주 3-4 | 로봇 프로그래밍 및 시뮬레이션              |
 | 주 5-6 | 과일 선별 알고리즘 구현 및 파이프라인 구축 |
-| 주 7   | 테스트 및 피드백  |
-| 주 8   | 최종 발표, 프로젝트 마무리 및 문서화  |
+| 주 7   | 테스트 및 피드백                           |
+| 주 8   | 최종 발표, 프로젝트 마무리 및 문서화       |
 
 ## 위험 관리
 
@@ -53,7 +53,7 @@
 
 ## 프로젝트 결과
 
-## 목차 
+## 목차
 
 1. [실행 방법](#실행-방법)
 2. [주요 코드](#주요-코드)
@@ -67,67 +67,72 @@
 ## 실행 방법
 
 1. Docker image
-    - Docker image는 다음과 같습니다:
-        `ghcr.io/ros-planning/moveit2_tutorials:$DOCKER_IMAGE`
-    - Docker compose
-        ```yml
-        # Example command:
-        # Humble on a Nvidia system:
-        # DOCKER_IMAGE=humble-tutorial docker compose run gpu
-        # Rolling without discrete graphics:
-        # DOCKER_IMAGE=rolling-tutorial docker compose run cpu
 
-        services:
-        cpu:
-            image: ghcr.io/ros-planning/moveit2_tutorials:$DOCKER_IMAGE
-            container_name: moveit2_container
-            privileged: true
-            network_mode: host
-            command: /bin/bash
-            volumes:
-            - /tmp/.X11-unix:/tmp/.X11-unix
-            - $XAUTHORITY:/root/.Xauthority
-            - $PWD:/root/ws_moveit/src/moveit2_tutorials
-            environment:
-            QT_X11_NO_MITSHM: 1
-            DISPLAY: $DISPLAY
-        gpu:
-            image: ghcr.io/ros-planning/moveit2_tutorials:$DOCKER_IMAGE
-            container_name: moveit2_container
-            privileged: true
-            network_mode: host
-            command: /bin/bash
-            deploy:
-            resources:
-                reservations:
-                devices:
-                    - driver: nvidia
-                    count: 1
-                    capabilities: [gpu]
-            volumes:
-            - /tmp/.X11-unix:/tmp/.X11-unix
-            - $XAUTHORITY:/root/.Xauthority
-            - $PWD:/root/ws_moveit/src/moveit2_tutorials
-            environment:
-            QT_X11_NO_MITSHM: 1
-            DISPLAY: $DISPLAY
-            NVIDIA_VISIBLE_DEVICES: all
-            NVIDIA_DRIVER_CAPABILITIES: all
-        ```
+   - Docker image는 다음과 같습니다:
+     `ghcr.io/ros-planning/moveit2_tutorials:$DOCKER_IMAGE`
+   - Docker compose
 
-    - Docker 내부
-        ```sh
-        export DOCKER_IMAGE=humble-tutorial
-        export XAUTHORITY=~/.Xauthority
+     ```yml
+     # Example command:
+     # Humble on a Nvidia system:
+     # DOCKER_IMAGE=humble-tutorial docker compose run gpu
+     # Rolling without discrete graphics:
+     # DOCKER_IMAGE=rolling-tutorial docker compose run cpu
 
-        docker compose -f .docker/docker-compose.yml run gpu
-        ```
+     services:
+     cpu:
+         image: ghcr.io/ros-planning/moveit2_tutorials:$DOCKER_IMAGE
+         container_name: moveit2_container
+         privileged: true
+         network_mode: host
+         command: /bin/bash
+         volumes:
+         - /tmp/.X11-unix:/tmp/.X11-unix
+         - $XAUTHORITY:/root/.Xauthority
+         - $PWD:/root/ws_moveit/src/moveit2_tutorials
+         environment:
+         QT_X11_NO_MITSHM: 1
+         DISPLAY: $DISPLAY
+     gpu:
+         image: ghcr.io/ros-planning/moveit2_tutorials:$DOCKER_IMAGE
+         container_name: moveit2_container
+         privileged: true
+         network_mode: host
+         command: /bin/bash
+         deploy:
+         resources:
+             reservations:
+             devices:
+                 - driver: nvidia
+                 count: 1
+                 capabilities: [gpu]
+         volumes:
+         - /tmp/.X11-unix:/tmp/.X11-unix
+         - $XAUTHORITY:/root/.Xauthority
+         - $PWD:/root/ws_moveit/src/moveit2_tutorials
+         environment:
+         QT_X11_NO_MITSHM: 1
+         DISPLAY: $DISPLAY
+         NVIDIA_VISIBLE_DEVICES: all
+         NVIDIA_DRIVER_CAPABILITIES: all
+     ```
+
+   - Docker 내부
+
+     ```sh
+     export DOCKER_IMAGE=humble-tutorial
+     export XAUTHORITY=~/.Xauthority
+
+     docker compose -f .docker/docker-compose.yml run gpu
+     ```
 
 2. Docker 내부에서 launch 파일 실행.
-    - Jupyter를 통해 구현했기 때문에 jupyer lunch.py 실행
-    ```sh
-    ros2 launch moveit2_tutorials jupyter_notebook_prototyping.launch.py start_servo:=true
-    ```
+
+   - Jupyter를 통해 구현했기 때문에 jupyer lunch.py 실행
+
+   ```sh
+   ros2 launch moveit2_tutorials jupyter_notebook_prototyping.launch.py start_servo:=true
+   ```
 
 3. ros2_project.ipynb 파일 실행
 
@@ -150,7 +155,7 @@ from ament_index_python.packages import get_package_share_directory
 from rclpy.node import Node
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 
-# we need to specify our moveit_py config at the top of each notebook we use. 
+# we need to specify our moveit_py config at the top of each notebook we use.
 # this is since we will start spinning a moveit_py node within this notebook.
 
 moveit_config = (
@@ -208,7 +213,7 @@ def plan_and_execute(
         robot.execute(robot_trajectory, controllers=[])
     else:
         print("Planning failed")
-        
+
 
 
 # 특정 좌표로 이동시키는 함수
@@ -230,8 +235,8 @@ def close_gripper():
     panda_gripper.set_goal_state("close")
     plan_and_execute(panda, panda_gripper)
     print("Gripper closed")
-   
-    
+
+
 place_pose_xy = [(-0.2, -0.2), (-0.25, -0.2),(-0.2, -0.25),(-0.25,-0.25),(-0.2,-0.3),(-0.25,-0.3)]
 
 # 초기 위치 정의 (특정 좌표로 설정)
@@ -287,10 +292,10 @@ for i in range(6):
     x, y = place_pose_xy[i]
     place_pose.pose.position.x = x
     place_pose.pose.position.y = y
-    
+
     # 4. 객체를 특정 위치로 이동
     move_to_pose(panda, panda_arm, place_pose)
-    
+
     # 5. 객체 놓기
     open_gripper()
 
@@ -310,4 +315,4 @@ move_to_pose(panda, panda_arm, initial_pose)
 ## 한계점
 
 1. MoveIt2의 장애물 객체 지원 부족:
-    - 현재 MoveIt2는 Python 인터페이스를 통해 장애물 객체를 생성하는 기능을 지원하지 않습니다. 이로 인해 시뮬레이션 환경에서 장애물 객체를 생성하지 못했습니다.
+   - 현재 MoveIt2는 Python 인터페이스를 통해 장애물 객체를 생성하는 기능을 지원하지 않습니다. 이로 인해 시뮬레이션 환경에서 장애물 객체를 생성하지 못했습니다.

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>로봇 팔을 통한 과일 선별 과정 자동화 &#8212; 협동로봇활용 2024</title>
+    <title>202121010 - 로봇 팔을 통한 과일 선별 과정 자동화 &#8212; 협동로봇활용 2024</title>
   
   
   
@@ -93,7 +93,7 @@
     <link rel="icon" href="https://assets.entelecheia.ai/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="로봇을 이용한 정원 관리 (중간 계획서)" href="../202221014/index.html" />
+    <link rel="next" title="202221014 - 로봇을 이용한 정원 관리" href="../202221014/index.html" />
     <link rel="prev" title="202021038 - 로봇 팔을 활용한 분리수거 자동화" href="../202021038/index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -290,9 +290,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../202021024/index.html">202021024 - 로봇팔을 이용한 덤벨 및 원판 정리</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../202021029/index.html">202021029 - 로봇 팔을 활용한 자동 물체 이송 시스템</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../202021038/index.html">202021038 - 로봇 팔을 활용한 분리수거 자동화</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">로봇 팔을 통한 과일 선별 과정 자동화</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../202221014/index.html">로봇을 이용한 정원 관리 (중간 계획서)</a></li>
-
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">202121010 - 로봇 팔을 통한 과일 선별 과정 자동화</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../202221014/index.html">202221014 - 로봇을 이용한 정원 관리</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../setup.html">프로젝트 환경설정</a></li>
@@ -511,7 +510,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>로봇 팔을 통한 과일 선별 과정 자동화</h1>
+    <h1>202121010 - 로봇 팔을 통한 과일 선별 과정 자동화</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -552,7 +551,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>로봇 팔을 통한 과일 선별 과정 자동화<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1>202121010 - 로봇 팔을 통한 과일 선별 과정 자동화<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p><img alt="project_img" src="../../_images/project_img.jpeg" /></p>
 <section id="id2">
 <h2>프로젝트 개요<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
@@ -745,7 +744,7 @@ docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> 
 <span class="kn">from</span> <span class="nn">rclpy.node</span> <span class="kn">import</span> <span class="n">Node</span>
 <span class="kn">from</span> <span class="nn">trajectory_msgs.msg</span> <span class="kn">import</span> <span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">JointTrajectoryPoint</span>
 
-<span class="c1"># we need to specify our moveit_py config at the top of each notebook we use. </span>
+<span class="c1"># we need to specify our moveit_py config at the top of each notebook we use.</span>
 <span class="c1"># this is since we will start spinning a moveit_py node within this notebook.</span>
 
 <span class="n">moveit_config</span> <span class="o">=</span> <span class="p">(</span>
@@ -803,7 +802,7 @@ docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> 
         <span class="n">robot</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">robot_trajectory</span><span class="p">,</span> <span class="n">controllers</span><span class="o">=</span><span class="p">[])</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Planning failed&quot;</span><span class="p">)</span>
-        
+
 
 
 <span class="c1"># 특정 좌표로 이동시키는 함수</span>
@@ -825,8 +824,8 @@ docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> 
     <span class="n">panda_gripper</span><span class="o">.</span><span class="n">set_goal_state</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">)</span>
     <span class="n">plan_and_execute</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_gripper</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gripper closed&quot;</span><span class="p">)</span>
-   
-    
+
+
 <span class="n">place_pose_xy</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">),(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">),(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span><span class="o">-</span><span class="mf">0.25</span><span class="p">),(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.3</span><span class="p">),(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)]</span>
 
 <span class="c1"># 초기 위치 정의 (특정 좌표로 설정)</span>
@@ -882,10 +881,10 @@ docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> 
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">place_pose_xy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="n">place_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
     <span class="n">place_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-    
+
     <span class="c1"># 4. 객체를 특정 위치로 이동</span>
     <span class="n">move_to_pose</span><span class="p">(</span><span class="n">panda</span><span class="p">,</span> <span class="n">panda_arm</span><span class="p">,</span> <span class="n">place_pose</span><span class="p">)</span>
-    
+
     <span class="c1"># 5. 객체 놓기</span>
     <span class="n">open_gripper</span><span class="p">()</span>
 
@@ -959,7 +958,7 @@ docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> 
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">로봇을 이용한 정원 관리 (중간 계획서)</p>
+        <p class="prev-next-title">202221014 - 로봇을 이용한 정원 관리</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
