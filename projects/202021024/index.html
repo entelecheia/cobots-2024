@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>로봇팔을 이용한 덤벨 및 원판 정리 &#8212; 협동로봇활용 2024</title>
+    <title>202021024 - 로봇팔을 이용한 덤벨 및 원판 정리 &#8212; 협동로봇활용 2024</title>
   
   
   
@@ -146,9 +146,6 @@
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-<aside class="bd-header-announcement" aria-label="Announcement">
-  <div class="bd-header-announcement__content">기말 프로젝트 제출 마감은 6/22일(토) 23:59입니다.</div>
-</aside>
 
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
@@ -290,7 +287,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">ROS 프로젝트</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">로봇팔을 이용한 덤벨 및 원판 정리</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">202021024 - 로봇팔을 이용한 덤벨 및 원판 정리</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../202021029/index.html">로봇 팔을 활용한 자동 물체 이송 시스템</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../202021032/index.html">202021032</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../202021038/index.html">로봇 팔을 활용한 분리수거 자동화</a></li>
@@ -515,7 +512,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>로봇팔을 이용한 덤벨 및 원판 정리</h1>
+    <h1>202021024 - 로봇팔을 이용한 덤벨 및 원판 정리</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -547,36 +544,44 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>로봇팔을 이용한 덤벨 및 원판 정리<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1>202021024 - 로봇팔을 이용한 덤벨 및 원판 정리<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="id2">
 <h2>프로젝트 개요<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>이 프로젝트의 목표는 RIS2를 이용하여 헬스장에 정리가 안된 덤벨이나, 원판들을 인식하고 있어야 하는 위치로 자동으로 정리해주는 것이 목표이다.
+<p>이 프로젝트의 목표는 ROS2를 이용하여 헬스장에 정리가 안된 덤벨이나, 원판들을 인식하고 있어야 하는 위치로 자동으로 정리해주는 것이 목표이다.
 로봇은 덤벨과 같은 물체를 인식하고, 무게를 측정하며 지정된 위치로 이동시키는 역활을 수행한다.</p>
 </section>
 <section id="id3">
 <h2>프로젝트 목표<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>-카메라를 이용해 옮겨도 되는 물건인지 판별하는 시스템 구현
--카메라를 이용해 덤벨과 원판과 같은 물건들을 구별하고, 지정된 위치로 옮기는 작업을 구현
--로봇팔을 이용한 무게측정을 최대한 분별력 있는 방법으로 구현
--지정된 위치가 포화 상태일 시 다른 적합한 위치로 정리</p>
+<ul class="simple">
+<li><p>카메라를 이용해 옮겨도 되는 물건인지 판별하는 시스템 구현</p></li>
+<li><p>카메라를 이용해 덤벨과 원판과 같은 물건들을 구별하고, 지정된 위치로 옮기는 작업을 구현</p></li>
+<li><p>로봇팔을 이용한 무게측정을 최대한 분별력 있는 방법으로 구현</p></li>
+<li><p>지정된 위치가 포화 상태일 시 다른 적합한 위치로 정리</p></li>
+</ul>
 </section>
 <section id="id4">
 <h2>방법론<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<p>-ROS2를 이용한 로봇 프로그레밍
--카메라와 같은 센서를 사용하여 물체 인식
--지정된 위치에 알맞은 물체를 구분하기 위한 센서 통합
--관리 및 모니터링을 위한 애플리케이션 개발</p>
+<ul class="simple">
+<li><p>ROS2를 이용한 로봇 프로그레밍</p></li>
+<li><p>카메라와 같은 센서를 사용하여 물체 인식</p></li>
+<li><p>지정된 위치에 알맞은 물체를 구분하기 위한 센서 통합</p></li>
+<li><p>관리 및 모니터링을 위한 애플리케이션 개발</p></li>
+</ul>
 </section>
 <section id="id5">
 <h2>필요 자원<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<p>-하드웨어: 두산로보틱스사의 로봇팔, 카메라
--소프트웨어: ROS2, OpenCV 컴퓨터 비전 라이브러리</p>
+<ul class="simple">
+<li><p>하드웨어: 두산로보틱스사의 로봇팔, 카메라</p></li>
+<li><p>소프트웨어: ROS2, OpenCV 컴퓨터 비전 라이브러리</p></li>
+</ul>
 </section>
 <section id="id6">
 <h2>프로젝트 참여자<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
-<p>-학번: 202021024
--이름: 윤효찬
--이메일: <a class="reference external" href="mailto:202021024&#37;&#52;&#48;chu&#46;ac&#46;kr">202021024<span>&#64;</span>chu<span>&#46;</span>ac<span>&#46;</span>kr</a></p>
+<ul class="simple">
+<li><p>학번: 202021024</p></li>
+<li><p>이름: 윤효찬</p></li>
+<li><p>이메일: <a class="reference external" href="mailto:202021024&#37;&#52;&#48;chu&#46;ac&#46;kr">202021024<span>&#64;</span>chu<span>&#46;</span>ac<span>&#46;</span>kr</a></p></li>
+</ul>
 </section>
 <section id="id7">
 <h2>예상 예산<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
@@ -640,109 +645,120 @@ document.write(`
 <section id="id11">
 <h2>기말 과제<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <p>터틀심을 이용한 땅따먹기 게임</p>
-<ul class="simple">
-<li><p>팬더로봇은 구동이 안되고 있고, 전 숙제를 통하여 터틀심이 정상적으로 작동하는 것을 확인하였다. 그래서 터틀심을 이용하여 땅따먹기 게임을 제작해보기로 했다.</p></li>
-<li><p>땅따먹기 게임 코드
-#!/usr/bin/env python3</p></li>
-</ul>
-<p>import rclpy
-from rclpy.node import Node
-from geometry_msgs.msg import Twist
-from turtlesim.msg import Pose
-import sys
-import tty
-import termios
-import threading</p>
-<p>class TurtleGame(Node):</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def __init__(self, turtle_name):
-    super().__init__(&#39;turtle_game_&#39; + turtle_name)
-    self.publisher_ = self.create_publisher(Twist, &#39;/&#39; + turtle_name + &#39;/cmd_vel&#39;, 10)
-    self.subscription = self.create_subscription(Pose, &#39;/&#39; + turtle_name + &#39;/pose&#39;, self.pose_callback, 10)
-    self.current_pose = Pose()
-
-def pose_callback(self, msg):
-    self.current_pose = msg
-
-def move_turtle(self, linear_vel, angular_vel):
-    msg = Twist()
-    msg.linear.x = linear_vel
-    msg.angular.z = angular_vel
-    self.publisher_.publish(msg)
-</pre></div>
-</div>
-<p>def getch():
-fd = sys.stdin.fileno()
-old_settings = termios.tcgetattr(fd)
-try:
-tty.setraw(sys.stdin.fileno())
-ch = sys.stdin.read(1)
-finally:
-termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-return ch</p>
-<p>def player1_control(turtle_game):
-while True:
-key = getch()
-if key == ‘\x1b[A’:  # Up arrow
-turtle_game.move_turtle(2.0, 0.0)
-elif key == ‘\x1b[B’:  # Down arrow
-turtle_game.move_turtle(-2.0, 0.0)
-elif key == ‘\x1b[C’:  # Right arrow
-turtle_game.move_turtle(0.0, -1.5)
-elif key == ‘\x1b[D’:  # Left arrow
-turtle_game.move_turtle(0.0, 1.5)</p>
-<p>def player2_control(turtle_game):
-while True:
-key = getch()
-if key == ‘w’ or key == ‘W’:
-turtle_game.move_turtle(2.0, 0.0)
-elif key == ‘s’ or key == ‘S’:
-turtle_game.move_turtle(-2.0, 0.0)
-elif key == ‘d’ or key == ‘D’:
-turtle_game.move_turtle(0.0, -1.5)
-elif key == ‘a’ or key == ‘A’:
-turtle_game.move_turtle(0.0, 1.5)</p>
-<p>def main(args=None):
-rclpy.init(args=args)</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>turtle1_game = TurtleGame(&#39;turtle1&#39;)
-turtle2_game = TurtleGame(&#39;turtle2&#39;)
-
-# Create threads for each player&#39;s control
-thread_player1 = threading.Thread(target=player1_control, args=(turtle1_game,))
-thread_player2 = threading.Thread(target=player2_control, args=(turtle2_game,))
-
-thread_player1.start()
-thread_player2.start()
-
-try:
-    rclpy.spin(turtle1_game)
-    rclpy.spin(turtle2_game)
-except KeyboardInterrupt:
-    pass
-finally:
-    thread_player1.join()
-    thread_player2.join()
-
-    turtle1_game.destroy_node()
-    turtle2_game.destroy_node()
-    rclpy.shutdown()
-</pre></div>
-</div>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’:
-main()</p>
 <ul>
-<li><p>turtle_game_node.py 파일을 생성하고 코드를 안에 저장 후 구동을 하려했지만 오류가 계속 발생하여 구동하지 못하였다.
-cd ~/ros2_ws
-colcon build –packages-select my_turtle_game
-source install/setup.bash
-ros2 run my_turtle_game turtle_game_node</p>
-<p>Starting &gt;&gt;&gt; my_turtle_game
-Finished &lt;&lt;&lt; my_turtle_game [0.39s]</p>
-<p>Summary: 1 package finished [0.52s]
-not found: “/home/yhc/ros2_ws/local_setup.bash”
-Package ‘my_turtle_game’ not found</p>
+<li><p>팬더로봇은 구동이 안되고 있고, 전 숙제를 통하여 터틀심이 정상적으로 작동하는 것을 확인하였다. 그래서 터틀심을 이용하여 땅따먹기 게임을 제작해보기로 했다.</p></li>
+<li><p>땅따먹기 게임 코드</p>
+<p>#!/usr/bin/env python3</p>
 </li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rclpy</span>
+<span class="kn">from</span> <span class="nn">rclpy.node</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">Twist</span>
+<span class="kn">from</span> <span class="nn">turtlesim.msg</span> <span class="kn">import</span> <span class="n">Pose</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">tty</span>
+<span class="kn">import</span> <span class="nn">termios</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+
+<span class="k">class</span> <span class="nc">TurtleGame</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">turtle_name</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;turtle_game_&#39;</span> <span class="o">+</span> <span class="n">turtle_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publisher_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">Twist</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">turtle_name</span> <span class="o">+</span> <span class="s1">&#39;/cmd_vel&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscription</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_subscription</span><span class="p">(</span><span class="n">Pose</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">turtle_name</span> <span class="o">+</span> <span class="s1">&#39;/pose&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose_callback</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_pose</span> <span class="o">=</span> <span class="n">Pose</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">pose_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_pose</span> <span class="o">=</span> <span class="n">msg</span>
+
+    <span class="k">def</span> <span class="nf">move_turtle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">linear_vel</span><span class="p">,</span> <span class="n">angular_vel</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">Twist</span><span class="p">()</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">linear_vel</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">angular_vel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publisher_</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">getch</span><span class="p">():</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">fileno</span><span class="p">()</span>
+    <span class="n">old_settings</span> <span class="o">=</span> <span class="n">termios</span><span class="o">.</span><span class="n">tcgetattr</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">tty</span><span class="o">.</span><span class="n">setraw</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
+        <span class="n">ch</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">termios</span><span class="o">.</span><span class="n">tcsetattr</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">termios</span><span class="o">.</span><span class="n">TCSADRAIN</span><span class="p">,</span> <span class="n">old_settings</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ch</span>
+
+<span class="k">def</span> <span class="nf">player1_control</span><span class="p">(</span><span class="n">turtle_game</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">getch</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\x1b</span><span class="s1">[A&#39;</span><span class="p">:</span>  <span class="c1"># Up arrow</span>
+            <span class="n">turtle_game</span><span class="o">.</span><span class="n">move_turtle</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\x1b</span><span class="s1">[B&#39;</span><span class="p">:</span>  <span class="c1"># Down arrow</span>
+            <span class="n">turtle_game</span><span class="o">.</span><span class="n">move_turtle</span><span class="p">(</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\x1b</span><span class="s1">[C&#39;</span><span class="p">:</span>  <span class="c1"># Right arrow</span>
+            <span class="n">turtle_game</span><span class="o">.</span><span class="n">move_turtle</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\x1b</span><span class="s1">[D&#39;</span><span class="p">:</span>  <span class="c1"># Left arrow</span>
+            <span class="n">turtle_game</span><span class="o">.</span><span class="n">move_turtle</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">player2_control</span><span class="p">(</span><span class="n">turtle_game</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">getch</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;w&#39;</span> <span class="ow">or</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;W&#39;</span><span class="p">:</span>
+            <span class="n">turtle_game</span><span class="o">.</span><span class="n">move_turtle</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;s&#39;</span> <span class="ow">or</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;S&#39;</span><span class="p">:</span>
+            <span class="n">turtle_game</span><span class="o">.</span><span class="n">move_turtle</span><span class="p">(</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;d&#39;</span> <span class="ow">or</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span>
+            <span class="n">turtle_game</span><span class="o">.</span><span class="n">move_turtle</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span> <span class="ow">or</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span><span class="p">:</span>
+            <span class="n">turtle_game</span><span class="o">.</span><span class="n">move_turtle</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+
+    <span class="n">turtle1_game</span> <span class="o">=</span> <span class="n">TurtleGame</span><span class="p">(</span><span class="s1">&#39;turtle1&#39;</span><span class="p">)</span>
+    <span class="n">turtle2_game</span> <span class="o">=</span> <span class="n">TurtleGame</span><span class="p">(</span><span class="s1">&#39;turtle2&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Create threads for each player&#39;s control</span>
+    <span class="n">thread_player1</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">player1_control</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">turtle1_game</span><span class="p">,))</span>
+    <span class="n">thread_player2</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">player2_control</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">turtle2_game</span><span class="p">,))</span>
+
+    <span class="n">thread_player1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">thread_player2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">turtle1_game</span><span class="p">)</span>
+        <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">turtle2_game</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">thread_player1</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+        <span class="n">thread_player2</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+        <span class="n">turtle1_game</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
+        <span class="n">turtle2_game</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
+        <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>turtle_game_node.py 파일을 생성하고 코드를 안에 저장 후 구동을 하려했지만 오류가 계속 발생하여 구동하지 못하였다.</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+<span class="w">  </span>colcon<span class="w"> </span>build<span class="w"> </span>--packages-select<span class="w"> </span>my_turtle_game
+<span class="w">  </span><span class="nb">source</span><span class="w"> </span>install/setup.bash
+<span class="w">  </span>ros2<span class="w"> </span>run<span class="w"> </span>my_turtle_game<span class="w"> </span>turtle_game_node
+
+<span class="w">  </span>Starting<span class="w"> </span>&gt;&gt;&gt;<span class="w"> </span>my_turtle_game
+<span class="w">  </span>Finished<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span>my_turtle_game<span class="w"> </span><span class="o">[</span><span class="m">0</span>.39s<span class="o">]</span>
+
+<span class="w">  </span>Summary:<span class="w"> </span><span class="m">1</span><span class="w"> </span>package<span class="w"> </span>finished<span class="w"> </span><span class="o">[</span><span class="m">0</span>.52s<span class="o">]</span>
+<span class="w">  </span>not<span class="w"> </span>found:<span class="w"> </span><span class="s2">&quot;/home/yhc/ros2_ws/local_setup.bash&quot;</span>
+<span class="w">  </span>Package<span class="w"> </span><span class="s1">&#39;my_turtle_game&#39;</span><span class="w"> </span>not<span class="w"> </span>found
+</pre></div>
+</div>
+<ul class="simple">
 <li><p>ros2 버전 확인과 파일명 확인 등 여러 방면으로 해결해보려 했으나 구동에 실패했다.</p></li>
-<li></li>
 </ul>
 </section>
 </section>
