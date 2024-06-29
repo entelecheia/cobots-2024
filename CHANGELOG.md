@@ -1,5 +1,12 @@
 <!--next-version-placeholder-->
 
+## v0.5.1 (2024-06-29)
+
+### Fix
+
+* Update project index.md by ypilseong ([`4438851`](https://github.com/chu-aie/cobots-2024/commit/443885185ab99c55979abb928942542b3e3dc637))
+* Update project index.md by ypilseong ([`3166f24`](https://github.com/chu-aie/cobots-2024/commit/3166f242b43d83ee9cec8584a3e9a87b25bee6c9))
+
 ## v0.5.0 (2024-06-11)
 
 ### Feature
