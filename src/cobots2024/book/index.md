@@ -16,7 +16,7 @@
 [course-url]: https://course.entelecheia.ai
 [lecture-img]: https://img.shields.io/badge/lecture-entelecheia.ai-blue
 [lecture-url]: https://lecture.entelecheia.ai
-[codecov-image]: https://codecov.io/gh/entelecheia/cobots-2024/branch/main/graph/badge.svg?token=IFGaRC86K7
+[codecov-image]: https://codecov.io/gh/entelecheia/cobots-2024/branch/main/graph/badge.svg?token=qrjvi2RkQq
 [codecov-url]: https://codecov.io/gh/entelecheia/cobots-2024
 [pypi-image]: https://img.shields.io/pypi/v/cobots2024
 [license-image]: https://img.shields.io/github/license/entelecheia/cobots-2024
