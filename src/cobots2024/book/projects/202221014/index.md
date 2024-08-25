@@ -2,7 +2,7 @@
 
 ## 중간 계획서
 
-![image](https://github.com/chu-aie/cobots-2024/assets/133697595/30a66e8b-fc21-491b-9757-483044c33f19)
+![image](https://github.com/entelecheia/cobots-2024/assets/133697595/30a66e8b-fc21-491b-9757-483044c33f19)
 
 ### 프로젝트 개요
 
@@ -61,7 +61,7 @@
 
 이 프로젝트는 ROS2를 기반으로 한 가상의 협동로봇팔을 사용하여 화분을 인식하고 관리하는 자동화된 시스템을 개발하는 것이다. 주요 작업으로는 화분에 물을 주고, 열매를 채집하는 작업이 포함된다. 실제 로봇이 아닌 가상 환경에서 진행되었으며, 이를 위해 WSL Ubuntu 22.04와 ROS2 Humble 버전을 사용하였다. 모든 작업은 Docker를 이용하여 가상 환경에서 진행되었다.
 
-<img width="763" alt="ros2_ph" src="https://github.com/chu-aie/cobots-2024/assets/133697595/1b5d7a50-f9be-4f97-9f4c-c0307bec2ecd">
+<img width="763" alt="ros2_ph" src="https://github.com/entelecheia/cobots-2024/assets/133697595/1b5d7a50-f9be-4f97-9f4c-c0307bec2ecd">
 
 ### 프로젝트 목표
 
@@ -511,7 +511,7 @@ close_gripper()
 
 Gazebo 시뮬레이션을 통해 가상 로봇팔의 움직임과 작업을 테스트하였다. 각 작업(물뿌리기, 열매 채집)의 정확성을 확인하고, 필요한 조정을 수행하였다.
 
-https://github.com/chu-aie/cobots-2024/assets/133697595/e6f28a67-8673-4f70-8d09-14dc053b0a4c
+https://github.com/entelecheia/cobots-2024/assets/133697595/e6f28a67-8673-4f70-8d09-14dc053b0a4c
 
 ### 결과 및 논의
 
