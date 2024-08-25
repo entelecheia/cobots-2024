@@ -308,7 +308,7 @@ move_to_pose(panda, panda_arm, initial_pose)
 실행 결과는 다음 영상과 같습니다.
 
 <video width="700px" controls="true" autoplay="true" loop="true">
-    <source src="https://github.com/chu-aie/cobots-2024/assets/104025187/609e8bdc-084e-425d-854a-ebe2abf24507
+    <source src="https://github.com/entelecheia/cobots-2024/assets/104025187/609e8bdc-084e-425d-854a-ebe2abf24507
     " type="video/mp4">
 </video>
 

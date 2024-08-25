@@ -50,4 +50,4 @@
 
 ## 숙제
 
-- !![스크린샷 2024-05-21 155618](https://github.com/chu-aie/cobots-2024/assets/133960401/1f6ab0be-0499-4aee-a1ff-765e827b9fba)
+- !![스크린샷 2024-05-21 155618](https://github.com/entelecheia/cobots-2024/assets/133960401/1f6ab0be-0499-4aee-a1ff-765e827b9fba)

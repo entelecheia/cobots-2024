@@ -306,7 +306,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://halla.ai">인공지능학과</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://os2024.halla.ai">운영체제 2024</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://mlops2024.halla.ai">머신러닝시스템 2024</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://cobots2024.halla.ai">협동로봇활용 2024</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cobots2024.jeju.ai">협동로봇활용 2024</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://aibasics.halla.ai">AI 세상 속으로</a></li>
 </ul>
 
@@ -362,7 +362,7 @@
       
       
       
-      <li><a href="https://github.com/chu-aie/cobots-2024" target="_blank"
+      <li><a href="https://github.com/entelecheia/cobots-2024" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -379,7 +379,7 @@
       
       
       
-      <li><a href="https://github.com/chu-aie/cobots-2024/edit/main/src/cobots2024/book/projects/setup.md" target="_blank"
+      <li><a href="https://github.com/entelecheia/cobots-2024/edit/main/src/cobots2024/book/projects/setup.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -396,7 +396,7 @@
       
       
       
-      <li><a href="https://github.com/chu-aie/cobots-2024/issues/new?title=Issue%20on%20page%20%2Fprojects/setup.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/entelecheia/cobots-2024/issues/new?title=Issue%20on%20page%20%2Fprojects/setup.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -545,7 +545,7 @@ document.write(`
 <p>이 가이드는 협동로봇활용 수업을 위한 프로젝트 환경을 설정하는 방법을 자세히 설명합니다. 프로젝트를 시작하기 전에 아래 단계를 따라 환경을 설정해주세요.</p>
 <section id="id2">
 <h2>리포 복제<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>먼저, <a class="reference external" href="https://github.com/chu-aie/cobots-2024.git">cobots-2024</a> 저장소를 자신의 GitHub 계정으로 복제(Fork)합니다. 복제한 저장소의 URL은 <code class="docutils literal notranslate"><span class="pre">https://github.com/your_github_id/cobots-2024.git</span></code>와 같은 형식이 될 것입니다.</p>
+<p>먼저, <a class="reference external" href="https://github.com/entelecheia/cobots-2024.git">cobots-2024</a> 저장소를 자신의 GitHub 계정으로 복제(Fork)합니다. 복제한 저장소의 URL은 <code class="docutils literal notranslate"><span class="pre">https://github.com/your_github_id/cobots-2024.git</span></code>와 같은 형식이 될 것입니다.</p>
 <p>그 다음, 복제한 저장소를 로컬 컴퓨터로 클론합니다. 아래 명령을 터미널에서 실행하세요:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/workspace/projects<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your_github_id/cobots-2024.git<span class="w"> </span>~/workspace/projects/cobots-2024<span class="w"> </span><span class="se">\</span>
@@ -608,13 +608,13 @@ document.write(`
 </section>
 <section id="id5">
 <h2>리포 동기화 및 프로젝트 브랜치 생성<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<p>다음으로, 본인이 복제한 리포를 원본 리포(<a class="reference external" href="https://github.com/chu-aie/cobots-2024.git">cobots-2024</a>)와 동기화합니다. 이를 위해 원본 리포를 <code class="docutils literal notranslate"><span class="pre">upstream</span></code>으로 추가하고, 최신 변경사항을 가져옵니다:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/chu-aie/cobots-2024.git<span class="w"> </span><span class="se">\</span>
+<p>다음으로, 본인이 복제한 리포를 원본 리포(<a class="reference external" href="https://github.com/entelecheia/cobots-2024.git">cobots-2024</a>)와 동기화합니다. 이를 위해 원본 리포를 <code class="docutils literal notranslate"><span class="pre">upstream</span></code>으로 추가하고, 최신 변경사항을 가져옵니다:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/entelecheia/cobots-2024.git<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>fetch<span class="w"> </span>upstream
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">upstream</span> <span class="pre">https://github.com/chu-aie/cobots-2024.git</span></code>: 원본 리포를 <code class="docutils literal notranslate"><span class="pre">upstream</span></code>이라는 이름으로 추가합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">upstream</span> <span class="pre">https://github.com/entelecheia/cobots-2024.git</span></code>: 원본 리포를 <code class="docutils literal notranslate"><span class="pre">upstream</span></code>이라는 이름으로 추가합니다.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">upstream</span></code>: <code class="docutils literal notranslate"><span class="pre">upstream</span></code> 리포의 최신 변경사항을 가져옵니다.</p></li>
 </ul>
 <p>그런 다음, 프로젝트를 위한 새 브랜치를 생성합니다. 브랜치 이름은 <code class="docutils literal notranslate"><span class="pre">your_github_id/project_patch_#</span></code> 형식으로 짓습니다. 예를 들어, GitHub 아이디가 <code class="docutils literal notranslate"><span class="pre">johndoe</span></code>이고 첫 번째 프로젝트라면 브랜치 이름은 <code class="docutils literal notranslate"><span class="pre">johndoe/project_patch_1</span></code>이 됩니다. 아래 명령을 실행하세요:</p>
@@ -708,7 +708,7 @@ document.write(`
     {
         requestKernel: true,
         binderOptions: {
-            repo: "chu-aie/cobots-2024",
+            repo: "entelecheia/cobots-2024",
             ref: "main",
         },
         codeMirrorConfig: {

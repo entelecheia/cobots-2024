@@ -16,20 +16,20 @@
 [course-url]: https://course.entelecheia.ai
 [lecture-img]: https://img.shields.io/badge/lecture-entelecheia.ai-blue
 [lecture-url]: https://lecture.entelecheia.ai
-[codecov-image]: https://codecov.io/gh/chu-aie/cobots-2024/branch/main/graph/badge.svg?token=IFGaRC86K7
-[codecov-url]: https://codecov.io/gh/chu-aie/cobots-2024
+[codecov-image]: https://codecov.io/gh/entelecheia/cobots-2024/branch/main/graph/badge.svg?token=qrjvi2RkQq
+[codecov-url]: https://codecov.io/gh/entelecheia/cobots-2024
 [pypi-image]: https://img.shields.io/pypi/v/cobots2024
-[license-image]: https://img.shields.io/github/license/chu-aie/cobots-2024
-[license-url]: https://github.com/chu-aie/cobots-2024/blob/main/LICENSE
-[version-image]: https://img.shields.io/github/v/release/chu-aie/cobots-2024?sort=semver
-[release-date-image]: https://img.shields.io/github/release-date/chu-aie/cobots-2024
-[release-url]: https://github.com/chu-aie/cobots-2024/releases
+[license-image]: https://img.shields.io/github/license/entelecheia/cobots-2024
+[license-url]: https://github.com/entelecheia/cobots-2024/blob/main/LICENSE
+[version-image]: https://img.shields.io/github/v/release/entelecheia/cobots-2024?sort=semver
+[release-date-image]: https://img.shields.io/github/release-date/entelecheia/cobots-2024
+[release-url]: https://github.com/entelecheia/cobots-2024/releases
 [jupyter-book-image]: https://jupyterbook.org/en/stable/_images/badge.svg
-[repo-url]: https://github.com/chu-aie/cobots-2024
+[repo-url]: https://github.com/entelecheia/cobots-2024
 [pypi-url]: https://pypi.org/project/cobots2024
-[docs-url]: https://cobots2024.halla.ai
-[changelog]: https://github.com/chu-aie/cobots-2024/blob/main/CHANGELOG.md
-[contributing guidelines]: https://github.com/chu-aie/cobots-2024/blob/main/CONTRIBUTING.md
+[docs-url]: https://cobots2024.jeju.ai
+[changelog]: https://github.com/entelecheia/cobots-2024/blob/main/CHANGELOG.md
+[contributing guidelines]: https://github.com/entelecheia/cobots-2024/blob/main/CONTRIBUTING.md
 
 <!-- Links: -->
 
