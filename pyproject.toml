@@ -4,8 +4,8 @@ version = "0.5.1"
 description = "Collaborative Robot Applications"
 authors = ["Young Joon Lee <yj.lee@chu.ac.kr>"]
 license = "CC-BY-4.0"
-homepage = "https://cobots2024.halla.ai"
-repository = "https://github.com/chu-aie/cobots-2024"
+homepage = "https://cobots2024.jeju.ai"
+repository = "https://github.com/entelecheia/cobots-2024"
 readme = "README.md"
 packages = [{ include = "cobots2024", from = "src" }]
 

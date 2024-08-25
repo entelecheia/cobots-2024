@@ -53,7 +53,7 @@
 
 ## 숙제
 
-- ![스크린샷 2024-05-28 094325](https://github.com/chu-aie/cobots-2024/assets/162118894/c26b0bbf-e9c1-4c2c-8332-fafa15bf0b78)
+- ![스크린샷 2024-05-28 094325](https://github.com/entelecheia/cobots-2024/assets/162118894/c26b0bbf-e9c1-4c2c-8332-fafa15bf0b78)
 
 ## 기말 과제
 

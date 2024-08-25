@@ -8,12 +8,12 @@ code_template_source: gh:entelecheia/hyfi-template
 codecov_graph_token: IFGaRC86K7
 copyright_year: 2024
 documentaion_tool: jupyter-book
-documentation_url: https://cobots2024.halla.ai
+documentation_url: https://cobots2024.jeju.ai
 email: yj.lee@chu.ac.kr
 favicon_path: https://assets.entelecheia.ai/favicon.png
 friendly_name: 협동로봇활용 2024
 github_repo_name: cobots-2024
-github_username: chu-aie
+github_username: entelecheia
 google_analytics_id: G-BQJE5V9RK2
 logo_path: ''
 main_branch: main
